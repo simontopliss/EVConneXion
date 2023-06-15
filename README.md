@@ -10,3 +10,6 @@ Find and use data on public electric vehicle chargepoints using the National Cha
 - Each location should include info about charger type and any other relative info
 - Distance to location
 - more tbc
+
+### Blog
+onebigredbutton.com/2020/01/11/ev-charge-points-app/
