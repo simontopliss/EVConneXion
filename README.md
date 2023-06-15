@@ -12,4 +12,4 @@ Find and use data on public electric vehicle chargepoints using the National Cha
 - more tbc
 
 ### Blog
-onebigredbutton.com/2020/01/11/ev-charge-points-app/
+https://onebigredbutton.com/2020/01/11/ev-charge-points-app/
