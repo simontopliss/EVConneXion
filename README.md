@@ -9,6 +9,7 @@ Find and use data on public electric vehicle chargepoints using the National Cha
 - Display locations on map
 - Each location should include info about charger type and any other relative info
 - Distance to location
+- Add ability to 'favourite' a chargepoint
 - more tbc
 
 ### Blog
