@@ -13,7 +13,7 @@ final class NetworkManager {
 
     private init() {}
 
-    func request<T: Codable>(_ baseURL: String, type: T.Type) async throws -> T {
+    func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T {
 
         guard let url = URL(string: baseURL) else {
             throw NetworkError.invalidURL
@@ -36,7 +36,7 @@ final class NetworkManager {
             let decodedResponse = try decoder.decode(T.self, from: data)
             return decodedResponse
         } catch {
-            print("fetchBreeds() error:\n" + String(describing: error))
+            print("request() error:\n" + String(describing: error))
             throw NetworkError.failedToDecode(error: error)
         }
     }
