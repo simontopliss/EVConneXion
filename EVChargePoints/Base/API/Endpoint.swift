@@ -10,7 +10,7 @@
 import Foundation
 
 enum Endpoint: String {
-    case baseURL = "http://chargepoints.dft.gov.uk/api/retrieve/"
+    case baseURL = "https://chargepoints.dft.gov.uk/api/retrieve/"
 }
 
 extension Endpoint {
@@ -19,25 +19,15 @@ extension Endpoint {
         /// registry - Charge Point Registry
         case registry
         /// type - Connector Types
-        case type
+        case connectorType = "type"
         /// bearing - Bearings
         case bearing
         /// method - Charging Methods
-        case method
+        case chargingMethod = "method"
         /// mode - Charge Modes
-        case mode
+        case chargingMode = "mode"
         /// status - Connector Statuses
-        case status
-    }
-}
-
-extension Endpoint {
-    /// Request options
-    /// format[xml|json|csv] - Output format, default is 'xml'
-    enum RequestOptions: String {
-        case xml
-        case json
-        case csv
+        case connectorStatus = "status"
     }
 }
 
@@ -68,5 +58,15 @@ extension Endpoint {
         case ratedOutputKW = "rated-output-kw"
         /// units[mi|km] - Units for dist, default is 'mi'
         case units
+    }
+}
+
+extension Endpoint {
+    /// Request options
+    /// format[xml|json|csv] - Output format, default is 'xml'
+    enum RequestOption: String {
+        case xml
+        case json
+        case csv
     }
 }
