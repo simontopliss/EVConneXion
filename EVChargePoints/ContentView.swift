@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var vm = ViewModel()
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +18,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            await vm.fetchChargeDevices(dataType: .registry, registerDataTypes: [.postcode, .dist])
+        }
     }
 }
 
