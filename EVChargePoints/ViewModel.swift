@@ -18,18 +18,35 @@ final class ViewModel: ObservableObject {
 
     @MainActor
     func fetchChargeDevices(
-        dataType: Endpoint.DataType,
-        registerDataTypes: [Endpoint.RegistryDataType],
-        requestOption: Endpoint.RequestOption = .json
+        postcode: String,
+        distance: UInt,
+        limit: UInt = 0,
+        connectorTypes: [ConnectorType] = ConnectorType.allCases,
+        unit: Endpoint.RegistryDataType.Unit = .mi,
+        country: Endpoint.RegistryDataType.Country = .gb
     ) async {
-//        var url = Endpoint.baseURL.rawValue + dataType.rawValue
-        let url = "https://chargepoints.dft.gov.uk/api/retrieve/registry/postcode/HP19+8FF/dist/10/format/json"
+        //        let url = "https://chargepoints.dft.gov.uk/api/retrieve/registry/postcode/HP19+8FF/dist/10/format/json"
+
+        var urlComponents: [String] = []
+        urlComponents.append(Endpoint.baseURL.rawValue)
+        urlComponents.append(Endpoint.DataType.registry)
+        urlComponents.append(Endpoint.RegistryDataType.postcode)
+        urlComponents.append(postcode.replacingOccurrences(of: " ", with: "+"))
+        urlComponents.append(Endpoint.RegistryDataType.dist)
+        urlComponents.append("\(distance)")
+        urlComponents.append(Endpoint.RegistryDataType.units)
+        if limit > 0 { urlComponents.append("limit/\(limit)") }
+        urlComponents.append(unit.rawValue)
+        urlComponents.append(Endpoint.RequestOption.json.rawValue)
+
+        let url = urlComponents.joined(separator: "/")
 
         isLoading = true
         defer { isLoading = false }
 
         do {
             let result = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            dump(result.chargeDevices[0])
         } catch {
             self.hasError = true
             if let networkError = error as? NetworkManager.NetworkError {

@@ -19,7 +19,7 @@ struct ContentView: View {
         }
         .padding()
         .task {
-            await vm.fetchChargeDevices(dataType: .registry, registerDataTypes: [.postcode, .dist])
+            await vm.fetchChargeDevices(postcode: "DE7 8LN", distance: 2)
         }
     }
 }
