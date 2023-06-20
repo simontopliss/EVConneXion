@@ -10,54 +10,65 @@
 import Foundation
 
 enum Endpoint: String {
-    case baseURL = "https://chargepoints.dft.gov.uk/api/retrieve/"
+    case baseURL = "https://chargepoints.dft.gov.uk/api/retrieve"
 }
 
 extension Endpoint {
-    /// Data types
-    enum DataType: String {
+
+    enum DataType {
         /// registry - Charge Point Registry
-        case registry
+        static let registry = "registry"
         /// type - Connector Types
-        case connectorType = "type"
+        static let connectorType = "type"
         /// bearing - Bearings
-        case bearing
+        static let bearing = "bearing"
         /// method - Charging Methods
-        case chargingMethod = "method"
+        static let chargingMethod = "method"
         /// mode - Charge Modes
-        case chargingMode = "mode"
+        static let chargingMode = "mode"
         /// status - Connector Statuses
-        case connectorStatus = "status"
+        static let connectorStatus = "status"
     }
 }
 
 extension Endpoint {
-    /// Registry data type
-    enum RegistryDataType: String {
+
+    enum RegistryDataType {
+
+        enum Unit: String {
+            case km
+            case mi
+        }
+
+        enum Country: String {
+            case gb
+            case ie
+        }
+
         /// connector-type-id - ID of connector
-        case connectorTypeID = "connector-type-id"
+        static let connectorTypeID = "connector-type-id"
         /// country[gb|es|nl|...] - 2 character ISO 3166 country code
-        case country
+        static let country = "country"
         /// device-id - Unique identifier of device
-        case deviceId = "device-id"
+        static let deviceId = "device-id"
         /// dist - Search will return all devices within distance of postcode or lat/long
-        case dist
+        static let dist = "dist"
         /// id - ID of scheme, this will also return the scheme details
-        case id
+        static let id = "id"
         /// lat - Latitude (long required)
-        case lat
+        static let lat = "lat"
         /// long - Longitude (lat required)
-        case long
+        static let long = "long"
         /// limit - Integer to limit results returned, don't specify to return all devices
-        case limit
+        static let limit = "limit"
         /// postcode - Full or partial UK postcode (e.g. EC3A 7BR, EC3A 7, EC3A)
-        case postcode
+        static let postcode = "postcode"
         /// post-town - Full name of UK town or city
-        case postTown = "post-town"
+        static let postTown = "post-town"
         /// rated-output-kw - Rated output in kWs
-        case ratedOutputKW = "rated-output-kw"
+        static let ratedOutputKW = "rated-output-kw"
         /// units[mi|km] - Units for dist, default is 'mi'
-        case units
+        static let units = "units"
     }
 }
 
@@ -65,8 +76,8 @@ extension Endpoint {
     /// Request options
     /// format[xml|json|csv] - Output format, default is 'xml'
     enum RequestOption: String {
-        case xml
-        case json
-        case csv
+        case xml = "format/xml"
+        case json = "format/json"
+        case csv = "format/csv"
     }
 }
