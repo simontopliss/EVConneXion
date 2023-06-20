@@ -151,13 +151,13 @@ struct Connector: Decodable {
     }
 }
 
-enum ChargeMethod: String, Decodable {
+enum ChargeMethod: String, Decodable, CaseIterable {
     case dc = "DC"
     case singlePhaseAc = "Single Phase AC"
     case threePhaseAc = "Three Phase AC"
 }
 
-enum ConnectorType: String, Decodable {
+enum ConnectorType: String, Decodable, CaseIterable {
     case ccsType2Combo = "CCS Type 2 Combo (IEC62196)"
     case chAdeMo = "JEVS G105 (CHAdeMO) DC"
     case threePinTypeG = "3-pin Type G (BS1363)"
