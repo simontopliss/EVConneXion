@@ -171,6 +171,7 @@
 		62B32CA12A4DBE4800C6E8DF /* EVChargePointsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6223CA4A2A3CFD1B00A87875 /* JSON */,
 				62B32CA22A4DBE4800C6E8DF /* EVChargePointsTests.swift */,
 			);
 			path = EVChargePointsTests;
@@ -203,7 +204,6 @@
 		62B32CB32A4DC70800C6E8DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6223CA4A2A3CFD1B00A87875 /* JSON */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
