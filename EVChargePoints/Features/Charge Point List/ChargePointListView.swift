@@ -20,7 +20,8 @@ struct ChargePointListView: View {
         }
         .padding()
         .task {
-            await vm.fetchChargeDevices(requestType: .postcode("DE7 8LN"))
+//            await vm.fetchChargeDevices(requestType: .postcode("DE7 8LN"))
+            await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
         }
     }
 }
