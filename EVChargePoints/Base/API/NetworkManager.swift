@@ -9,9 +9,8 @@ import Foundation
 
 final class NetworkManager {
 
-    static let shared = NetworkManager()
-
-    private init() {}
+//    static let shared = NetworkManager()
+//    private init() {}
 
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T {
 
