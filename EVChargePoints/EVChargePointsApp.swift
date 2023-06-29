@@ -10,37 +10,46 @@ import SwiftUI
 @main
 struct EVChargePointsApp: App {
 
+    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = TabModel.map
+
     var body: some Scene {
         WindowGroup {
-            TabView {
+            TabView(selection: $tabSelection) {
                 MapView()
                     .tabItem {
                         Label(
-                            Constants.Tab.map.label,
-                            systemImage: Constants.Tab.map.icon
+                            TabModel.map.label,
+                            systemImage: TabModel.map.icon
                         )
                     }
+                    .tag(TabModel.map)
+
                 ChargePointListView()
                     .tabItem {
                         Label(
-                            Constants.Tab.list.label,
-                            systemImage: Constants.Tab.list.icon
+                            TabModel.list.label,
+                            systemImage: TabModel.list.icon
                         )
                     }
+                    .tag(TabModel.list)
+
                 RoutesView()
                     .tabItem {
                         Label(
-                            Constants.Tab.routes.label,
-                            systemImage: Constants.Tab.routes.icon
+                            TabModel.routes.label,
+                            systemImage: TabModel.routes.icon
                         )
                     }
+                    .tag(TabModel.routes)
+
                 SettingsView()
                     .tabItem {
                         Label(
-                            Constants.Tab.settings.label,
-                            systemImage: Constants.Tab.settings.icon
+                            TabModel.settings.label,
+                            systemImage: TabModel.settings.icon
                         )
                     }
+                    .tag(TabModel.settings)
             }
         }
     }
