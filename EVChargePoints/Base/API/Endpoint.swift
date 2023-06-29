@@ -93,9 +93,9 @@ extension Endpoint {
 extension Endpoint {
     static func buildURL(
         requestType: RequestType,
-        distance: UInt,
-        limit: UInt,
-        unit: RegistryDataType.Unit,
+        distance: Int,
+        limit: Int,
+        units: RegistryDataType.Unit,
         country: Endpoint.RegistryDataType.Country
     ) -> String {
 
@@ -110,7 +110,7 @@ extension Endpoint {
                 urlComponents.append(String(format: "%f", long))
             case let .postTown(postTown):
                 urlComponents.append(Endpoint.RegistryDataType.postTown)
-                urlComponents.append(postTown.replacingOccurrences(of: " ", with: "+"))
+                urlComponents.append(postTown.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
             case let .postcode(postcode):
                 urlComponents.append(Endpoint.RegistryDataType.postcode)
                 urlComponents.append(postcode.replacingOccurrences(of: " ", with: "+"))
@@ -120,7 +120,7 @@ extension Endpoint {
         urlComponents.append("\(distance)")
         urlComponents.append(Endpoint.RegistryDataType.units)
         if limit > 0 { urlComponents.append("limit/\(limit)") }
-        urlComponents.append(unit.rawValue)
+        urlComponents.append(units.rawValue)
         urlComponents.append(Endpoint.RequestFormatOption.json.rawValue)
 
         let url = urlComponents.joined(separator: "/")

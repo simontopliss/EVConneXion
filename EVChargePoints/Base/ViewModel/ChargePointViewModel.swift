@@ -5,7 +5,7 @@
 //  Created by Simon Topliss on 16/06/2023.
 //
 
-import Foundation
+import SwiftUI
 
 final class ChargePointViewModel: ObservableObject {
 
@@ -19,13 +19,15 @@ final class ChargePointViewModel: ObservableObject {
     let networkManager = NetworkManager()
 
     // MARK: - FILTERS
-    // TODO:  Store in User Defaults
-    
-    private var distance = UInt(10)
-    private var limit = UInt(0)
+
+    // TODO: Need to be able to choose 1 or multiple connector types
+    // API can only search for 1 at a time, so filter results instead
     // private var connectorTypes = ConnectorType.allCases
-    private var unit: Endpoint.RegistryDataType.Unit = .mi
-    private var country: Endpoint.RegistryDataType.Country = .gb
+
+    @AppStorage(UserDefaultKeys.distance) private var distance = 10
+    @AppStorage(UserDefaultKeys.limit) private var limit = 0
+    @AppStorage(UserDefaultKeys.units) private var units: Endpoint.RegistryDataType.Unit = .mi
+    @AppStorage(UserDefaultKeys.country) private var country: Endpoint.RegistryDataType.Country = .gb
 
     @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
@@ -36,11 +38,9 @@ final class ChargePointViewModel: ObservableObject {
             requestType: requestType,
             distance: distance,
             limit: limit,
-            unit: unit,
+            units: units,
             country: country
         )
-
-        print(url)
 
         isLoading = true
         defer { isLoading = false }
