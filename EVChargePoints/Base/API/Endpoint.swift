@@ -75,9 +75,56 @@ extension Endpoint {
 extension Endpoint {
     /// Request options
     /// format[xml|json|csv] - Output format, default is 'xml'
-    enum RequestOption: String {
+    enum RequestFormatOption: String {
         case xml = "format/xml"
         case json = "format/json"
         case csv = "format/csv"
+    }
+}
+
+extension Endpoint {
+    enum RequestType {
+        case latLong(Double, Double)
+        case postTown(String)
+        case postcode(String)
+    }
+}
+
+extension Endpoint {
+    static func buildURL(
+        requestType: RequestType,
+        distance: UInt,
+        limit: UInt,
+        unit: RegistryDataType.Unit,
+        country: Endpoint.RegistryDataType.Country
+    ) -> String {
+
+        var urlComponents: [String] = []
+        urlComponents.append(Endpoint.baseURL.rawValue)
+        urlComponents.append(Endpoint.DataType.registry)
+
+        switch requestType {
+            case let .latLong(lat, long):
+                urlComponents.append(Endpoint.RegistryDataType.lat)
+                urlComponents.append(String(format: "%f", lat))
+                urlComponents.append(String(format: "%f", long))
+            case let .postTown(postTown):
+                urlComponents.append(Endpoint.RegistryDataType.postTown)
+                urlComponents.append(postTown.replacingOccurrences(of: " ", with: "+"))
+            case let .postcode(postcode):
+                urlComponents.append(Endpoint.RegistryDataType.postcode)
+                urlComponents.append(postcode.replacingOccurrences(of: " ", with: "+"))
+        }
+
+        urlComponents.append(Endpoint.RegistryDataType.dist)
+        urlComponents.append("\(distance)")
+        urlComponents.append(Endpoint.RegistryDataType.units)
+        if limit > 0 { urlComponents.append("limit/\(limit)") }
+        urlComponents.append(unit.rawValue)
+        urlComponents.append(Endpoint.RequestFormatOption.json.rawValue)
+
+        let url = urlComponents.joined(separator: "/")
+
+        return url
     }
 }
