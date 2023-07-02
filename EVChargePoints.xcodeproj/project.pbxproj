@@ -16,7 +16,8 @@
 		6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */; };
 		6223CA512A3CFDC300A87875 /* ChargePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */; };
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
-		6253B8EC2A4DE9130059CBE3 /* ChargePointDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B8EB2A4DE9130059CBE3 /* ChargePointDataTests.swift */; };
+		6253B8EC2A4DE9130059CBE3 /* ChargePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B8EB2A4DE9130059CBE3 /* ChargePointViewModel.swift */; };
+		62718B1D2A51D7AA004F0168 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B1C2A51D7AA004F0168 /* EndpointTests.swift */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
 		62B32CB22A4DC6F600C6E8DF /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* TabModel.swift */; };
@@ -48,7 +49,8 @@
 		6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointData.swift; sourceTree = "<group>"; };
 		6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointViewModel.swift; sourceTree = "<group>"; };
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		6253B8EB2A4DE9130059CBE3 /* ChargePointDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDataTests.swift; sourceTree = "<group>"; };
+		6253B8EB2A4DE9130059CBE3 /* ChargePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointViewModel.swift; sourceTree = "<group>"; };
+		62718B1C2A51D7AA004F0168 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -136,14 +138,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		6223CA4A2A3CFD1B00A87875 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				6223CA4B2A3CFD3C00A87875 /* DE7 8LN.json */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		6223CA4D2A3CFD4D00A87875 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,11 +162,108 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		62718B142A51D659004F0168 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		62718B152A51D661004F0168 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				6223CA4B2A3CFD3C00A87875 /* DE7 8LN.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		62718B1F2A51E197004F0168 /* Feature Tests */ = {
+			isa = PBXGroup;
+			children = (
+				62718B202A51E1B0004F0168 /* Details */,
+				62718B252A51E1B0004F0168 /* Filters */,
+				62718B212A51E1B0004F0168 /* List */,
+				62718B242A51E1B0004F0168 /* Map */,
+				62718B232A51E1B0004F0168 /* Settings */,
+			);
+			path = "Feature Tests";
+			sourceTree = "<group>";
+		};
+		62718B202A51E1B0004F0168 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		62718B212A51E1B0004F0168 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		62718B232A51E1B0004F0168 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		62718B242A51E1B0004F0168 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		62718B252A51E1B0004F0168 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		62718B262A51E1CF004F0168 /* Base Tests */ = {
+			isa = PBXGroup;
+			children = (
+				62718B272A51E1DF004F0168 /* API */,
+				62718B282A51E1EF004F0168 /* Model */,
+				62718B292A51E1FE004F0168 /* ViewModel */,
+				62718B152A51D661004F0168 /* JSON */,
+			);
+			path = "Base Tests";
+			sourceTree = "<group>";
+		};
+		62718B272A51E1DF004F0168 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				62718B1C2A51D7AA004F0168 /* EndpointTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		62718B282A51E1EF004F0168 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62718B292A51E1FE004F0168 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6253B8EB2A4DE9130059CBE3 /* ChargePointViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		62B32CA12A4DBE4800C6E8DF /* EVChargePointsTests */ = {
 			isa = PBXGroup;
 			children = (
-				6223CA4A2A3CFD1B00A87875 /* JSON */,
-				6253B8EB2A4DE9130059CBE3 /* ChargePointDataTests.swift */,
+				62718B262A51E1CF004F0168 /* Base Tests */,
+				62718B1F2A51E197004F0168 /* Feature Tests */,
+				62718B142A51D659004F0168 /* Network */,
 			);
 			path = EVChargePointsTests;
 			sourceTree = "<group>";
@@ -370,7 +461,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6253B8EC2A4DE9130059CBE3 /* ChargePointDataTests.swift in Sources */,
+				62718B1D2A51D7AA004F0168 /* EndpointTests.swift in Sources */,
+				6253B8EC2A4DE9130059CBE3 /* ChargePointViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
