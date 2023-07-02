@@ -20,7 +20,7 @@
 		62718B1D2A51D7AA004F0168 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B1C2A51D7AA004F0168 /* EndpointTests.swift */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
-		62B32CB22A4DC6F600C6E8DF /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* TabModel.swift */; };
+		62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* Tabs.swift */; };
 		62B32CB72A4DCDD900C6E8DF /* RoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB62A4DCDD900C6E8DF /* RoutesView.swift */; };
 		62B32CB92A4DCDE600C6E8DF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB82A4DCDE600C6E8DF /* SettingsView.swift */; };
 		62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */; };
@@ -54,7 +54,7 @@
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		62B32CB12A4DC6F600C6E8DF /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
+		62B32CB12A4DC6F600C6E8DF /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		62B32CB62A4DCDD900C6E8DF /* RoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesView.swift; sourceTree = "<group>"; };
 		62B32CB82A4DCDE600C6E8DF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */,
-				62B32CB12A4DC6F600C6E8DF /* TabModel.swift */,
+				62B32CB12A4DC6F600C6E8DF /* Tabs.swift */,
 				62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */,
 			);
 			path = Model;
@@ -451,7 +451,7 @@
 				62B32CC12A4DCE8A00C6E8DF /* SearchView.swift in Sources */,
 				6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */,
 				6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */,
-				62B32CB22A4DC6F600C6E8DF /* TabModel.swift in Sources */,
+				62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */,
 				62B32CC42A4DDCB200C6E8DF /* UserDefaultKeys.swift in Sources */,
 				62B32CB92A4DCDE600C6E8DF /* SettingsView.swift in Sources */,
 			);

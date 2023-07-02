@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TabModel: Int {
+enum Tabs: Int {
 
     case map
     case list

@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct EVChargePointsApp: App {
 
-    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = TabModel.map
+    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     var body: some Scene {
         WindowGroup {
@@ -18,38 +18,38 @@ struct EVChargePointsApp: App {
                 MapView()
                     .tabItem {
                         Label(
-                            TabModel.map.label,
-                            systemImage: TabModel.map.icon
+                            Tabs.map.label,
+                            systemImage: Tabs.map.icon
                         )
                     }
-                    .tag(TabModel.map)
+                    .tag(Tabs.map)
 
                 ChargePointListView()
                     .tabItem {
                         Label(
-                            TabModel.list.label,
-                            systemImage: TabModel.list.icon
+                            Tabs.list.label,
+                            systemImage: Tabs.list.icon
                         )
                     }
-                    .tag(TabModel.list)
+                    .tag(Tabs.list)
 
                 RoutesView()
                     .tabItem {
                         Label(
-                            TabModel.routes.label,
-                            systemImage: TabModel.routes.icon
+                            Tabs.routes.label,
+                            systemImage: Tabs.routes.icon
                         )
                     }
-                    .tag(TabModel.routes)
+                    .tag(Tabs.routes)
 
                 SettingsView()
                     .tabItem {
                         Label(
-                            TabModel.settings.label,
-                            systemImage: TabModel.settings.icon
+                            Tabs.settings.label,
+                            systemImage: Tabs.settings.icon
                         )
                     }
-                    .tag(TabModel.settings)
+                    .tag(Tabs.settings)
             }
         }
     }
