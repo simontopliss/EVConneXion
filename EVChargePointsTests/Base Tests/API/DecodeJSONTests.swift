@@ -15,9 +15,16 @@ final class DecodeJSONTests: XCTestCase {
 
         let chargeDevices = chargePointData?.chargeDevices
         XCTAssertNotNil(chargeDevices, "Charge Devices shouldn't be nil")
+    }
 
-        let chargeDevice = chargeDevices?.first!
-
+    func test_failedToParseJSON_throws() {
+        XCTAssertThrowsError(
+            try StaticJSONMapper.decode(
+                file: "4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName",
+                type: ChargePointData.self
+            ),
+            "An error should be thrown"
+        )
     }
 
     func test_withMissingFile_errorThrown() {
@@ -60,5 +67,30 @@ final class DecodeJSONTests: XCTestCase {
         }
     }
 
+    func test_chargeDevice_decodesSuccessfully() {
+        let chargePointData = try? StaticJSONMapper.decode(
+            file: "d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example",
+            type: ChargePointData.self
+        )
+
+        guard let chargeDevice = chargePointData?.chargeDevices.first! else {
+            XCTFail("Failed to unwrap the charge device")
+            return
+        }
+
+        XCTAssertEqual(chargeDevice.chargeDeviceId, "d200029c1c2e679c9b434db0a79fdb60")
+        XCTAssertEqual(chargeDevice.chargeDeviceName, "50 St James's Road")
+        XCTAssertEqual(chargeDevice.chargeDeviceLocation.latitude, "51.496371")
+        XCTAssertEqual(chargeDevice.chargeDeviceLocation.longitude, "-0.065826")
+        XCTAssertEqual(chargeDevice.connector.count, 1)
+
+        let deviceOwner = chargeDevice.deviceOwner
+        XCTAssertEqual(deviceOwner.organisationName, "London Borough of Southwark")
+
+        let connector = chargeDevice.connector.first!
+        XCTAssertEqual(connector.connectorType.rawValue, "Type 2 Mennekes (IEC62196)")
+        XCTAssertEqual(connector.ratedOutputkW, "3.7")
+        XCTAssertEqual(connector.chargeMethod.rawValue, "Single Phase AC")
+    }
 
 }
