@@ -23,35 +23,25 @@ enum DecodeJSON {
         do {
             return try decoder.decode(T.self, from: data)
         } catch let DecodingError.keyNotFound(key, context) {
-            throw DecodeJSONError.keyNotFound(
-                error: "Failed to decode due to missing key '\(key.stringValue)' – \(context.debugDescription)" as! Error
-            )
+            throw DecodeJSONError.keyNotFound(key: key, context: context)
         } catch let DecodingError.typeMismatch(_, context) {
-            throw DecodeJSONError.typeMismatch(
-                error: "Failed to decode due to type mismatch – \(context.debugDescription)" as! Error
-            )
+            throw DecodeJSONError.typeMismatch(context: context)
         } catch let DecodingError.valueNotFound(type, context) {
-            throw DecodeJSONError.valueNotFound(
-                error: "Failed to decode due to missing \(type) value – \(context.debugDescription)" as! Error
-            )
+            throw DecodeJSONError.valueNotFound(type: type, context: context)
         } catch DecodingError.dataCorrupted(_) {
-            throw DecodeJSONError.dataCorrupted(
-                error: "Failed to decode because it appears to be invalid JSON." as! Error
-            )
+            throw DecodeJSONError.dataCorrupted
         } catch {
-            throw DecodeJSONError.unknownError(
-                error: "Failed to decode: \(error.localizedDescription)" as! Error
-            )
+            throw DecodeJSONError.unknownError(error: error)
         }
     }
 }
 
 extension DecodeJSON {
     enum DecodeJSONError: Error {
-        case keyNotFound(error: Error)
-        case typeMismatch(error: Error)
-        case valueNotFound(error: Error)
-        case dataCorrupted(error: Error)
+        case keyNotFound(key: CodingKey, context: DecodingError.Context)
+        case typeMismatch(context: DecodingError.Context)
+        case valueNotFound(type: Any.Type, context: DecodingError.Context)
+        case dataCorrupted
         case unknownError(error: Error)
     }
 }
@@ -59,16 +49,16 @@ extension DecodeJSON {
 extension DecodeJSON.DecodeJSONError {
     var errorDescription: String? {
         switch self {
-            case let .keyNotFound(error):
-                return error.localizedDescription
-            case let .typeMismatch(error):
-                return error.localizedDescription
-            case let .valueNotFound(error):
-                return error.localizedDescription
-            case let .dataCorrupted(error):
-                return error.localizedDescription
+            case let .keyNotFound(key, context):
+                return "Failed to decode due to missing key '\(key.stringValue)' – \(context.debugDescription)"
+            case let .typeMismatch(context):
+                return "Failed to decode due to type mismatch – \(context.debugDescription)"
+            case let .valueNotFound(type, context):
+                return "Failed to decode due to missing \(type) value – \(context.debugDescription)"
+            case .dataCorrupted:
+                return "Failed to decode because it appears to be invalid JSON."
             case let .unknownError(error):
-                return error.localizedDescription
+                return "Failed to decode: \(error.localizedDescription)"
         }
     }
 }
