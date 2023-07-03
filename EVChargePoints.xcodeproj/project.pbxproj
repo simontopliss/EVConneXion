@@ -21,6 +21,8 @@
 		62718B2B2A51E356004F0168 /* DecodeJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B2A2A51E356004F0168 /* DecodeJSONTests.swift */; };
 		62718B2E2A51E464004F0168 /* StaticJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B2D2A51E464004F0168 /* StaticJSONMapper.swift */; };
 		62718B332A52038F004F0168 /* DecodeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B322A52038F004F0168 /* DecodeJSON.swift */; };
+		62718B352A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json in Resources */ = {isa = PBXBuildFile; fileRef = 62718B342A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json */; };
+		62718B372A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */ = {isa = PBXBuildFile; fileRef = 62718B362A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
 		62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* Tabs.swift */; };
@@ -57,6 +59,8 @@
 		62718B2A2A51E356004F0168 /* DecodeJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJSONTests.swift; sourceTree = "<group>"; };
 		62718B2D2A51E464004F0168 /* StaticJSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticJSONMapper.swift; sourceTree = "<group>"; };
 		62718B322A52038F004F0168 /* DecodeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJSON.swift; sourceTree = "<group>"; };
+		62718B342A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json"; sourceTree = "<group>"; };
+		62718B362A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json"; sourceTree = "<group>"; };
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				6223CA4B2A3CFD3C00A87875 /* DE7 8LN.json */,
+				62718B342A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json */,
+				62718B362A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -429,6 +435,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62718B372A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */,
+				62718B352A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json in Resources */,
 				621A704B2A3B3BC900A04669 /* Preview Assets.xcassets in Resources */,
 				6223CA4C2A3CFD3C00A87875 /* DE7 8LN.json in Resources */,
 				621A70482A3B3BC900A04669 /* Assets.xcassets in Resources */,
