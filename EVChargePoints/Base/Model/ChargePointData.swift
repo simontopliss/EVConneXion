@@ -242,7 +242,7 @@ extension DeviceAccess {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             regularOpenings = try container.decodeIfPresent([RegularOpening].self, forKey: .regularOpenings)
         } catch {
-            print(error)
+            // print(error)
             regularOpenings = nil
         }
     }

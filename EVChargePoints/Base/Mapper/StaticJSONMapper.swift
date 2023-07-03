@@ -26,7 +26,7 @@ enum StaticJSONMapper {
             )
             return decodedResponse
         } catch {
-            print("request() error:\n" + String(describing: error))
+            // print("request() error:\n" + String(describing: error))
             if let decodeError = error as? DecodeJSON.DecodeJSONError {
                 throw decodeError
             } else {
