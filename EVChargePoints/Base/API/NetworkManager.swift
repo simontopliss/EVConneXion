@@ -11,7 +11,7 @@ protocol NetworkManagerImpl {
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T
 }
 
-final class NetworkManager {
+final class NetworkManager: NetworkManagerImpl {
 
     static let shared = NetworkManager()
     private init() {}
