@@ -78,7 +78,7 @@ final class DecodeJSONTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(chargeDevice.chargeDeviceId, "d200029c1c2e679c9b434db0a79fdb60")
+        XCTAssertEqual(chargeDevice.chargeDeviceID, "d200029c1c2e679c9b434db0a79fdb60")
         XCTAssertEqual(chargeDevice.chargeDeviceName, "50 St James's Road")
         XCTAssertEqual(chargeDevice.chargeDeviceLocation.latitude, "51.496371")
         XCTAssertEqual(chargeDevice.chargeDeviceLocation.longitude, "-0.065826")
@@ -93,4 +93,23 @@ final class DecodeJSONTests: XCTestCase {
         XCTAssertEqual(connector.chargeMethod.rawValue, "Single Phase AC")
     }
 
+    func test_regularOpenings_decodeSuccessfullyForMultipleDays() {
+
+        let chargePointData = try? StaticJSONMapper.decode(
+            file: "1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings",
+            type: ChargePointData.self
+        )
+
+        guard let chargeDevice = chargePointData?.chargeDevices.first! else {
+            XCTFail("Failed to unwrap the charge device")
+            return
+        }
+
+        XCTAssertEqual(chargeDevice.chargeDeviceID, "1b8a93def9107a6c38b35140c0a59ca0")
+
+        let deviceAccess = chargeDevice.deviceAccess
+        let regularOpenings = deviceAccess?.regularOpenings
+        XCTAssertEqual(regularOpenings?.count, 4)
+        XCTAssertEqual(regularOpenings?[0].days, "Tuesday")
+    }
 }
