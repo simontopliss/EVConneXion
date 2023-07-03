@@ -7,10 +7,14 @@
 
 import Foundation
 
+protocol NetworkManagerImpl {
+    func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T
+}
+
 final class NetworkManager {
 
-//    static let shared = NetworkManager()
-//    private init() {}
+    static let shared = NetworkManager()
+    private init() {}
 
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T {
 
@@ -18,13 +22,13 @@ final class NetworkManager {
             throw NetworkError.invalidURL
         }
 
-        print(url)
+        // print(url)
 
         let (data, response) = try await URLSession.shared.data(from: url)
 
         guard let response = response as? HTTPURLResponse,
-              (200...300) ~= response.statusCode
-        else { // swiftlint:disable:this indentation_width
+            (200...300) ~= response.statusCode
+        else {
             let statusCode = (response as! HTTPURLResponse).statusCode // swiftlint:disable:this force_cast
             throw NetworkError.invalidStatusCode(statusCode: statusCode)
         }
@@ -37,7 +41,7 @@ final class NetworkManager {
             )
             return decodedResponse
         } catch {
-            print("request() error:\n" + String(describing: error))
+            // print("request() error:\n" + String(describing: error))
             if let decodeError = error as? DecodeJSON.DecodeJSONError {
                 throw decodeError
             } else {
