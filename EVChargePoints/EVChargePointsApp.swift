@@ -10,6 +10,9 @@ import SwiftUI
 @main
 struct EVChargePointsApp: App {
 
+    // Create a delegate for check for when UI Testing
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     var body: some Scene {
@@ -52,5 +55,18 @@ struct EVChargePointsApp: App {
                     .tag(Tabs.settings)
             }
         }
+    }
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        #if DEBUG
+        if UITestingHelper.isUITesting { print("👷🏻‍♂️ UI Testing") }
+        #endif
+        return true
     }
 }
