@@ -16,8 +16,6 @@ final class ChargePointViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
 
-    let networkManager = NetworkManager()
-
     // MARK: - FILTERS
 
     // TODO: Need to be able to choose 1 or multiple connector types
@@ -32,8 +30,6 @@ final class ChargePointViewModel: ObservableObject {
     @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
 
-        // let url = "https://chargepoints.dft.gov.uk/api/retrieve/registry/postcode/HP19+8FF/dist/10/format/json"
-
         let url = Endpoint.buildURL(
             requestType: requestType,
             distance: distance,
@@ -46,8 +42,8 @@ final class ChargePointViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            let result = try await networkManager.request(url, type: ChargePointData.self)
-            dump(result.chargeDevices[0])
+            let result = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            // dump(result.chargeDevices[0])
         } catch {
             hasError = true
             if let networkError = error as? NetworkManager.NetworkError {
