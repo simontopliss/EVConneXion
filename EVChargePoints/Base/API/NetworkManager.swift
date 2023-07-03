@@ -30,13 +30,20 @@ final class NetworkManager {
         }
 
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let decodedResponse = try decoder.decode(T.self, from: data)
+            let decodedResponse = try DecodeJSON.decode(
+                data: data,
+                type: T.self,
+                dateDecodingStrategy: .iso8601,
+                keyDecodingStrategy: .convertFromSnakeCase
+            )
             return decodedResponse
         } catch {
             print("request() error:\n" + String(describing: error))
-            throw NetworkError.failedToDecode(error: error)
+            if let decodeError = error as? DecodeJSON.DecodeJSONError {
+                throw decodeError
+            } else {
+                throw NetworkError.failedToDecode(error: error)
+            }
         }
     }
 }
