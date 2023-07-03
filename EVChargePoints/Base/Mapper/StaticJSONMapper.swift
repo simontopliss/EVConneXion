@@ -18,9 +18,21 @@ enum StaticJSONMapper {
             throw MappingError.failedToGetContents
         }
 
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode(T.self, from: data)
+        do {
+            let decodedResponse = try DecodeJSON.decode(
+                data: data,
+                type: T.self,
+                keyDecodingStrategy: .convertFromSnakeCase
+            )
+            return decodedResponse
+        } catch {
+            print("request() error:\n" + String(describing: error))
+            if let decodeError = error as? DecodeJSON.DecodeJSONError {
+                throw decodeError
+            } else {
+                throw StaticJSONMapper.MappingError.failedToGetContents
+            }
+        }
     }
 
 }
