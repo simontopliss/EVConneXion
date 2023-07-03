@@ -27,6 +27,14 @@ final class ChargePointViewModel: ObservableObject {
     @AppStorage(UserDefaultKeys.units) private var units: Endpoint.RegistryDataType.Unit = .mi
     @AppStorage(UserDefaultKeys.country) private var country: Endpoint.RegistryDataType.Country = .gb
 
+    // Dependency Injection of NetworkManagerImpl protocol
+    private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
+
+    // Constructor uses DI for testing
+    init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
+        self.networkManager = networkManager
+    }
+
     @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
 
@@ -42,8 +50,9 @@ final class ChargePointViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            let result = try await NetworkManager.shared.request(url, type: ChargePointData.self)
-            // dump(result.chargeDevices[0])
+            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            chargeDevices = chargePointData.chargeDevices
+            // dump(chargePointData.chargeDevices[0])
         } catch {
             hasError = true
             if let networkError = error as? NetworkManager.NetworkError {
