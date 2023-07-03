@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - ChargePointData
+
 public struct ChargePointData: Decodable {
     let scheme: Scheme
     let chargeDevices: [ChargeDevice]
@@ -20,6 +21,7 @@ public struct ChargePointData: Decodable {
 }
 
 // MARK: - ChargeDevice
+
 public struct ChargeDevice: Decodable {
     let chargeDeviceId: String
     let chargeDeviceRef: String
@@ -55,7 +57,7 @@ public struct ChargeDevice: Decodable {
     let physicalRestrictionFlag: Bool
     let physicalRestrictionText: String?
     let onStreetFlag: Bool
-    let locationType: String
+    let locationType: LocationType
     let bearing: String?
     let accessible24Hours: Bool
 
@@ -100,7 +102,37 @@ public struct ChargeDevice: Decodable {
     }
 }
 
+enum LocationType: String, Decodable, CaseIterable {
+    case dealershipForecourt = "Dealership forecourt"
+    case educationalEstablishment = "Educational establishment"
+    case hotelAccommodation = "Hotel / Accommodation"
+    case leisureCentre = "Leisure centre"
+    case nhsProperty = "NHS property"
+    case onStreet = "On-street"
+    case other = "Other"
+    case parkRideSite = "Park & Ride site"
+    case privateHome = "Private home"
+    case publicCarPark = "Public car park"
+    case publicEstate = "Public estate"
+    case retailCarPark = "Retail car park"
+    case serviceStation = "Service station"
+    case workplaceCarPark = "Workplace car park"
+    case unknown
+}
+
+// A new type was added over the last few days, and wasn't caught by the above enum
+// This seems to be the solution to catch `unknown` types
+// https://stackoverflow.com/a/49697266/7429227
+extension LocationType {
+    public init(from decoder: Decoder) throws {
+        self = try LocationType(
+            rawValue: decoder.singleValueContainer().decode(RawValue.self)
+        ) ?? .unknown
+    }
+}
+
 // MARK: - ChargeDeviceLocation
+
 struct ChargeDeviceLocation: Decodable {
     let latitude: String
     let longitude: String
@@ -123,6 +155,7 @@ enum ChargeStatus: String, Decodable {
 }
 
 // MARK: - Connector
+
 struct Connector: Decodable {
     let connectorId: String
     let connectorType: ConnectorType
@@ -132,7 +165,7 @@ struct Connector: Decodable {
     let chargeMethod: ChargeMethod
     let chargeMode: String
     let chargePointStatus: ChargeStatus
-    let tetheredCable: String
+    let tetheredCable: TetheredCable
     let information: String?
     let validated: String
 
@@ -149,6 +182,11 @@ struct Connector: Decodable {
         case information = "Information"
         case validated = "Validated"
     }
+}
+
+enum TetheredCable: String, Decodable {
+    case tethered = "1"
+    case notTethered = "0"
 }
 
 enum ChargeMethod: String, Decodable, CaseIterable {
@@ -182,24 +220,28 @@ enum ConnectorTypeID: Int {
 }
 
 // MARK: - DeviceAccess
+
 struct DeviceAccess: Decodable {
     let open24Hours: Bool
 
     enum CodingKeys: String, CodingKey {
         case open24Hours = "Open24Hours"
     }
+}
 
-    init(from decoder: Decoder) throws {
+extension DeviceAccess {
+    public init(from decoder: Decoder) throws {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.open24Hours = try container.decode(Bool.self, forKey: .open24Hours)
+            open24Hours = try container.decode(Bool.self, forKey: .open24Hours)
         } catch {
-            self.open24Hours = false
+            open24Hours = false
         }
     }
 }
 
 // MARK: - DeviceController
+
 struct DeviceController: Decodable {
     let organisationName: String
     let schemeCode: String
@@ -215,6 +257,7 @@ struct DeviceController: Decodable {
 }
 
 // MARK: - DeviceOwner
+
 struct DeviceOwner: Decodable {
     let organisationName: String
     let schemeCode: String
@@ -235,6 +278,7 @@ enum RecordModerated: String, Decodable {
 }
 
 // MARK: - Scheme
+
 struct Scheme: Decodable {
     let schemeCode: String
     let schemeData: SchemeData
@@ -246,6 +290,7 @@ struct Scheme: Decodable {
 }
 
 // MARK: - SchemeData
+
 struct SchemeData: Decodable {
     let organisationName: String
     let website: String
