@@ -170,8 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */,
-				62B32CB12A4DC6F600C6E8DF /* Tabs.swift */,
-				62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +273,15 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		62718B9E2A532A8F004F0168 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				62B32CB12A4DC6F600C6E8DF /* Tabs.swift */,
+				62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		62B32CA12A4DBE4800C6E8DF /* EVChargePointsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +319,7 @@
 		62B32CB32A4DC70800C6E8DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				62718B9E2A532A8F004F0168 /* Constants */,
 				62718B152A51D661004F0168 /* JSON */,
 			);
 			path = Resources;
