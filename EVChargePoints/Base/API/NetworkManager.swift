@@ -33,7 +33,6 @@ final class NetworkManager {
             let decodedResponse = try DecodeJSON.decode(
                 data: data,
                 type: T.self,
-                dateDecodingStrategy: .iso8601,
                 keyDecodingStrategy: .convertFromSnakeCase
             )
             return decodedResponse
