@@ -15,6 +15,8 @@ struct EVChargePointsApp: App {
 
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
+    @StateObject var chargePointViewModel = ChargePointViewModel()
+
     var body: some Scene {
         WindowGroup {
             TabView(selection: $tabSelection) {
@@ -35,6 +37,7 @@ struct EVChargePointsApp: App {
                         )
                     }
                     .tag(Tabs.list)
+                    .environmentObject(chargePointViewModel)
 
                 RoutesView()
                     .tabItem {
