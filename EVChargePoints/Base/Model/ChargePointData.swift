@@ -219,16 +219,10 @@ enum ConnectorTypeID: Int {
     case commando3PNE      = 18
 }
 
-enum ConnectorTypeGraphic: String {
-    case threePinTypeG     = "3-pin-type-g.svg"
-    case chAdeMo           = "chademo.svg"
-    case type1             = "type-1.svg"
-    case type2Mennekes     = "type-2-mennekes.svg"
-    case type3Scame        = "type-3-scame.svg"
-    case ccsType2Combo     = "ccs-type-2.svg"
-    case type2Tesla        = "type-2-tesla.svg"
-    case commando2PE       = "commando-2-pe.svg"
-    case commando3PNE      = "commando-3-pne.svg"
+struct ConnectorGraphic: Identifiable {
+    var id = UUID()
+    var name: String
+    var count: Int
 }
 
 // MARK: - DeviceAccess
