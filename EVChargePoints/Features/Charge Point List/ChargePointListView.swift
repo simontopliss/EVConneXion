@@ -13,11 +13,13 @@ struct ChargePointListView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 6) {
+            LazyVStack(alignment: .leading, spacing: 8) {
                 ForEach(vm.chargeDevices) { chargeDevice in
                     ChargePointRow(vm: vm, chargeDevice: chargeDevice)
                 }
+                
             }
+            //.listStyle(.inset)
             .padding()
         }
 
