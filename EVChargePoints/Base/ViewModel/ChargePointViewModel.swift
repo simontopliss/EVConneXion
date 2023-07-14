@@ -5,8 +5,10 @@
 //  Created by Simon Topliss on 16/06/2023.
 //
 
+// import Observation
 import SwiftUI
 
+// @Observable
 final class ChargePointViewModel: ObservableObject {
 
     // MARK: - PROPERTIES
@@ -16,16 +18,17 @@ final class ChargePointViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
 
-    // MARK: - FILTERS
+    private(set) var address: Address?
 
+    // MARK: - FILTERS
     // TODO: Need to be able to choose 1 or multiple connector types
     // API can only search for 1 at a time, so filter results instead
     // private var connectorTypes = ConnectorType.allCases
 
-    @AppStorage(UserDefaultKeys.distance) private var distance = 10
-    @AppStorage(UserDefaultKeys.limit) private var limit = 0
-    @AppStorage(UserDefaultKeys.units) private var units: Endpoint.RegistryDataType.Unit = .mi
-    @AppStorage(UserDefaultKeys.country) private var country: Endpoint.RegistryDataType.Country = .gb
+    private var distance = 2
+    private var limit = 5
+    private var units: Endpoint.RegistryDataType.Unit = .mi
+    private var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
@@ -33,6 +36,12 @@ final class ChargePointViewModel: ObservableObject {
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
+        self.chargeDevices = ChargePointData.mockChargeDevices
+    }
+
+    func createAddress(chargeDevice: ChargeDevice) -> Address {
+        self.address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
+        return address!
     }
 
     @MainActor
