@@ -44,6 +44,29 @@ final class ChargePointViewModel: ObservableObject {
         return address!
     }
 
+    func getConnectorGraphicsAndCounts(connectors: [Connector]) -> [ConnectorGraphic] {
+
+        var connectorGraphics: [String] = []
+        var connectorGraphicsAndCounts: [ConnectorGraphic] = []
+
+        for connector in connectors {
+            let connectorType = connector.connectorType.rawValue// + ".svg"
+            if connectorGraphics.contains(connectorType) {
+                for index in 0...connectorGraphicsAndCounts.count - 1 {
+                    if connectorGraphicsAndCounts[index].name == connectorType {
+                        connectorGraphicsAndCounts[index].count += 1
+                    }
+                }
+            } else {
+                connectorGraphics.append(connectorType)
+                connectorGraphicsAndCounts.append(ConnectorGraphic(name: connectorType, count: 1))
+            }
+        }
+
+        // dump(connectorGraphicsAndCounts)
+        return connectorGraphicsAndCounts
+    }
+
     @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
 
