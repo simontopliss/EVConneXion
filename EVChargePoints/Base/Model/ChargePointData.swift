@@ -8,29 +8,13 @@
 
 import Foundation
 
-@propertyWrapper struct Trimmed {
-    private var text: String
-    var wrappedValue: String {
-        get {
-            text.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        set {
-            text = newValue
-        }
-    }
-    init(wrappedValue: String) {
-        text = wrappedValue
-    }
-}
-
 struct ChargePointData: Decodable {
-
     let scheme: Scheme
     var chargeDevices: [ChargeDevice]
 
     enum CodingKeys: String, CodingKey {
-        case scheme = "Scheme"
-        case chargeDevices = "ChargeDevice"
+        case scheme         = "Scheme"
+        case chargeDevices  = "ChargeDevice"
     }
 }
 
@@ -78,61 +62,61 @@ struct ChargeDevice: Decodable, Identifiable {
     var accessible24Hours: Bool
 
     enum CodingKeys: String, CodingKey {
-        case chargeDeviceID = "ChargeDeviceId"
-        case chargeDeviceRef = "ChargeDeviceRef"
-        case chargeDeviceName = "ChargeDeviceName"
-        case chargeDeviceText = "ChargeDeviceText"
-        case chargeDeviceLocation = "ChargeDeviceLocation"
-        case chargeDeviceModel = "ChargeDeviceModel"
-        case publishStatusId = "PublishStatusID"
-        case dateCreated = "DateCreated"
-        case dateUpdated = "DateUpdated"
-        case attribution = "Attribution"
-        case dateDeleted = "DateDeleted"
-        case connector = "Connector"
-        case deviceOwner = "DeviceOwner"
-        case deviceController = "DeviceController"
-        case deviceAccess = "DeviceAccess"
-        case deviceNetworks = "DeviceNetworks"
-        case chargeDeviceStatus = "ChargeDeviceStatus"
-        case publishStatus = "PublishStatus"
-        case deviceValidated = "DeviceValidated"
-        case recordModerated = "RecordModerated"
-        case recordLastUpdated = "RecordLastUpdated"
-        case recordLastUpdatedBy = "RecordLastUpdatedBy"
-        case paymentRequiredFlag = "PaymentRequiredFlag"
-        case paymentDetails = "PaymentDetails"
-        case subscriptionRequiredFlag = "SubscriptionRequiredFlag"
-        case subscriptionDetails = "SubscriptionDetails"
-        case parkingFeesFlag = "ParkingFeesFlag"
-        case parkingFeesDetails = "ParkingFeesDetails"
-        case parkingFeesUrl = "ParkingFeesUrl"
-        case accessRestrictionFlag = "AccessRestrictionFlag"
-        case accessRestrictionDetails = "AccessRestrictionDetails"
-        case physicalRestrictionFlag = "PhysicalRestrictionFlag"
-        case physicalRestrictionText = "PhysicalRestrictionText"
-        case onStreetFlag = "OnStreetFlag"
-        case locationType = "LocationType"
-        case bearing = "Bearing"
-        case accessible24Hours = "Accessible24Hours"
+        case chargeDeviceID             = "ChargeDeviceId"
+        case chargeDeviceRef            = "ChargeDeviceRef"
+        case chargeDeviceName           = "ChargeDeviceName"
+        case chargeDeviceText           = "ChargeDeviceText"
+        case chargeDeviceLocation       = "ChargeDeviceLocation"
+        case chargeDeviceModel          = "ChargeDeviceModel"
+        case publishStatusId            = "PublishStatusID"
+        case dateCreated                = "DateCreated"
+        case dateUpdated                = "DateUpdated"
+        case attribution                = "Attribution"
+        case dateDeleted                = "DateDeleted"
+        case connector                  = "Connector"
+        case deviceOwner                = "DeviceOwner"
+        case deviceController           = "DeviceController"
+        case deviceAccess               = "DeviceAccess"
+        case deviceNetworks             = "DeviceNetworks"
+        case chargeDeviceStatus         = "ChargeDeviceStatus"
+        case publishStatus              = "PublishStatus"
+        case deviceValidated            = "DeviceValidated"
+        case recordModerated            = "RecordModerated"
+        case recordLastUpdated          = "RecordLastUpdated"
+        case recordLastUpdatedBy        = "RecordLastUpdatedBy"
+        case paymentRequiredFlag        = "PaymentRequiredFlag"
+        case paymentDetails             = "PaymentDetails"
+        case subscriptionRequiredFlag   = "SubscriptionRequiredFlag"
+        case subscriptionDetails        = "SubscriptionDetails"
+        case parkingFeesFlag            = "ParkingFeesFlag"
+        case parkingFeesDetails         = "ParkingFeesDetails"
+        case parkingFeesUrl             = "ParkingFeesUrl"
+        case accessRestrictionFlag      = "AccessRestrictionFlag"
+        case accessRestrictionDetails   = "AccessRestrictionDetails"
+        case physicalRestrictionFlag    = "PhysicalRestrictionFlag"
+        case physicalRestrictionText    = "PhysicalRestrictionText"
+        case onStreetFlag               = "OnStreetFlag"
+        case locationType               = "LocationType"
+        case bearing                    = "Bearing"
+        case accessible24Hours          = "Accessible24Hours"
     }
 }
 
 enum LocationType: String, Decodable, CaseIterable {
-    case dealershipForecourt = "Dealership forecourt"
-    case educationalEstablishment = "Educational establishment"
-    case hotelAccommodation = "Hotel / Accommodation"
-    case leisureCentre = "Leisure centre"
-    case nhsProperty = "NHS property"
-    case onStreet = "On-street"
-    case other = "Other"
-    case parkRideSite = "Park & Ride site"
-    case privateHome = "Private home"
-    case publicCarPark = "Public car park"
-    case publicEstate = "Public estate"
-    case retailCarPark = "Retail car park"
-    case serviceStation = "Service station"
-    case workplaceCarPark = "Workplace car park"
+    case dealershipForecourt            = "Dealership forecourt"
+    case educationalEstablishment       = "Educational establishment"
+    case hotelAccommodation             = "Hotel / Accommodation"
+    case leisureCentre                  = "Leisure centre"
+    case nhsProperty                    = "NHS property"
+    case onStreet                       = "On-street"
+    case other                          = "Other"
+    case parkRideSite                   = "Park & Ride site"
+    case privateHome                    = "Private home"
+    case publicCarPark                  = "Public car park"
+    case publicEstate                   = "Public estate"
+    case retailCarPark                  = "Retail car park"
+    case serviceStation                 = "Service station"
+    case workplaceCarPark               = "Workplace car park"
     case unknown
 }
 
@@ -157,11 +141,11 @@ struct ChargeDeviceLocation: Decodable {
     var locationLongDescription: String?
 
     enum CodingKeys: String, CodingKey {
-        case latitude = "Latitude"
-        case longitude = "Longitude"
-        case address = "Address"
-        case locationShortDescription = "LocationShortDescription"
-        case locationLongDescription = "LocationLongDescription"
+        case latitude                  = "Latitude"
+        case longitude                 = "Longitude"
+        case address                   = "Address"
+        case locationShortDescription  = "LocationShortDescription"
+        case locationLongDescription   = "LocationLongDescription"
     }
 }
 
@@ -186,53 +170,65 @@ struct Connector: Decodable {
     var validated: String
 
     enum CodingKeys: String, CodingKey {
-        case connectorId = "ConnectorId"
-        case connectorType = "ConnectorType"
-        case ratedOutputkW = "RatedOutputkW"
-        case ratedOutputVoltage = "RatedOutputVoltage"
-        case ratedOutputCurrent = "RatedOutputCurrent"
-        case chargeMethod = "ChargeMethod"
-        case chargeMode = "ChargeMode"
-        case chargePointStatus = "ChargePointStatus"
-        case tetheredCable = "TetheredCable"
-        case information = "Information"
-        case validated = "Validated"
+        case connectorId         = "ConnectorId"
+        case connectorType       = "ConnectorType"
+        case ratedOutputkW       = "RatedOutputkW"
+        case ratedOutputVoltage  = "RatedOutputVoltage"
+        case ratedOutputCurrent  = "RatedOutputCurrent"
+        case chargeMethod        = "ChargeMethod"
+        case chargeMode          = "ChargeMode"
+        case chargePointStatus   = "ChargePointStatus"
+        case tetheredCable       = "TetheredCable"
+        case information         = "Information"
+        case validated           = "Validated"
     }
 }
 
 enum TetheredCable: String, Decodable {
-    case tethered = "1"
-    case notTethered = "0"
+    case tethered        = "1"
+    case notTethered     = "0"
 }
 
 enum ChargeMethod: String, Decodable, CaseIterable {
-    case dc = "DC"
-    case singlePhaseAc = "Single Phase AC"
-    case threePhaseAc = "Three Phase AC"
+    case dc              = "DC"
+    case singlePhaseAc   = "Single Phase AC"
+    case threePhaseAc    = "Three Phase AC"
 }
 
 enum ConnectorType: String, Decodable, CaseIterable {
-    case threePinTypeG = "3-pin Type G (BS1363)"
-    case chAdeMo = "JEVS G105 (CHAdeMO) DC"
-    case type1 = "Type 1 SAEJ1772 (IEC 62196)"
-    case type2Mennekes = "Type 2 Mennekes (IEC62196)"
-    case type3Scame = "Type 3 Scame (IEC62196)"
-    case ccsType2Combo = "CCS Type 2 Combo (IEC62196)"
-    case type2Tesla = "Type 2 Tesla (IEC62196) DC"
-    case commando2PE = "Commando 2P+E (IEC60309)"
-    case commando3PNE = "Commando 3P+N+E (IEC60309)"
+    case threePinTypeG     = "3-pin Type G (BS1363)"
+    case chAdeMo           = "JEVS G105 (CHAdeMO) DC"
+    case type1             = "Type 1 SAEJ1772 (IEC 62196)"
+    case type2Mennekes     = "Type 2 Mennekes (IEC62196)"
+    case type3Scame        = "Type 3 Scame (IEC62196)"
+    case ccsType2Combo     = "CCS Type 2 Combo (IEC62196)"
+    case type2Tesla        = "Type 2 Tesla (IEC62196) DC"
+    case commando2PE       = "Commando 2P+E (IEC60309)"
+    case commando3PNE      = "Commando 3P+N+E (IEC60309)"
 }
 
 enum ConnectorTypeID: Int {
-    case threePinTypeG = 3
-    case chAdeMo = 4
-    case type1 = 5
-    case type2Mennekes = 6
-    case type3Scame = 7
-    case ccsType2Combo = 15
-    case type2Tesla = 16
-    case commando2PE = 17
-    case commando3PNE = 18
+    case threePinTypeG     = 3
+    case chAdeMo           = 4
+    case type1             = 5
+    case type2Mennekes     = 6
+    case type3Scame        = 7
+    case ccsType2Combo     = 15
+    case type2Tesla        = 16
+    case commando2PE       = 17
+    case commando3PNE      = 18
+}
+
+enum ConnectorTypeGraphic: String {
+    case threePinTypeG     = "3-pin-type-g.svg"
+    case chAdeMo           = "chademo.svg"
+    case type1             = "type-1.svg"
+    case type2Mennekes     = "type-2-mennekes.svg"
+    case type3Scame        = "type-3-scame.svg"
+    case ccsType2Combo     = "ccs-type-2.svg"
+    case type2Tesla        = "type-2-tesla.svg"
+    case commando2PE       = "commando-2-pe.svg"
+    case commando3PNE      = "commando-3-pne.svg"
 }
 
 // MARK: - DeviceAccess
@@ -274,8 +270,8 @@ struct RegularOpening: Codable {
     var allDays = false
 
     enum CodingKeys: String, CodingKey {
-        case days = "Days"
-        case hours = "Hours"
+        case days   = "Days"
+        case hours  = "Hours"
         case allDays
     }
 }
@@ -306,8 +302,8 @@ struct Hours: Codable {
     var to: String
 
     enum CodingKeys: String, CodingKey {
-        case from = "From"
-        case to = "To"
+        case from  = "From"
+        case to    = "To"
     }
 }
 
@@ -320,10 +316,10 @@ struct DeviceController: Decodable {
     var telephoneNo: String
 
     enum CodingKeys: String, CodingKey {
-        case organisationName = "OrganisationName"
-        case schemeCode = "SchemeCode"
-        case website = "Website"
-        case telephoneNo = "TelephoneNo"
+        case organisationName  = "OrganisationName"
+        case schemeCode        = "SchemeCode"
+        case website           = "Website"
+        case telephoneNo       = "TelephoneNo"
     }
 }
 
@@ -336,16 +332,16 @@ struct DeviceOwner: Decodable {
     var telephoneNo: String
 
     enum CodingKeys: String, CodingKey {
-        case organisationName = "OrganisationName"
-        case schemeCode = "SchemeCode"
-        case website = "Website"
-        case telephoneNo = "TelephoneNo"
+        case organisationName  = "OrganisationName"
+        case schemeCode        = "SchemeCode"
+        case website           = "Website"
+        case telephoneNo       = "TelephoneNo"
     }
 }
 
 enum RecordModerated: String, Decodable {
-    case no = "N"
-    case yes = "Y"
+    case no   = "N"
+    case yes  = "Y"
 }
 
 // MARK: - Scheme
@@ -368,9 +364,9 @@ struct SchemeData: Decodable {
     var telephoneNo: String
 
     enum CodingKeys: String, CodingKey {
-        case organisationName = "OrganisationName"
-        case website = "Website"
-        case telephoneNo = "TelephoneNo"
+        case organisationName  = "OrganisationName"
+        case website           = "Website"
+        case telephoneNo       = "TelephoneNo"
     }
 }
 
