@@ -13,15 +13,14 @@ struct ChargePointListView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(alignment: .leading, spacing: 6) {
                 ForEach(vm.chargeDevices) { chargeDevice in
-                    ChargePointRow(
-                        vm: vm,
-                        chargeDevice: chargeDevice
-                    )
+                    ChargePointRow(vm: vm, chargeDevice: chargeDevice)
                 }
             }
+            .padding()
         }
+
 //        .task {
 //            await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
             // await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
