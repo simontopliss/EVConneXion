@@ -9,23 +9,27 @@ import SwiftUI
 
 struct ChargePointListView: View {
 
-    @StateObject private var vm = ChargePointViewModel()
+    @EnvironmentObject private var vm: ChargePointViewModel
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            LazyVStack {
+                ForEach(vm.chargeDevices) { chargeDevice in
+                    ChargePointRow(
+                        vm: vm,
+                        chargeDevice: chargeDevice
+                    )
+                }
+            }
         }
-        .padding()
-        .task {
-//            await vm.fetchChargeDevices(requestType: .postcode("DE7 8LN"))
-            await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
-        }
+//        .task {
+//            await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
+            // await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
+//        }
     }
 }
 
 #Preview {
     ChargePointListView()
+        .environmentObject(ChargePointViewModel())
 }
