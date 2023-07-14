@@ -8,7 +8,23 @@
 
 import Foundation
 
+@propertyWrapper struct Trimmed {
+    private var text: String
+    var wrappedValue: String {
+        get {
+            text.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        set {
+            text = newValue
+        }
+    }
+    init(wrappedValue: String) {
+        text = wrappedValue
+    }
+}
+
 struct ChargePointData: Decodable {
+
     let scheme: Scheme
     var chargeDevices: [ChargeDevice]
 
@@ -20,7 +36,9 @@ struct ChargePointData: Decodable {
 
 // MARK: - ChargeDevice
 
-struct ChargeDevice: Decodable {
+struct ChargeDevice: Decodable, Identifiable {
+    var id = UUID()
+
     var chargeDeviceID: String
     var chargeDeviceRef: String
     var chargeDeviceName: String
@@ -355,3 +373,4 @@ struct SchemeData: Decodable {
         case telephoneNo = "TelephoneNo"
     }
 }
+
