@@ -21,6 +21,7 @@ struct ChargePointData: Decodable {
 // MARK: - ChargeDevice
 
 struct ChargeDevice: Decodable, Identifiable {
+
     var id = UUID()
 
     var chargeDeviceID: String
@@ -99,6 +100,16 @@ struct ChargeDevice: Decodable, Identifiable {
         case locationType               = "LocationType"
         case bearing                    = "Bearing"
         case accessible24Hours          = "Accessible24Hours"
+    }
+}
+
+extension ChargeDevice: Hashable {
+    static func == (lhs: ChargeDevice, rhs: ChargeDevice) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(hashValue)
     }
 }
 
