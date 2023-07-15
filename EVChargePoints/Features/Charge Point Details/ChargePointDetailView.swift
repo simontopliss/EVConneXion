@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ChargePointDetailView: View {
+
+    var vm: ChargePointViewModel
+    var chargeDevice: ChargeDevice
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World!")
     }
 }
 
 #Preview {
-    ChargePointDetailView()
+    ChargePointDetailView(
+        vm: ChargePointViewModel(),
+        chargeDevice: ChargePointData.mockChargeDevice
+    )
+    .environmentObject(ChargePointViewModel())
 }
