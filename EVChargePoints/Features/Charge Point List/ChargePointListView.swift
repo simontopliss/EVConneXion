@@ -10,19 +10,27 @@ import SwiftUI
 struct ChargePointListView: View {
 
     @EnvironmentObject private var vm: ChargePointViewModel
+    @State private var path: NavigationPath = .init()
 
     var body: some View {
-        ScrollView {
-            LazyVStack(alignment: .leading, spacing: 8) {
-                ForEach(vm.chargeDevices) { chargeDevice in
-                    ChargePointRow(vm: vm, chargeDevice: chargeDevice)
+        NavigationStack() {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 8) {
+                    ForEach(vm.chargeDevices) { chargeDevice in
+                        NavigationLink(value: chargeDevice) {
+                            ChargePointRow(vm: vm, chargeDevice: chargeDevice)
+                        }
+                    }
                 }
-                
+                .padding(.horizontal)
             }
-            //.listStyle(.inset)
-            .padding()
+            .navigationTitle("Charge Devices")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(for: ChargeDevice.self) { chargeDevice in
+                ChargePointDetailView(vm: vm, chargeDevice: chargeDevice)
+            }
+            .buttonStyle(PlainButtonStyle())
         }
-
 //        .task {
 //            await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
             // await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
