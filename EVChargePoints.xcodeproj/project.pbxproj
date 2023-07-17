@@ -25,6 +25,7 @@
 		625CEF682A65569400A82048 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF672A65569400A82048 /* DeviceController.swift */; };
 		625CEF6A2A6556C000A82048 /* DeviceOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF692A6556C000A82048 /* DeviceOwner.swift */; };
 		625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */; };
+		625CEF6E2A65648C00A82048 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6D2A65648C00A82048 /* Validator.swift */; };
 		626810432A61595F0032C3CA /* ChargePointRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810422A61595F0032C3CA /* ChargePointRow.swift */; };
 		626810452A616A020032C3CA /* MockChargePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810442A616A020032C3CA /* MockChargePoints.swift */; };
 		626810472A616DDC0032C3CA /* EC3A 7BR.json in Resources */ = {isa = PBXBuildFile; fileRef = 626810462A616DDC0032C3CA /* EC3A 7BR.json */; };
@@ -84,6 +85,7 @@
 		625CEF672A65569400A82048 /* DeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
 		625CEF692A6556C000A82048 /* DeviceOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOwner.swift; sourceTree = "<group>"; };
 		625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDeviceLocation.swift; sourceTree = "<group>"; };
+		625CEF6D2A65648C00A82048 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		626810422A61595F0032C3CA /* ChargePointRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointRow.swift; sourceTree = "<group>"; };
 		626810442A616A020032C3CA /* MockChargePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChargePoints.swift; sourceTree = "<group>"; };
 		626810462A616DDC0032C3CA /* EC3A 7BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "EC3A 7BR.json"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				6223CA542A3DEB6A00A87875 /* Model */,
 				62B32CA92A4DBF2600C6E8DF /* ViewModel */,
 				62718B2C2A51E429004F0168 /* Mapper */,
+				625CEF6D2A65648C00A82048 /* Validator.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				628C33132A61E91A00232351 /* String+Ext.swift in Sources */,
 				621A70462A3B3BC800A04669 /* ChargePointListView.swift in Sources */,
 				62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */,
+				625CEF6E2A65648C00A82048 /* Validator.swift in Sources */,
 				626810452A616A020032C3CA /* MockChargePoints.swift in Sources */,
 				62718BAB2A5332D6004F0168 /* UITestingHelper.swift in Sources */,
 				621A70442A3B3BC800A04669 /* EVChargePointsApp.swift in Sources */,
