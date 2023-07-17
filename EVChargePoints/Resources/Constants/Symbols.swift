@@ -9,4 +9,7 @@ import SwiftUI
 
 enum Symbols {
     static let genericNetwork = Image(systemName: "network")
+    
+    static let yes = "✅"
+    static let no = "❌"
 }
