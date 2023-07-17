@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - ChargePointData
+
 struct ChargePointData: Decodable {
     let scheme: Scheme
     var chargeDevices: [ChargeDevice]

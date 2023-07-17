@@ -14,8 +14,8 @@ struct DeviceAccess: Decodable {
     var regularOpenings: [RegularOpening]?
 
     enum CodingKeys: String, CodingKey {
-        case open24Hours = "Open24Hours"
-        case regularOpenings = "RegularOpenings"
+        case open24Hours      = "Open24Hours"
+        case regularOpenings  = "RegularOpenings"
     }
 }
 
