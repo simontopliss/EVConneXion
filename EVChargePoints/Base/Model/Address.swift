@@ -8,6 +8,7 @@
 import Foundation
 
 struct Address {
+
     var subBuildingName = ""
     var buildingName = ""
     var buildingNumber = ""
