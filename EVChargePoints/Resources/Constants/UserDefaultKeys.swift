@@ -8,9 +8,10 @@
 import Foundation
 
 enum UserDefaultKeys {
+    static let tabSelection  = "tabSelection"
+
     static let country       = "country"
     static let distance      = "distance"
     static let limit         = "limit"
-    static let tabSelection  = "tabSelection"
     static let units         = "units"
 }
