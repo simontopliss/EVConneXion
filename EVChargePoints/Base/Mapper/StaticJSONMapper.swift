@@ -9,7 +9,12 @@ import Foundation
 
 enum StaticJSONMapper {
 
-    static func decode<T: Decodable>(file: String, type _: T.Type) throws -> T {
+    static func decode<T: Decodable>(
+        file: String,
+        type _: T.Type,
+        dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
+        keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys
+    ) throws -> T {
 
         guard !file.isEmpty,
               let path = Bundle.main.path(forResource: file, ofType: "json"),
