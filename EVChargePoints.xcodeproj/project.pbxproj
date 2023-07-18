@@ -26,6 +26,7 @@
 		625CEF6A2A6556C000A82048 /* DeviceOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF692A6556C000A82048 /* DeviceOwner.swift */; };
 		625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */; };
 		625CEF6E2A65648C00A82048 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6D2A65648C00A82048 /* Validator.swift */; };
+		625CEF722A65934800A82048 /* NetworkGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF712A65934800A82048 /* NetworkGraphic.swift */; };
 		626810432A61595F0032C3CA /* ChargePointRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810422A61595F0032C3CA /* ChargePointRow.swift */; };
 		626810452A616A020032C3CA /* MockChargePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810442A616A020032C3CA /* MockChargePoints.swift */; };
 		626810472A616DDC0032C3CA /* EC3A 7BR.json in Resources */ = {isa = PBXBuildFile; fileRef = 626810462A616DDC0032C3CA /* EC3A 7BR.json */; };
@@ -53,6 +54,7 @@
 		62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */; };
 		62B32CC12A4DCE8A00C6E8DF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CC02A4DCE8A00C6E8DF /* SearchView.swift */; };
 		62B32CC42A4DDCB200C6E8DF /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */; };
+		62C9F65C2A67179800151FB4 /* NetworkGraphics.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C9F65B2A67179800151FB4 /* NetworkGraphics.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,7 @@
 		625CEF692A6556C000A82048 /* DeviceOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOwner.swift; sourceTree = "<group>"; };
 		625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDeviceLocation.swift; sourceTree = "<group>"; };
 		625CEF6D2A65648C00A82048 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		625CEF712A65934800A82048 /* NetworkGraphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGraphic.swift; sourceTree = "<group>"; };
 		626810422A61595F0032C3CA /* ChargePointRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointRow.swift; sourceTree = "<group>"; };
 		626810442A616A020032C3CA /* MockChargePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChargePoints.swift; sourceTree = "<group>"; };
 		626810462A616DDC0032C3CA /* EC3A 7BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "EC3A 7BR.json"; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		62B32CC02A4DCE8A00C6E8DF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		62C9F65B2A67179800151FB4 /* NetworkGraphics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkGraphics.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,7 @@
 				625CEF5E2A6554C000A82048 /* National Chargepoint Registry */,
 				626810442A616A020032C3CA /* MockChargePoints.swift */,
 				628C330F2A61E8AE00232351 /* Address.swift */,
+				625CEF712A65934800A82048 /* NetworkGraphic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 		62718B152A51D661004F0168 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				62C9F65B2A67179800151FB4 /* NetworkGraphics.json */,
 				62718B9C2A532867004F0168 /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json */,
 				62718B342A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json */,
 				62718B362A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */,
@@ -533,6 +539,7 @@
 				628C330E2A61C80300232351 /* HU17 0RX - 10 milles.json in Resources */,
 				6223CA4C2A3CFD3C00A87875 /* DE7 8LN.json in Resources */,
 				626810472A616DDC0032C3CA /* EC3A 7BR.json in Resources */,
+				62C9F65C2A67179800151FB4 /* NetworkGraphics.json in Resources */,
 				621A70482A3B3BC900A04669 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6223CA512A3CFDC300A87875 /* ChargePointViewModel.swift in Sources */,
+				625CEF722A65934800A82048 /* NetworkGraphic.swift in Sources */,
 				62718B332A52038F004F0168 /* DecodeJSON.swift in Sources */,
 				625CEF642A65563100A82048 /* Connector.swift in Sources */,
 				62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */,
