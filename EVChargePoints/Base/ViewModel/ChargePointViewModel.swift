@@ -6,6 +6,7 @@
 //
 
 // import Observation
+import Foundation
 import SwiftUI
 
 // @Observable
@@ -14,6 +15,8 @@ final class ChargePointViewModel: ObservableObject {
     // MARK: - PROPERTIES
 
     @Published var chargeDevices: [ChargeDevice] = []
+    @Published var networkGraphics: [NetworkGraphic] = []
+
     @Published private(set) var error: NetworkManager.NetworkError?
     @Published private(set) var isLoading = false
     @Published var hasError = false
@@ -37,6 +40,27 @@ final class ChargePointViewModel: ObservableObject {
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
         self.chargeDevices = ChargePointData.mockChargeDevices
+        loadNetworkGraphics()
+    }
+
+    func loadNetworkGraphics() {
+        self.networkGraphics = try! StaticJSONMapper.decode(
+            file: "NetworkGraphics",
+            type: [NetworkGraphic].self
+        )
+    }
+
+    func getNetworkGraphicForAttribution(attribution: String) -> String {
+        let item = networkGraphics.first { $0.network == attribution }
+        guard let filename = item?.filename else { return "default-network-128x128" }
+        let fileURL = URL(string: filename)!
+        return fileURL.deletingPathExtension().lastPathComponent
+    }
+
+    func getNetworkDisplayName(attribution: String) -> String {
+        let item = networkGraphics.first { $0.network == attribution }
+        guard let displayName = item?.displayName else { return attribution }
+        return displayName
     }
 
     func createAddress(chargeDevice: ChargeDevice) -> Address {
