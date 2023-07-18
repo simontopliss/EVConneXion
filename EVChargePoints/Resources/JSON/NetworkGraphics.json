@@ -1,0 +1,412 @@
+[
+  {
+    "Network" : "*No Network",
+    "Filename" : "no-network-128x128.svg",
+    "DisplayName" : "No Network"
+  },
+  {
+    "Network" : "Alfa Power",
+    "Filename" : "alfa-power-128x128.svg",
+    "DisplayName" : "Alfa Power"
+  },
+  {
+    "Network" : "Allego",
+    "Filename" : "allego-128x128.svg",
+    "DisplayName" : "Allego"
+  },
+  {
+    "Network" : "Apetrel",
+    "Filename" : "apetrel-128x128.svg",
+    "DisplayName" : "Apetrel"
+  },
+  {
+    "Network" : "AW Energy",
+    "Filename" : "aw-energy-128x128.svg",
+    "DisplayName" : "AW Energy"
+  },
+  {
+    "Network" : "Be.EV",
+    "Filename" : "be-ev-128x128.svg",
+    "DisplayName" : "Be.EV"
+  },
+  {
+    "Network" : "Believ",
+    "Filename" : "believ-128x128.svg",
+    "DisplayName" : "Believ"
+  },
+  {
+    "Network" : "BP Pulse",
+    "Filename" : "bp-pulse-128x128.png",
+    "DisplayName" : "BP Pulse"
+  },
+  {
+    "Network" : "BP-Pulse (POLAR)",
+    "Filename" : "bp-pulse-128x128.png",
+    "DisplayName" : "BP-Pulse (POLAR)"
+  },
+  {
+    "Network" : "Bradford Metropolitan District Council",
+    "Filename" : "bradford-metropolitan-district-council-128x128.svg",
+    "DisplayName" : "Bradford Metropolitan District Council"
+  },
+  {
+    "Network" : "C3EV",
+    "Filename" : "c3ev-128x128.svg",
+    "DisplayName" : "C3EV"
+  },
+  {
+    "Network" : "Car charged UK ltd",
+    "Filename" : "car-charged-128x128.svg",
+    "DisplayName" : "Car Charged UK"
+  },
+  {
+    "Network" : "Char.gy",
+    "Filename" : "char-gy-128x128.svg",
+    "DisplayName" : "Char.gy"
+  },
+  {
+    "Network" : "Charge my Street",
+    "Filename" : "charge-my-street-128x128.svg",
+    "DisplayName" : "Charge My Street"
+  },
+  {
+    "Network" : "Charge Your Car",
+    "Filename" : "charge-your-car-128x128.png",
+    "DisplayName" : "Charge Your Car"
+  },
+  {
+    "Network" : "ChargePlace Scotland",
+    "Filename" : "chargeplace-scotland-128x128.svg",
+    "DisplayName" : "ChargePlace Scotland"
+  },
+  {
+    "Network" : "ChargePoint Network (Netherlands) B.V.",
+    "Filename" : "chargepoint-network-128x128.svg",
+    "DisplayName" : "ChargePoint Network"
+  },
+  {
+    "Network" : "Cheshire East Council",
+    "Filename" : "cheshire-east-council-128x128.svg",
+    "DisplayName" : "Cheshire East Council"
+  },
+  {
+    "Network" : "City EV",
+    "Filename" : "city-ev-128x128.svg",
+    "DisplayName" : "City EV"
+  },
+  {
+    "Network" : "Clenergy EV",
+    "Filename" : "clenergy-ev-128x128.svg",
+    "DisplayName" : "Clenergy EV"
+  },
+  {
+    "Network" : "Connected Kerb",
+    "Filename" : "connected-kerb-128x128.svg",
+    "DisplayName" : "Connected Kerb"
+  },
+  {
+    "Network" : "Cotswold District Council",
+    "Filename" : "cotswold-district-council-128x128.svg",
+    "DisplayName" : "Cotswold District Council"
+  },
+  {
+    "Network" : "D2N2",
+    "Filename" : "d2n2-128x128.svg",
+    "DisplayName" : "D2N2"
+  },
+  {
+    "Network" : "Dragon Charging Network",
+    "Filename" : "dragon-charging-network-128x128.png",
+    "DisplayName" : "Dragon Charging Network"
+  },
+  {
+    "Network" : "Drax Energy Solutions Limited",
+    "Filename" : "drax-128x128.svg",
+    "DisplayName" : "Drax Energy Solutions"
+  },
+  {
+    "Network" : "Dumfries & Galloway Council",
+    "Filename" : "dumfries-galloway-council-128x128.svg",
+    "DisplayName" : "Dumfries & Galloway Council"
+  },
+  {
+    "Network" : "Dundee City Council",
+    "Filename" : "dundee-city-council-128x128.svg",
+    "DisplayName" : "Dundee City Council"
+  },
+  {
+    "Network" : "E.ON Drive",
+    "Filename" : "eon-drive-128x128.svg",
+    "DisplayName" : "E.ON Drive"
+  },
+  {
+    "Network" : "East Lothian Council",
+    "Filename" : "east-lothian-council-128x128.svg",
+    "DisplayName" : "East Lothian Council"
+  },
+  {
+    "Network" : "EB Charging",
+    "Filename" : "blink-128x128.svg",
+    "DisplayName" : "EB Charging"
+  },
+  {
+    "Network" : "ecars ESB",
+    "Filename" : "ecars-esb-128x128.svg",
+    "DisplayName" : "ecars ESB"
+  },
+  {
+    "Network" : "ENGIE Charge Network",
+    "Filename" : "engie-charge-network-128x128.svg",
+    "DisplayName" : "ENGIE Charge Network"
+  },
+  {
+    "Network" : "eo Charging",
+    "Filename" : "eo-charging-128x128.svg",
+    "DisplayName" : "eo Charging"
+  },
+  {
+    "Network" : "Equans EV Solutions",
+    "Filename" : "equans-ev-solutions-128x128.png",
+    "DisplayName" : "Equans EV Solutions"
+  },
+  {
+    "Network" : "ESB EV Solutions",
+    "Filename" : "esb-ev-solutions-128x128.svg",
+    "DisplayName" : "ESB EV Solutions"
+  },
+  {
+    "Network" : "Essex County Council",
+    "Filename" : "essex-county-council-128x128.svg",
+    "DisplayName" : "Essex County Council"
+  },
+  {
+    "Network" : "EV-Dot",
+    "Filename" : "ev-dot-128x128.svg",
+    "DisplayName" : "EV-Dot"
+  },
+  {
+    "Network" : "EZ-Charge",
+    "Filename" : "ez-charge-128x128.svg",
+    "DisplayName" : "EZ-Charge"
+  },
+  {
+    "Network" : "Fastned",
+    "Filename" : "fastned-128x128.svg",
+    "DisplayName" : "Fastned"
+  },
+  {
+    "Network" : "First Group",
+    "Filename" : "first-group-128x128.svg",
+    "DisplayName" : "First Group"
+  },
+  {
+    "Network" : "Green Mile Charging Co Ltd",
+    "Filename" : "green-mile-charging-128x128.svg",
+    "DisplayName" : "Green Mile Charging Co"
+  },
+  {
+    "Network" : "GRIDSERVE Sustainable Energy",
+    "Filename" : "gridserve-sustainable-energy-128x128.svg",
+    "DisplayName" : "GRIDSERVE Sustainable Energy"
+  },
+  {
+    "Network" : "Heathrow Airport Limited",
+    "Filename" : "heathrow-airport-128x128.svg",
+    "DisplayName" : "Heathrow Airport"
+  },
+  {
+    "Network" : "Hubsta",
+    "Filename" : "hubsta-128x128.svg",
+    "DisplayName" : "Hubsta"
+  },
+  {
+    "Network" : "InstaVolt Ltd",
+    "Filename" : "instavolt-128x128.svg",
+    "DisplayName" : "InstaVolt"
+  },
+  {
+    "Network" : "IONITY GmbH",
+    "Filename" : "ionity128x128.svg",
+    "DisplayName" : "IONITY GmbH"
+  },
+  {
+    "Network" : "Kent County Council",
+    "Filename" : "kent-county-council-128x128.svg",
+    "DisplayName" : "Kent County Council"
+  },
+  {
+    "Network" : "Lancaster City Council",
+    "Filename" : "lancaster-city-council-128x128.svg",
+    "DisplayName" : "Lancaster City Council"
+  },
+  {
+    "Network" : "London Borough of Ealing",
+    "Filename" : "london-borough-of-ealing-128x128.svg",
+    "DisplayName" : "London Borough of Ealing"
+  },
+  {
+    "Network" : "London Borough of Hackney",
+    "Filename" : "london-borough-of-hackney-128x128.svg",
+    "DisplayName" : "London Borough of Hackney"
+  },
+  {
+    "Network" : "Luton Borough Council",
+    "Filename" : "luton-borough-council-128x128.svg",
+    "DisplayName" : "Luton Borough Council"
+  },
+  {
+    "Network" : "Mer",
+    "Filename" : "mer-128x128.svg",
+    "DisplayName" : "Mer"
+  },
+  {
+    "Network" : "Merseytravel",
+    "Filename" : "merseytravel-128x128.svg",
+    "DisplayName" : "Merseytravel"
+  },
+  {
+    "Network" : "Milton Keynes",
+    "Filename" : "milton-keynes-128x128.svg",
+    "DisplayName" : "Milton Keynes"
+  },
+  {
+    "Network" : "MiPermit",
+    "Filename" : "mipermit-128x128.svg",
+    "DisplayName" : "MiPermit"
+  },
+  {
+    "Network" : "NI Public Sector",
+    "Filename" : "ni-public-sector-128x128.svg",
+    "DisplayName" : "NI Public Sector"
+  },
+  {
+    "Network" : "Nissan",
+    "Filename" : "nissan-128x128.svg",
+    "DisplayName" : "Nissan"
+  },
+  {
+    "Network" : "Osprey",
+    "Filename" : "osprey-128x128.svg",
+    "DisplayName" : "Osprey"
+  },
+  {
+    "Network" : "Pilot Group EV Charging Solutions",
+    "Filename" : "pilot-group-ev-charging-solutions-128x128.svg",
+    "DisplayName" : "Pilot Group EV Charging Solutions"
+  },
+  {
+    "Network" : "Plug N Go Ltd",
+    "Filename" : "plug-n-go-128x128.svg",
+    "DisplayName" : "Plug N Go"
+  },
+  {
+    "Network" : "Plugged-in Midlands",
+    "Filename" : "plugged-in-midlands-128x128.svg",
+    "DisplayName" : "Plugged-in Midlands"
+  },
+  {
+    "Network" : "POD Point",
+    "Filename" : "pod-point-128x128.svg",
+    "DisplayName" : "POD Point"
+  },
+  {
+    "Network" : "Project EV",
+    "Filename" : "project-ev-128x128.svg",
+    "DisplayName" : "Project EV"
+  },
+  {
+    "Network" : "RAW Infrastructure Ltd",
+    "Filename" : "raw-infrastructure-128x128.svg",
+    "DisplayName" : "RAW Infrastructure"
+  },
+  {
+    "Network" : "ScottishPower",
+    "Filename" : "scottishpower-128x128.svg",
+    "DisplayName" : "ScottishPower"
+  },
+  {
+    "Network" : "Shell Recharge Solutions",
+    "Filename" : "shell-recharge-128x128.svg",
+    "DisplayName" : "Shell Recharge Solutions"
+  },
+  {
+    "Network" : "Shell Recharge",
+    "Filename" : "shell-recharge-128x128.svg",
+    "DisplayName" : "Shell Recharge"
+  },
+  {
+    "Network" : "Somerset West And Taunton District Council",
+    "Filename" : "somerset-west-and-taunton-district-council-128x128.svg",
+    "DisplayName" : "Somerset West & Taunton District Council"
+  },
+  {
+    "Network" : "Source London",
+    "Filename" : "source-london-128x128.svg",
+    "DisplayName" : "Source London"
+  },
+  {
+    "Network" : "Source West",
+    "Filename" : "revive-128x128.png",
+    "DisplayName" : "Source West"
+  },
+  {
+    "Network" : "South Tyneside Council",
+    "Filename" : "south-tyneside-council-128x128.svg",
+    "DisplayName" : "South Tyneside Council"
+  },
+  {
+    "Network" : "SSE Energy Solutions",
+    "Filename" : "sse-128x128.svg",
+    "DisplayName" : "SSE Energy Solutions"
+  },
+  {
+    "Network" : "SSE",
+    "Filename" : "sse-128x128.svg",
+    "DisplayName" : "SSE"
+  },
+  {
+    "Network" : "SureCharge\/FM Conway",
+    "Filename" : "surecharge-fm-conway-128x128.svg",
+    "DisplayName" : "SureCharge\/FM Conway"
+  },
+  {
+    "Network" : "Swarco E.Connect",
+    "Filename" : "swarco-e.connect-128x128.svg",
+    "DisplayName" : "Swarco E.Connect"
+  },
+  {
+    "Network" : "The GeniePoint Network",
+    "Filename" : "the-geniepoint-network-128x128.svg",
+    "DisplayName" : "The GeniePoint Network"
+  },
+  {
+    "Network" : "Tonik Energy",
+    "Filename" : "tonik-energy-128x128.svg",
+    "DisplayName" : "Tonik Energy"
+  },
+  {
+    "Network" : "ubitricity",
+    "Filename" : "ubitricity-128x128.svg",
+    "DisplayName" : "ubitricity"
+  },
+  {
+    "Network" : "VendElectric",
+    "Filename" : "vendelectric-128x128.svg",
+    "DisplayName" : "VendElectric"
+  },
+  {
+    "Network" : "Wattif EV UK Limited",
+    "Filename" : "wattif-ev-uk-128x128.svg",
+    "DisplayName" : "Wattif EV"
+  },
+  {
+    "Network" : "York City Council",
+    "Filename" : "york-city-council-128x128.svg",
+    "DisplayName" : "York City Council"
+  },
+  {
+    "Network" : "Zest",
+    "Filename" : "zest-128x128.svg",
+    "DisplayName" : "Zest"
+  }
+]
