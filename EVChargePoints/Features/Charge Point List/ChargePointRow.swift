@@ -32,7 +32,7 @@ struct ChargePointRow: View {
                 .font(.caption)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
 
-            Text(chargeDevice.attribution)
+            Text(vm.getNetworkDisplayName(attribution: chargeDevice.attribution))
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
