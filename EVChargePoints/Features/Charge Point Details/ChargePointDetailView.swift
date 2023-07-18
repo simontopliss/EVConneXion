@@ -19,7 +19,7 @@ struct ChargePointDetailView: View {
         Form {
             LocationSection(chargeDevice: chargeDevice, address: address)
             ParkingSection(chargeDevice: chargeDevice)
-            PaymentSection(chargeDevice: chargeDevice)
+            PaymentSection(chargeDevice: chargeDevice, vm: vm)
         }
         .navigationTitle(chargeDevice.chargeDeviceName)
         .navigationBarTitleDisplayMode(.inline)
@@ -97,15 +97,22 @@ struct ParkingSection: View {
 
 struct PaymentSection: View {
     let chargeDevice: ChargeDevice
+    let vm: ChargePointViewModel
 
     var body: some View {
         Section("PAYMENT") {
             LabeledContent {
-                FormText(text: chargeDevice.attribution)
+                HStack {
+                    Image(vm.getNetworkGraphicForAttribution(attribution: chargeDevice.attribution))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 44, alignment: .leading)
+                    FormText(text: vm.getNetworkDisplayName(attribution: chargeDevice.attribution))
+                        .fontWeight(.semibold)
+                }
             } label: {
                 FormLabel(label: "NETWORK")
             }
-
 
             LabeledContent {
                 FormText(text: chargeDevice.paymentRequiredFlag ? Symbols.no : Symbols.yes)
