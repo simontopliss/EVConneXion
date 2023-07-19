@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ChargePointDetailView: View {
 
+    enum SelectedView: String {
+        case information = "Information"
+        case devices = "Devices"
+    }
+
+    @State private var selectedView: SelectedView = .information
+
     let vm: ChargePointViewModel
     let chargeDevice: ChargeDevice
     var address: Address {
@@ -16,10 +23,22 @@ struct ChargePointDetailView: View {
     }
 
     var body: some View {
-        Form {
-            LocationSection(chargeDevice: chargeDevice, address: address)
-            ParkingSection(chargeDevice: chargeDevice)
-            PaymentSection(chargeDevice: chargeDevice, vm: vm)
+        VStack {
+            Picker("Selected View", selection: $selectedView) {
+                Text(SelectedView.information.rawValue)
+                    .tag(SelectedView.information)
+                Text(SelectedView.devices.rawValue)
+                    .tag(SelectedView.devices)
+            }
+            .pickerStyle(.segmented)
+            .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
+
+            withAnimation {
+                selectedView == .information
+                ? AnyView(ChargePointInfoView(vm: vm, chargeDevice: chargeDevice))
+                : AnyView(ChargePointDevicesView(vm: vm, chargeDevice: chargeDevice))
+            }
+            Spacer()
         }
         .navigationTitle(chargeDevice.chargeDeviceName)
         .navigationBarTitleDisplayMode(.inline)
@@ -31,104 +50,9 @@ struct ChargePointDetailView: View {
         vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
+    // .colorScheme(.dark)
+    .embedInNavigation()
     .environmentObject(ChargePointViewModel())
-}
-
-struct LocationSection: View {
-    let chargeDevice: ChargeDevice
-    let address: Address
-
-    var body: some View {
-        Section("LOCATION") {
-            LabeledContent {
-                FormText(text: chargeDevice.locationType.rawValue)
-            } label: {
-                FormLabel(label: "TYPE")
-            }
-
-            LabeledContent {
-                FormText(text: address.fullAddress)
-            } label: {
-                FormLabel(label: "ADDRESS")
-            }
-        }
-    }
-}
-
-struct ParkingSection: View {
-    let chargeDevice: ChargeDevice
-
-    var validSection: Bool {
-        Validator.isValid(chargeDevice.parkingFeesDetails) || Validator.isValid(chargeDevice.accessRestrictionDetails) || Validator.isValid(chargeDevice.physicalRestrictionText) ? true : false
-    }
-
-    var body: some View {
-        if validSection {
-            Section("PARKING") {
-                if Validator.isValid(chargeDevice.parkingFeesDetails) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.parkingFeesDetails!)
-                    } label: {
-                        FormLabel(label: "DETAILS")
-                    }
-                }
-                
-                if Validator.isValid(chargeDevice.accessRestrictionDetails) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.accessRestrictionDetails!)
-                    } label: {
-                        FormLabel(label: "ACCESS")
-                    }
-                }
-                
-                if Validator.isValid(chargeDevice.physicalRestrictionText) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.physicalRestrictionText!)
-                    } label: {
-                        FormLabel(label: "RESTRICTIONS")
-                    }
-                }
-            }
-        } else {
-            EmptyView()
-        }
-    }
-}
-
-struct PaymentSection: View {
-    let chargeDevice: ChargeDevice
-    let vm: ChargePointViewModel
-
-    var body: some View {
-        Section("PAYMENT") {
-            LabeledContent {
-                HStack {
-                    Image(vm.getNetworkGraphicForAttribution(attribution: chargeDevice.attribution))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxHeight: 44, alignment: .leading)
-                    FormText(text: vm.getNetworkDisplayName(attribution: chargeDevice.attribution))
-                        .fontWeight(.semibold)
-                }
-            } label: {
-                FormLabel(label: "NETWORK")
-            }
-
-            LabeledContent {
-                FormText(text: chargeDevice.paymentRequiredFlag ? Symbols.no : Symbols.yes)
-            } label: {
-                FormLabel(label: "FREE TO USE")
-            }
-            
-            if Validator.isValid(chargeDevice.paymentDetails) {
-                LabeledContent {
-                    FormText(text: chargeDevice.paymentDetails!)
-                } label: {
-                    FormLabel(label: "DETAILS")
-                }
-            }
-        }
-    }
 }
 
 struct FormText: View {
@@ -147,11 +71,12 @@ struct FormLabel: View {
     let label: String
 
     var body: some View {
-        Text(label)
-            .font(.subheadline)
-            .multilineTextAlignment(.leading)
-            .frame(width: 80, alignment: .leading)
+        VStack {
+            Text(label)
+                .font(.subheadline)
+                .multilineTextAlignment(.leading)
+                .frame(width: 90, alignment: .leading)
             .foregroundColor(.secondary)
+        }
     }
 }
-
