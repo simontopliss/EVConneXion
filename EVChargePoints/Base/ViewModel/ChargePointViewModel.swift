@@ -24,6 +24,7 @@ final class ChargePointViewModel: ObservableObject {
     private(set) var address: Address?
 
     // MARK: - FILTERS
+
     // TODO: Need to be able to choose 1 or multiple connector types
     // API can only search for 1 at a time, so filter results instead
     // private var connectorTypes = ConnectorType.allCases
@@ -39,42 +40,93 @@ final class ChargePointViewModel: ObservableObject {
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
-        self.chargeDevices = ChargePointData.mockChargeDevices
+        chargeDevices = ChargePointData.mockChargeDevices
         loadNetworkGraphics()
     }
 
+    // MARK: - Address formatting
+
+    func createAddress(chargeDevice: ChargeDevice) -> Address {
+        address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
+        return address!
+    }
+
+    // MARK: - Network Graphics
+
+    /// Loads the network graphics from a JSON file
     func loadNetworkGraphics() {
-        self.networkGraphics = try! StaticJSONMapper.decode(
+        networkGraphics = try! StaticJSONMapper.decode(
             file: "NetworkGraphics",
             type: [NetworkGraphic].self
         )
     }
 
-    func getNetworkGraphicForAttribution(attribution: String) -> String {
+    /// Split networks separated by comma if there's multiple
+    /// - Parameter deviceNetworks: String
+    /// - Returns: array of Strings
+    func separate(deviceNetworks: String) -> [String] {
+        var networks: [String] = []
+        if deviceNetworks.contains(",") {
+            networks = deviceNetworks.components(separatedBy: ",")
+        } else {
+            networks = [deviceNetworks]
+        }
+        return networks
+    }
+
+    /// Separates a comma-separated string of device networks by separator
+    /// - Parameters:
+    ///   - deviceNetworks: String
+    ///   - by: the String to separate by
+    /// - Returns: an array of Strings
+    func separate(deviceNetworks: String, by: String) -> String {
+        let networks = separate(deviceNetworks: deviceNetworks)
+        var displayNames: [String] = []
+        for network in networks {
+            displayNames.append(displayNameFor(network: network))
+        }
+        return displayNames.joined(separator: by)
+    }
+
+    /// Description returns the svg or png for a given attribution
+    /// - Parameter attribution: String
+    /// - Returns: name of the corresponding network graphic from NetworkGraphics.json
+    func networkGraphicFor(attribution: String) -> String {
         let item = networkGraphics.first { $0.network == attribution }
         guard let filename = item?.filename else { return "default-network-128x128" }
         let fileURL = URL(string: filename)!
         return fileURL.deletingPathExtension().lastPathComponent
     }
 
-    func getNetworkDisplayName(attribution: String) -> String {
-        let item = networkGraphics.first { $0.network == attribution }
-        guard let displayName = item?.displayName else { return attribution }
+    /// Description returns the svg or png for a given attribution
+    /// - Parameter network: network String
+    /// - Returns: name of the corresponding network graphic from NetworkGraphics.json
+    func networkGraphicFor(network: String) -> String {
+        let item = networkGraphics.first { $0.network == network }
+        guard let filename = item?.filename else { return "default-network-128x128" }
+        let fileURL = URL(string: filename)!
+        return fileURL.deletingPathExtension().lastPathComponent
+    }
+
+    /// Gets the shortened display name for a network
+    /// - Parameter network: network String
+    /// - Returns: the shorter display name from NetworkGraphics.json
+    func displayNameFor(network: String) -> String {
+        let item = networkGraphics.first { $0.network == network }
+        guard let displayName = item?.displayName else { return network }
         return displayName
     }
 
-    func createAddress(chargeDevice: ChargeDevice) -> Address {
-        self.address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
-        return address!
-    }
-
-    func getConnectorGraphicsAndCounts(connectors: [Connector]) -> [ConnectorGraphic] {
+    /// Returns the connector graphics and total for each connector
+    /// - Parameter connectors: array connectors of a charge device
+    /// - Returns: Array of structs of ConnectorGraphic
+    func graphicsAndCountsFor(connectors: [Connector]) -> [ConnectorGraphic] {
 
         var connectorGraphics: [String] = []
         var connectorGraphicsAndCounts: [ConnectorGraphic] = []
 
         for connector in connectors {
-            let connectorType = connector.connectorType.rawValue// + ".svg"
+            let connectorType = connector.connectorType.rawValue // + ".svg"
             if connectorGraphics.contains(connectorType) {
                 for index in 0...connectorGraphicsAndCounts.count - 1 {
                     if connectorGraphicsAndCounts[index].name == connectorType {
@@ -90,6 +142,8 @@ final class ChargePointViewModel: ObservableObject {
         // dump(connectorGraphicsAndCounts)
         return connectorGraphicsAndCounts
     }
+
+    // MARK: - API Call
 
     @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
