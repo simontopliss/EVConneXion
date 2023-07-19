@@ -24,17 +24,17 @@ struct ChargePointRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(chargeDevice.chargeDeviceName)
+            Text(chargeDevice.chargeDeviceName.trim())
                 .font(.title2)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
                 .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
 
-            Text("Ref: \(chargeDevice.chargeDeviceRef)")
+            Text("Ref: \(chargeDevice.chargeDeviceRef.trim())")
                 .font(.caption)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
 
-            Text(vm.separate(deviceNetworks: chargeDevice.deviceNetworks, by: "\n"))
+            Text(vm.separate(deviceNetworks: chargeDevice.deviceNetworks, by: ",\n"))
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
@@ -53,6 +53,7 @@ struct ChargePointRow: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         .frame(height: 22)
+                        .shadow(color: .secondary, radius: 3.0)
 
                         Text("\(connector.count)")
                             .font(.footnote)
@@ -75,6 +76,7 @@ struct ChargePointRow: View {
         vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .colorScheme(.dark)
+    //.colorScheme(.dark)
+    .background(Colors.backgroundColor)
     .padding()
 }
