@@ -159,7 +159,7 @@ struct ConnectionSection: View {
 
             LabeledContent {
                 // TODO: replace with coloured indicator
-                FormText(text: connector.tetheredCable.rawValue == "1" ? "Yes" : "No")
+                FormText(text: connector.tetheredCable.rawValue == "1" ? Symbols.no : Symbols.yes)
             } label: {
                 FormLabel(label: "TETHERED")
             }
