@@ -15,7 +15,7 @@ struct ChargePointListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 12) {
+                LazyVStack(alignment: .leading, spacing: 18) {
                     ForEach(vm.chargeDevices) { chargeDevice in
                         NavigationLink(value: chargeDevice) {
                             ChargePointRow(vm: vm, chargeDevice: chargeDevice)
