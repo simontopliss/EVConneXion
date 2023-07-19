@@ -1,0 +1,108 @@
+{
+    "Scheme": {
+        "SchemeCode": "NA",
+        "SchemeData": {
+            "OrganisationName": "NA",
+            "Website": "NA",
+            "TelephoneNo": "NA"
+        }
+    },
+    "ChargeDevice": [
+        {
+            "ChargeDeviceId": "9ac27aee2780395f9c2dea0ab968697c",
+            "ChargeDeviceRef": "DC020-1",
+            "ChargeDeviceName": "Tenby MSCP",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "51.671502",
+                "Longitude": "-4.703526",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "",
+                    "BuildingNumber": "",
+                    "Thoroughfare": "Tenby MSCP, Upper Park Road",
+                    "Street": "",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Tenby",
+                    "County": "Pembrokeshire",
+                    "PostCode": "SA70 7LT",
+                    "Country": "gb",
+                    "UPRN": ""
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": ""
+            },
+            "ChargeDeviceManufacturer": "ENSTO",
+            "ChargeDeviceModel": "Chago Pro (EVF)",
+            "PublishStatusID": "1",
+            "DateCreated": "2019-04-04 15:12:01",
+            "DateUpdated": "2020-09-15 07:22:00",
+            "Attribution": "Dragon Charging Network",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "2",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "Equans EV Solutions",
+                "SchemeCode": "evsolut",
+                "Website": "https://www.equans.co.uk/ev-solutions",
+                "TelephoneNo": "02035984087"
+            },
+            "DeviceController": {
+                "OrganisationName": "Equans EV Solutions",
+                "SchemeCode": "C222",
+                "Website": "https://www.equans.co.uk/ev-solutions",
+                "TelephoneNo": "02035984087"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "Dragon Charging Network,The GeniePoint Network",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "Y",
+            "RecordLastUpdated": "2020-09-15 08:22:00",
+            "RecordLastUpdatedBy": "Equans EV Solutions",
+            "PaymentRequiredFlag": true,
+            "PaymentDetails": "visit www.geniepoint.co.uk",
+            "SubscriptionRequiredFlag": false,
+            "SubscriptionDetails": "",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": "visit www.geniepoint.co.uk",
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": "",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "Public car park",
+            "Bearing": null,
+            "Accessible24Hours": false
+        }
+    ]
+}
