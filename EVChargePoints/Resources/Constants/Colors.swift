@@ -9,4 +9,5 @@ import SwiftUI
 
 enum Colors {
     static let textColor = Color("TextColor")
+    static let backgroundColor = Color("BackgroundColor")
 }
