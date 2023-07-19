@@ -13,7 +13,7 @@ struct ChargePointListView: View {
     @State private var path: NavigationPath = .init()
 
     var body: some View {
-        NavigationStack() {
+        NavigationStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     ForEach(vm.chargeDevices) { chargeDevice in
@@ -28,14 +28,14 @@ struct ChargePointListView: View {
             .navigationTitle("Charge Devices")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: ChargeDevice.self) { chargeDevice in
-                    ChargePointDetailView(vm: vm, chargeDevice: chargeDevice)
+                ChargePointDetailView(vm: vm, chargeDevice: chargeDevice)
             }
             .buttonStyle(PlainButtonStyle())
         }
-//        .task {
-//            await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
-            // await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
-//        }
+        // .task {
+        //      await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
+        //      await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
+        // }
     }
 }
 
