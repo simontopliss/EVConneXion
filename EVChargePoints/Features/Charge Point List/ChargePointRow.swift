@@ -9,16 +9,18 @@ import SwiftUI
 
 struct ChargePointRow: View {
 
+    @Environment(\.colorScheme) var colorScheme
+
     var vm: ChargePointViewModel
     var chargeDevice: ChargeDevice
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
     }
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
-        vm.getConnectorGraphicsAndCounts(connectors: chargeDevice.connector)
+        vm.graphicsAndCountsFor(connectors: chargeDevice.connector)
     }
 
-    let inset = 8.0
+    let inset = 12.0
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,7 +34,7 @@ struct ChargePointRow: View {
                 .font(.caption)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
 
-            Text(vm.getNetworkDisplayName(attribution: chargeDevice.attribution))
+            Text(vm.separate(deviceNetworks: chargeDevice.deviceNetworks, by: "\n"))
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
@@ -64,7 +66,7 @@ struct ChargePointRow: View {
         }
         .foregroundColor(Colors.textColor)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.quaternary, in: RoundedRectangle(cornerRadius: 8))
+        .background(colorScheme == .dark ? .black : .white, in: RoundedRectangle(cornerRadius: 8))
     }
 }
 
@@ -73,5 +75,6 @@ struct ChargePointRow: View {
         vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
+    .colorScheme(.dark)
     .padding()
 }
