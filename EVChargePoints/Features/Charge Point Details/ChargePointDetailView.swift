@@ -59,7 +59,7 @@ struct FormText: View {
     let text: String
 
     var body: some View {
-        Text(text)
+        Text(LocalizedStringKey(text.trim()))
             .font(.subheadline)
             .multilineTextAlignment(.leading)
             .foregroundColor(Colors.textColor)
