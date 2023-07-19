@@ -35,9 +35,9 @@ struct DeviceOwnerSection: View {
 
     var validSection: Bool {
         Validator.isValid(deviceOwner.organisationName) ||
-            Validator.isValid(deviceOwner.schemeCode) ||
-            Validator.isValid(deviceOwner.website) ||
-            Validator.isValid(deviceOwner.telephoneNo) ? true : false
+        Validator.isValid(deviceOwner.schemeCode, forType: .schemeCode) ||
+        Validator.isValid(deviceOwner.website, forType: .website) ||
+        Validator.isValid(deviceOwner.telephoneNo, forType: .telephoneNo) ? true : false
     }
 
     var body: some View {
@@ -52,7 +52,7 @@ struct DeviceOwnerSection: View {
                     }
                 }
 
-                if Validator.isValid(deviceOwner.schemeCode) {
+                if Validator.isValid(deviceOwner.schemeCode, forType: .schemeCode) {
                     LabeledContent {
                         FormText(text: deviceOwner.schemeCode)
                     } label: {
@@ -60,16 +60,16 @@ struct DeviceOwnerSection: View {
                     }
                 }
 
-                if Validator.isValid(deviceOwner.website) {
+                if Validator.isValid(deviceOwner.website, forType: .website) {
                     LabeledContent {
                         // TODO: Make into link
-                        FormText(text: deviceOwner.website)
+                         FormText(text: deviceOwner.website)
                     } label: {
                         FormLabel(label: "WEB SITE")
                     }
                 }
 
-                if Validator.isValid(deviceOwner.telephoneNo) {
+                if Validator.isValid(deviceOwner.telephoneNo, forType: .telephoneNo) {
                     LabeledContent {
                         // TODO: Make into telephone link
                         FormText(text: deviceOwner.telephoneNo)
@@ -149,8 +149,8 @@ struct ConnectionSection: View {
                         .fill(
                             connector.chargePointStatus.rawValue == "Out of service" ? .red : .green
                         )
-                        .shadow(color: .secondary, radius: 3.0)
-                        .frame(width: 12, height: 12, alignment: .leading)
+                        .shadow(color: .secondary, radius: 4.0)
+                        .frame(height: 12)
                     Spacer()
                 }
             } label: {
