@@ -10,8 +10,8 @@ import SwiftUI
 struct ChargePointRow: View {
 
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var vm: ChargePointViewModel
 
-    var vm: ChargePointViewModel
     var chargeDevice: ChargeDevice
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
@@ -73,9 +73,9 @@ struct ChargePointRow: View {
 
 #Preview {
     ChargePointRow(
-        vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
+    .environmentObject(ChargePointViewModel())
     //.colorScheme(.dark)
     .background(Colors.backgroundColor)
     .padding()

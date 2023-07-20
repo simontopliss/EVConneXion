@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct RoutesView: View {
+
+    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var routerManager: NavigationRouter
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, RoutesView!")
     }
 }
 
 #Preview {
     RoutesView()
+        .environmentObject(ChargePointViewModel())
+        .environmentObject(NavigationRouter())
 }

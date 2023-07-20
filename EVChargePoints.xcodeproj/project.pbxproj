@@ -43,6 +43,8 @@
 		62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718BA62A53314B004F0168 /* NetworkManagerFailureMock.swift */; };
 		62718BAB2A5332D6004F0168 /* UITestingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718BAA2A5332D6004F0168 /* UITestingHelper.swift */; };
 		62718BAF2A533B3F004F0168 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */; };
+		627531D92A6946E000F0D8A6 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531D82A6946E000F0D8A6 /* NavigationRouter.swift */; };
+		627531DB2A69470800F0D8A6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531DA2A69470800F0D8A6 /* Route.swift */; };
 		628C330E2A61C80300232351 /* HU17 0RX - 10 milles.json in Resources */ = {isa = PBXBuildFile; fileRef = 628C330D2A61C80300232351 /* HU17 0RX - 10 milles.json */; };
 		628C33102A61E8AE00232351 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C330F2A61E8AE00232351 /* Address.swift */; };
 		628C33132A61E91A00232351 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C33122A61E91A00232351 /* String+Ext.swift */; };
@@ -110,6 +112,8 @@
 		62718BA62A53314B004F0168 /* NetworkManagerFailureMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerFailureMock.swift; sourceTree = "<group>"; };
 		62718BAA2A5332D6004F0168 /* UITestingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITestingHelper.swift; sourceTree = "<group>"; };
 		62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		627531D82A6946E000F0D8A6 /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		627531DA2A69470800F0D8A6 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		628C330D2A61C80300232351 /* HU17 0RX - 10 milles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "HU17 0RX - 10 milles.json"; sourceTree = "<group>"; };
 		628C330F2A61E8AE00232351 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		628C33122A61E91A00232351 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				621A70432A3B3BC800A04669 /* EVChargePointsApp.swift */,
+				627531D72A6946CC00F0D8A6 /* Navigation */,
 				62718BA22A533076004F0168 /* Mocks */,
 				62718BA92A5332D6004F0168 /* UITesting */,
 				6223CA4D2A3CFD4D00A87875 /* Features */,
@@ -368,6 +373,15 @@
 				62718BAA2A5332D6004F0168 /* UITestingHelper.swift */,
 			);
 			path = UITesting;
+			sourceTree = "<group>";
+		};
+		627531D72A6946CC00F0D8A6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				627531D82A6946E000F0D8A6 /* NavigationRouter.swift */,
+				627531DA2A69470800F0D8A6 /* Route.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		628C33112A61E90400232351 /* Extensions */ = {
@@ -610,6 +624,7 @@
 				625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */,
 				628C33132A61E91A00232351 /* String+Ext.swift in Sources */,
 				621A70462A3B3BC800A04669 /* ChargePointListView.swift in Sources */,
+				627531DB2A69470800F0D8A6 /* Route.swift in Sources */,
 				62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */,
 				625CEF6E2A65648C00A82048 /* Validator.swift in Sources */,
 				626810452A616A020032C3CA /* MockChargePoints.swift in Sources */,
@@ -620,6 +635,7 @@
 				625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */,
 				625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */,
 				625CEF622A6555B900A82048 /* LocationType.swift in Sources */,
+				627531D92A6946E000F0D8A6 /* NavigationRouter.swift in Sources */,
 				62B32CB72A4DCDD900C6E8DF /* RoutesView.swift in Sources */,
 				625CEF682A65569400A82048 /* DeviceController.swift in Sources */,
 				62C9F6642A68044800151FB4 /* ChargePointInfoView.swift in Sources */,

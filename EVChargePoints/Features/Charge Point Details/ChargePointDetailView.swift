@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChargePointDetailView: View {
 
+    @EnvironmentObject private var vm: ChargePointViewModel
+
     enum SelectedView: String {
         case information = "Information"
         case devices = "Devices"
@@ -16,7 +18,6 @@ struct ChargePointDetailView: View {
 
     @State private var selectedView: SelectedView = .information
 
-    let vm: ChargePointViewModel
     let chargeDevice: ChargeDevice
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
@@ -33,11 +34,12 @@ struct ChargePointDetailView: View {
             .pickerStyle(.segmented)
             .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
 
-            withAnimation {
-                selectedView == .information
-                ? AnyView(ChargePointInfoView(vm: vm, chargeDevice: chargeDevice))
-                : AnyView(ChargePointDevicesView(vm: vm, chargeDevice: chargeDevice))
+            if selectedView == .information {
+                ChargePointInfoView(chargeDevice: chargeDevice)
+            } else {
+                ChargePointDevicesView(chargeDevice: chargeDevice)
             }
+
             Spacer()
         }
         .navigationTitle(chargeDevice.chargeDeviceName)
@@ -46,12 +48,11 @@ struct ChargePointDetailView: View {
 }
 
 #Preview {
-    ChargePointDetailView(
-        vm: ChargePointViewModel(),
-        chargeDevice: ChargePointData.mockChargeDevice
-    )
-    // .colorScheme(.dark)
-    .embedInNavigation()
+    NavigationStack {
+        ChargePointDetailView(
+            chargeDevice: ChargePointData.mockChargeDevice
+        )
+    }
     .environmentObject(ChargePointViewModel())
 }
 

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChargePointInfoView: View {
 
-    let vm: ChargePointViewModel
+    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var routerManager: NavigationRouter
+
     let chargeDevice: ChargeDevice
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
@@ -19,17 +21,17 @@ struct ChargePointInfoView: View {
         Form {
             LocationSection(chargeDevice: chargeDevice, address: address)
             ParkingSection(chargeDevice: chargeDevice)
-            PaymentSection(chargeDevice: chargeDevice, vm: vm)
+            PaymentSection(chargeDevice: chargeDevice)
         }
     }
 }
 
 #Preview {
     ChargePointInfoView(
-        vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
     .environmentObject(ChargePointViewModel())
+    .environmentObject(NavigationRouter())
 }
 
 struct LocationSection: View {
@@ -97,8 +99,9 @@ struct ParkingSection: View {
 }
 
 struct PaymentSection: View {
+    @EnvironmentObject private var vm: ChargePointViewModel
+
     let chargeDevice: ChargeDevice
-    let vm: ChargePointViewModel
     var deviceNetworks: [String] {
         vm.separate(deviceNetworks: chargeDevice.deviceNetworks)
     }

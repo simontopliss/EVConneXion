@@ -10,15 +10,20 @@ import SwiftUI
 struct ChargePointListView: View {
 
     @EnvironmentObject private var vm: ChargePointViewModel
-    @State private var path: NavigationPath = .init()
+    @EnvironmentObject private var routerManager: NavigationRouter
+
+    // TODO: Move this to Main and manage all paths from there
+    // Paths must conform to `Hashable`
+    // Use NavigationSplitView for iPad support
+    // @State private var path: NavigationPath = .init()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $routerManager.routes) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     ForEach(vm.chargeDevices) { chargeDevice in
-                        NavigationLink(value: chargeDevice) {
-                            ChargePointRow(vm: vm, chargeDevice: chargeDevice)
+                        NavigationLink(value: Route.chargePointDetail(chargeDevice: chargeDevice)) {
+                            ChargePointRow(chargeDevice: chargeDevice)
                         }
                     }
                 }
@@ -27,19 +32,18 @@ struct ChargePointListView: View {
             .background(Color.background)
             .navigationTitle("Charge Devices")
             .navigationBarTitleDisplayMode(.large)
-            .navigationDestination(for: ChargeDevice.self) { chargeDevice in
-                ChargePointDetailView(vm: vm, chargeDevice: chargeDevice)
-            }
+            .navigationDestination(for: Route.self) { $0 }
             .buttonStyle(PlainButtonStyle())
+            // .task {
+            //      await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
+            //      await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
+            // }
         }
-        // .task {
-        //      await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
-        //      await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
-        // }
     }
 }
 
 #Preview {
     ChargePointListView()
         .environmentObject(ChargePointViewModel())
+        .environmentObject(NavigationRouter())
 }

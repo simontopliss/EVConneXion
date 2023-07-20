@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChargePointDevicesView: View {
 
-    let vm: ChargePointViewModel
+    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var routerManager: NavigationRouter
+
     let chargeDevice: ChargeDevice
 
     var body: some View {
@@ -25,9 +27,10 @@ struct ChargePointDevicesView: View {
 
 #Preview {
     ChargePointDevicesView(
-        vm: ChargePointViewModel(),
         chargeDevice: ChargePointData.mockChargeDevice
     )
+    .environmentObject(ChargePointViewModel())
+    .environmentObject(NavigationRouter())
 }
 
 struct DeviceOwnerSection: View {
