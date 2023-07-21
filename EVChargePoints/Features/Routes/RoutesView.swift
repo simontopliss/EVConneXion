@@ -5,12 +5,13 @@
 //  Created by Simon Topliss on 29/06/2023.
 //
 
+import Observation
 import SwiftUI
 
 struct RoutesView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
-    @EnvironmentObject private var routerManager: NavigationRouter
+    @Environment(ChargePointViewModel.self) private var vm
+    @Environment(NavigationRouter.self) private var routerManager
 
     var body: some View {
         Text("Hello, RoutesView!")
@@ -19,6 +20,6 @@ struct RoutesView: View {
 
 #Preview {
     RoutesView()
-        .environmentObject(ChargePointViewModel())
-        .environmentObject(NavigationRouter())
+        .environment(ChargePointViewModel())
+        .environment(NavigationRouter())
 }

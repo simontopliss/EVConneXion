@@ -7,6 +7,7 @@
 //   let chargePointData = try? JSONDecoder().decode(ChargePointData.self, from: jsonData)
 
 import Foundation
+import Observation
 
 // MARK: - ChargePointData
 

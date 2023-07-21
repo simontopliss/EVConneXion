@@ -5,12 +5,13 @@
 //  Created by Simon Topliss on 15/06/2023.
 //
 
+import Observation
 import SwiftUI
 
 struct ChargePointListView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
-    @EnvironmentObject private var routerManager: NavigationRouter
+    @Environment(ChargePointViewModel.self) private var vm
+    @Environment(NavigationRouter.self) private var routerManager
 
     // TODO: Move this to Main and manage all paths from there
     // Paths must conform to `Hashable`
@@ -18,7 +19,10 @@ struct ChargePointListView: View {
     // @State private var path: NavigationPath = .init()
 
     var body: some View {
-        NavigationStack(path: $routerManager.routes) {
+
+        @Bindable var routerManagerBindable = routerManager
+
+        NavigationStack(path: $routerManagerBindable.routes) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     ForEach(vm.chargeDevices) { chargeDevice in
@@ -44,6 +48,6 @@ struct ChargePointListView: View {
 
 #Preview {
     ChargePointListView()
-        .environmentObject(ChargePointViewModel())
-        .environmentObject(NavigationRouter())
+        .environment(ChargePointViewModel())
+        .environment(NavigationRouter())
 }

@@ -5,12 +5,13 @@
 //  Created by Simon Topliss on 14/07/2023.
 //
 
+import Observation
 import SwiftUI
 
 struct ChargePointRow: View {
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @Environment(ChargePointViewModel.self) private var vm
 
     var chargeDevice: ChargeDevice
     var address: Address {
@@ -75,7 +76,7 @@ struct ChargePointRow: View {
     ChargePointRow(
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .environmentObject(ChargePointViewModel())
+    .environment(ChargePointViewModel())
     //.colorScheme(.dark)
     .background(Colors.backgroundColor)
     .padding()

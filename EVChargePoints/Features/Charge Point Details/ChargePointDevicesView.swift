@@ -5,12 +5,13 @@
 //  Created by Simon Topliss on 19/07/2023.
 //
 
+import Observation
 import SwiftUI
 
 struct ChargePointDevicesView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
-    @EnvironmentObject private var routerManager: NavigationRouter
+    @Environment(ChargePointViewModel.self) private var vm
+    @Environment(NavigationRouter.self) private var routerManager
 
     let chargeDevice: ChargeDevice
 
@@ -29,8 +30,8 @@ struct ChargePointDevicesView: View {
     ChargePointDevicesView(
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .environmentObject(ChargePointViewModel())
-    .environmentObject(NavigationRouter())
+    .environment(ChargePointViewModel())
+    .environment(NavigationRouter())
 }
 
 struct DeviceOwnerSection: View {

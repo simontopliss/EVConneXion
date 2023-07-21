@@ -6,12 +6,13 @@
 //
 
 import MapKit
+import Observation
 import SwiftUI
 
 struct MapView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
-    @EnvironmentObject private var routerManager: NavigationRouter
+    @Environment(ChargePointViewModel.self) private var vm
+    @Environment(NavigationRouter.self) private var routerManager
 
     var body: some View {
         Text("Hello, MapView!")
@@ -20,6 +21,6 @@ struct MapView: View {
 
 #Preview {
     MapView()
-        .environmentObject(ChargePointViewModel())
-        .environmentObject(NavigationRouter())
+        .environment(ChargePointViewModel())
+        .environment(NavigationRouter())
 }

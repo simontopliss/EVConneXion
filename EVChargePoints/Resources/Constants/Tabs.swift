@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Observation
 
-enum Tabs: Int {
+enum Tabs: Int, Observable {
 
     case map
     case list

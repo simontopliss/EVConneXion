@@ -5,21 +5,20 @@
 //  Created by Simon Topliss on 16/06/2023.
 //
 
-// import Observation
 import Foundation
+import Observation
 import SwiftUI
 
-// @Observable
-final class ChargePointViewModel: ObservableObject {
+@Observable final class ChargePointViewModel {
 
     // MARK: - PROPERTIES
 
-    @Published var chargeDevices: [ChargeDevice] = []
-    @Published var networkGraphics: [NetworkGraphic] = []
+    var chargeDevices: [ChargeDevice] = []
+    var networkGraphics: [NetworkGraphic] = []
 
-    @Published private(set) var error: NetworkManager.NetworkError?
-    @Published private(set) var isLoading = false
-    @Published var hasError = false
+    private(set) var error: NetworkManager.NetworkError?
+    private(set) var isLoading = false
+    var hasError = false
 
     private(set) var address: Address?
 

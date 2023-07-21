@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Observation
 
 @main
 struct EVChargePointsApp: App {
@@ -13,15 +14,16 @@ struct EVChargePointsApp: App {
     // Create a delegate for check for when UI Testing
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
+    //@AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
+    // @Bindable private var tabSelection = Tabs.map
 
-    @StateObject var chargePointViewModel = ChargePointViewModel()
-    @StateObject private var routerManager = NavigationRouter()
+    @State private var chargePointViewModel = ChargePointViewModel()
+    @State private var routerManager = NavigationRouter()
 
     var body: some Scene {
         WindowGroup {
 
-            TabView(selection: $tabSelection) {
+            TabView { // (selection: $tabSelection)
                 MapView()
                     .tabItem {
                         Label(
@@ -30,8 +32,8 @@ struct EVChargePointsApp: App {
                         )
                     }
                     .tag(Tabs.map)
-                    .environmentObject(chargePointViewModel)
-                    .environmentObject(routerManager)
+                    .environment(chargePointViewModel)
+                    .environment(routerManager)
 
                 ChargePointListView()
                     .tabItem {
@@ -41,8 +43,8 @@ struct EVChargePointsApp: App {
                         )
                     }
                     .tag(Tabs.list)
-                    .environmentObject(chargePointViewModel)
-                    .environmentObject(routerManager)
+                    .environment(chargePointViewModel)
+                    .environment(routerManager)
 
                 RoutesView()
                     .tabItem {
@@ -52,8 +54,8 @@ struct EVChargePointsApp: App {
                         )
                     }
                     .tag(Tabs.routes)
-                    .environmentObject(chargePointViewModel)
-                    .environmentObject(routerManager)
+                    .environment(chargePointViewModel)
+                    .environment(routerManager)
 
                 SettingsView()
                     .tabItem {

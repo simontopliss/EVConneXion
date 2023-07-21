@@ -5,11 +5,12 @@
 //  Created by Simon Topliss on 29/06/2023.
 //
 
+import Observation
 import SwiftUI
 
 struct ChargePointDetailView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @Environment(ChargePointViewModel.self) private var vm
 
     enum SelectedView: String {
         case information = "Information"
@@ -53,7 +54,7 @@ struct ChargePointDetailView: View {
             chargeDevice: ChargePointData.mockChargeDevice
         )
     }
-    .environmentObject(ChargePointViewModel())
+    .environment(ChargePointViewModel())
 }
 
 struct FormText: View {

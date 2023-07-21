@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Observation
 
 protocol NetworkManagerImpl {
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T
