@@ -11,7 +11,9 @@ import MapKit
 final class MapViewModel: ObservableObject {
     
     @Published var userLocation: CLLocationCoordinate2D?
-    
+
+    private(set) var cameraHeight: CLLocationDistance = 2500 // Distance in metres
+
     init() {
         // TODO: This needs to be stored and read from UserDefaults if we've been given permission to get the user's location
         self.userLocation = userLocation
@@ -32,8 +34,8 @@ final class MapViewModel: ObservableObject {
 
         let deviceLocation = MKCoordinateRegion(
             center: locationCoordinate,
-            latitudinalMeters: 5000,
-            longitudinalMeters: 5000
+            latitudinalMeters: cameraHeight,
+            longitudinalMeters: cameraHeight
         )
 
         return deviceLocation
@@ -53,8 +55,8 @@ extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(
             center: .userLocation,
-            latitudinalMeters: 5000,
-            longitudinalMeters: 5000
+            latitudinalMeters: 2500,
+            longitudinalMeters: 2500
         )
     }
 }
