@@ -66,6 +66,7 @@
 		62DFA7482A6D3F4800208E1B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7472A6D3F4800208E1B /* MapViewModel.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA74F2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json in Resources */ = {isa = PBXBuildFile; fileRef = 62DFA74E2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json */; };
+		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		62DFA7472A6D3F4800208E1B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA74E2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SE1 7PB - London Eye - 2 miles.json"; sourceTree = "<group>"; };
+		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 			children = (
 				628C33122A61E91A00232351 /* String+Ext.swift */,
 				62C9F6612A68033B00151FB4 /* View+Navigation.swift */,
+				62DFA7502A6DB0A600208E1B /* Color+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				62B32CB72A4DCDD900C6E8DF /* RoutesView.swift in Sources */,
 				625CEF682A65569400A82048 /* DeviceController.swift in Sources */,
 				62C9F6642A68044800151FB4 /* ChargePointInfoView.swift in Sources */,
+				62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */,
 				62B32CC12A4DCE8A00C6E8DF /* SearchView.swift in Sources */,
 				6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */,
 				62C9F6622A68033B00151FB4 /* View+Navigation.swift in Sources */,
