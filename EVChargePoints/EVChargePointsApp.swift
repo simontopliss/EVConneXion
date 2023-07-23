@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct EVChargePointsApp: App {
 
-    // Create a delegate for check for when UI Testing
+    // Create a delegate to check for when performing UI Testing
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
@@ -20,14 +20,14 @@ struct EVChargePointsApp: App {
 
     var body: some Scene {
         WindowGroup {
-
             TabView(selection: $tabSelection) {
                 MapView()
                     .tabItem {
-                        Label(
-                            Tabs.map.label,
-                            systemImage: Tabs.map.icon
-                        )
+                        VStack {
+                            Text(Tabs.map.label)
+                                .fontWeight(.semibold)
+                            Image(systemName: Tabs.map.icon)
+                        }
                     }
                     .tag(Tabs.map)
                     .environmentObject(chargePointViewModel)
@@ -35,10 +35,11 @@ struct EVChargePointsApp: App {
 
                 ChargePointListView()
                     .tabItem {
-                        Label(
-                            Tabs.list.label,
-                            systemImage: Tabs.list.icon
-                        )
+                        VStack {
+                            Text(Tabs.list.label)
+                                .fontWeight(.semibold)
+                            Image(systemName: Tabs.list.icon)
+                        }
                     }
                     .tag(Tabs.list)
                     .environmentObject(chargePointViewModel)
@@ -46,6 +47,11 @@ struct EVChargePointsApp: App {
 
                 RoutesView()
                     .tabItem {
+                        VStack {
+                            Text(Tabs.routes.label)
+                                .fontWeight(.semibold)
+                            Image(systemName: Tabs.routes.icon)
+                        }
                         Label(
                             Tabs.routes.label,
                             systemImage: Tabs.routes.icon
@@ -57,12 +63,21 @@ struct EVChargePointsApp: App {
 
                 SettingsView()
                     .tabItem {
-                        Label(
-                            Tabs.settings.label,
-                            systemImage: Tabs.settings.icon
-                        )
+                        VStack {
+                            Text(Tabs.settings.label)
+                                .fontWeight(.semibold)
+                            Image(systemName: Tabs.settings.icon)
+                        }
                     }
                     .tag(Tabs.settings)
+            }
+            .tint(.accentColor)
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+                appearance.backgroundColor = UIColor(Color.gray.opacity(0.1))
+                UITabBar.appearance().standardAppearance = appearance
+                UITabBar.appearance().scrollEdgeAppearance = appearance
             }
         }
     }
