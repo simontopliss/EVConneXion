@@ -74,7 +74,7 @@ struct FormLabel: View {
     var body: some View {
         VStack {
             Text(label)
-                .font(.subheadline)
+                .font(.subheadline.leading(.tight))
                 .multilineTextAlignment(.leading)
                 .frame(width: 90, alignment: .leading)
             .foregroundColor(.secondary)
