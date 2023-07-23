@@ -13,7 +13,7 @@ struct MapView: View {
     @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
 
-    @StateObject private var vm = MapViewModel()
+    @StateObject private var mapViewModel = MapViewModel()
 
     // TODO: Ask for permissions to get the user's location and store in UserDefaults
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
@@ -40,15 +40,16 @@ struct MapView: View {
             }
 
             ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
-                if let chargeDeviceCoordinate = vm.coordinateFor(chargeDevice.chargeDeviceLocation) {
+                if let chargeDeviceCoordinate = mapViewModel.coordinateFor(chargeDevice.chargeDeviceLocation) {
                     let markerName = chargePointViewModel.displayNameFor(network: chargeDevice.attribution)
+                    let networkColor = chargePointViewModel.networkColorFor(network: chargeDevice.attribution)
 
                     Marker(
                         markerName,
                         systemImage: Symbols.evChargerName,
                         coordinate: chargeDeviceCoordinate
                     )
-                    .tint(Color.accentColor)
+                    .tint(networkColor ?? Color.accentColor)
                 }
             }
         }
