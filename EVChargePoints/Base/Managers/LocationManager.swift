@@ -11,7 +11,7 @@ import MapKit
 
 class LocationManager: NSObject, ObservableObject {
 
-    @Published var region = MKCoordinateRegion.defaultRegion()
+    @Published var region = defaultRegion()
     let locationManager = CLLocationManager()
 
     override init() {
@@ -25,6 +25,14 @@ class LocationManager: NSObject, ObservableObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
+
+    static func defaultRegion() -> MKCoordinateRegion {
+        // London Eye
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623),
+            span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+        )
+    }
 
     private func checkAuthorization() {
 
