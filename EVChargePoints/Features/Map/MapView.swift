@@ -15,41 +15,25 @@ struct MapView: View {
 
     @StateObject private var mapViewModel = MapViewModel()
 
-    // TODO: Ask for permissions to get the user's location and store in UserDefaults
-    @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
+    @State private var cameraPosition: MapCameraPosition = .region(.defaultRegion)
     @State private var mapSelection: MKMapItem?
-//    @State private var cameraHeight: CLLocationDistance = 5000 // Distance in metres
 
     var body: some View {
+
         Map(position: $cameraPosition, selection: $mapSelection) {
 
-            Annotation("My location", coordinate: .userLocation) {
-                ZStack {
-                    Circle()
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.pink.opacity(0.25))
-
-                    Circle()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.white)
-
-                    Circle()
-                        .frame(width: 12, height: 12)
-                        .foregroundColor(.pink)
-                }
+            Annotation("My location", coordinate: mapViewModel.userLocation) {
+                userLocation
             }
 
             ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
                 if let chargeDeviceCoordinate = mapViewModel.coordinateFor(chargeDevice.chargeDeviceLocation) {
-                    let markerName = chargePointViewModel.displayNameFor(network: chargeDevice.attribution)
-                    let networkColor = chargePointViewModel.networkColorFor(network: chargeDevice.attribution)
-
                     Marker(
-                        markerName,
+                        markerName(attribution: chargeDevice.attribution),
                         systemImage: Symbols.evChargerName,
                         coordinate: chargeDeviceCoordinate
                     )
-                    .tint(networkColor ?? Color.accentColor)
+                    .tint(networkColor(attribution: chargeDevice.attribution))
                 }
             }
         }
@@ -65,4 +49,31 @@ struct MapView: View {
     MapView()
         .environmentObject(ChargePointViewModel())
         .environmentObject(NavigationRouter())
+}
+
+extension MapView {
+
+    var userLocation: some View {
+        ZStack {
+            Circle()
+                .frame(width: 32, height: 32)
+                .foregroundStyle(.pink.opacity(0.25))
+
+            Circle()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.white)
+
+            Circle()
+                .frame(width: 12, height: 12)
+                .foregroundColor(.pink)
+        }
+    }
+
+    func markerName(attribution: String) -> String {
+        chargePointViewModel.displayNameFor(network: attribution)
+    }
+
+    func networkColor(attribution: String) -> Color {
+        chargePointViewModel.networkColorFor(network: attribution) ?? Color.accentColor
+    }
 }

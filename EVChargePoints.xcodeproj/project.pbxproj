@@ -16,6 +16,8 @@
 		6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */; };
 		6223CA512A3CFDC300A87875 /* ChargePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */; };
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
+		622D897E2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D897D2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift */; };
+		622D89802A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D897F2A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift */; };
 		625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* Colors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
@@ -62,7 +64,6 @@
 		62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */; };
 		62C9F6682A68061D00151FB4 /* 9ac27aee2780395f9c2dea0ab968697c - 2 DeviceNetworks.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C9F6672A68061D00151FB4 /* 9ac27aee2780395f9c2dea0ab968697c - 2 DeviceNetworks.json */; };
 		62C9F66A2A6811B100151FB4 /* SA70 7LT - 20 miles.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C9F6692A6811B100151FB4 /* SA70 7LT - 20 miles.json */; };
-		62DFA7432A6D3ECC00208E1B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7422A6D3ECC00208E1B /* Location.swift */; };
 		62DFA7482A6D3F4800208E1B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7472A6D3F4800208E1B /* MapViewModel.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA74F2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json in Resources */ = {isa = PBXBuildFile; fileRef = 62DFA74E2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json */; };
@@ -90,6 +91,8 @@
 		6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointData.swift; sourceTree = "<group>"; };
 		6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointViewModel.swift; sourceTree = "<group>"; };
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		622D897D2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Ext.swift"; sourceTree = "<group>"; };
+		622D897F2A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Ext.swift"; sourceTree = "<group>"; };
 		625CEF5A2A62CC1500A82048 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 		62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointDevicesView.swift; sourceTree = "<group>"; };
 		62C9F6672A68061D00151FB4 /* 9ac27aee2780395f9c2dea0ab968697c - 2 DeviceNetworks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9ac27aee2780395f9c2dea0ab968697c - 2 DeviceNetworks.json"; sourceTree = "<group>"; };
 		62C9F6692A6811B100151FB4 /* SA70 7LT - 20 miles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SA70 7LT - 20 miles.json"; sourceTree = "<group>"; };
-		62DFA7422A6D3ECC00208E1B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		62DFA7472A6D3F4800208E1B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA74E2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SE1 7PB - London Eye - 2 miles.json"; sourceTree = "<group>"; };
@@ -399,9 +401,11 @@
 		628C33112A61E90400232351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				622D897F2A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift */,
+				62DFA7502A6DB0A600208E1B /* Color+Ext.swift */,
+				622D897D2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift */,
 				628C33122A61E91A00232351 /* String+Ext.swift */,
 				62C9F6612A68033B00151FB4 /* View+Navigation.swift */,
-				62DFA7502A6DB0A600208E1B /* Color+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,9 +440,8 @@
 		62B32CAB2A4DC34000C6E8DF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				62DFA7462A6D3F0600208E1B /* Model */,
-				62DFA7442A6D3EEA00208E1B /* ViewModel */,
-				62DFA7452A6D3EF500208E1B /* View */,
+				62DFA7472A6D3F4800208E1B /* MapViewModel.swift */,
+				62B32CAF2A4DC3F300C6E8DF /* MapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -492,30 +495,6 @@
 				62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */,
 			);
 			path = "Charge Point Details";
-			sourceTree = "<group>";
-		};
-		62DFA7442A6D3EEA00208E1B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				62DFA7472A6D3F4800208E1B /* MapViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		62DFA7452A6D3EF500208E1B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				62B32CAF2A4DC3F300C6E8DF /* MapView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		62DFA7462A6D3F0600208E1B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				62DFA7422A6D3ECC00208E1B /* Location.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		62DFA7492A6D3FDF00208E1B /* Managers */ = {
@@ -667,6 +646,7 @@
 				62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */,
 				62718BA42A533093004F0168 /* MockURLSessionProtocol.swift in Sources */,
 				62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */,
+				622D89802A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift in Sources */,
 				6223CA492A3CF46E00A87875 /* NetworkManager.swift in Sources */,
 				625CEF6A2A6556C000A82048 /* DeviceOwner.swift in Sources */,
 				62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */,
@@ -693,8 +673,8 @@
 				6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */,
 				62C9F6622A68033B00151FB4 /* View+Navigation.swift in Sources */,
 				628C33102A61E8AE00232351 /* Address.swift in Sources */,
+				622D897E2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift in Sources */,
 				6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */,
-				62DFA7432A6D3ECC00208E1B /* Location.swift in Sources */,
 				62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */,
 				62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */,
 				625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */,

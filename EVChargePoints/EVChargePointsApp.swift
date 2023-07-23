@@ -23,11 +23,7 @@ struct EVChargePointsApp: App {
             TabView(selection: $tabSelection) {
                 MapView()
                     .tabItem {
-                        VStack {
-                            Text(Tabs.map.label)
-                                .fontWeight(.semibold)
-                            Image(systemName: Tabs.map.icon)
-                        }
+                        Label(Tabs.map.label, systemImage: Tabs.map.icon)
                     }
                     .tag(Tabs.map)
                     .environmentObject(chargePointViewModel)
@@ -35,11 +31,7 @@ struct EVChargePointsApp: App {
 
                 ChargePointListView()
                     .tabItem {
-                        VStack {
-                            Text(Tabs.list.label)
-                                .fontWeight(.semibold)
-                            Image(systemName: Tabs.list.icon)
-                        }
+                        Label(Tabs.list.label, systemImage: Tabs.list.icon)
                     }
                     .tag(Tabs.list)
                     .environmentObject(chargePointViewModel)
@@ -47,15 +39,7 @@ struct EVChargePointsApp: App {
 
                 RoutesView()
                     .tabItem {
-                        VStack {
-                            Text(Tabs.routes.label)
-                                .fontWeight(.semibold)
-                            Image(systemName: Tabs.routes.icon)
-                        }
-                        Label(
-                            Tabs.routes.label,
-                            systemImage: Tabs.routes.icon
-                        )
+                        Label(Tabs.routes.label, systemImage: Tabs.routes.icon)
                     }
                     .tag(Tabs.routes)
                     .environmentObject(chargePointViewModel)
@@ -63,11 +47,7 @@ struct EVChargePointsApp: App {
 
                 SettingsView()
                     .tabItem {
-                        VStack {
-                            Text(Tabs.settings.label)
-                                .fontWeight(.semibold)
-                            Image(systemName: Tabs.settings.icon)
-                        }
+                        Label(Tabs.settings.label, systemImage: Tabs.settings.icon)
                     }
                     .tag(Tabs.settings)
             }

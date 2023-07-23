@@ -10,13 +10,15 @@ import MapKit
 
 final class MapViewModel: ObservableObject {
     
-    @Published var userLocation: CLLocationCoordinate2D?
+    // TODO: This needs to be stored and read from UserDefaults if we've been given permission to get the user's location
+    @Published var userLocation: CLLocationCoordinate2D = .defaultLocation
+    @Published var region: MKCoordinateRegion = .defaultRegion
 
-    private(set) var cameraHeight: CLLocationDistance = 2500 // Distance in metres
+    // TODO: Store in UserDefaults
+    @Published var cameraHeight: CLLocationDistance = 2500 // Distance in metres
 
     init() {
-        // TODO: This needs to be stored and read from UserDefaults if we've been given permission to get the user's location
-        self.userLocation = userLocation
+        //self.userLocation = .defaultLocation
     }
 
     func coordinateFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> CLLocationCoordinate2D? {
@@ -41,22 +43,4 @@ final class MapViewModel: ObservableObject {
         return deviceLocation
     }
 
-}
-
-extension CLLocationCoordinate2D {
-    static var userLocation: CLLocationCoordinate2D {
-        // TODO: Is this a good default location?
-        // London Eye
-        return .init(latitude: 51.503351, longitude: -0.119623)
-    }
-}
-
-extension MKCoordinateRegion {
-    static var userRegion: MKCoordinateRegion {
-        return .init(
-            center: .userLocation,
-            latitudinalMeters: 2500,
-            longitudinalMeters: 2500
-        )
-    }
 }
