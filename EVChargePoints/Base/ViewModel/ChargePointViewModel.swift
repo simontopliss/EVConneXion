@@ -143,6 +143,19 @@ final class ChargePointViewModel: ObservableObject {
         return connectorGraphicsAndCounts
     }
 
+    func networkColorFor(network: String) -> Color? {
+        let item = networkGraphics.first { $0.network == network }
+        guard let rgbValues = item?.rgbValues else { return nil }
+        let networkColor = Color(
+            UIColor(
+                r: CGFloat(rgbValues.red),
+                g: CGFloat(rgbValues.green),
+                b: CGFloat(rgbValues.blue)
+            )
+        )
+        return networkColor
+    }
+
     // MARK: - API Call
 
     @MainActor
