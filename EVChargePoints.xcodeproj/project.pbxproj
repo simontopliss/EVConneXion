@@ -18,6 +18,7 @@
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
 		622D897E2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D897D2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift */; };
 		622D89802A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D897F2A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift */; };
+		622D89FE2A6F0109008DC9A8 /* 4f5a97cf06cf69028997db51d8726d28 - POD Point example.json in Resources */ = {isa = PBXBuildFile; fileRef = 622D89FD2A6F0109008DC9A8 /* 4f5a97cf06cf69028997db51d8726d28 - POD Point example.json */; };
 		625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* Colors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
@@ -93,6 +94,7 @@
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		622D897D2A6DCF05008DC9A8 /* MKCoordinateRegion+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Ext.swift"; sourceTree = "<group>"; };
 		622D897F2A6DD0FD008DC9A8 /* CLLocationCoordinate2D+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Ext.swift"; sourceTree = "<group>"; };
+		622D89FD2A6F0109008DC9A8 /* 4f5a97cf06cf69028997db51d8726d28 - POD Point example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4f5a97cf06cf69028997db51d8726d28 - POD Point example.json"; sourceTree = "<group>"; };
 		625CEF5A2A62CC1500A82048 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				62718B9C2A532867004F0168 /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json */,
 				62718B342A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json */,
 				62718B362A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */,
+				622D89FD2A6F0109008DC9A8 /* 4f5a97cf06cf69028997db51d8726d28 - POD Point example.json */,
 				6223CA4B2A3CFD3C00A87875 /* DE7 8LN.json */,
 				626810462A616DDC0032C3CA /* EC3A 7BR.json */,
 				62C9F6692A6811B100151FB4 /* SA70 7LT - 20 miles.json */,
@@ -591,6 +594,7 @@
 				62718B372A52E781004F0168 /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */,
 				62C9F6682A68061D00151FB4 /* 9ac27aee2780395f9c2dea0ab968697c - 2 DeviceNetworks.json in Resources */,
 				62718B352A52E5A1004F0168 /* 4f5a97cf06cf69028997db51d8726d28 - missing ChargeDeviceName.json in Resources */,
+				622D89FE2A6F0109008DC9A8 /* 4f5a97cf06cf69028997db51d8726d28 - POD Point example.json in Resources */,
 				62DFA74F2A6D588E00208E1B /* SE1 7PB - London Eye - 2 miles.json in Resources */,
 				621A704B2A3B3BC900A04669 /* Preview Assets.xcassets in Resources */,
 				628C330E2A61C80300232351 /* HU17 0RX - 10 milles.json in Resources */,
