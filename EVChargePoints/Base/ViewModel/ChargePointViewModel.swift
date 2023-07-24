@@ -44,11 +44,57 @@ final class ChargePointViewModel: ObservableObject {
         loadNetworkGraphics()
     }
 
-    // MARK: - Address formatting
+    // MARK: - Address Formatting
 
     func createAddress(chargeDevice: ChargeDevice) -> Address {
         address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
         return address!
+    }
+
+    // MARK: - Regular Openings
+
+    func regularOpeningsBuilder(regularOpenings: [RegularOpening]?) -> ([String], [String]) {
+        var openingDays: [String] = []
+        var openingHours: [String] = []
+        
+        if let regularOpenings = regularOpenings {
+            
+            for opening in regularOpenings {
+                if let days = opening.days {
+                    openingDays.append(days)
+                }
+                
+                if let hours = opening.hours {
+                    openingHours.append("\(hours.from) to \(hours.to)")
+                }
+            }
+        }
+
+        return (openingDays, openingHours)
+    }
+
+    func openingsDaysFor(regularOpenings: [RegularOpening]) -> [String] {
+        var openingDays: [String] = []
+
+            for opening in regularOpenings {
+                if let days = opening.days {
+                    openingDays.append(days)
+                }
+            }
+
+        return openingDays
+    }
+
+    func openingsHoursFor(regularOpenings: [RegularOpening]) -> [String] {
+        var openingHours: [String] = []
+
+        for opening in regularOpenings {
+            if let hours = opening.hours {
+                openingHours.append("\(hours.from) to \(hours.to)")
+            }
+        }
+
+        return openingHours
     }
 
     // MARK: - Network Graphics
