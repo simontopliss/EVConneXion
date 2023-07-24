@@ -13,15 +13,15 @@ struct ChargePointInfoView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
 
     let chargeDevice: ChargeDevice
-    var address: Address {
-        vm.createAddress(chargeDevice: chargeDevice)
-    }
 
     var body: some View {
         Form {
-            LocationSection(chargeDevice: chargeDevice, address: address)
+            LocationSection(chargeDevice: chargeDevice)
             ParkingSection(chargeDevice: chargeDevice)
             PaymentSection(chargeDevice: chargeDevice)
+            if let deviceAccess = chargeDevice.deviceAccess {
+                DeviceAccessSection(deviceAccess: deviceAccess)
+            }
         }
     }
 }
@@ -35,16 +35,43 @@ struct ChargePointInfoView: View {
 }
 
 struct LocationSection: View {
+
+    @EnvironmentObject private var vm: ChargePointViewModel
+
     let chargeDevice: ChargeDevice
-    let address: Address
+    var address: Address {
+        vm.createAddress(chargeDevice: chargeDevice)
+    }
+
+    var description: String {
+        if Validator.isValid(chargeDevice.chargeDeviceLocation.locationShortDescription) &&
+            Validator.isValid(chargeDevice.chargeDeviceLocation.locationLongDescription)
+        {
+            return chargeDevice.chargeDeviceLocation.locationLongDescription!
+        } else if Validator.isValid(chargeDevice.chargeDeviceLocation.locationShortDescription) {
+            return chargeDevice.chargeDeviceLocation.locationShortDescription!
+        } else if Validator.isValid(chargeDevice.chargeDeviceLocation.locationLongDescription) {
+            return chargeDevice.chargeDeviceLocation.locationLongDescription!
+        } else {
+            return ""
+        }
+    }
 
     var body: some View {
         Section("LOCATION") {
             LabeledContent {
                 FormText(text: chargeDevice.locationType.rawValue)
                     .fontWeight(.semibold)
-           } label: {
+            } label: {
                 FormLabel(label: "TYPE")
+            }
+
+            if !description.isEmpty {
+                LabeledContent {
+                    FormText(text: description)
+                } label: {
+                    FormLabel(label: "MORE INFO")
+                }
             }
 
             LabeledContent {
@@ -60,15 +87,16 @@ struct ParkingSection: View {
     let chargeDevice: ChargeDevice
 
     var validSection: Bool {
-        Validator.isValid(chargeDevice.parkingFeesDetails) ||
-        Validator.isValid(chargeDevice.accessRestrictionDetails) ||
-        Validator.isValid(chargeDevice.physicalRestrictionText) ? true : false
+        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
+            Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
+            Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
+            ? true : false
     }
 
     var body: some View {
         if validSection {
             Section("PARKING") {
-                if Validator.isValid(chargeDevice.parkingFeesDetails) {
+                if Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) {
                     LabeledContent {
                         FormText(text: chargeDevice.parkingFeesDetails!)
                     } label: {
@@ -76,7 +104,7 @@ struct ParkingSection: View {
                     }
                 }
 
-                if Validator.isValid(chargeDevice.accessRestrictionDetails) {
+                if Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) {
                     LabeledContent {
                         FormText(text: chargeDevice.accessRestrictionDetails!)
                     } label: {
@@ -84,7 +112,7 @@ struct ParkingSection: View {
                     }
                 }
 
-                if Validator.isValid(chargeDevice.physicalRestrictionText) {
+                if Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking) {
                     LabeledContent {
                         FormText(text: chargeDevice.physicalRestrictionText!)
                     } label: {
@@ -136,13 +164,100 @@ struct PaymentSection: View {
                 FormLabel(label: "FREE TO USE")
             }
 
-            if Validator.isValid(chargeDevice.paymentDetails) {
+            if Validator.isValid(chargeDevice.paymentDetails, forType: .details) {
                 LabeledContent {
                     FormText(text: chargeDevice.paymentDetails!)
                 } label: {
                     FormLabel(label: "DETAILS")
                 }
             }
+
+            if Validator.isValid(chargeDevice.subscriptionDetails, forType: .details) {
+                LabeledContent {
+                    FormText(text: chargeDevice.subscriptionDetails!)
+                } label: {
+                    FormLabel(label: "SUBS. DETAILS")
+                }
+            }
+        }
+    }
+}
+
+struct DeviceAccessSection: View {
+
+    @EnvironmentObject private var vm: ChargePointViewModel
+
+    let deviceAccess: DeviceAccess
+//    var openingDays: [String] = []
+//    var openingHours: [String] = []
+
+    var validSection: Bool {
+        //        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
+        //        Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
+        //        Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
+        //        ? true : false
+        return true
+    }
+
+    var body: some View {
+        if validSection {
+            Section("DEVICE ACCESS") {
+                LabeledContent {
+                    FormText(text: deviceAccess.open24Hours ? Symbols.yes : Symbols.no)
+                } label: {
+                    FormLabel(label: "OPEN 24 HOURS")
+                }
+
+                if let regularOpenings = deviceAccess.regularOpenings {
+                    regularOpeningsBuilder(regularOpenings: regularOpenings)
+                }
+            }
+        } else {
+            EmptyView()
+        }
+    }
+}
+
+extension DeviceAccessSection {
+
+    @ViewBuilder
+    func regularOpeningsBuilder(regularOpenings: [RegularOpening]) -> some View {
+
+        let openingDays: [String] = vm.openingsDaysFor(regularOpenings: regularOpenings)
+        let openingHours: [String] = vm.openingsHoursFor(regularOpenings: regularOpenings)
+
+        HStack {
+            Text("REGULAR OPENINGS")
+                .font(.subheadline.leading(.tight))
+                .multilineTextAlignment(.leading)
+                .frame(width: 90, alignment: .leading)
+                .foregroundColor(.secondary)
+
+            VStack(alignment: .leading) {
+                if openingDays.count == openingHours.count {
+                    ForEach(0..<openingDays.count, id: \.self) { index in
+                        HStack {
+                            Text(openingDays[index])
+                                .frame(width: 85, alignment: .leading)
+                            Text(openingHours[index])
+                                .frame(alignment: .trailing)
+                        }
+                    }
+                } else if openingDays.isEmpty && !openingHours.isEmpty {
+                    ForEach(0..<openingHours.count, id: \.self) { index in
+                        Text(openingHours[index])
+                    }
+                } else {
+                    let _ = print("DEBUG: 💀🐞")
+                    let _ = dump(openingDays)
+                    let _ = dump(openingHours)
+                    fatalError("I missed a condition here")
+                }
+            }
+            .font(.subheadline)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundColor(Colors.textColor)
         }
     }
 }
