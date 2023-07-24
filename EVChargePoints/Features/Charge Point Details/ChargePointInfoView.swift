@@ -172,6 +172,12 @@ struct PaymentSection: View {
                 }
             }
 
+            LabeledContent {
+                FormText(text: chargeDevice.subscriptionRequiredFlag ? Symbols.yes : Symbols.no)
+            } label: {
+                FormLabel(label: "SUBS. REQUIRED")
+            }
+
             if Validator.isValid(chargeDevice.subscriptionDetails, forType: .details) {
                 LabeledContent {
                     FormText(text: chargeDevice.subscriptionDetails!)
@@ -188,14 +194,8 @@ struct DeviceAccessSection: View {
     @EnvironmentObject private var vm: ChargePointViewModel
 
     let deviceAccess: DeviceAccess
-//    var openingDays: [String] = []
-//    var openingHours: [String] = []
 
     var validSection: Bool {
-        //        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
-        //        Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
-        //        Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
-        //        ? true : false
         return true
     }
 
@@ -211,6 +211,8 @@ struct DeviceAccessSection: View {
                 if let regularOpenings = deviceAccess.regularOpenings {
                     regularOpeningsBuilder(regularOpenings: regularOpenings)
                 }
+
+                // TODO: Investigate deviceAccess.annualOpening options
             }
         } else {
             EmptyView()
@@ -223,8 +225,8 @@ extension DeviceAccessSection {
     @ViewBuilder
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]) -> some View {
 
-        let openingDays: [String] = vm.openingsDaysFor(regularOpenings: regularOpenings)
-        let openingHours: [String] = vm.openingsHoursFor(regularOpenings: regularOpenings)
+        let openingDays = vm.openingsDaysFor(regularOpenings: regularOpenings)
+        let openingHours = vm.openingsHoursFor(regularOpenings: regularOpenings)
 
         HStack {
             Text("REGULAR OPENINGS")
@@ -243,15 +245,19 @@ extension DeviceAccessSection {
                                 .frame(alignment: .trailing)
                         }
                     }
+
                 } else if openingDays.isEmpty && !openingHours.isEmpty {
                     ForEach(0..<openingHours.count, id: \.self) { index in
                         Text(openingHours[index])
                     }
+
                 } else {
+                    #if DEBUG
                     let _ = print("DEBUG: 💀🐞")
                     let _ = dump(openingDays)
                     let _ = dump(openingHours)
                     fatalError("I missed a condition here")
+                    #endif
                 }
             }
             .font(.subheadline)
