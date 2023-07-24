@@ -13,6 +13,8 @@ struct Validator {
         case website
         case telephoneNo
         case schemeCode
+        case parking
+        case details
         case any
     }
 
@@ -61,6 +63,13 @@ struct Validator {
                     } else {
                         isValid = true
                     }
+
+                case .parking, .details:
+                    if trimmedText == "0" || trimmedText == "1" {
+                        isValid = false
+                    } else {
+                        isValid = true
+                    }
             }
         }
         return isValid
@@ -68,7 +77,7 @@ struct Validator {
 
     static func isValid(_ text: String?, forType: ValidFor = .any) -> Bool {
         if let text = text {
-            return isValid(text)
+            return isValid(text, forType: forType)
         } else {
             return false
         }
