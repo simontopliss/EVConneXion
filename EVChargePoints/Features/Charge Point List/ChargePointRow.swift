@@ -67,7 +67,7 @@ struct ChargePointRow: View {
         }
         .foregroundColor(Colors.textColor)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(colorScheme == .dark ? .black : .white, in: RoundedRectangle(cornerRadius: 8))
+        .background(Colors.listRowColor, in: RoundedRectangle(cornerRadius: 8))
     }
 }
 
