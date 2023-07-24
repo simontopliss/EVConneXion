@@ -86,42 +86,44 @@ struct LocationSection: View {
 struct ParkingSection: View {
     let chargeDevice: ChargeDevice
 
-    var validSection: Bool {
-        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
-            Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
-            Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
-            ? true : false
-    }
+//    var validSection: Bool {
+//        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
+//            Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
+//            Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
+//            ? true : false
+//    }
 
     var body: some View {
-        if validSection {
-            Section("PARKING") {
-                if Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.parkingFeesDetails!)
-                    } label: {
-                        FormLabel(label: "DETAILS")
-                    }
-                }
-
-                if Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.accessRestrictionDetails!)
-                    } label: {
-                        FormLabel(label: "ACCESS")
-                    }
-                }
-
-                if Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking) {
-                    LabeledContent {
-                        FormText(text: chargeDevice.physicalRestrictionText!)
-                    } label: {
-                        FormLabel(label: "RESTRICTIONS")
-                    }
+        Section("PARKING") {
+            if Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) {
+                LabeledContent {
+                    FormText(text: chargeDevice.parkingFeesDetails!)
+                } label: {
+                    FormLabel(label: "DETAILS")
                 }
             }
-        } else {
-            EmptyView()
+
+            if Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) {
+                LabeledContent {
+                    FormText(text: chargeDevice.accessRestrictionDetails!)
+                } label: {
+                    FormLabel(label: "ACCESS")
+                }
+            }
+
+            if Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking) {
+                LabeledContent {
+                    FormText(text: chargeDevice.physicalRestrictionText!)
+                } label: {
+                    FormLabel(label: "RESTRICTIONS")
+                }
+            }
+
+            LabeledContent {
+                FormText(text: chargeDevice.onStreetFlag ? Symbols.yes : Symbols.no)
+            } label: {
+                FormLabel(label: "ON STREET PARKING")
+            }
         }
     }
 }
