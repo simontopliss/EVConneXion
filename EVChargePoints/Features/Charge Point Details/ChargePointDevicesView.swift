@@ -135,7 +135,7 @@ struct ConnectionSection: View {
             LabeledContent {
                 FormText(text: "\(connector.ratedOutputkW) kW")
             } label: {
-                FormLabel(label: "DETAILS")
+                FormLabel(label: "RATED")
             }
 
             LabeledContent {
@@ -145,7 +145,6 @@ struct ConnectionSection: View {
             }
 
             LabeledContent {
-                // TODO: Make coloured indicator look better
                 HStack {
                     Circle()
                         .stroke(Color.gray, lineWidth: 2.0)
