@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum Colors {
-    static let textColor = Color("TextColor")
-    static let backgroundColor = Color("BackgroundColor")
+    static let textColor        = Color("TextColor")
+    static let backgroundColor  = Color("BackgroundColor")
+    static let listRowColor     = Color("ListRowColor")
 }
