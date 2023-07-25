@@ -15,12 +15,14 @@ struct MapView: View {
 
     @StateObject private var mapViewModel = MapViewModel()
 
-    @State private var cameraPosition: MapCameraPosition = .region(.defaultRegion)
+    @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var mapSelection: MKMapItem?
+
+    @Namespace private var locationSpace
 
     var body: some View {
 
-        Map(position: $cameraPosition, selection: $mapSelection) {
+        Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
 
             Annotation("My location", coordinate: mapViewModel.userLocation) {
                 userLocation
@@ -39,7 +41,7 @@ struct MapView: View {
         }
         .mapControls {
             MapCompass()
-            MapPitchButton()
+            MapPitchToggle()
             MapUserLocationButton()
         }
     }
