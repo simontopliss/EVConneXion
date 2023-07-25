@@ -1,0 +1,110 @@
+{
+    "Scheme": {
+        "SchemeCode": "NA",
+        "SchemeData": {
+            "OrganisationName": "NA",
+            "Website": "NA",
+            "TelephoneNo": "NA"
+        }
+    },
+    "ChargeDevice": [
+        {
+            "ChargeDeviceId": "4f5a97cf06cf69028997db51d8726d28",
+            "ChargeDeviceRef": "PP-12210",
+            "ChargeDeviceName": "Lincolns Inn Fields ",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "51.515286",
+                "Longitude": "-0.116644",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "",
+                    "BuildingNumber": "49A",
+                    "Thoroughfare": "Lincoln's Inn Fields",
+                    "Street": "",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Lincoln's Inn Fields",
+                    "County": "Greater London",
+                    "PostCode": "WC2A 3PF",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": "Lincolns Inn Fields, Westminster",
+                "LocationLongDescription": "Lincoln's Inns Fields, Westminster. "
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2012-06-18 13:48:50",
+            "DateUpdated": "2015-11-03 14:20:18",
+            "Attribution": "POD Point",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "0",
+                    "ConnectorType": "3-pin Type G (BS1363)",
+                    "RatedOutputkW": "3.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "13",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "1",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "3-pin Type G (BS1363)",
+                    "RatedOutputkW": "3.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "13",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "1",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "POD Point",
+                "SchemeCode": "PP",
+                "Website": "http://pod-point.com",
+                "TelephoneNo": "020 7247 4114"
+            },
+            "DeviceController": {
+                "OrganisationName": "POD Point",
+                "SchemeCode": "PP",
+                "Website": "http://pod-point.com",
+                "TelephoneNo": "020 7247 4114"
+            },
+            "DeviceAccess": {
+                "Open24Hours": true
+            },
+            "DeviceNetworks": "POD Point",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": true,
+            "PaymentDetails": null,
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": null,
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": null,
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": null,
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": null,
+            "OnStreetFlag": true,
+            "LocationType": "Other",
+            "Bearing": null,
+            "Accessible24Hours": true
+        }
+    ]
+}
