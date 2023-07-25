@@ -7,6 +7,7 @@
 
 // import Observation
 import Foundation
+import MapKit
 import SwiftUI
 
 // @Observable
@@ -44,6 +45,12 @@ final class ChargePointViewModel: ObservableObject {
         loadNetworkGraphics()
     }
 
+    // MARK: - Charge Device Location
+
+    func updateChargeDeviceLocationFromUserLocation(chargeDeviceLocation: ChargeDeviceLocation, userLocation: CLLocationCoordinate2D) {
+
+    }
+
     // MARK: - Address Formatting
 
     func createAddress(chargeDevice: ChargeDevice) -> Address {
@@ -56,14 +63,14 @@ final class ChargePointViewModel: ObservableObject {
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]?) -> ([String], [String]) {
         var openingDays: [String] = []
         var openingHours: [String] = []
-        
+
         if let regularOpenings = regularOpenings {
-            
+
             for opening in regularOpenings {
                 if let days = opening.days {
                     openingDays.append(days)
                 }
-                
+
                 if let hours = opening.hours {
                     openingHours.append("\(hours.from) to \(hours.to)")
                 }
@@ -76,11 +83,11 @@ final class ChargePointViewModel: ObservableObject {
     func openingsDaysFor(regularOpenings: [RegularOpening]) -> [String] {
         var openingDays: [String] = []
 
-            for opening in regularOpenings {
-                if let days = opening.days {
-                    openingDays.append(days)
-                }
+        for opening in regularOpenings {
+            if let days = opening.days {
+                openingDays.append(days)
             }
+        }
 
         return openingDays
     }
