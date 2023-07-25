@@ -11,8 +11,8 @@ import MapKit
 final class MapViewModel: ObservableObject {
     
     // TODO: This needs to be stored and read from UserDefaults if we've been given permission to get the user's location
-    @Published var userLocation: CLLocationCoordinate2D = .defaultLocation
-    @Published var region: MKCoordinateRegion = .defaultRegion
+    @Published var userLocation: CLLocationCoordinate2D = LocationManager.defaultLocation
+    @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
 
     // TODO: Store in UserDefaults
     @Published var cameraHeight: CLLocationDistance = 2500 // Distance in metres
