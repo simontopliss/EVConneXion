@@ -11,11 +11,13 @@ struct ChargePointListView: View {
 
     @EnvironmentObject private var vm: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
+    @EnvironmentObject private var locationManager: LocationManager
 
-    // TODO: Move this to Main and manage all paths from there
-    // Paths must conform to `Hashable`
-    // Use NavigationSplitView for iPad support
-    // @State private var path: NavigationPath = .init()
+    // TODO: Use NavigationSplitView for iPad support
+
+    init() {
+        //vm.lo
+    }
 
     var body: some View {
         NavigationStack(path: $routerManager.routes) {
@@ -46,4 +48,5 @@ struct ChargePointListView: View {
     ChargePointListView()
         .environmentObject(ChargePointViewModel())
         .environmentObject(NavigationRouter())
+        .environmentObject(LocationManager())
 }
