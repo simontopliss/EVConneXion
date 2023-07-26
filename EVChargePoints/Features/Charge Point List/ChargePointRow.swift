@@ -5,17 +5,20 @@
 //  Created by Simon Topliss on 14/07/2023.
 //
 
+import MapKit
 import SwiftUI
 
 struct ChargePointRow: View {
 
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var locationManager: LocationManager
 
     var chargeDevice: ChargeDevice
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
     }
+
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
         vm.graphicsAndCountsFor(connectors: chargeDevice.connector)
     }
@@ -24,11 +27,31 @@ struct ChargePointRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(chargeDevice.chargeDeviceName.trim())
-                .font(.title2)
+            HStack {
+                Text(chargeDevice.chargeDeviceName.trim())
+                    .font(.title2.leading(.tight))
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.leading)
+
+                Spacer()
+
+                Text(
+                    vm.getFormattedDistance(
+                        distance: chargeDevice.chargeDeviceLocation.coordinate.distance(
+                            to: LocationManager.defaultLocation
+                        ),
+                        unit: vm.units
+                    )
+                )
+                .font(.subheadline)
                 .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
+                .fontWidth(.condensed)
+                .foregroundStyle(.white)
+                .padding(.vertical, 2)
+                .padding(.horizontal, 8)
+                .background(Color.accentColor, in: Capsule())
+            }
+            .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
 
             Text("Ref: \(chargeDevice.chargeDeviceRef.trim())")
                 .font(.caption)
@@ -52,8 +75,8 @@ struct ChargePointRow: View {
                         Image(connector.name)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        .frame(height: 22)
-                        .shadow(color: .secondary, radius: 3.0)
+                            .frame(height: 22)
+                            .shadow(color: .secondary, radius: 3.0)
 
                         Text("\(connector.count)")
                             .font(.footnote)
@@ -76,7 +99,8 @@ struct ChargePointRow: View {
         chargeDevice: ChargePointData.mockChargeDevice
     )
     .environmentObject(ChargePointViewModel())
-    //.colorScheme(.dark)
+    .environmentObject(LocationManager())
+    // .colorScheme(.dark)
     .background(Colors.backgroundColor)
     .padding()
 }
