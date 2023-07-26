@@ -11,9 +11,10 @@ extension ChargePointData {
 
     static var mockChargeDevices: [ChargeDevice] {
         let chargePointData = try? StaticJSONMapper.decode(
-            file: "4f5a97cf06cf69028997db51d8726d28 - POD Point example",
+            file: "SE1 7PB - London Eye - 1 mile - connector-type-id 4",
             type: ChargePointData.self
         )
+        print("chargeDevices count = \(chargePointData!.chargeDevices.count)")
         return chargePointData!.chargeDevices
     }
 
