@@ -32,11 +32,12 @@ final class ChargePointViewModel: ObservableObject {
 
     private var distance = 2
     private var limit = 5
-    private var units: Endpoint.RegistryDataType.Unit = .mi
+    private(set) var units: Endpoint.RegistryDataType.Unit = .mi
     private var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
+    //private let locationManager: LocationManager?
 
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
@@ -45,20 +46,40 @@ final class ChargePointViewModel: ObservableObject {
         loadNetworkGraphics()
     }
 
-    // MARK: - Charge Device Location
+    // MARK: - API Call
 
-    func updateChargeDeviceLocationFromUserLocation(chargeDeviceLocation: ChargeDeviceLocation, userLocation: CLLocationCoordinate2D) {
+    @MainActor
+    func fetchChargeDevices(requestType: Endpoint.RequestType) async {
 
+        let url = Endpoint.buildURL(
+            requestType: requestType,
+            distance: distance,
+            limit: limit,
+            units: units,
+            country: country
+        )
+
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            chargeDevices = chargePointData.chargeDevices
+            // dump(chargePointData.chargeDevices[0])
+        } catch {
+            hasError = true
+            if let networkError = error as? NetworkManager.NetworkError {
+                self.error = networkError
+            } else {
+                self.error = .custom(error: error)
+            }
+        }
     }
+}
 
-    // MARK: - Address Formatting
+// MARK: - Regular Openings
 
-    func createAddress(chargeDevice: ChargeDevice) -> Address {
-        address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
-        return address!
-    }
-
-    // MARK: - Regular Openings
+extension ChargePointViewModel {
 
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]?) -> ([String], [String]) {
         var openingDays: [String] = []
@@ -103,8 +124,11 @@ final class ChargePointViewModel: ObservableObject {
 
         return openingHours
     }
+}
 
-    // MARK: - Network Graphics
+// MARK: - Network Graphics
+
+extension ChargePointViewModel {
 
     /// Loads the network graphics from a JSON file
     func loadNetworkGraphics() {
@@ -181,7 +205,7 @@ final class ChargePointViewModel: ObservableObject {
         for connector in connectors {
             let connectorType = connector.connectorType.rawValue // + ".svg"
             if connectorGraphics.contains(connectorType) {
-                for index in 0...connectorGraphicsAndCounts.count - 1 {
+                for index in 0..<connectorGraphicsAndCounts.count {
                     if connectorGraphicsAndCounts[index].name == connectorType {
                         connectorGraphicsAndCounts[index].count += 1
                     }
@@ -208,34 +232,44 @@ final class ChargePointViewModel: ObservableObject {
         )
         return networkColor
     }
+}
 
-    // MARK: - API Call
+// MARK: - Address Formatting
 
-    @MainActor
-    func fetchChargeDevices(requestType: Endpoint.RequestType) async {
+extension ChargePointViewModel {
+    
+    /// Creates a String for the address
+    /// - Parameter chargeDevice: ChargeDevice
+    /// - Returns: String of the address given
+    func createAddress(chargeDevice: ChargeDevice) -> Address {
+        address = Address(chargeDeviceLocation: chargeDevice.chargeDeviceLocation)
+        return address!
+    }
+}
 
-        let url = Endpoint.buildURL(
-            requestType: requestType,
-            distance: distance,
-            limit: limit,
-            units: units,
-            country: country
-        )
+// MARK: - Distance Formatting
 
-        isLoading = true
-        defer { isLoading = false }
-
-        do {
-            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
-            chargeDevices = chargePointData.chargeDevices
-            // dump(chargePointData.chargeDevices[0])
-        } catch {
-            hasError = true
-            if let networkError = error as? NetworkManager.NetworkError {
-                self.error = networkError
-            } else {
-                self.error = .custom(error: error)
-            }
+extension ChargePointViewModel {
+    
+    /// Returns a formatted distance string
+    /// - Parameters:
+    ///   - distance: the distance from the user to the device
+    ///   - unit: the Endpoint.RegistryDataType.Unit
+    /// - Returns: String of the formatted distance in km or miles
+    func getFormattedDistance(distance: Double, unit: Endpoint.RegistryDataType.Unit) -> String {
+        let distanceMeters = Measurement(value: distance, unit: UnitLength.meters)
+        switch unit {
+            case .mi:
+                let distanceMiles = distanceMeters.converted(to: UnitLength.miles).value
+                return Decimal(distanceMiles).formatted(
+                    .number.precision(.fractionLength(0...2))
+                ) + " " + unit.rawValue
+            case .km:
+                let distanceKm = distanceMeters.converted(to: UnitLength.kilometers).value
+                return Decimal(distanceKm).formatted(
+                    .number.precision(.fractionLength(0...2))
+                ) + " " + unit.rawValue
         }
     }
+
 }
