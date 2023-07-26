@@ -86,13 +86,6 @@ struct LocationSection: View {
 struct ParkingSection: View {
     let chargeDevice: ChargeDevice
 
-//    var validSection: Bool {
-//        Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) ||
-//            Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) ||
-//            Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking)
-//            ? true : false
-//    }
-
     var body: some View {
         Section("PARKING") {
             if Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) {
