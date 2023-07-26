@@ -14,33 +14,8 @@ final class MapViewModel: ObservableObject {
     @Published var userLocation: CLLocationCoordinate2D = LocationManager.defaultLocation
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
 
-    // TODO: Store in UserDefaults
-    @Published var cameraHeight: CLLocationDistance = 2500 // Distance in metres
-
     init() {
         //self.userLocation = .defaultLocation
-    }
-
-    func coordinateFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> CLLocationCoordinate2D? {
-        guard let latitude = Double(chargeDeviceLocation.latitude),
-              let longitude = Double(chargeDeviceLocation.longitude) else {
-            return nil
-        }
-
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
-
-    func regionFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> MKCoordinateRegion? {
-
-        guard let locationCoordinate = coordinateFor(chargeDeviceLocation) else { return nil }
-
-        let deviceLocation = MKCoordinateRegion(
-            center: locationCoordinate,
-            latitudinalMeters: cameraHeight,
-            longitudinalMeters: cameraHeight
-        )
-
-        return deviceLocation
     }
 
 }
