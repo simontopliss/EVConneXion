@@ -18,7 +18,7 @@ struct ChargeDeviceLocation: Decodable {
     var locationShortDescription: String?
     var locationLongDescription: String?
 
-    let coordinate: CLLocationCoordinate2D = LocationManager.defaultLocation
+    var coordinate: CLLocationCoordinate2D
 
     var mapItem: MKMapItem {
         MKMapItem(placemark: .init(coordinate: coordinate))
@@ -32,6 +32,17 @@ struct ChargeDeviceLocation: Decodable {
         case address                   = "Address"
         case locationShortDescription  = "LocationShortDescription"
         case locationLongDescription   = "LocationLongDescription"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.latitude = try container.decode(String.self, forKey: .latitude)
+        self.longitude = try container.decode(String.self, forKey: .longitude)
+        self.address = try container.decode([String : String?].self, forKey: .address)
+        self.locationShortDescription = try container.decodeIfPresent(String.self, forKey: .locationShortDescription)
+        self.locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
+
+        self.coordinate = CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
     }
 
 }
