@@ -223,7 +223,6 @@
 		6223CA472A3CF42A00A87875 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				6223CA482A3CF46E00A87875 /* NetworkManager.swift */,
 				6223CA522A3DEAE700A87875 /* Endpoint.swift */,
 				62718B322A52038F004F0168 /* DecodeJSON.swift */,
 			);
@@ -501,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				62DFA74A2A6D400000208E1B /* LocationManager.swift */,
+				6223CA482A3CF46E00A87875 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
