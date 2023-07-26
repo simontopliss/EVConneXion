@@ -9,11 +9,19 @@ import CoreLocation
 import Foundation
 import MapKit
 
-class LocationManager: NSObject, ObservableObject {
+final class LocationManager: NSObject, ObservableObject {
 
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
     let locationManager = CLLocationManager()
+
+    // TODO: Store in UserDefaults
+    @Published var cameraHeight: CLLocationDistance = 2500 // Distance in metres
+
 //    var route: MKRoute!
+    var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
+    var userMapItem: MKMapItem?
+
+    //let miles = Measurement(value: meters, unit: UnitLength.meters).converted(to: UnitLength.miles).value
 
     override init() {
         super.init()
@@ -28,7 +36,7 @@ class LocationManager: NSObject, ObservableObject {
 extension LocationManager {
 
     static var defaultLocation: CLLocationCoordinate2D {
-        return .init(latitude: 51.503351, longitude: -0.119623)
+        return .init(latitude: 51.503351, longitude: -0.119623) // London Eye
     }
 
     static var defaultRegion: MKCoordinateRegion {
@@ -83,24 +91,81 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(#function)
         print(String(describing: error))
     }
 
 }
 
+// MARK: - Charge Device Locations
+
 extension LocationManager {
 
-    static func getDistanceToDestination(srcMapItem: MKMapItem, destMapItem: MKMapItem) -> MKRoute? {
-        let request = MKDirections.Request() //create a direction request object
-        request.source = srcMapItem //this is the source location mapItem object
-        request.destination = destMapItem //this is the destination location mapItem object
-        request.transportType = MKDirectionsTransportType.automobile //define the transportation method
-
-        Task {
-            let result = try? await MKDirections(request: request).calculate()
-            return result?.routes.first
+    func coordinateFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> CLLocationCoordinate2D? {
+        guard let latitude = Double(chargeDeviceLocation.latitude),
+              let longitude = Double(chargeDeviceLocation.longitude) else {
+            return nil
         }
 
-        return nil
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+
+    func regionFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> MKCoordinateRegion? {
+
+        guard let locationCoordinate = coordinateFor(chargeDeviceLocation) else { return nil }
+
+        let deviceLocation = MKCoordinateRegion(
+            center: locationCoordinate,
+            latitudinalMeters: cameraHeight,
+            longitudinalMeters: cameraHeight
+        )
+
+        return deviceLocation
+    }
+
+//    func distanceToAllLocations(chargeDevices: [ChargeDevice]) {
+//        self.userMapItem = MKMapItem(placemark: .init(coordinate: userLocation))
+//
+//        for chargeDevice in chargeDevices {
+//
+//            if let coordinate = coordinateFor(chargeDevice.chargeDeviceLocation) {
+//                let mapItem =  MKMapItem(placemark: .init(coordinate: coordinate))
+//
+//                getDistanceToDevice(
+//                    srcMapItem: userMapItem!,
+//                    destMapItem: mapItem
+//                )
+//
+//                if let route {
+//                    let location = Location(
+//                        id: UUID(),
+//                        chargeDeviceID: chargeDevice.chargeDeviceID,
+//                        coordinate: coordinate,
+//                        distanceFromUser: route.distance
+//                    )
+//                }
+//            }
+//        }
+//    }
+
+//    func getDistanceToDevice(srcMapItem: MKMapItem, destMapItem: MKMapItem) {
+//        let request = MKDirections.Request() // create a direction request object
+//        request.source = srcMapItem // this is the source location mapItem object
+//        request.destination = destMapItem // this is the destination location mapItem object
+//        request.transportType = MKDirectionsTransportType.automobile // define the transportation method
+//
+//        Task {
+//            let result = try? await MKDirections(request: request).calculate()
+//            route = result?.routes.first!
+//        }
+//    }
+}
+
+extension CLLocationCoordinate2D {
+
+    /// Returns the distance between two coordinates in meters.
+    func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
+        MKMapPoint(self).distance(to: MKMapPoint(to))
+    }
+
 }
