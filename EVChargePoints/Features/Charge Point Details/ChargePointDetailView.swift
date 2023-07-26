@@ -19,9 +19,6 @@ struct ChargePointDetailView: View {
     @State private var selectedView: SelectedView = .information
 
     let chargeDevice: ChargeDevice
-    var address: Address {
-        vm.createAddress(chargeDevice: chargeDevice)
-    }
 
     var body: some View {
         VStack {
