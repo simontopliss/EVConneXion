@@ -15,8 +15,9 @@ struct EVChargePointsApp: App {
 
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
-    @StateObject var chargePointViewModel = ChargePointViewModel()
+    @StateObject private var chargePointViewModel = ChargePointViewModel()
     @StateObject private var routerManager = NavigationRouter()
+    @StateObject private var locationManager = LocationManager()
 
     var body: some Scene {
         WindowGroup {
@@ -28,6 +29,7 @@ struct EVChargePointsApp: App {
                     .tag(Tabs.map)
                     .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
+                    .environmentObject(locationManager)
 
                 ChargePointListView()
                     .tabItem {
@@ -36,6 +38,7 @@ struct EVChargePointsApp: App {
                     .tag(Tabs.list)
                     .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
+                    .environmentObject(locationManager)
 
                 RoutesView()
                     .tabItem {
