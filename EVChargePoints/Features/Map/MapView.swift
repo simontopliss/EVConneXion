@@ -16,10 +16,14 @@ struct MapView: View {
 
     @StateObject private var mapViewModel = MapViewModel()
 
+    // Map Properties
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var mapSelection: MKMapItem?
-
+    @State private var deviceSelection: ChargeDevice?
     @Namespace private var locationSpace
+
+    @State private var showDetails = false
+    @State private var getDirections = false
 
     // User Location Animation
     @State private var delay: Double = 0
@@ -28,24 +32,46 @@ struct MapView: View {
 
     var body: some View {
 
+        // interactionModes: .all, 
         Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
 
             // UserAnnotation() // This needs changing when testing 'real' user location
-            Annotation("My location", coordinate: mapViewModel.userLocation) {
+            Annotation("My Location", coordinate: mapViewModel.userLocation) {
                 userAnnotation
             }
 
             ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
-                if let chargeDeviceCoordinate = locationManager.coordinateFor(chargeDevice.chargeDeviceLocation) {
-                    Marker(
-                        markerName(attribution: chargeDevice.attribution),
-                        systemImage: Symbols.evChargerName,
-                        coordinate: chargeDeviceCoordinate
-                    )
-                    .tint(networkColor(attribution: chargeDevice.attribution))
-                }
+
+                let mapItem = chargeDevice.deviceMapMarker.mapItem
+                let placemark = mapItem.placemark
+
+                Marker(
+                    markerName(attribution: chargeDevice.attribution),
+                    systemImage: Symbols.evChargerName,
+                    coordinate: placemark.coordinate
+                )
+                .tag(chargeDevice.id)
+                .tint(networkColor(attribution: chargeDevice.attribution))
             }
         }
+        .onChange(of: mapSelection) { oldValue, newValue in
+            showDetails = newValue != nil
+            let _ = print(mapSelection?.name)
+        }
+        .sheet(isPresented: $showDetails) {
+            if let deviceSelection {
+                LocationDetailsView(
+                    mapSelection: $mapSelection,
+                    chargeDevice: deviceSelection,
+                    show: $showDetails,
+                    getDirections: $getDirections
+                )
+            }
+        }
+        .presentationDetents([.height(340)])
+        .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+        .presentationCornerRadius(12)
+        .padding()
         // .mapStyle(.hybrid)
         .mapControls {
             MapCompass()
