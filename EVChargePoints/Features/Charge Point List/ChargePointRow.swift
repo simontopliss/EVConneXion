@@ -18,12 +18,11 @@ struct ChargePointRow: View {
     var address: Address {
         vm.createAddress(chargeDevice: chargeDevice)
     }
-
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
         vm.graphicsAndCountsFor(connectors: chargeDevice.connector)
     }
 
-    let inset = 12.0
+    private let inset = 12.0
 
     var body: some View {
         VStack(alignment: .leading) {
