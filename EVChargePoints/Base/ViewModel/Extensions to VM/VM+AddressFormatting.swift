@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Address Formatting
-
 extension ChargePointViewModel {
 
     /// Creates a String for the address

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Network Graphics
-
 extension ChargePointViewModel {
 
     /// Loads the network graphics from a JSON file

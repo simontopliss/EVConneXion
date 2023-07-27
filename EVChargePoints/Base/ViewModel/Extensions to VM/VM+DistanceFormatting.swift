@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Distance Formatting
-
 extension ChargePointViewModel {
 
     /// Returns a formatted distance string

@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Regular Openings
-
 extension ChargePointViewModel {
 
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]?) -> ([String], [String]) {
