@@ -28,10 +28,10 @@ final class ChargePointViewModel: ObservableObject {
     // API can only search for 1 at a time, so filter results instead
     // private var connectorTypes = ConnectorType.allCases
 
-    private var distance = 2
-    private var limit = 5
+    private(set) var distance = 2
+    private(set) var limit = 5
     private(set) var units: Endpoint.RegistryDataType.Unit = .mi
-    private var country: Endpoint.RegistryDataType.Country = .gb
+    private(set) var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
