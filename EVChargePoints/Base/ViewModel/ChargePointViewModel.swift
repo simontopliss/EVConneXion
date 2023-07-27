@@ -5,12 +5,10 @@
 //  Created by Simon Topliss on 16/06/2023.
 //
 
-// import Observation
 import Foundation
 import MapKit
 import SwiftUI
 
-// @Observable
 final class ChargePointViewModel: ObservableObject {
 
     // MARK: - PROPERTIES
@@ -37,12 +35,12 @@ final class ChargePointViewModel: ObservableObject {
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
-    //private let locationManager: LocationManager?
 
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
         chargeDevices = ChargePointData.mockChargeDevices
+        chargeDevices.sort(by: { $0.chargeDeviceLocation.distanceFromUser < $1.chargeDeviceLocation.distanceFromUser })
         loadNetworkGraphics()
     }
 
