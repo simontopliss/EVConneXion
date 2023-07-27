@@ -37,9 +37,7 @@ struct ChargePointRow: View {
 
                 Text(
                     vm.getFormattedDistance(
-                        distance: chargeDevice.chargeDeviceLocation.coordinate.distance(
-                            to: LocationManager.defaultLocation
-                        ),
+                        distance: chargeDevice.chargeDeviceLocation.distanceFromUser,
                         unit: vm.units
                     )
                 )
@@ -100,7 +98,6 @@ struct ChargePointRow: View {
     )
     .environmentObject(ChargePointViewModel())
     .environmentObject(LocationManager())
-    // .colorScheme(.dark)
     .background(Colors.backgroundColor)
     .padding()
 }
