@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MapKit
 
 // MARK: - ChargeDeviceLocation
 
@@ -17,9 +16,6 @@ struct ChargeDeviceLocation: Decodable {
     var address: [String: String?]
     var locationShortDescription: String?
     var locationLongDescription: String?
-
-    var coordinate: CLLocationCoordinate2D
-    var distanceFromUser: CLLocationDistance // typealias of Double
 
     enum CodingKeys: String, CodingKey {
         case latitude                  = "Latitude"
@@ -36,8 +32,5 @@ struct ChargeDeviceLocation: Decodable {
         self.address = try container.decode([String : String?].self, forKey: .address)
         self.locationShortDescription = try container.decodeIfPresent(String.self, forKey: .locationShortDescription)
         self.locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
-
-        self.coordinate = CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
-        self.distanceFromUser = coordinate.distance(to: LocationManager.defaultLocation)
     }
 }
