@@ -19,12 +19,7 @@ struct ChargeDeviceLocation: Decodable {
     var locationLongDescription: String?
 
     var coordinate: CLLocationCoordinate2D
-
-    var mapItem: MKMapItem {
-        MKMapItem(placemark: .init(coordinate: coordinate))
-    }
-
-    var distanceFromUser: CLLocationDistance = 0.0 // typealias of Double
+    var distanceFromUser: CLLocationDistance // typealias of Double
 
     enum CodingKeys: String, CodingKey {
         case latitude                  = "Latitude"
@@ -43,6 +38,6 @@ struct ChargeDeviceLocation: Decodable {
         self.locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
 
         self.coordinate = CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
+        self.distanceFromUser = coordinate.distance(to: LocationManager.defaultLocation)
     }
-
 }
