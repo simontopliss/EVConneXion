@@ -111,7 +111,6 @@ extension LocationManager {
     }
 
     func regionFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> MKCoordinateRegion? {
-
         guard let locationCoordinate = coordinateFor(chargeDeviceLocation) else { return nil }
 
         let deviceLocation = MKCoordinateRegion(
@@ -122,43 +121,6 @@ extension LocationManager {
 
         return deviceLocation
     }
-
-//    func distanceToAllLocations(chargeDevices: [ChargeDevice]) {
-//        self.userMapItem = MKMapItem(placemark: .init(coordinate: userLocation))
-//
-//        for chargeDevice in chargeDevices {
-//
-//            if let coordinate = coordinateFor(chargeDevice.chargeDeviceLocation) {
-//                let mapItem =  MKMapItem(placemark: .init(coordinate: coordinate))
-//
-//                getDistanceToDevice(
-//                    srcMapItem: userMapItem!,
-//                    destMapItem: mapItem
-//                )
-//
-//                if let route {
-//                    let location = Location(
-//                        id: UUID(),
-//                        chargeDeviceID: chargeDevice.chargeDeviceID,
-//                        coordinate: coordinate,
-//                        distanceFromUser: route.distance
-//                    )
-//                }
-//            }
-//        }
-//    }
-
-//    func getDistanceToDevice(srcMapItem: MKMapItem, destMapItem: MKMapItem) {
-//        let request = MKDirections.Request() // create a direction request object
-//        request.source = srcMapItem // this is the source location mapItem object
-//        request.destination = destMapItem // this is the destination location mapItem object
-//        request.transportType = MKDirectionsTransportType.automobile // define the transportation method
-//
-//        Task {
-//            let result = try? await MKDirections(request: request).calculate()
-//            route = result?.routes.first!
-//        }
-//    }
 }
 
 extension CLLocationCoordinate2D {
