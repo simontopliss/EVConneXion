@@ -40,7 +40,7 @@ final class ChargePointViewModel: ObservableObject {
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
         chargeDevices = ChargePointData.mockChargeDevices
-        chargeDevices.sort(by: { $0.chargeDeviceLocation.distanceFromUser < $1.chargeDeviceLocation.distanceFromUser })
+        chargeDevices.sort(by: { $0.deviceMapMarker.distanceFromUser < $1.deviceMapMarker.distanceFromUser })
         loadNetworkGraphics()
     }
 

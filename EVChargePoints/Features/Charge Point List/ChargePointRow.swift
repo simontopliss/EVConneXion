@@ -36,7 +36,7 @@ struct ChargePointRow: View {
 
                 Text(
                     vm.getFormattedDistance(
-                        distance: chargeDevice.chargeDeviceLocation.distanceFromUser,
+                        distance: chargeDevice.deviceMapMarker.distanceFromUser,
                         unit: vm.units
                     )
                 )
