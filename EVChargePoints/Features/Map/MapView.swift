@@ -21,6 +21,11 @@ struct MapView: View {
 
     @Namespace private var locationSpace
 
+    // User Location Animation
+    @State private var delay: Double = 0
+    @State private var scale: CGFloat = 0.5
+    @State private var duration = 0.8
+
     var body: some View {
 
         Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
@@ -41,6 +46,7 @@ struct MapView: View {
                 }
             }
         }
+        // .mapStyle(.hybrid)
         .mapControls {
             MapCompass()
             MapPitchToggle()
@@ -59,7 +65,6 @@ struct MapView: View {
 extension MapView {
 
     var userAnnotation: some View {
-        // TODO: Add animation to indicate point on map
         ZStack {
             Circle()
                 .frame(width: 32, height: 32)
@@ -72,6 +77,18 @@ extension MapView {
             Circle()
                 .frame(width: 12, height: 12)
                 .foregroundColor(.pink)
+        }
+        .scaleEffect(scale)
+        .animation(
+            Animation.easeInOut(duration: duration)
+                .repeatForever()
+                .delay(delay),
+            value: scale
+        )
+        .onAppear {
+            withAnimation {
+                self.scale = 1
+            }
         }
     }
 
