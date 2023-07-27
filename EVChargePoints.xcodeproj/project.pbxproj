@@ -15,6 +15,8 @@
 		6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */; };
 		6223CA512A3CFDC300A87875 /* ChargePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */; };
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
+		6255F90D2A72A178006FF6C9 /* VM+DistanceFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */; };
+		6255F90F2A72A284006FF6C9 /* VM+AddressFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */; };
 		625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* Colors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
@@ -26,6 +28,7 @@
 		625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */; };
 		625CEF6E2A65648C00A82048 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF6D2A65648C00A82048 /* Validator.swift */; };
 		625CEF722A65934800A82048 /* NetworkGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF712A65934800A82048 /* NetworkGraphic.swift */; };
+		625EB1492A72A01E00E36AA3 /* VM+RegularOpenings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB1482A72A01E00E36AA3 /* VM+RegularOpenings.swift */; };
 		626810432A61595F0032C3CA /* ChargePointRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810422A61595F0032C3CA /* ChargePointRow.swift */; };
 		626810452A616A020032C3CA /* MockChargePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626810442A616A020032C3CA /* MockChargePoints.swift */; };
 		62718B1D2A51D7AA004F0168 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718B1C2A51D7AA004F0168 /* EndpointTests.swift */; };
@@ -58,6 +61,7 @@
 		62DFA7482A6D3F4800208E1B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7472A6D3F4800208E1B /* MapViewModel.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
+		62FCCDCA2A72A094004A9778 /* VM+NetworkGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCCDC92A72A094004A9778 /* VM+NetworkGraphics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,8 @@
 		6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointData.swift; sourceTree = "<group>"; };
 		6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointViewModel.swift; sourceTree = "<group>"; };
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+DistanceFormatting.swift"; sourceTree = "<group>"; };
+		6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+AddressFormatting.swift"; sourceTree = "<group>"; };
 		625CEF5A2A62CC1500A82048 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		625CEF6B2A6556FB00A82048 /* ChargeDeviceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDeviceLocation.swift; sourceTree = "<group>"; };
 		625CEF6D2A65648C00A82048 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		625CEF712A65934800A82048 /* NetworkGraphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGraphic.swift; sourceTree = "<group>"; };
+		625EB1482A72A01E00E36AA3 /* VM+RegularOpenings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+RegularOpenings.swift"; sourceTree = "<group>"; };
 		626810422A61595F0032C3CA /* ChargePointRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointRow.swift; sourceTree = "<group>"; };
 		626810442A616A020032C3CA /* MockChargePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChargePoints.swift; sourceTree = "<group>"; };
 		62718B1C2A51D7AA004F0168 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
@@ -124,6 +131,7 @@
 		62DFA7472A6D3F4800208E1B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		62FCCDC92A72A094004A9778 /* VM+NetworkGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+NetworkGraphics.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +255,17 @@
 				625CEF612A6555B900A82048 /* LocationType.swift */,
 			);
 			path = "National Chargepoint Registry";
+			sourceTree = "<group>";
+		};
+		625EB14A2A72A02200E36AA3 /* Extensions to VM */ = {
+			isa = PBXGroup;
+			children = (
+				6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */,
+				6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */,
+				625EB1482A72A01E00E36AA3 /* VM+RegularOpenings.swift */,
+				62FCCDC92A72A094004A9778 /* VM+NetworkGraphics.swift */,
+			);
+			path = "Extensions to VM";
 			sourceTree = "<group>";
 		};
 		62718B142A51D659004F0168 /* Networking */ = {
@@ -393,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */,
+				625EB14A2A72A02200E36AA3 /* Extensions to VM */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -605,6 +625,7 @@
 				625CEF722A65934800A82048 /* NetworkGraphic.swift in Sources */,
 				62718B332A52038F004F0168 /* DecodeJSON.swift in Sources */,
 				625CEF642A65563100A82048 /* Connector.swift in Sources */,
+				6255F90D2A72A178006FF6C9 /* VM+DistanceFormatting.swift in Sources */,
 				62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */,
 				62718BA42A533093004F0168 /* MockURLSessionProtocol.swift in Sources */,
 				62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */,
@@ -617,11 +638,14 @@
 				627531DB2A69470800F0D8A6 /* Route.swift in Sources */,
 				62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */,
 				625CEF6E2A65648C00A82048 /* Validator.swift in Sources */,
+				625EB1492A72A01E00E36AA3 /* VM+RegularOpenings.swift in Sources */,
 				626810452A616A020032C3CA /* MockChargePoints.swift in Sources */,
 				62718BAB2A5332D6004F0168 /* UITestingHelper.swift in Sources */,
 				621A70442A3B3BC800A04669 /* EVChargePointsApp.swift in Sources */,
 				62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */,
+				6255F90F2A72A284006FF6C9 /* VM+AddressFormatting.swift in Sources */,
 				62718BA72A53314B004F0168 /* NetworkManagerSuccessMock.swift in Sources */,
+				62FCCDCA2A72A094004A9778 /* VM+NetworkGraphics.swift in Sources */,
 				625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */,
 				625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */,
 				625CEF622A6555B900A82048 /* LocationType.swift in Sources */,
