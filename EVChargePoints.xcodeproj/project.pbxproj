@@ -59,6 +59,7 @@
 		62DFA7482A6D3F4800208E1B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7472A6D3F4800208E1B /* MapViewModel.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
+		62F78EC22A72943400A98F79 /* View+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F78EC12A72943400A98F79 /* View+Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		62DFA7472A6D3F4800208E1B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		62F78EC12A72943400A98F79 /* View+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Animation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +378,7 @@
 			children = (
 				62DFA7502A6DB0A600208E1B /* Color+Ext.swift */,
 				628C33122A61E91A00232351 /* String+Ext.swift */,
+				62F78EC12A72943400A98F79 /* View+Animation.swift */,
 				62C9F6612A68033B00151FB4 /* View+Navigation.swift */,
 			);
 			path = Extensions;
@@ -647,6 +650,7 @@
 				62B32CB92A4DCDE600C6E8DF /* SettingsView.swift in Sources */,
 				626810432A61595F0032C3CA /* ChargePointRow.swift in Sources */,
 				62718B2E2A51E464004F0168 /* StaticJSONMapper.swift in Sources */,
+				62F78EC22A72943400A98F79 /* View+Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
