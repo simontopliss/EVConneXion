@@ -76,7 +76,6 @@ struct MapView: View {
                 /// Display Route using Polyline
                 if let route {
                     MapPolyline(route.polyline)
-                        /// Applying Bigger Stroke
                         .stroke(.blue, lineWidth: 7)
                 }
             }
@@ -84,7 +83,7 @@ struct MapView: View {
                 viewingRegion = context.region
             }
             .overlay(alignment: .bottomTrailing) {
-                MapControls(cameraPosition: $cameraPosition)
+                mapControls()
             }
             .mapScope(locationSpace)
             .navigationTitle("Map")
@@ -107,32 +106,14 @@ struct MapView: View {
             })
             .safeAreaInset(edge: .bottom) {
                 if routeDisplaying {
-                    Button("End Route") {
-                        /// Closing The Route and Setting the Selection
-                        withAnimation(.snappy) {
-                            routeDisplaying = false
-                            showDetails = true
-                            deviceSelection = routeDestination
-                            routeDestination = nil
-                            route = nil
-                            if let coordinate = deviceSelection?.deviceMapItem.coordinate {
-                                cameraPosition = .region(
-                                    .init(
-                                        center: coordinate,
-                                        latitudinalMeters: .cameraHeight,
-                                        longitudinalMeters: .cameraHeight
-                                    )
-                                )
-                            }
-                        }
-                    }
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .contentShape(Rectangle())
-                    .padding(.vertical, 12)
-                    .background(.red.gradient, in: .rect(cornerRadius: 15))
-                    .padding()
-                    .background(.ultraThinMaterial)
+                    endRoute()
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
+                        .padding(.vertical, 12)
+                        .background(.red.gradient, in: .rect(cornerRadius: 15))
+                        .padding()
+                        .background(.ultraThinMaterial)
                 }
             }
         }
@@ -204,18 +185,15 @@ extension MKMapRect {
     }
 }
 
-struct MapControls: View {
+extension MapView {
 
-    @Namespace private var locationSpace
-    @Binding var cameraPosition: MapCameraPosition
-
-    var body: some View {
+    func mapControls() -> some View {
         VStack(spacing: 15) {
             MapCompass(scope: locationSpace)
             MapPitchToggle(scope: locationSpace)
-            /// As this will work only when the User Gave Location Access
+            /// This will work only when the user gave location access
             MapUserLocationButton(scope: locationSpace)
-            /// This will Goes to the Defined User Region
+            /// This will goes to the defined user region
             Button {
                 withAnimation(.smooth) {
                     cameraPosition = .region(LocationManager.defaultRegion)
@@ -238,9 +216,7 @@ extension MapView {
     func mapDetails() -> some View {
         VStack(spacing: 15) {
             ZStack {
-                /// New Look Around API
                 if lookAroundScene == nil {
-                    /// New Empty View API
                     ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
                 } else {
                     LookAroundPreview(scene: $lookAroundScene)
@@ -274,6 +250,32 @@ extension MapView {
                 .background(.blue.gradient, in: .rect(cornerRadius: 15))
         }
         .padding(15)
+    }
+}
+
+extension MapView {
+
+    //@ViewBuilder
+    func endRoute() -> some View {
+        Button("End Route") {
+            /// Closing The Route and Setting the Selection
+            withAnimation(.snappy) {
+                routeDisplaying = false
+                showDetails = true
+                deviceSelection = routeDestination
+                routeDestination = nil
+                route = nil
+                if let coordinate = deviceSelection?.deviceMapItem.coordinate {
+                    cameraPosition = .region(
+                        .init(
+                            center: coordinate,
+                            latitudinalMeters: .cameraHeight,
+                            longitudinalMeters: .cameraHeight
+                        )
+                    )
+                }
+            }
+        }
     }
 }
 
