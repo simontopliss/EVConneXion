@@ -18,7 +18,7 @@ struct ChargeDevice: Decodable, Identifiable {
     var chargeDeviceName: String
     var chargeDeviceText: String?
     var chargeDeviceLocation: ChargeDeviceLocation
-    var deviceMapMarker: DeviceMapMarker // Map Item
+    var deviceMapItem: DeviceMapItem // Map Item
     var chargeDeviceModel: String?
     var publishStatusId: String
     var dateCreated: String
@@ -134,7 +134,7 @@ extension ChargeDevice {
         self.bearing = try container.decodeIfPresent(String.self, forKey: .bearing)
         self.accessible24Hours = try container.decode(Bool.self, forKey: .accessible24Hours)
 
-        self.deviceMapMarker = DeviceMapMarker(
+        self.deviceMapItem = DeviceMapItem(
             latitude: Double(chargeDeviceLocation.latitude) ?? 0.0,
             longitude: Double(chargeDeviceLocation.longitude) ?? 0.0
         )
