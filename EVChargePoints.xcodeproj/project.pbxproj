@@ -20,7 +20,7 @@
 		624F73392A74660500F9B0A5 /* NetworkGraphics.json in Resources */ = {isa = PBXBuildFile; fileRef = 624F73382A74660500F9B0A5 /* NetworkGraphics.json */; };
 		6255F90D2A72A178006FF6C9 /* VM+DistanceFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */; };
 		6255F90F2A72A284006FF6C9 /* VM+AddressFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */; };
-		625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* Colors.swift */; };
+		625CEF5B2A62CC1500A82048 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* AppColors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
 		625CEF622A6555B900A82048 /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF612A6555B900A82048 /* LocationType.swift */; };
@@ -92,7 +92,7 @@
 		624F73382A74660500F9B0A5 /* NetworkGraphics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkGraphics.json; sourceTree = "<group>"; };
 		6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+DistanceFormatting.swift"; sourceTree = "<group>"; };
 		6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+AddressFormatting.swift"; sourceTree = "<group>"; };
-		625CEF5A2A62CC1500A82048 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		625CEF5A2A62CC1500A82048 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
 		625CEF612A6555B900A82048 /* LocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
@@ -364,7 +364,7 @@
 			children = (
 				62B32CB12A4DC6F600C6E8DF /* Tabs.swift */,
 				62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */,
-				625CEF5A2A62CC1500A82048 /* Colors.swift */,
+				625CEF5A2A62CC1500A82048 /* AppColors.swift */,
 				625CEF5C2A65540E00A82048 /* Symbols.swift */,
 			);
 			path = Constants;
@@ -648,7 +648,7 @@
 				6223CA492A3CF46E00A87875 /* NetworkManager.swift in Sources */,
 				625CEF6A2A6556C000A82048 /* DeviceOwner.swift in Sources */,
 				62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */,
-				625CEF5B2A62CC1500A82048 /* Colors.swift in Sources */,
+				625CEF5B2A62CC1500A82048 /* AppColors.swift in Sources */,
 				628C33132A61E91A00232351 /* String+Ext.swift in Sources */,
 				621A70462A3B3BC800A04669 /* ChargePointListView.swift in Sources */,
 				627531DB2A69470800F0D8A6 /* Route.swift in Sources */,

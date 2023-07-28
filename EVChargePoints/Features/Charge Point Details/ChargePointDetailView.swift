@@ -60,7 +60,7 @@ struct FormText: View {
         Text(LocalizedStringKey(text.trim()))
             .font(.subheadline)
             .multilineTextAlignment(.leading)
-            .foregroundColor(Colors.textColor)
+            .foregroundColor(AppColors.textColor)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

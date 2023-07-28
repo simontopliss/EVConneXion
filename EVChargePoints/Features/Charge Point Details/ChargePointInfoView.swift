@@ -258,7 +258,7 @@ extension DeviceAccessSection {
             .font(.subheadline)
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundColor(Colors.textColor)
+            .foregroundColor(AppColors.textColor)
         }
     }
 }

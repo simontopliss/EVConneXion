@@ -85,9 +85,9 @@ struct ChargePointRow: View {
             }
             .padding(EdgeInsets(top: 0, leading: inset, bottom: inset, trailing: inset))
         }
-        .foregroundColor(Colors.textColor)
+        .foregroundColor(AppColors.textColor)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Colors.listRowColor, in: RoundedRectangle(cornerRadius: 8))
+        .background(AppColors.listRowColor, in: RoundedRectangle(cornerRadius: 8))
     }
 }
 
@@ -97,6 +97,6 @@ struct ChargePointRow: View {
     )
     .environmentObject(ChargePointViewModel())
     .environmentObject(LocationManager())
-    .background(Colors.backgroundColor)
+    .background(AppColors.backgroundColor)
     .padding()
 }
