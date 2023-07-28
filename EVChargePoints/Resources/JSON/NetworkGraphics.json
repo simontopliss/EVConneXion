@@ -1,576 +1,576 @@
 [
-    {
-        "DisplayName" : "No Network",
-        "Network" : "*No Network",
-        "Hex" : "996600",
-        "RGB" : "153.0, 102.0, 0.0",
-        "Filename" : "no-network-128x128.svg"
-    },
-    {
-        "DisplayName" : "Alfa Power",
-        "Network" : "Alfa Power",
-        "Hex" : "FF3399",
-        "RGB" : "255.0, 51.0, 153.0",
-        "Filename" : "alfa-power-128x128.svg"
-    },
-    {
-        "DisplayName" : "Allego",
-        "Network" : "Allego",
-        "Hex" : "993300",
-        "RGB" : "153.0, 51.0, 0.0",
-        "Filename" : "allego-128x128.svg"
-    },
-    {
-        "DisplayName" : "Apetrel",
-        "Network" : "Apetrel",
-        "Hex" : "9966FF",
-        "RGB" : "153.0, 102.0, 255.0",
-        "Filename" : "apetrel-128x128.svg"
-    },
-    {
-        "DisplayName" : "AW Energy",
-        "Network" : "AW Energy",
-        "Hex" : "66FF66",
-        "RGB" : "102.0, 255.0, 102.0",
-        "Filename" : "aw-energy-128x128.svg"
-    },
-    {
-        "DisplayName" : "Be.EV",
-        "Network" : "Be.EV",
-        "Hex" : "00FFFF",
-        "RGB" : "0.0, 255.0, 255.0",
-        "Filename" : "be-ev-128x128.svg"
-    },
-    {
-        "DisplayName" : "Believ",
-        "Network" : "Believ",
-        "Hex" : "669999",
-        "RGB" : "102.0, 153.0, 153.0",
-        "Filename" : "believ-128x128.svg"
-    },
-    {
-        "DisplayName" : "BP Pulse",
-        "Network" : "BP Pulse",
-        "Hex" : "CCFF00",
-        "RGB" : "204.0, 255.0, 0.0",
-        "Filename" : "bp-pulse-128x128.png"
-    },
-    {
-        "DisplayName" : "BP-Pulse",
-        "Network" : "BP-Pulse (POLAR)",
-        "Hex" : "99CC66",
-        "RGB" : "153.0, 204.0, 102.0",
-        "Filename" : "bp-pulse-128x128.png"
-    },
-    {
-        "DisplayName" : "Bradford Council",
-        "Network" : "Bradford Metropolitan District Council",
-        "Hex" : "333399",
-        "RGB" : "51.0, 51.0, 153.0",
-        "Filename" : "bradford-metropolitan-district-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "C3EV",
-        "Network" : "C3EV",
-        "Hex" : "FF6666",
-        "RGB" : "255.0, 102.0, 102.0",
-        "Filename" : "c3ev-128x128.svg"
-    },
-    {
-        "DisplayName" : "Car Charged",
-        "Network" : "Car charged UK ltd",
-        "Hex" : "FFCCFF",
-        "RGB" : "255.0, 204.0, 255.0",
-        "Filename" : "car-charged-128x128.svg"
-    },
-    {
-        "DisplayName" : "Char.gy",
-        "Network" : "Char.gy",
-        "Hex" : "0066FF",
-        "RGB" : "0.0, 102.0, 255.0",
-        "Filename" : "char-gy-128x128.svg"
-    },
-    {
-        "DisplayName" : "Charge My Street",
-        "Network" : "Charge my Street",
-        "Hex" : "CCCC99",
-        "RGB" : "204.0, 204.0, 153.0",
-        "Filename" : "charge-my-street-128x128.svg"
-    },
-    {
-        "DisplayName" : "Charge Your Car",
-        "Network" : "Charge Your Car",
-        "Hex" : "663399",
-        "RGB" : "102.0, 51.0, 153.0",
-        "Filename" : "charge-your-car-128x128.png"
-    },
-    {
-        "DisplayName" : "ChargePlace Scotland",
-        "Network" : "ChargePlace Scotland",
-        "Hex" : "FF3366",
-        "RGB" : "255.0, 51.0, 102.0",
-        "Filename" : "chargeplace-scotland-128x128.svg"
-    },
-    {
-        "DisplayName" : "ChargePoint Network",
-        "Network" : "ChargePoint Network (Netherlands) B.V.",
-        "Hex" : "3399CC",
-        "RGB" : "51.0, 153.0, 204.0",
-        "Filename" : "chargepoint-network-128x128.svg"
-    },
-    {
-        "DisplayName" : "Cheshire East Council",
-        "Network" : "Cheshire East Council",
-        "Hex" : "339966",
-        "RGB" : "51.0, 153.0, 102.0",
-        "Filename" : "cheshire-east-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "City EV",
-        "Network" : "City EV",
-        "Hex" : "CC9966",
-        "RGB" : "204.0, 153.0, 102.0",
-        "Filename" : "city-ev-128x128.svg"
-    },
-    {
-        "DisplayName" : "Clenergy EV",
-        "Network" : "Clenergy EV",
-        "Hex" : "CC3399",
-        "RGB" : "204.0, 51.0, 153.0",
-        "Filename" : "clenergy-ev-128x128.svg"
-    },
-    {
-        "DisplayName" : "Connected Kerb",
-        "Network" : "Connected Kerb",
-        "Hex" : "9999FF",
-        "RGB" : "153.0, 153.0, 255.0",
-        "Filename" : "connected-kerb-128x128.svg"
-    },
-    {
-        "DisplayName" : "Cotswold Council",
-        "Network" : "Cotswold District Council",
-        "Hex" : "CC6699",
-        "RGB" : "204.0, 102.0, 153.0",
-        "Filename" : "cotswold-district-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "D2N2",
-        "Network" : "D2N2",
-        "Hex" : "330099",
-        "RGB" : "51.0, 0.0, 153.0",
-        "Filename" : "d2n2-128x128.svg"
-    },
-    {
-        "DisplayName" : "Dragon Charging Network",
-        "Network" : "Dragon Charging Network",
-        "Hex" : "000099",
-        "RGB" : "0.0, 0.0, 153.0",
-        "Filename" : "dragon-charging-network-128x128.png"
-    },
-    {
-        "DisplayName" : "Drax Energy Solutions",
-        "Network" : "Drax Energy Solutions Limited",
-        "Hex" : "FF66FF",
-        "RGB" : "255.0, 102.0, 255.0",
-        "Filename" : "drax-128x128.svg"
-    },
-    {
-        "DisplayName" : "Dumfries & Galloway Council",
-        "Network" : "Dumfries & Galloway Council",
-        "Hex" : "CC6600",
-        "RGB" : "204.0, 102.0, 0.0",
-        "Filename" : "dumfries-galloway-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "Dundee City Council",
-        "Network" : "Dundee City Council",
-        "Hex" : "99CCFF",
-        "RGB" : "153.0, 204.0, 255.0",
-        "Filename" : "dundee-city-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "E.ON Drive",
-        "Network" : "E.ON Drive",
-        "Hex" : "0099FF",
-        "RGB" : "0.0, 153.0, 255.0",
-        "Filename" : "eon-drive-128x128.svg"
-    },
-    {
-        "DisplayName" : "East Lothian Council",
-        "Network" : "East Lothian Council",
-        "Hex" : "CC0000",
-        "RGB" : "204.0, 0.0, 0.0",
-        "Filename" : "east-lothian-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "EB Charging",
-        "Network" : "EB Charging",
-        "Hex" : "FF6699",
-        "RGB" : "255.0, 102.0, 153.0",
-        "Filename" : "blink-128x128.svg"
-    },
-    {
-        "DisplayName" : "ecars ESB",
-        "Network" : "ecars ESB",
-        "Hex" : "003366",
-        "RGB" : "0.0, 51.0, 102.0",
-        "Filename" : "ecars-esb-128x128.svg"
-    },
-    {
-        "DisplayName" : "ENGIE Charge Network",
-        "Network" : "ENGIE Charge Network",
-        "Hex" : "00FFCC",
-        "RGB" : "0.0, 255.0, 204.0",
-        "Filename" : "engie-charge-network-128x128.svg"
-    },
-    {
-        "DisplayName" : "eo Charging",
-        "Network" : "eo Charging",
-        "Hex" : "FF0066",
-        "RGB" : "255.0, 0.0, 102.0",
-        "Filename" : "eo-charging-128x128.svg"
-    },
-    {
-        "DisplayName" : "Equans EV Solutions",
-        "Network" : "Equans EV Solutions",
-        "Hex" : "CCCCFF",
-        "RGB" : "204.0, 204.0, 255.0",
-        "Filename" : "equans-ev-solutions-128x128.png"
-    },
-    {
-        "DisplayName" : "ESB EV Solutions",
-        "Network" : "ESB EV Solutions",
-        "Hex" : "CC3300",
-        "RGB" : "204.0, 51.0, 0.0",
-        "Filename" : "esb-ev-solutions-128x128.svg"
-    },
-    {
-        "DisplayName" : "Essex County Council",
-        "Network" : "Essex County Council",
-        "Hex" : "660099",
-        "RGB" : "102.0, 0.0, 153.0",
-        "Filename" : "essex-county-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "EV-Dot",
-        "Network" : "EV-Dot",
-        "Hex" : "99FF00",
-        "RGB" : "153.0, 255.0, 0.0",
-        "Filename" : "ev-dot-128x128.svg"
-    },
-    {
-        "DisplayName" : "EZ-Charge",
-        "Network" : "EZ-Charge",
-        "Hex" : "00FF00",
-        "RGB" : "0.0, 255.0, 0.0",
-        "Filename" : "ez-charge-128x128.svg"
-    },
-    {
-        "DisplayName" : "Fastned",
-        "Network" : "Fastned",
-        "Hex" : "990000",
-        "RGB" : "153.0, 0.0, 0.0",
-        "Filename" : "fastned-128x128.svg"
-    },
-    {
-        "DisplayName" : "First Group",
-        "Network" : "First Group",
-        "Hex" : "CCFFFF",
-        "RGB" : "204.0, 255.0, 255.0",
-        "Filename" : "first-group-128x128.svg"
-    },
-    {
-        "DisplayName" : "Green Mile Charging Co",
-        "Network" : "Green Mile Charging Co Ltd",
-        "Hex" : "00CC99",
-        "RGB" : "0.0, 204.0, 153.0",
-        "Filename" : "green-mile-charging-128x128.svg"
-    },
-    {
-        "DisplayName" : "Gridserve",
-        "Network" : "GRIDSERVE Sustainable Energy",
-        "Hex" : "CC33FF",
-        "RGB" : "204.0, 51.0, 255.0",
-        "Filename" : "gridserve-sustainable-energy-128x128.svg"
-    },
-    {
-        "DisplayName" : "Heathrow Airport",
-        "Network" : "Heathrow Airport Limited",
-        "Hex" : "00CCFF",
-        "RGB" : "0.0, 204.0, 255.0",
-        "Filename" : "heathrow-airport-128x128.svg"
-    },
-    {
-        "DisplayName" : "Hubsta",
-        "Network" : "Hubsta",
-        "Hex" : "FFCC00",
-        "RGB" : "255.0, 204.0, 0.0",
-        "Filename" : "hubsta-128x128.svg"
-    },
-    {
-        "DisplayName" : "InstaVolt",
-        "Network" : "InstaVolt Ltd",
-        "Hex" : "006600",
-        "RGB" : "0.0, 102.0, 0.0",
-        "Filename" : "instavolt-128x128.svg"
-    },
-    {
-        "DisplayName" : "IONITY",
-        "Network" : "IONITY GmbH",
-        "Hex" : "999900",
-        "RGB" : "153.0, 153.0, 0.0",
-        "Filename" : "ionity128x128.svg"
-    },
-    {
-        "DisplayName" : "Kent County Council",
-        "Network" : "Kent County Council",
-        "Hex" : "99FF99",
-        "RGB" : "153.0, 255.0, 153.0",
-        "Filename" : "kent-county-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "Lancaster City Council",
-        "Network" : "Lancaster City Council",
-        "Hex" : "006666",
-        "RGB" : "0.0, 102.0, 102.0",
-        "Filename" : "lancaster-city-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "London Borough of Ealing",
-        "Network" : "London Borough of Ealing",
-        "Hex" : "66FFCC",
-        "RGB" : "102.0, 255.0, 204.0",
-        "Filename" : "london-borough-of-ealing-128x128.svg"
-    },
-    {
-        "DisplayName" : "London Borough of Hackney",
-        "Network" : "London Borough of Hackney",
-        "Hex" : "9900FF",
-        "RGB" : "153.0, 0.0, 255.0",
-        "Filename" : "london-borough-of-hackney-128x128.svg"
-    },
-    {
-        "DisplayName" : "Luton Borough Council",
-        "Network" : "Luton Borough Council",
-        "Hex" : "CCCC00",
-        "RGB" : "204.0, 204.0, 0.0",
-        "Filename" : "luton-borough-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "Mer",
-        "Network" : "Mer",
-        "Hex" : "336600",
-        "RGB" : "51.0, 102.0, 0.0",
-        "Filename" : "mer-128x128.svg"
-    },
-    {
-        "DisplayName" : "Merseytravel",
-        "Network" : "Merseytravel",
-        "Hex" : "3300CC",
-        "RGB" : "51.0, 0.0, 204.0",
-        "Filename" : "merseytravel-128x128.svg"
-    },
-    {
-        "DisplayName" : "Milton Keynes",
-        "Network" : "Milton Keynes",
-        "Hex" : "CC00FF",
-        "RGB" : "204.0, 0.0, 255.0",
-        "Filename" : "milton-keynes-128x128.svg"
-    },
-    {
-        "DisplayName" : "MiPermit",
-        "Network" : "MiPermit",
-        "Hex" : "33FF00",
-        "RGB" : "51.0, 255.0, 0.0",
-        "Filename" : "mipermit-128x128.svg"
-    },
-    {
-        "DisplayName" : "NI Public Sector",
-        "Network" : "NI Public Sector",
-        "Hex" : "663300",
-        "RGB" : "102.0, 51.0, 0.0",
-        "Filename" : "ni-public-sector-128x128.svg"
-    },
-    {
-        "DisplayName" : "Nissan",
-        "Network" : "Nissan",
-        "Hex" : "6600FF",
-        "RGB" : "102.0, 0.0, 255.0",
-        "Filename" : "nissan-128x128.svg"
-    },
-    {
-        "DisplayName" : "Osprey",
-        "Network" : "Osprey",
-        "Hex" : "66FFFF",
-        "RGB" : "102.0, 255.0, 255.0",
-        "Filename" : "osprey-128x128.svg"
-    },
-    {
-        "DisplayName" : "Pilot Group",
-        "Network" : "Pilot Group EV Charging Solutions",
-        "Hex" : "3333FF",
-        "RGB" : "51.0, 51.0, 255.0",
-        "Filename" : "pilot-group-ev-charging-solutions-128x128.svg"
-    },
-    {
-        "DisplayName" : "Plug N Go",
-        "Network" : "Plug N Go Ltd",
-        "Hex" : "99CC00",
-        "RGB" : "153.0, 204.0, 0.0",
-        "Filename" : "plug-n-go-128x128.svg"
-    },
-    {
-        "DisplayName" : "Plugged-in Midlands",
-        "Network" : "Plugged-in Midlands",
-        "Hex" : "6633FF",
-        "RGB" : "102.0, 51.0, 255.0",
-        "Filename" : "plugged-in-midlands-128x128.svg"
-    },
-    {
-        "DisplayName" : "POD Point",
-        "Network" : "POD Point",
-        "Hex" : "CCFF99",
-        "RGB" : "204.0, 255.0, 153.0",
-        "Filename" : "pod-point-128x128.svg"
-    },
-    {
-        "DisplayName" : "Project EV",
-        "Network" : "Project EV",
-        "Hex" : "FF0000",
-        "RGB" : "255.0, 0.0, 0.0",
-        "Filename" : "project-ev-128x128.svg"
-    },
-    {
-        "DisplayName" : "RAW Infrastructure",
-        "Network" : "RAW Infrastructure Ltd",
-        "Hex" : "FF9900",
-        "RGB" : "255.0, 153.0, 0.0",
-        "Filename" : "raw-infrastructure-128x128.svg"
-    },
-    {
-        "DisplayName" : "ScottishPower",
-        "Network" : "ScottishPower",
-        "Hex" : "9933FF",
-        "RGB" : "153.0, 51.0, 255.0",
-        "Filename" : "scottishpower-128x128.svg"
-    },
-    {
-        "DisplayName" : "Shell Recharge",
-        "Network" : "Shell Recharge Solutions",
-        "Hex" : "6666FF",
-        "RGB" : "102.0, 102.0, 255.0",
-        "Filename" : "shell-recharge-128x128.svg"
-    },
-    {
-        "DisplayName" : "Shell Recharge",
-        "Network" : "Shell Recharge",
-        "Hex" : "336666",
-        "RGB" : "51.0, 102.0, 102.0",
-        "Filename" : "shell-recharge-128x128.svg"
-    },
-    {
-        "DisplayName" : "Somerset West & Taunton Council",
-        "Network" : "Somerset West And Taunton District Council",
-        "Hex" : "009900",
-        "RGB" : "0.0, 153.0, 0.0",
-        "Filename" : "somerset-west-and-taunton-district-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "Source London",
-        "Network" : "Source London",
-        "Hex" : "CC66FF",
-        "RGB" : "204.0, 102.0, 255.0",
-        "Filename" : "source-london-128x128.svg"
-    },
-    {
-        "DisplayName" : "Source West",
-        "Network" : "Source West",
-        "Hex" : "33CCFF",
-        "RGB" : "51.0, 204.0, 255.0",
-        "Filename" : "revive-128x128.svg"
-    },
-    {
-        "DisplayName" : "South Tyneside Council",
-        "Network" : "South Tyneside Council",
-        "Hex" : "FF33FF",
-        "RGB" : "255.0, 51.0, 255.0",
-        "Filename" : "south-tyneside-council-128x128.png"
-    },
-    {
-        "DisplayName" : "SSE Energy Solutions",
-        "Network" : "SSE Energy Solutions",
-        "Hex" : "CC99FF",
-        "RGB" : "204.0, 153.0, 255.0",
-        "Filename" : "sse-128x128.svg"
-    },
-    {
-        "DisplayName" : "SSE",
-        "Network" : "SSE",
-        "Hex" : "66CC00",
-        "RGB" : "102.0, 204.0, 0.0",
-        "Filename" : "sse-128x128.svg"
-    },
-    {
-        "DisplayName" : "SureCharge",
-        "Network" : "SureCharge\/FM Conway",
-        "Hex" : "00CC00",
-        "RGB" : "0.0, 204.0, 0.0",
-        "Filename" : "surecharge-fm-conway-128x128.svg"
-    },
-    {
-        "DisplayName" : "Swarco E.Connect",
-        "Network" : "Swarco E.Connect",
-        "Hex" : "FFCC99",
-        "RGB" : "255.0, 204.0, 153.0",
-        "Filename" : "swarco-e.connect-128x128.svg"
-    },
-    {
-        "DisplayName" : "GeniePoint",
-        "Network" : "The GeniePoint Network",
-        "Hex" : "99FFFF",
-        "RGB" : "153.0, 255.0, 255.0",
-        "Filename" : "the-geniepoint-network-128x128.svg"
-    },
-    {
-        "DisplayName" : "Tonik Energy",
-        "Network" : "Tonik Energy",
-        "Hex" : "0033CC",
-        "RGB" : "0.0, 51.0, 204.0",
-        "Filename" : "tonik-energy-128x128.svg"
-    },
-    {
-        "DisplayName" : "ubitricity",
-        "Network" : "ubitricity",
-        "Hex" : "33CC00",
-        "RGB" : "51.0, 204.0, 0.0",
-        "Filename" : "ubitricity-128x128.svg"
-    },
-    {
-        "DisplayName" : "VendElectric",
-        "Network" : "VendElectric",
-        "Hex" : "99CCCC",
-        "RGB" : "153.0, 204.0, 204.0",
-        "Filename" : "vendelectric-128x128.svg"
-    },
-    {
-        "DisplayName" : "Wattif EV",
-        "Network" : "Wattif EV UK Limited",
-        "Hex" : "33FFCC",
-        "RGB" : "51.0, 255.0, 204.0",
-        "Filename" : "wattif-ev-uk-128x128.svg"
-    },
-    {
-        "DisplayName" : "York City Council",
-        "Network" : "York City Council",
-        "Hex" : "3366FF",
-        "RGB" : "51.0, 102.0, 255.0",
-        "Filename" : "york-city-council-128x128.svg"
-    },
-    {
-        "DisplayName" : "Zest",
-        "Network" : "Zest",
-        "Hex" : "66CC99",
-        "RGB" : "102.0, 204.0, 153.0",
-        "Filename" : "zest-128x128.svg"
-    }
+  {
+    "DisplayName" : "No Network",
+    "Network" : "*No Network",
+    "Hex" : "0066FF",
+    "RGB" : "0.0, 102.0, 255.0",
+    "Filename" : "no-network-128x128.svg"
+  },
+  {
+    "DisplayName" : "Alfa Power",
+    "Network" : "Alfa Power",
+    "Hex" : "99FF99",
+    "RGB" : "153.0, 255.0, 153.0",
+    "Filename" : "alfa-power-128x128.svg"
+  },
+  {
+    "DisplayName" : "Allego",
+    "Network" : "Allego",
+    "Hex" : "660099",
+    "RGB" : "102.0, 0.0, 153.0",
+    "Filename" : "allego-128x128.svg"
+  },
+  {
+    "DisplayName" : "Apetrel",
+    "Network" : "Apetrel",
+    "Hex" : "663300",
+    "RGB" : "102.0, 51.0, 0.0",
+    "Filename" : "apetrel-128x128.svg"
+  },
+  {
+    "DisplayName" : "AW Energy",
+    "Network" : "AW Energy",
+    "Hex" : "003366",
+    "RGB" : "0.0, 51.0, 102.0",
+    "Filename" : "aw-energy-128x128.svg"
+  },
+  {
+    "DisplayName" : "Be.EV",
+    "Network" : "Be.EV",
+    "Hex" : "00CC00",
+    "RGB" : "0.0, 204.0, 0.0",
+    "Filename" : "be-ev-128x128.svg"
+  },
+  {
+    "DisplayName" : "Believ",
+    "Network" : "Believ",
+    "Hex" : "3399CC",
+    "RGB" : "51.0, 153.0, 204.0",
+    "Filename" : "believ-128x128.svg"
+  },
+  {
+    "DisplayName" : "BP Pulse",
+    "Network" : "BP Pulse",
+    "Hex" : "9900FF",
+    "RGB" : "153.0, 0.0, 255.0",
+    "Filename" : "bp-pulse-128x128.png"
+  },
+  {
+    "DisplayName" : "BP-Pulse",
+    "Network" : "BP-Pulse (POLAR)",
+    "Hex" : "FF6600",
+    "RGB" : "255.0, 102.0, 0.0",
+    "Filename" : "bp-pulse-128x128.png"
+  },
+  {
+    "DisplayName" : "Bradford Council",
+    "Network" : "Bradford Metropolitan District Council",
+    "Hex" : "663399",
+    "RGB" : "102.0, 51.0, 153.0",
+    "Filename" : "bradford-metropolitan-district-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "C3EV",
+    "Network" : "C3EV",
+    "Hex" : "CC3300",
+    "RGB" : "204.0, 51.0, 0.0",
+    "Filename" : "c3ev-128x128.svg"
+  },
+  {
+    "DisplayName" : "Car Charged",
+    "Network" : "Car charged UK ltd",
+    "Hex" : "993399",
+    "RGB" : "153.0, 51.0, 153.0",
+    "Filename" : "car-charged-128x128.svg"
+  },
+  {
+    "DisplayName" : "Char.gy",
+    "Network" : "Char.gy",
+    "Hex" : "666600",
+    "RGB" : "102.0, 102.0, 0.0",
+    "Filename" : "char-gy-128x128.svg"
+  },
+  {
+    "DisplayName" : "Charge My Street",
+    "Network" : "Charge my Street",
+    "Hex" : "33FFCC",
+    "RGB" : "51.0, 255.0, 204.0",
+    "Filename" : "charge-my-street-128x128.svg"
+  },
+  {
+    "DisplayName" : "Charge Your Car",
+    "Network" : "Charge Your Car",
+    "Hex" : "0000CC",
+    "RGB" : "0.0, 0.0, 204.0",
+    "Filename" : "charge-your-car-128x128.png"
+  },
+  {
+    "DisplayName" : "ChargePlace Scotland",
+    "Network" : "ChargePlace Scotland",
+    "Hex" : "336600",
+    "RGB" : "51.0, 102.0, 0.0",
+    "Filename" : "chargeplace-scotland-128x128.svg"
+  },
+  {
+    "DisplayName" : "ChargePoint Network",
+    "Network" : "ChargePoint Network (Netherlands) B.V.",
+    "Hex" : "CC0000",
+    "RGB" : "204.0, 0.0, 0.0",
+    "Filename" : "chargepoint-network-128x128.svg"
+  },
+  {
+    "DisplayName" : "Cheshire East Council",
+    "Network" : "Cheshire East Council",
+    "Hex" : "66CC00",
+    "RGB" : "102.0, 204.0, 0.0",
+    "Filename" : "cheshire-east-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "City EV",
+    "Network" : "City EV",
+    "Hex" : "99CCFF",
+    "RGB" : "153.0, 204.0, 255.0",
+    "Filename" : "city-ev-128x128.svg"
+  },
+  {
+    "DisplayName" : "Clenergy EV",
+    "Network" : "Clenergy EV",
+    "Hex" : "9999FF",
+    "RGB" : "153.0, 153.0, 255.0",
+    "Filename" : "clenergy-ev-128x128.svg"
+  },
+  {
+    "DisplayName" : "Connected Kerb",
+    "Network" : "Connected Kerb",
+    "Hex" : "66FF66",
+    "RGB" : "102.0, 255.0, 102.0",
+    "Filename" : "connected-kerb-128x128.svg"
+  },
+  {
+    "DisplayName" : "Cotswold Council",
+    "Network" : "Cotswold District Council",
+    "Hex" : "996699",
+    "RGB" : "153.0, 102.0, 153.0",
+    "Filename" : "cotswold-district-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "D2N2",
+    "Network" : "D2N2",
+    "Hex" : "006600",
+    "RGB" : "0.0, 102.0, 0.0",
+    "Filename" : "d2n2-128x128.svg"
+  },
+  {
+    "DisplayName" : "Dragon Charging Network",
+    "Network" : "Dragon Charging Network",
+    "Hex" : "FF3399",
+    "RGB" : "255.0, 51.0, 153.0",
+    "Filename" : "dragon-charging-network-128x128.png"
+  },
+  {
+    "DisplayName" : "Drax Energy Solutions",
+    "Network" : "Drax Energy Solutions Limited",
+    "Hex" : "CCCC00",
+    "RGB" : "204.0, 204.0, 0.0",
+    "Filename" : "drax-128x128.svg"
+  },
+  {
+    "DisplayName" : "Dumfries & Galloway Council",
+    "Network" : "Dumfries & Galloway Council",
+    "Hex" : "CC6600",
+    "RGB" : "204.0, 102.0, 0.0",
+    "Filename" : "dumfries-galloway-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "Dundee City Council",
+    "Network" : "Dundee City Council",
+    "Hex" : "66CC99",
+    "RGB" : "102.0, 204.0, 153.0",
+    "Filename" : "dundee-city-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "E.ON Drive",
+    "Network" : "E.ON Drive",
+    "Hex" : "0099FF",
+    "RGB" : "0.0, 153.0, 255.0",
+    "Filename" : "eon-drive-128x128.svg"
+  },
+  {
+    "DisplayName" : "East Lothian Council",
+    "Network" : "East Lothian Council",
+    "Hex" : "FF6699",
+    "RGB" : "255.0, 102.0, 153.0",
+    "Filename" : "east-lothian-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "EB Charging",
+    "Network" : "EB Charging",
+    "Hex" : "9966FF",
+    "RGB" : "153.0, 102.0, 255.0",
+    "Filename" : "blink-128x128.svg"
+  },
+  {
+    "DisplayName" : "ecars ESB",
+    "Network" : "ecars ESB",
+    "Hex" : "FF6666",
+    "RGB" : "255.0, 102.0, 102.0",
+    "Filename" : "ecars-esb-128x128.svg"
+  },
+  {
+    "DisplayName" : "ENGIE Charge Network",
+    "Network" : "ENGIE Charge Network",
+    "Hex" : "CC6699",
+    "RGB" : "204.0, 102.0, 153.0",
+    "Filename" : "engie-charge-network-128x128.svg"
+  },
+  {
+    "DisplayName" : "eo Charging",
+    "Network" : "eo Charging",
+    "Hex" : "990000",
+    "RGB" : "153.0, 0.0, 0.0",
+    "Filename" : "eo-charging-128x128.svg"
+  },
+  {
+    "DisplayName" : "Equans EV Solutions",
+    "Network" : "Equans EV Solutions",
+    "Hex" : "6633FF",
+    "RGB" : "102.0, 51.0, 255.0",
+    "Filename" : "equans-ev-solutions-128x128.png"
+  },
+  {
+    "DisplayName" : "ESB EV Solutions",
+    "Network" : "ESB EV Solutions",
+    "Hex" : "00CCFF",
+    "RGB" : "0.0, 204.0, 255.0",
+    "Filename" : "esb-ev-solutions-128x128.svg"
+  },
+  {
+    "DisplayName" : "Essex County Council",
+    "Network" : "Essex County Council",
+    "Hex" : "000099",
+    "RGB" : "0.0, 0.0, 153.0",
+    "Filename" : "essex-county-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "EV-Dot",
+    "Network" : "EV-Dot",
+    "Hex" : "66FFCC",
+    "RGB" : "102.0, 255.0, 204.0",
+    "Filename" : "ev-dot-128x128.svg"
+  },
+  {
+    "DisplayName" : "EZ-Charge",
+    "Network" : "EZ-Charge",
+    "Hex" : "669900",
+    "RGB" : "102.0, 153.0, 0.0",
+    "Filename" : "ez-charge-128x128.svg"
+  },
+  {
+    "DisplayName" : "Fastned",
+    "Network" : "Fastned",
+    "Hex" : "FF3300",
+    "RGB" : "255.0, 51.0, 0.0",
+    "Filename" : "fastned-128x128.svg"
+  },
+  {
+    "DisplayName" : "First Group",
+    "Network" : "First Group",
+    "Hex" : "333399",
+    "RGB" : "51.0, 51.0, 153.0",
+    "Filename" : "first-group-128x128.svg"
+  },
+  {
+    "DisplayName" : "Green Mile Charging Co",
+    "Network" : "Green Mile Charging Co Ltd",
+    "Hex" : "3333FF",
+    "RGB" : "51.0, 51.0, 255.0",
+    "Filename" : "green-mile-charging-128x128.svg"
+  },
+  {
+    "DisplayName" : "Gridserve",
+    "Network" : "GRIDSERVE Sustainable Energy",
+    "Hex" : "6699FF",
+    "RGB" : "102.0, 153.0, 255.0",
+    "Filename" : "gridserve-sustainable-energy-128x128.svg"
+  },
+  {
+    "DisplayName" : "Heathrow Airport",
+    "Network" : "Heathrow Airport Limited",
+    "Hex" : "9933FF",
+    "RGB" : "153.0, 51.0, 255.0",
+    "Filename" : "heathrow-airport-128x128.svg"
+  },
+  {
+    "DisplayName" : "Hubsta",
+    "Network" : "Hubsta",
+    "Hex" : "6666FF",
+    "RGB" : "102.0, 102.0, 255.0",
+    "Filename" : "hubsta-128x128.svg"
+  },
+  {
+    "DisplayName" : "InstaVolt",
+    "Network" : "InstaVolt Ltd",
+    "Hex" : "669999",
+    "RGB" : "102.0, 153.0, 153.0",
+    "Filename" : "instavolt-128x128.svg"
+  },
+  {
+    "DisplayName" : "IONITY",
+    "Network" : "IONITY GmbH",
+    "Hex" : "33CC00",
+    "RGB" : "51.0, 204.0, 0.0",
+    "Filename" : "ionity128x128.svg"
+  },
+  {
+    "DisplayName" : "Kent County Council",
+    "Network" : "Kent County Council",
+    "Hex" : "990099",
+    "RGB" : "153.0, 0.0, 153.0",
+    "Filename" : "kent-county-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "Lancaster City Council",
+    "Network" : "Lancaster City Council",
+    "Hex" : "FF9999",
+    "RGB" : "255.0, 153.0, 153.0",
+    "Filename" : "lancaster-city-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "London Borough of Ealing",
+    "Network" : "London Borough of Ealing",
+    "Hex" : "0033CC",
+    "RGB" : "0.0, 51.0, 204.0",
+    "Filename" : "london-borough-of-ealing-128x128.svg"
+  },
+  {
+    "DisplayName" : "London Borough of Hackney",
+    "Network" : "London Borough of Hackney",
+    "Hex" : "336666",
+    "RGB" : "51.0, 102.0, 102.0",
+    "Filename" : "london-borough-of-hackney-128x128.svg"
+  },
+  {
+    "DisplayName" : "Luton Borough Council",
+    "Network" : "Luton Borough Council",
+    "Hex" : "FF00FF",
+    "RGB" : "255.0, 0.0, 255.0",
+    "Filename" : "luton-borough-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "Mer",
+    "Network" : "Mer",
+    "Hex" : "330099",
+    "RGB" : "51.0, 0.0, 153.0",
+    "Filename" : "mer-128x128.svg"
+  },
+  {
+    "DisplayName" : "Merseytravel",
+    "Network" : "Merseytravel",
+    "Hex" : "66CCFF",
+    "RGB" : "102.0, 204.0, 255.0",
+    "Filename" : "merseytravel-128x128.svg"
+  },
+  {
+    "DisplayName" : "Milton Keynes",
+    "Network" : "Milton Keynes",
+    "Hex" : "CC33FF",
+    "RGB" : "204.0, 51.0, 255.0",
+    "Filename" : "milton-keynes-128x128.svg"
+  },
+  {
+    "DisplayName" : "MiPermit",
+    "Network" : "MiPermit",
+    "Hex" : "CC66FF",
+    "RGB" : "204.0, 102.0, 255.0",
+    "Filename" : "mipermit-128x128.svg"
+  },
+  {
+    "DisplayName" : "NI Public Sector",
+    "Network" : "NI Public Sector",
+    "Hex" : "99CC66",
+    "RGB" : "153.0, 204.0, 102.0",
+    "Filename" : "ni-public-sector-128x128.svg"
+  },
+  {
+    "DisplayName" : "Nissan",
+    "Network" : "Nissan",
+    "Hex" : "996600",
+    "RGB" : "153.0, 102.0, 0.0",
+    "Filename" : "nissan-128x128.svg"
+  },
+  {
+    "DisplayName" : "Osprey",
+    "Network" : "Osprey",
+    "Hex" : "336699",
+    "RGB" : "51.0, 102.0, 153.0",
+    "Filename" : "osprey-128x128.svg"
+  },
+  {
+    "DisplayName" : "Pilot Group",
+    "Network" : "Pilot Group EV Charging Solutions",
+    "Hex" : "00FFCC",
+    "RGB" : "0.0, 255.0, 204.0",
+    "Filename" : "pilot-group-ev-charging-solutions-128x128.svg"
+  },
+  {
+    "DisplayName" : "Plug N Go",
+    "Network" : "Plug N Go Ltd",
+    "Hex" : "99CCCC",
+    "RGB" : "153.0, 204.0, 204.0",
+    "Filename" : "plug-n-go-128x128.svg"
+  },
+  {
+    "DisplayName" : "Plugged-in Midlands",
+    "Network" : "Plugged-in Midlands",
+    "Hex" : "006666",
+    "RGB" : "0.0, 102.0, 102.0",
+    "Filename" : "plugged-in-midlands-128x128.svg"
+  },
+  {
+    "DisplayName" : "POD Point",
+    "Network" : "POD Point",
+    "Hex" : "FF0000",
+    "RGB" : "255.0, 0.0, 0.0",
+    "Filename" : "pod-point-128x128.svg"
+  },
+  {
+    "DisplayName" : "Project EV",
+    "Network" : "Project EV",
+    "Hex" : "6600FF",
+    "RGB" : "102.0, 0.0, 255.0",
+    "Filename" : "project-ev-128x128.svg"
+  },
+  {
+    "DisplayName" : "RAW Infrastructure",
+    "Network" : "RAW Infrastructure Ltd",
+    "Hex" : "3300CC",
+    "RGB" : "51.0, 0.0, 204.0",
+    "Filename" : "raw-infrastructure-128x128.svg"
+  },
+  {
+    "DisplayName" : "ScottishPower",
+    "Network" : "ScottishPower",
+    "Hex" : "3399FF",
+    "RGB" : "51.0, 153.0, 255.0",
+    "Filename" : "scottishpower-128x128.svg"
+  },
+  {
+    "DisplayName" : "Shell Recharge",
+    "Network" : "Shell Recharge Solutions",
+    "Hex" : "009900",
+    "RGB" : "0.0, 153.0, 0.0",
+    "Filename" : "shell-recharge-128x128.svg"
+  },
+  {
+    "DisplayName" : "Shell Recharge",
+    "Network" : "Shell Recharge",
+    "Hex" : "FF66FF",
+    "RGB" : "255.0, 102.0, 255.0",
+    "Filename" : "shell-recharge-128x128.svg"
+  },
+  {
+    "DisplayName" : "Somerset West & Taunton Council",
+    "Network" : "Somerset West And Taunton District Council",
+    "Hex" : "00FFFF",
+    "RGB" : "0.0, 255.0, 255.0",
+    "Filename" : "somerset-west-and-taunton-district-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "Source London",
+    "Network" : "Source London",
+    "Hex" : "00FF00",
+    "RGB" : "0.0, 255.0, 0.0",
+    "Filename" : "source-london-128x128.svg"
+  },
+  {
+    "DisplayName" : "Source West",
+    "Network" : "Source West",
+    "Hex" : "FF9900",
+    "RGB" : "255.0, 153.0, 0.0",
+    "Filename" : "revive-128x128.svg"
+  },
+  {
+    "DisplayName" : "South Tyneside Council",
+    "Network" : "South Tyneside Council",
+    "Hex" : "3366FF",
+    "RGB" : "51.0, 102.0, 255.0",
+    "Filename" : "south-tyneside-council-128x128.png"
+  },
+  {
+    "DisplayName" : "SSE Energy Solutions",
+    "Network" : "SSE Energy Solutions",
+    "Hex" : "CC3399",
+    "RGB" : "204.0, 51.0, 153.0",
+    "Filename" : "sse-128x128.svg"
+  },
+  {
+    "DisplayName" : "SSE",
+    "Network" : "SSE",
+    "Hex" : "33CCFF",
+    "RGB" : "51.0, 204.0, 255.0",
+    "Filename" : "sse-128x128.svg"
+  },
+  {
+    "DisplayName" : "SureCharge",
+    "Network" : "SureCharge\/FM Conway",
+    "Hex" : "999900",
+    "RGB" : "153.0, 153.0, 0.0",
+    "Filename" : "surecharge-fm-conway-128x128.svg"
+  },
+  {
+    "DisplayName" : "Swarco E.Connect",
+    "Network" : "Swarco E.Connect",
+    "Hex" : "00CC99",
+    "RGB" : "0.0, 204.0, 153.0",
+    "Filename" : "swarco-e.connect-128x128.svg"
+  },
+  {
+    "DisplayName" : "GeniePoint",
+    "Network" : "The GeniePoint Network",
+    "Hex" : "CC00FF",
+    "RGB" : "204.0, 0.0, 255.0",
+    "Filename" : "the-geniepoint-network-128x128.svg"
+  },
+  {
+    "DisplayName" : "Tonik Energy",
+    "Network" : "Tonik Energy",
+    "Hex" : "CC99FF",
+    "RGB" : "204.0, 153.0, 255.0",
+    "Filename" : "tonik-energy-128x128.svg"
+  },
+  {
+    "DisplayName" : "ubitricity",
+    "Network" : "ubitricity",
+    "Hex" : "339966",
+    "RGB" : "51.0, 153.0, 102.0",
+    "Filename" : "ubitricity-128x128.svg"
+  },
+  {
+    "DisplayName" : "VendElectric",
+    "Network" : "VendElectric",
+    "Hex" : "CC9966",
+    "RGB" : "204.0, 153.0, 102.0",
+    "Filename" : "vendelectric-128x128.svg"
+  },
+  {
+    "DisplayName" : "Wattif EV",
+    "Network" : "Wattif EV UK Limited",
+    "Hex" : "FF0066",
+    "RGB" : "255.0, 0.0, 102.0",
+    "Filename" : "wattif-ev-uk-128x128.svg"
+  },
+  {
+    "DisplayName" : "York City Council",
+    "Network" : "York City Council",
+    "Hex" : "993300",
+    "RGB" : "153.0, 51.0, 0.0",
+    "Filename" : "york-city-council-128x128.svg"
+  },
+  {
+    "DisplayName" : "Zest",
+    "Network" : "Zest",
+    "Hex" : "99FF00",
+    "RGB" : "153.0, 255.0, 0.0",
+    "Filename" : "zest-128x128.svg"
+  }
 ]
