@@ -143,86 +143,6 @@ struct MapView: View {
             fetchLookAroundPreview()
         }
     }
-
-    /// Map Details View
-    @ViewBuilder
-    func mapDetails() -> some View {
-        VStack(spacing: 15) {
-            ZStack {
-                /// New Look Around API
-                if lookAroundScene == nil {
-                    /// New Empty View API
-                    ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
-                } else {
-                    LookAroundPreview(scene: $lookAroundScene)
-                }
-            }
-            .frame(height: 200)
-            .clipShape(.rect(cornerRadius: 15))
-            /// Close Button
-            .overlay(alignment: .topTrailing) {
-                Button(action: {
-                    /// Closing View
-                    showDetails = false
-                    withAnimation(.snappy) {
-                        deviceSelection = nil
-                    }
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                        .foregroundStyle(.black)
-                        .background(.white, in: .circle)
-                })
-                .padding(10)
-            }
-
-            /// Direction's Button
-            Button("Get Directions", action: fetchRoute)
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .contentShape(Rectangle())
-                .background(.blue.gradient, in: .rect(cornerRadius: 15))
-        }
-        .padding(15)
-    }
-
-    /// Fetching Location Preview
-    func fetchLookAroundPreview() {
-        if let deviceSelection {
-            /// Clearing Old One
-            lookAroundScene = nil
-            Task {
-                let request = MKLookAroundSceneRequest(
-                    coordinate: deviceSelection.deviceMapItem.coordinate
-                )
-                lookAroundScene = try? await request.scene
-            }
-        }
-    }
-
-    /// Fetching Route
-    func fetchRoute() {
-        if let deviceSelection {
-            let request = MKDirections.Request()
-            request.source = .init(
-                placemark: .init(coordinate: locationManager.userLocation)
-            )
-            request.destination = deviceSelection.deviceMapItem.mapItem
-
-            Task {
-                let result = try? await MKDirections(request: request).calculate()
-                route = result?.routes.first
-                /// Saving Route Destination
-                routeDestination = deviceSelection
-
-                withAnimation(.snappy) {
-                    routeDisplaying = true
-                    showDetails = false
-                }
-            }
-        }
-    }
 }
 
 #Preview {
@@ -260,10 +180,6 @@ extension MapView {
                 self.userLocationScale = 1
             }
         }
-    }
-
-    func markerName(attribution: String) -> String {
-        chargePointViewModel.displayNameFor(network: attribution)
     }
 
     func networkColor(attribution: String) -> Color {
@@ -312,5 +228,91 @@ struct MapControls: View {
         }
         .buttonBorderShape(.circle)
         .padding()
+    }
+}
+
+extension MapView {
+
+    /// Map Details View
+    @ViewBuilder
+    func mapDetails() -> some View {
+        VStack(spacing: 15) {
+            ZStack {
+                /// New Look Around API
+                if lookAroundScene == nil {
+                    /// New Empty View API
+                    ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
+                } else {
+                    LookAroundPreview(scene: $lookAroundScene)
+                }
+            }
+            .frame(height: 200)
+            .clipShape(.rect(cornerRadius: 15))
+            /// Close Button
+            .overlay(alignment: .topTrailing) {
+                Button(action: {
+                    /// Closing View
+                    showDetails = false
+                    withAnimation(.snappy) {
+                        deviceSelection = nil
+                    }
+                }, label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                        .background(.white, in: .circle)
+                })
+                .padding(10)
+            }
+
+            /// Direction's Button
+            Button("Get Directions", action: fetchRoute)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .contentShape(Rectangle())
+                .background(.blue.gradient, in: .rect(cornerRadius: 15))
+        }
+        .padding(15)
+    }
+}
+
+extension MapView {
+
+    /// Fetching Location Preview
+    func fetchLookAroundPreview() {
+        if let deviceSelection {
+            /// Clearing Old One
+            lookAroundScene = nil
+            Task {
+                let request = MKLookAroundSceneRequest(
+                    coordinate: deviceSelection.deviceMapItem.coordinate
+                )
+                lookAroundScene = try? await request.scene
+            }
+        }
+    }
+
+    /// Fetching Route
+    func fetchRoute() {
+        if let deviceSelection {
+            let request = MKDirections.Request()
+            request.source = .init(
+                placemark: .init(coordinate: locationManager.userLocation)
+            )
+            request.destination = deviceSelection.deviceMapItem.mapItem
+
+            Task {
+                let result = try? await MKDirections(request: request).calculate()
+                route = result?.routes.first
+                /// Saving Route Destination
+                routeDestination = deviceSelection
+
+                withAnimation(.snappy) {
+                    routeDisplaying = true
+                    showDetails = false
+                }
+            }
+        }
     }
 }
