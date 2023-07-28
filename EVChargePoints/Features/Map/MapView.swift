@@ -84,24 +84,7 @@ struct MapView: View {
                 viewingRegion = context.region
             }
             .overlay(alignment: .bottomTrailing) {
-                VStack(spacing: 15) {
-                    MapCompass(scope: locationSpace)
-                    MapPitchToggle(scope: locationSpace)
-                    /// As this will work only when the User Gave Location Access
-                    MapUserLocationButton(scope: locationSpace)
-                    /// This will Goes to the Defined User Region
-                    Button {
-                        withAnimation(.smooth) {
-                            cameraPosition = .region(LocationManager.defaultRegion)
-                        }
-                    } label: {
-                        Image(systemName: "mappin")
-                            .font(.title3)
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .buttonBorderShape(.circle)
-                .padding()
+                MapControls(cameraPosition: $cameraPosition)
             }
             .mapScope(locationSpace)
             .navigationTitle("Map")
@@ -302,5 +285,32 @@ extension MKMapRect {
         regionRect.origin.y -= hPadding / 2
 
         return regionRect
+    }
+}
+
+struct MapControls: View {
+
+    @Namespace private var locationSpace
+    @Binding var cameraPosition: MapCameraPosition
+
+    var body: some View {
+        VStack(spacing: 15) {
+            MapCompass(scope: locationSpace)
+            MapPitchToggle(scope: locationSpace)
+            /// As this will work only when the User Gave Location Access
+            MapUserLocationButton(scope: locationSpace)
+            /// This will Goes to the Defined User Region
+            Button {
+                withAnimation(.smooth) {
+                    cameraPosition = .region(LocationManager.defaultRegion)
+                }
+            } label: {
+                Image(systemName: "mappin")
+                    .font(.title3)
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .buttonBorderShape(.circle)
+        .padding()
     }
 }
