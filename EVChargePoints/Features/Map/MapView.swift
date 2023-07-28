@@ -17,6 +17,7 @@ struct MapView: View {
     @StateObject private var mapViewModel = MapViewModel()
 
     // Map Properties
+    let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var mapSelection: MKMapItem?
     @State private var deviceSelection: ChargeDevice?
@@ -32,51 +33,51 @@ struct MapView: View {
 
     var body: some View {
 
-        // interactionModes: .all, 
-        Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
+        // interactionModes: .all,
+        NavigationStack {
+            Map(position: $cameraPosition, scope: locationSpace) {
 
-            // UserAnnotation() // This needs changing when testing 'real' user location
-            Annotation("My Location", coordinate: mapViewModel.userLocation) {
-                userAnnotation
+                // UserAnnotation() // This needs changing when testing 'real' user location
+                Annotation("My Location", coordinate: mapViewModel.userLocation) {
+                    userAnnotation
+                }
+                .annotationTitles(.hidden)
+
+                ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
+
+                    Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapMarker.coordinate) {
+                        Button {
+                            let _ = print(chargeDevice.deviceMapMarker.distanceFromUser)
+                        } label: {
+                            MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
+                        }
+                    }
+                    .tag(chargeDevice.id)
+                }
             }
-
-            ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
-
-                let mapItem = chargeDevice.deviceMapMarker.mapItem
-                let placemark = mapItem.placemark
-
-                Marker(
-                    markerName(attribution: chargeDevice.attribution),
-                    systemImage: Symbols.evChargerName,
-                    coordinate: placemark.coordinate
-                )
-                .tag(chargeDevice.id)
-                .tint(networkColor(attribution: chargeDevice.attribution))
+            .sheet(isPresented: $showDetails) {
+                if let deviceSelection {
+                    LocationDetailsView(
+                        mapSelection: $mapSelection,
+                        chargeDevice: deviceSelection,
+                        show: $showDetails,
+                        getDirections: $getDirections
+                    )
+                }
             }
-        }
-        .onChange(of: mapSelection) { oldValue, newValue in
-            showDetails = newValue != nil
-            let _ = print(mapSelection?.name)
-        }
-        .sheet(isPresented: $showDetails) {
-            if let deviceSelection {
-                LocationDetailsView(
-                    mapSelection: $mapSelection,
-                    chargeDevice: deviceSelection,
-                    show: $showDetails,
-                    getDirections: $getDirections
-                )
+            .presentationDetents([.height(340)])
+            .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+            .presentationCornerRadius(12)
+            .mapControls {
+                MapCompass()
+                MapPitchToggle()
+                MapUserLocationButton()
             }
-        }
-        .presentationDetents([.height(340)])
-        .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
-        .presentationCornerRadius(12)
-        .padding()
-        // .mapStyle(.hybrid)
-        .mapControls {
-            MapCompass()
-            MapPitchToggle()
-            MapUserLocationButton()
+            .mapScope(locationSpace)
+            .navigationTitle("Map")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
         }
     }
 }
