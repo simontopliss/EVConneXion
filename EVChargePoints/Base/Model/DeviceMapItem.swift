@@ -1,5 +1,5 @@
 //
-//  DeviceMapMarker.swift
+//  DeviceMapItem.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 27/07/2023.
@@ -8,10 +8,11 @@
 import MapKit
 import SwiftUI
 
-struct DeviceMapMarker {
+struct DeviceMapItem {
 
-    var coordinate: CLLocationCoordinate2D
-    var mapItem: MKMapItem
+    let coordinate: CLLocationCoordinate2D
+    let mapItem: MKMapItem
+    let region: MKCoordinateRegion
     var distanceFromUser: CLLocationDistance // typealias of Double
 
     init(
@@ -23,6 +24,8 @@ struct DeviceMapMarker {
             longitude: longitude
         )
         mapItem = MKMapItem(placemark: .init(coordinate: coordinate))
+        region = .init(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        // TODO: Need to pass the user's current location somehow
         distanceFromUser = coordinate.distance(to: LocationManager.defaultLocation)
     }
 }

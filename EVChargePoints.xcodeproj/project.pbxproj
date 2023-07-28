@@ -56,7 +56,7 @@
 		62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */; };
 		62B32CC12A4DCE8A00C6E8DF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CC02A4DCE8A00C6E8DF /* SearchView.swift */; };
 		62B32CC42A4DDCB200C6E8DF /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */; };
-		62B9EA892A72DC6600629421 /* DeviceMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9EA882A72DC6600629421 /* DeviceMapMarker.swift */; };
+		62B9EA892A72DC6600629421 /* DeviceMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9EA882A72DC6600629421 /* DeviceMapItem.swift */; };
 		62C9F65C2A67179800151FB4 /* NetworkGraphics.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C9F65B2A67179800151FB4 /* NetworkGraphics.json */; };
 		62C9F6622A68033B00151FB4 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6612A68033B00151FB4 /* View+Navigation.swift */; };
 		62C9F6642A68044800151FB4 /* ChargePointInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6632A68044800151FB4 /* ChargePointInfoView.swift */; };
@@ -130,7 +130,7 @@
 		62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		62B32CC02A4DCE8A00C6E8DF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		62B32CC32A4DDCB200C6E8DF /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
-		62B9EA882A72DC6600629421 /* DeviceMapMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceMapMarker.swift; path = EVChargePoints/Base/Model/DeviceMapMarker.swift; sourceTree = SOURCE_ROOT; };
+		62B9EA882A72DC6600629421 /* DeviceMapItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceMapItem.swift; path = EVChargePoints/Base/Model/DeviceMapItem.swift; sourceTree = SOURCE_ROOT; };
 		62C9F65B2A67179800151FB4 /* NetworkGraphics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkGraphics.json; sourceTree = "<group>"; };
 		62C9F6612A68033B00151FB4 /* View+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		62C9F6632A68044800151FB4 /* ChargePointInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointInfoView.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				625CEF5E2A6554C000A82048 /* National Chargepoint Registry */,
 				628C330F2A61E8AE00232351 /* Address.swift */,
-				62B9EA882A72DC6600629421 /* DeviceMapMarker.swift */,
+				62B9EA882A72DC6600629421 /* DeviceMapItem.swift */,
 				626810442A616A020032C3CA /* MockChargePoints.swift */,
 				625CEF712A65934800A82048 /* NetworkGraphic.swift */,
 			);
@@ -688,7 +688,7 @@
 				62B32CC42A4DDCB200C6E8DF /* UserDefaultKeys.swift in Sources */,
 				62B32CB92A4DCDE600C6E8DF /* SettingsView.swift in Sources */,
 				626810432A61595F0032C3CA /* ChargePointRow.swift in Sources */,
-				62B9EA892A72DC6600629421 /* DeviceMapMarker.swift in Sources */,
+				62B9EA892A72DC6600629421 /* DeviceMapItem.swift in Sources */,
 				62E16DDB2A72D77500DB3B01 /* LocationDetailsView.swift in Sources */,
 				62718B2E2A51E464004F0168 /* StaticJSONMapper.swift in Sources */,
 			);
