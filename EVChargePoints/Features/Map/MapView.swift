@@ -14,10 +14,7 @@ struct MapView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
-    @StateObject private var mapViewModel = MapViewModel()
-
     /// Map Properties
-    //let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var deviceSelection: ChargeDevice?
     @State private var viewingRegion: MKCoordinateRegion?
@@ -34,17 +31,16 @@ struct MapView: View {
 
     /// User Location Animation
     @State private var delay: Double = 0
-    @State private var scale: CGFloat = 0.5
+    @State private var userLocationScale: CGFloat = 0.75
+    @State private var pinScale: CGFloat = 0.75
     @State private var duration = 0.8
 
     var body: some View {
-
-        // interactionModes: .all,
         NavigationStack {
             Map(position: $cameraPosition, scope: locationSpace) {
 
                 // UserAnnotation() // This needs changing when testing 'real' user location
-                Annotation("My Location", coordinate: mapViewModel.userLocation) {
+                Annotation("My Location", coordinate: locationManager.userLocation) {
                     userAnnotation
                 }
                 .annotationTitles(.hidden)
@@ -60,6 +56,18 @@ struct MapView: View {
                             }
                         } label: {
                             MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
+                        }
+                        .scaleEffect(pinScale)
+                        .animation(
+                            Animation.easeInOut(duration: duration)
+                                .repeatForever()
+                                .delay(delay),
+                            value: pinScale
+                        )
+                        .onAppear {
+                            withAnimation {
+                                self.pinScale = 1
+                            }
                         }
                     }
                     .tag(chargeDevice.id)
@@ -257,16 +265,16 @@ extension MapView {
                 .frame(width: 12, height: 12)
                 .foregroundColor(.pink)
         }
-        .scaleEffect(scale)
+        .scaleEffect(userLocationScale)
         .animation(
             Animation.easeInOut(duration: duration)
                 .repeatForever()
                 .delay(delay),
-            value: scale
+            value: userLocationScale
         )
         .onAppear {
             withAnimation {
-                self.scale = 1
+                self.userLocationScale = 1
             }
         }
     }
