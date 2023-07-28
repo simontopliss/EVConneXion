@@ -119,8 +119,8 @@ struct MapView: View {
                                 cameraPosition = .region(
                                     .init(
                                         center: coordinate,
-                                        latitudinalMeters: 5000,
-                                        longitudinalMeters: 5000
+                                        latitudinalMeters: .cameraHeight,
+                                        longitudinalMeters: .cameraHeight
                                     )
                                 )
                             }

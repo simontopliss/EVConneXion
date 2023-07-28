@@ -24,7 +24,11 @@ struct DeviceMapItem {
             longitude: longitude
         )
         mapItem = MKMapItem(placemark: .init(coordinate: coordinate))
-        region = .init(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        region = .init(
+            center: coordinate,
+            latitudinalMeters: .cameraHeight,
+            longitudinalMeters: .cameraHeight
+        )
         // TODO: Need to pass the user's current location somehow
         distanceFromUser = coordinate.distance(to: LocationManager.defaultLocation)
     }

@@ -107,12 +107,16 @@ extension LocationManager {
 
         let deviceLocation = MKCoordinateRegion(
             center: locationCoordinate,
-            latitudinalMeters: 5000,
-            longitudinalMeters: 5000
+            latitudinalMeters: .cameraHeight,
+            longitudinalMeters: .cameraHeight
         )
 
         return deviceLocation
     }
+}
+
+extension CLLocationDistance {
+    static let cameraHeight: CLLocationDistance = 5000
 }
 
 extension CLLocationCoordinate2D {
