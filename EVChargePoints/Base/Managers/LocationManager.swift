@@ -14,14 +14,9 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
     let locationManager = CLLocationManager()
 
-    // TODO: Store in UserDefaults
-    @Published var cameraHeight: CLLocationDistance = 2500 // Distance in metres
+    static let cameraHeight: CLLocationDistance = 2500 // Distance in metres
 
-//    var route: MKRoute!
-    var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
-    var userMapItem: MKMapItem?
-
-    //let miles = Measurement(value: meters, unit: UnitLength.meters).converted(to: UnitLength.miles).value
+    @Published var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
 
     override init() {
         super.init()
@@ -40,10 +35,7 @@ extension LocationManager {
     }
 
     static var defaultRegion: MKCoordinateRegion {
-        .init(
-            center: self.defaultLocation,
-            span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
-        )
+        .init(center: defaultLocation, latitudinalMeters: cameraHeight, longitudinalMeters: cameraHeight)
     }
 }
 
@@ -115,8 +107,8 @@ extension LocationManager {
 
         let deviceLocation = MKCoordinateRegion(
             center: locationCoordinate,
-            latitudinalMeters: cameraHeight,
-            longitudinalMeters: cameraHeight
+            latitudinalMeters: 5000,
+            longitudinalMeters: 5000
         )
 
         return deviceLocation
