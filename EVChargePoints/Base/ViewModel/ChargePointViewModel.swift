@@ -15,6 +15,7 @@ final class ChargePointViewModel: ObservableObject {
 
     @Published var chargeDevices: [ChargeDevice] = []
     @Published var networkGraphics: [NetworkGraphic] = []
+    @Published var connectorTypes: [ConnectorTypeInfo] = []
 
     @Published private(set) var error: NetworkManager.NetworkError?
     @Published private(set) var isLoading = false
@@ -42,6 +43,7 @@ final class ChargePointViewModel: ObservableObject {
         chargeDevices = ChargePointData.mockChargeDevices
         chargeDevices.sort(by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser })
         loadNetworkGraphics()
+        loadConnectorTypes()
     }
 
     // MARK: - API Call
