@@ -1,0 +1,10 @@
+[
+  {
+    "PaymentType" : "PaymentRequiredFlag",
+    "DisplayName" : "Payment Required"
+  },
+  {
+    "PaymentType" : "SubscriptionRequiredFlag",
+    "DisplayName" : "Subscription Required"
+  }
+]

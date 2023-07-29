@@ -17,6 +17,12 @@
 		6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */; };
 		6223CA512A3CFDC300A87875 /* ChargePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */; };
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
+		6242EDEA2A75BA5B006C7406 /* PaymentSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6242EDE82A75BA5B006C7406 /* PaymentSymbol.swift */; };
+		6242EDEB2A75BA5B006C7406 /* PaymentSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6242EDE92A75BA5B006C7406 /* PaymentSymbolView.swift */; };
+		6242EDF02A75D2A6006C7406 /* LocationTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6242EDEC2A75D2A6006C7406 /* LocationTypes.json */; };
+		6242EDF12A75D2A6006C7406 /* AccessTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6242EDED2A75D2A6006C7406 /* AccessTypes.json */; };
+		6242EDF22A75D2A6006C7406 /* ChargerTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6242EDEE2A75D2A6006C7406 /* ChargerTypes.json */; };
+		6242EDF32A75D2A6006C7406 /* PaymentTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6242EDEF2A75D2A6006C7406 /* PaymentTypes.json */; };
 		624F73392A74660500F9B0A5 /* NetworkGraphics.json in Resources */ = {isa = PBXBuildFile; fileRef = 624F73382A74660500F9B0A5 /* NetworkGraphics.json */; };
 		6255F90D2A72A178006FF6C9 /* VM+DistanceFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */; };
 		6255F90F2A72A284006FF6C9 /* VM+AddressFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */; };
@@ -98,6 +104,12 @@
 		6223CA4E2A3CFD9F00A87875 /* ChargePointData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointData.swift; sourceTree = "<group>"; };
 		6223CA502A3CFDC300A87875 /* ChargePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointViewModel.swift; sourceTree = "<group>"; };
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		6242EDE82A75BA5B006C7406 /* PaymentSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSymbol.swift; sourceTree = "<group>"; };
+		6242EDE92A75BA5B006C7406 /* PaymentSymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSymbolView.swift; sourceTree = "<group>"; };
+		6242EDEC2A75D2A6006C7406 /* LocationTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationTypes.json; sourceTree = "<group>"; };
+		6242EDED2A75D2A6006C7406 /* AccessTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AccessTypes.json; sourceTree = "<group>"; };
+		6242EDEE2A75D2A6006C7406 /* ChargerTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChargerTypes.json; sourceTree = "<group>"; };
+		6242EDEF2A75D2A6006C7406 /* PaymentTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PaymentTypes.json; sourceTree = "<group>"; };
 		624F73382A74660500F9B0A5 /* NetworkGraphics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkGraphics.json; sourceTree = "<group>"; };
 		6255F90C2A72A178006FF6C9 /* VM+DistanceFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+DistanceFormatting.swift"; sourceTree = "<group>"; };
 		6255F90E2A72A284006FF6C9 /* VM+AddressFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+AddressFormatting.swift"; sourceTree = "<group>"; };
@@ -181,6 +193,8 @@
 			children = (
 				6213F46E2A73F51600F88877 /* MapPin.swift */,
 				620929A62A74072800B18959 /* MapPinView.swift */,
+				6242EDE82A75BA5B006C7406 /* PaymentSymbol.swift */,
+				6242EDE92A75BA5B006C7406 /* PaymentSymbolView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,8 +332,12 @@
 		62718B152A51D661004F0168 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				6242EDED2A75D2A6006C7406 /* AccessTypes.json */,
+				6242EDEE2A75D2A6006C7406 /* ChargerTypes.json */,
 				628FDF1B2A75880B00E85672 /* ConnectorTypes.json */,
+				6242EDEC2A75D2A6006C7406 /* LocationTypes.json */,
 				624F73382A74660500F9B0A5 /* NetworkGraphics.json */,
+				6242EDEF2A75D2A6006C7406 /* PaymentTypes.json */,
 				628FDF1D2A75881400E85672 /* Test JSON */,
 			);
 			path = JSON;
@@ -639,8 +657,12 @@
 			files = (
 				621A704B2A3B3BC900A04669 /* Preview Assets.xcassets in Resources */,
 				628FDF1C2A75880B00E85672 /* ConnectorTypes.json in Resources */,
+				6242EDF22A75D2A6006C7406 /* ChargerTypes.json in Resources */,
 				628E15C52A71A9930081D8C4 /* SE1 7PB - London Eye - 1 mile - connector-type-id 4.json in Resources */,
 				621A70482A3B3BC900A04669 /* Assets.xcassets in Resources */,
+				6242EDF02A75D2A6006C7406 /* LocationTypes.json in Resources */,
+				6242EDF12A75D2A6006C7406 /* AccessTypes.json in Resources */,
+				6242EDF32A75D2A6006C7406 /* PaymentTypes.json in Resources */,
 				624F73392A74660500F9B0A5 /* NetworkGraphics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +735,7 @@
 				625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */,
 				628FDF2F2A75968800E85672 /* AccessTypesView.swift in Sources */,
 				625CEF622A6555B900A82048 /* LocationType.swift in Sources */,
+				6242EDEA2A75BA5B006C7406 /* PaymentSymbol.swift in Sources */,
 				627531D92A6946E000F0D8A6 /* NavigationRouter.swift in Sources */,
 				62B32CB72A4DCDD900C6E8DF /* RoutesView.swift in Sources */,
 				625CEF682A65569400A82048 /* DeviceController.swift in Sources */,
@@ -725,6 +748,7 @@
 				6223CA4F2A3CFD9F00A87875 /* ChargePointData.swift in Sources */,
 				62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */,
 				620929A72A74072800B18959 /* MapPinView.swift in Sources */,
+				6242EDEB2A75BA5B006C7406 /* PaymentSymbolView.swift in Sources */,
 				628FDF2E2A75968800E85672 /* ChargerTypesView.swift in Sources */,
 				628FDF2D2A75968800E85672 /* LocationTypesView.swift in Sources */,
 				628FDF2A2A75968800E85672 /* ConnectorTypesView.swift in Sources */,
