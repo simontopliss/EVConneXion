@@ -31,7 +31,7 @@ struct MapView: View {
 
     /// User Location Animation
     @State private var delay: Double = 0
-    @State private var userLocationScale: CGFloat = 0.75
+    @State private var userLocationScale: CGFloat = 0.6
     @State private var pinScale: CGFloat = 0.75
     @State private var duration = 0.8
 
@@ -57,18 +57,18 @@ struct MapView: View {
                         } label: {
                             MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
                         }
-                        .scaleEffect(pinScale)
-                        .animation(
-                            Animation.easeInOut(duration: duration)
-                                .repeatForever()
-                                .delay(delay),
-                            value: pinScale
-                        )
-                        .onAppear {
-                            withAnimation {
-                                self.pinScale = 1
-                            }
-                        }
+//                        .scaleEffect(pinScale)
+//                        .animation(
+//                            Animation.easeInOut(duration: duration)
+//                                .repeatForever()
+//                                .delay(delay),
+//                            value: pinScale
+//                        )
+//                        .onAppear {
+//                            withAnimation {
+//                                self.pinScale = 1
+//                            }
+//                        }
                     }
                     .tag(chargeDevice.id)
                 }
@@ -255,7 +255,7 @@ extension MapView {
 
 extension MapView {
 
-    //@ViewBuilder
+    // @ViewBuilder
     func endRoute() -> some View {
         Button("End Route") {
             /// Closing The Route and Setting the Selection
