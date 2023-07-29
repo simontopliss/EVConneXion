@@ -35,28 +35,28 @@ struct FiltersView: View {
                     }
                     NavigationLink(destination: Route.filterConnectorTypesView) {
                         HStack {
-                            Image(systemName: "bolt.circle")
+                            Image(systemName: "ev.plug.ac.type.2")
                             Text(SelectedView.connectors.rawValue)
                         }
                         .padding(.vertical, 12)
                     }
                     NavigationLink(destination: Route.filterLocationTypesView) {
                         HStack {
-                            Image(systemName: "bolt.circle")
+                            Image(systemName: "mappin.and.ellipse.circle")
                             Text(SelectedView.locations.rawValue)
                         }
                         .padding(.vertical, 12)
                     }
                     NavigationLink(destination: Route.filterNetworkTypesView) {
                         HStack {
-                            Image(systemName: "bolt.circle")
+                            Image(systemName: "network")
                             Text(SelectedView.networks.rawValue)
                         }
                         .padding(.vertical, 12)
                     }
                     NavigationLink(destination: Route.filterPaymentTypesView) {
                         HStack {
-                            Image(systemName: "bolt.circle")
+                            PaymentSymbolView()
                             Text(SelectedView.payment.rawValue)
                         }
                         .padding(.vertical, 12)
@@ -74,6 +74,7 @@ struct FiltersView: View {
                 .foregroundColor(AppColors.textColor)
             }
 
+            // TODO: This should be only enabled if the user has made changes
             Button {
                 // Apply Filters and return back to previous screen
                 routerManager.goBack()
@@ -87,8 +88,6 @@ struct FiltersView: View {
             .foregroundColor(.white)
             .cornerRadius(8)
             .padding(.bottom, 48)
-
-            //Spacer()
         }
         .background(Color.background)
         .navigationDestination(for: Route.self) { $0 }
@@ -114,7 +113,6 @@ struct FiltersView: View {
                         Image(systemName: "square.and.arrow.down")
                     }
                 }
-
             }
         }
     }
