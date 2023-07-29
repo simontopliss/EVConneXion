@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChargerTypesView: View {
     var body: some View {
-        Text("PowerTypesView")
+        Text("ChargerTypesView")
     }
 }
 
