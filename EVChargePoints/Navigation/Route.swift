@@ -14,6 +14,12 @@ enum Route {
     case routesView // TODO: Pass a navigation destination/location
     case settingsView
     case filtersView
+    case filterAccessTypesView
+    case filterConnectorTypesView
+    case filterLocationTypesView
+    case filterNetworkTypesView
+    case filterPaymentTypesView
+    case filterChargerTypesView
     case searchView
 }
 
@@ -38,6 +44,18 @@ extension Route: Hashable {
                 return true
             case (.searchView, .searchView):
                 return true
+            case (.filterAccessTypesView, .filterAccessTypesView):
+                return true
+            case (.filterConnectorTypesView, .filterConnectorTypesView):
+                return true
+            case (.filterLocationTypesView, .filterLocationTypesView):
+                return true
+            case (.filterNetworkTypesView, .filterNetworkTypesView):
+                return true
+            case (.filterPaymentTypesView, .filterPaymentTypesView):
+                return true
+            case (.filterChargerTypesView, .filterChargerTypesView):
+                return true
             default:
                 return false
         }
@@ -51,7 +69,6 @@ extension Route: View {
         switch self {
             case .mapView:
                 MapView()
-
             case let .chargePointDetail(chargeDevice):
                 ChargePointDetailView(chargeDevice: chargeDevice)
             case .routesView:
@@ -62,6 +79,18 @@ extension Route: View {
                 FiltersView()
             case .searchView:
                 SearchView()
+            case .filterAccessTypesView:
+                AccessTypesView()
+            case .filterConnectorTypesView:
+                ConnectorTypesView()
+            case .filterLocationTypesView:
+                LocationTypesView()
+            case .filterNetworkTypesView:
+                NetworkTypesView()
+            case .filterPaymentTypesView:
+                PaymentTypesView()
+            case .filterChargerTypesView:
+                ChargerTypesView()
         }
     }
 }
