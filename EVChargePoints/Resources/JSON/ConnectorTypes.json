@@ -1,0 +1,65 @@
+[
+  {
+    "ConnectorTypeID" : 3,
+    "DisplayName" : "3-pin Type G",
+    "Name" : "3-pin Type G (BS1363)",
+    "ChargeMode" : 1,
+    "ChargeMethod" : "Single Phase AC"
+  },
+  {
+    "ConnectorTypeID" : 4,
+    "DisplayName" : "CHAdeMO",
+    "Name" : "JEVS G105 (CHAdeMO) DC",
+    "ChargeMode" : 4,
+    "ChargeMethod" : "DC"
+  },
+  {
+    "ConnectorTypeID" : 5,
+    "DisplayName" : "Type 1",
+    "Name" : "Type 1 SAEJ1772 (IEC 62196)",
+    "ChargeMode" : 1,
+    "ChargeMethod" : "Single Phase AC"
+  },
+  {
+    "ConnectorTypeID" : 6,
+    "DisplayName" : "Type 2 Mennekes",
+    "Name" : "Type 2 Mennekes (IEC62196)",
+    "ChargeMode" : 3,
+    "ChargeMethod" : "Three Phase AC"
+  },
+  {
+    "ConnectorTypeID" : 7,
+    "DisplayName" : "Type 3 Scame",
+    "Name" : "Type 3 Scame (IEC62196)",
+    "ChargeMode" : 3,
+    "ChargeMethod" : "Three Phase AC"
+  },
+  {
+    "ConnectorTypeID" : 15,
+    "DisplayName" : "CCS Type 2 Combo",
+    "Name" : "CCS Type 2 Combo (IEC62196)",
+    "ChargeMode" : 4,
+    "ChargeMethod" : "DC"
+  },
+  {
+    "ConnectorTypeID" : 16,
+    "DisplayName" : "Type 2 Tesla",
+    "Name" : "Type 2 Tesla (IEC62196) DC",
+    "ChargeMode" : 4,
+    "ChargeMethod" : "DC"
+  },
+  {
+    "ConnectorTypeID" : 17,
+    "DisplayName" : "Commando 2P+E",
+    "Name" : "Commando 2P+E (IEC60309)",
+    "ChargeMode" : 1,
+    "ChargeMethod" : "Single Phase AC"
+  },
+  {
+    "ConnectorTypeID" : 18,
+    "DisplayName" : "Commando 3P+N+E",
+    "Name" : "Commando 3P+N+E (IEC60309)",
+    "ChargeMode" : 1,
+    "ChargeMethod" : "Single Phase AC"
+  }
+]
