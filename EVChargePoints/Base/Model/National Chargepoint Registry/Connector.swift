@@ -65,18 +65,6 @@ enum ConnectorType: String, Decodable, CaseIterable {
     case commando3PNE   = "Commando 3P+N+E (IEC60309)"
 }
 
-enum ConnectorTypeID: Int {
-    case threePinTypeG  = 3
-    case chAdeMo        = 4
-    case type1          = 5
-    case type2Mennekes  = 6
-    case type3Scame     = 7
-    case ccsType2Combo  = 15
-    case type2Tesla     = 16
-    case commando2PE    = 17
-    case commando3PNE   = 18
-}
-
 // MARK: - ConnectorGraphic
 
 struct ConnectorGraphic: Identifiable {
