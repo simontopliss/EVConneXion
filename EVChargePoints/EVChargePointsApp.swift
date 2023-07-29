@@ -40,7 +40,7 @@ struct EVChargePointsApp: App {
                     .environmentObject(routerManager)
                     .environmentObject(locationManager)
 
-                RoutesView()
+                FiltersView()
                     .tabItem {
                         Label(Tabs.routes.label, systemImage: Tabs.routes.icon)
                     }
