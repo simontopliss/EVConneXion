@@ -15,10 +15,6 @@ struct ChargePointListView: View {
 
     // TODO: Use NavigationSplitView for iPad support
 
-    init() {
-        //vm.lo
-    }
-
     var body: some View {
         NavigationStack(path: $routerManager.routes) {
             ScrollView {

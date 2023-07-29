@@ -217,9 +217,9 @@
 				620929A52A74070200B18959 /* Views */,
 				62B32CA92A4DBF2600C6E8DF /* ViewModel */,
 				62DFA7492A6D3FDF00208E1B /* Managers */,
-				628C33112A61E90400232351 /* Extensions */,
 				62718B2C2A51E429004F0168 /* Mapper */,
 				628FDEB82A750DE000E85672 /* Validators */,
+				628C33112A61E90400232351 /* Extensions */,
 			);
 			path = Base;
 			sourceTree = "<group>";
