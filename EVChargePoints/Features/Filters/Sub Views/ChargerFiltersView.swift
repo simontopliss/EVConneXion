@@ -1,5 +1,5 @@
 //
-//  NetworkTypesView.swift
+//  ChargerFiltersView.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 29/07/2023.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct NetworkTypesView: View {
+struct ChargerFiltersView: View {
     var body: some View {
-        Text("NetworkTypesView")
+        Text("ChargerTypesView")
     }
 }
 
 #Preview {
-    NetworkTypesView()
+    ChargerFiltersView()
 }

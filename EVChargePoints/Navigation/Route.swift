@@ -80,17 +80,17 @@ extension Route: View {
             case .searchView:
                 SearchView()
             case .filterAccessTypesView:
-                AccessTypesView()
+                AccessFiltersView()
             case .filterConnectorTypesView:
-                ConnectorTypesView()
+                ConnectorFiltersView()
             case .filterLocationTypesView:
-                LocationTypesView()
+                LocationFiltersView()
             case .filterNetworkTypesView:
-                NetworkTypesView()
+                NetworkFiltersView()
             case .filterPaymentTypesView:
-                PaymentTypesView()
+                PaymentFiltersView()
             case .filterChargerTypesView:
-                ChargerTypesView()
+                ChargerFiltersView()
         }
     }
 }

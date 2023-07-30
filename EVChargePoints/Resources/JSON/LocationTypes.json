@@ -1,0 +1,86 @@
+[
+  {
+    "DisplayName" : "Dealership Forecourt",
+    "DataName" : "Dealership forecourt",
+    "LocationType" : "DealershipForecourt",
+    "Value" : 0
+  },
+  {
+    "DisplayName" : "Educational Establishment",
+    "DataName" : "Educational establishment",
+    "LocationType" : "EducationalEstablishment",
+    "Value" : 0
+  },
+  {
+    "DisplayName" : "Hotel \/ Accommodation",
+    "DataName" : "Hotel \/ Accommodation",
+    "LocationType" : "HotelAccommodation",
+    "Value" : 0
+  },
+  {
+    "DisplayName" : "Leisure Centre",
+    "DataName" : "Leisure centre",
+    "LocationType" : "LeisureCentre",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "NHS Property",
+    "DataName" : "NHS property",
+    "LocationType" : "NhsProperty",
+    "Value" : 0
+  },
+  {
+    "DisplayName" : "On-Street",
+    "DataName" : "On-street",
+    "LocationType" : "OnStreet",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Other",
+    "DataName" : "Other",
+    "LocationType" : "Other",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Park & Ride Site",
+    "DataName" : "Park & Ride site",
+    "LocationType" : "ParkRideSite",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Private Home",
+    "DataName" : "Private home",
+    "LocationType" : "PrivateHome",
+    "Value" : 0
+  },
+  {
+    "DisplayName" : "Public Car Park",
+    "DataName" : "Public car park",
+    "LocationType" : "PublicCarPark",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Public Estate",
+    "DataName" : "Public estate",
+    "LocationType" : "PublicEstate",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Retail Car Park",
+    "DataName" : "Retail car park",
+    "LocationType" : "RetailCarPark",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Service Station",
+    "DataName" : "Service station",
+    "LocationType" : "ServiceStation",
+    "Value" : 1
+  },
+  {
+    "DisplayName" : "Workplace Car Park",
+    "DataName" : "Workplace car park",
+    "LocationType" : "WorkplaceCarPark",
+    "Value" : 0
+  }
+]

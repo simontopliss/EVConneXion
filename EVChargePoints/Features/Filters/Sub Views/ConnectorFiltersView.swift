@@ -1,5 +1,5 @@
 //
-//  LocationTypesView.swift
+//  ConnectorFiltersView.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 29/07/2023.
@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-struct LocationTypesView: View {
+struct ConnectorFiltersView: View {
     var body: some View {
-        Text("LocationTypesView")
+        Text("ConnectorTypesView")
     }
 }
 
 #Preview {
-    LocationTypesView()
+    ConnectorFiltersView()
 }
-
-

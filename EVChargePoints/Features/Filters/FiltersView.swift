@@ -74,20 +74,21 @@ struct FiltersView: View {
                 .foregroundColor(AppColors.textColor)
             }
 
-            // TODO: This should be only enabled if the user has made changes
-            Button {
-                // Apply Filters and return back to previous screen
-                routerManager.goBack()
-            } label: {
-                Text("Apply Filter")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-            }
-            .frame(width: 280, height: 44)
-            .background(Color.accentColor)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            .padding(.bottom, 48)
+//            // TODO: This should be only enabled if the user has made changes
+//            Button {
+//                // Apply Filters and return back to previous screen
+//                routerManager.goBack()
+//            } label: {
+//                Text("Apply Filter")
+//                    .font(.title2)
+//                    .fontWeight(.semibold)
+//            }
+//            .frame(width: 280, height: 44)
+//            .background(Color.accentColor)
+//            .foregroundColor(.white)
+//            .cornerRadius(8)
+//            .padding(.bottom, 48)
+
         }
         .background(Color.background)
         .navigationDestination(for: Route.self) { $0 }
