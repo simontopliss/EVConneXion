@@ -16,3 +16,5 @@ struct LocationTypesView: View {
 #Preview {
     LocationTypesView()
 }
+
+
