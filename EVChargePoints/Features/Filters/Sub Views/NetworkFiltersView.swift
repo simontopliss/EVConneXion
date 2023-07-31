@@ -28,11 +28,12 @@ struct NetworkFiltersView: View {
                             .frame(maxWidth: 60, maxHeight: 30, alignment: .leading)
 
                             Text(filter.displayName.wrappedValue)
-                                .foregroundStyle(AppColors.textColor)
                         }
                     }
-                    .padding(.vertical, 4)
                 }
+                .font(.headline)
+                .foregroundColor(AppColors.textColor)
+                .padding(.vertical, 4)
             }
         }
     }

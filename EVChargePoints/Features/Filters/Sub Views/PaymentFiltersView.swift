@@ -18,10 +18,11 @@ struct PaymentFiltersView: View {
                 ForEach($vm.paymentFilters) { filter in
                     Toggle(isOn: filter.setting) {
                         Text(filter.displayName.wrappedValue)
-                            .foregroundStyle(AppColors.textColor)
                     }
-                    .padding(.vertical, 4)
                 }
+                .font(.headline)
+                .foregroundColor(AppColors.textColor)
+                .padding(.vertical, 4)
             }
         }
     }
