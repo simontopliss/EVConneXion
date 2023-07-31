@@ -10,9 +10,10 @@ import Foundation
 struct NetworkFilter: Decodable, Identifiable {
 
     let id = UUID()
-    let networkType: String
-    let dataName: String
+    var networkType: String
+    var dataName: String
     var displayName: String
+    let total: Int // The total number of each Network to be used for sorting by most common
     var setting: Bool
 
     enum CodingKeys: String, CodingKey {
@@ -20,6 +21,7 @@ struct NetworkFilter: Decodable, Identifiable {
         case dataName     = "DataName"
         case displayName  = "DisplayName"
         case setting      = "Setting"
+        case total        = "Count"
     }
 
     init(from decoder: Decoder) throws {
@@ -28,5 +30,6 @@ struct NetworkFilter: Decodable, Identifiable {
         self.dataName     = try container.decode(String.self, forKey: .dataName)
         self.displayName  = try container.decode(String.self, forKey: .displayName)
         self.setting      = (try container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+        self.total        = try container.decode(Int.self, forKey: .total)
     }
 }
