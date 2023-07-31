@@ -16,6 +16,4 @@ extension ChargePointViewModel {
             type: [ConnectorTypeInfo].self
         )
     }
-
-
 }
