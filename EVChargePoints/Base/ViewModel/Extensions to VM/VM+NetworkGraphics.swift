@@ -50,7 +50,10 @@ extension ChargePointViewModel {
     func networkGraphicFor(attribution: String) -> String {
         let item = networkGraphics.first { $0.network == attribution }
         guard let filename = item?.filename else { return "default-network-128x128" }
-        let fileURL = URL(string: filename)!
+        guard let fileURL = URL(string: filename) else {
+            print("No network graphic found for \(attribution)")
+            return "default-network-128x128"
+        }
         return fileURL.deletingPathExtension().lastPathComponent
     }
 
@@ -60,7 +63,10 @@ extension ChargePointViewModel {
     func networkGraphicFor(network: String) -> String {
         let item = networkGraphics.first { $0.network == network }
         guard let filename = item?.filename else { return "default-network-128x128" }
-        let fileURL = URL(string: filename)!
+        guard let fileURL = URL(string: filename) else {
+            print("No network graphic found for \(network)")
+            return "default-network-128x128"
+        }
         return fileURL.deletingPathExtension().lastPathComponent
     }
 
