@@ -53,6 +53,7 @@ final class FiltersViewModel: ObservableObject {
             file: "NetworkFilter",
             type: [NetworkFilter].self
         )
+        self.networkFilters.sort { $0.total > $1.total }
     }
 
     func loadPaymentFilters() {
