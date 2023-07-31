@@ -18,7 +18,6 @@ final class FiltersViewModel: ObservableObject {
     @Published var paymentFilters: [PaymentFilter] = []
 
     init() {
-
         /// Load JSON files
         loadAccessFilters()
         loadConnectorFilters()
@@ -62,8 +61,4 @@ final class FiltersViewModel: ObservableObject {
             type: [PaymentFilter].self
         )
     }
-
-//    func tethered() -> Bool {
-//        let tethered = chargerFilters.filter(<#T##predicate: Predicate<ChargerFilter>##Predicate<ChargerFilter>#>)
-//    }
 }
