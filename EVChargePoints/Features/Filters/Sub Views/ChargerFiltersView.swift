@@ -23,25 +23,28 @@ struct ChargerFiltersView: View {
     var body: some View {
         Form {
             Section("Charger") {
-                // TODO: I think I need to change the corresponding Method/Speed depending on what is selected.
-                // E.g. If DC is selected should the speed be set to Fast at a minimum?
-                Picker("Method", selection: $vm.chargerFilter.selectedMethod) {
-                    ForEach(vm.chargerFilter.chargeMethods, id: \.self) {
-                        Text($0)
+                Group {
+                    // TODO: I think I need to change the corresponding Method/Speed depending on what is selected.
+                    // E.g. If DC is selected should the speed be set to Fast at a minimum?
+                    Picker("Charging Method", selection: $vm.chargerFilter.selectedMethod) {
+                        ForEach(vm.chargerFilter.chargeMethods, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    Picker("Charger Speed", selection: $vm.chargerFilter.selectedSpeed) {
+                        ForEach(vm.chargerFilter.chargeSpeeds, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    // If DC is selected, should tethered by selected too?
+                    Toggle(isOn: $vm.chargerFilter.tetheredCable) {
+                        Text("Tethered Cable")
                     }
                 }
-                Picker("Speed", selection: $vm.chargerFilter.selectedSpeed) {
-                    ForEach(vm.chargerFilter.chargeSpeeds, id: \.self) {
-                        Text($0)
-                    }
-                }
-                // If DC is selected, should tethered by selected too?
-                Toggle(isOn: $vm.chargerFilter.tetheredCable) {
-                    Text("Tethered Cable")
-                }
+                .font(.headline)
+                .foregroundColor(AppColors.textColor)
+                .padding(.vertical, 4)
             }
-            .foregroundStyle(AppColors.textColor)
-            .padding(.vertical, 4)
         }
     }
 }
