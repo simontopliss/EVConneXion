@@ -12,8 +12,8 @@ import Foundation
 struct LocationFilter: Decodable, Identifiable {
 
     let id = UUID()
-    let locationType: String
-    let dataName: String
+    var locationType: String
+    var dataName: String
     var displayName: String
     var setting: Bool
 

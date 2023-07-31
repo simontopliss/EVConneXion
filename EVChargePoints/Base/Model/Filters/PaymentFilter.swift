@@ -10,8 +10,8 @@ import Foundation
 struct PaymentFilter: Decodable, Identifiable {
 
     let id = UUID()
-    let paymentType: String
-    let dataName: String
+    var paymentType: String
+    var dataName: String
     var displayName: String
     var setting: Bool
 

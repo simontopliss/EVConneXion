@@ -10,8 +10,8 @@ import Foundation
 struct ConnectorFilter: Decodable, Identifiable {
 
     let id = UUID()
-    let connectorType: String
-    let dataName: String
+    var connectorType: String
+    var dataName: String
     var displayName: String
     var setting: Bool
 

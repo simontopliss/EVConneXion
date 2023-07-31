@@ -10,7 +10,7 @@ import Foundation
 struct AccessFilter: Decodable, Identifiable {
 
     let id = UUID()
-    let dataName: String
+    var dataName: String
     var displayName: String
     var setting: Bool
 
