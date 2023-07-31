@@ -40,6 +40,7 @@ struct Connector: Decodable {
 enum ChargeStatus: String, Decodable {
     case inService     = "In service"
     case outOfService  = "Out of service"
+    case planned       = "Planned"
 }
 
 enum TetheredCable: String, Decodable {
