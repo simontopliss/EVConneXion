@@ -64,6 +64,9 @@ extension Address {
             } else if k == "BuildingNumber" {
                 if let buildingNumber = v {
                     self.buildingNumber = buildingNumber.trim()
+                    if self.buildingNumber.hasPrefix(", ") {
+                        self.buildingNumber.removeFirst(2)
+                    }
                 }
             } else if k == "Thoroughfare" {
                 if let thoroughfare = v {
@@ -72,6 +75,9 @@ extension Address {
             } else if k == "Street" {
                 if let street = v {
                     self.street = street.trim()
+                    if self.street.count < 2 {
+                        self.street = ""
+                    }
                 }
             } else if k == "DoubleDependantLocality" {
                 if let doubleDependantLocality = v {
@@ -88,6 +94,11 @@ extension Address {
             } else if k == "County" {
                 if let county = v {
                     self.county = county.trim()
+                    if self.county.count < 2 {
+                        self.county = "" // Fix some weird Counties are "0" or "4"
+                    } else if self.county.hasPrefix("`") {
+                        self.county.removeFirst() // Fixes one entry with "`West Midlands"
+                    }
                 }
             } else if k == "PostCode" {
                 if let postcode = v {
