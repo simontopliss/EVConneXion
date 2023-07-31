@@ -16,6 +16,8 @@ struct NetworkFiltersView: View {
         VStack {
             Form {
                 Section("Network") {
+                    // TODO: Sort be most common Network
+                    // Disable council networks by default?
                     ForEach($vm.networkFilters) { filter in
                         Toggle(isOn: filter.setting) {
                             Text(filter.displayName.wrappedValue)
