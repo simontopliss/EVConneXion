@@ -13,15 +13,14 @@ struct ConnectorFiltersView: View {
     @EnvironmentObject private var vm: FiltersViewModel
 
     var body: some View {
-        VStack {
-            Form {
-                Section("Connector") {
-                    ForEach($vm.connectorFilters) { filter in
-                        Toggle(isOn: filter.setting) {
-                            Text(filter.displayName.wrappedValue)
-                                .foregroundStyle(AppColors.textColor)
-                        }
+        Form {
+            Section("Connector") {
+                ForEach($vm.connectorFilters) { filter in
+                    Toggle(isOn: filter.setting) {
+                        Text(filter.displayName.wrappedValue)
+                            .foregroundStyle(AppColors.textColor)
                     }
+                    .padding(.vertical, 4)
                 }
             }
         }

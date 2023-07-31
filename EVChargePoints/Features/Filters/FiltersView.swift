@@ -22,10 +22,24 @@ struct FiltersView: View {
 
     let verticalPadding = 10.0
 
+    @State private var value: Double = 40
+
     var body: some View {
         VStack {
-            NavigationStack(path: $routerManager.routes) {
+             NavigationStack(path: $routerManager.routes) {
                 List {
+
+                    Slider(value: $value, in: 5...200, step: 5) {
+                        Text("Label")
+                    } minimumValueLabel: {
+                        Text("5 ")
+                    } maximumValueLabel: {
+                        Text("200")
+                    } onEditingChanged: {
+                        print("\($0)")
+                    }
+                    .padding(.vertical, verticalPadding)
+
                     NavigationLink(destination: Route.filterAccessTypesView) {
                         HStack {
                             Image(systemName: "parkingsign.circle")
