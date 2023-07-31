@@ -3,492 +3,581 @@
     "DisplayName" : "No Network",
     "DataName" : "*No Network",
     "Setting" : 0,
-    "NetworkType" : "NoNetwork"
+    "NetworkType" : "NoNetwork",
+    "Count" : 174
   },
   {
     "DisplayName" : "Alfa Power",
     "DataName" : "Alfa Power",
     "Setting" : 0,
-    "NetworkType" : "AlfaPower"
+    "NetworkType" : "AlfaPower",
+    "Count" : 64
   },
   {
     "DisplayName" : "Allego",
     "DataName" : "Allego",
     "Setting" : 0,
-    "NetworkType" : "Allego"
+    "NetworkType" : "Allego",
+    "Count" : 7
   },
   {
     "DisplayName" : "Apetrel",
     "DataName" : "Apetrel",
     "Setting" : 0,
-    "NetworkType" : "Apetrel"
+    "NetworkType" : "Apetrel",
+    "Count" : 1
   },
   {
     "DisplayName" : "AW Energy",
     "DataName" : "AW Energy",
     "Setting" : 0,
-    "NetworkType" : "AWEnergy"
+    "NetworkType" : "AWEnergy",
+    "Count" : 3
   },
   {
     "DisplayName" : "Be.EV",
     "DataName" : "Be.EV",
     "Setting" : 0,
-    "NetworkType" : "BeEV"
+    "NetworkType" : "BeEV",
+    "Count" : 137
   },
   {
     "DisplayName" : "Believ",
     "DataName" : "Believ",
     "Setting" : 0,
-    "NetworkType" : "Believ"
+    "NetworkType" : "Believ",
+    "Count" : 460
+  },
+  {
+    "DisplayName" : "Blink Charging",
+    "DataName" : "Blink Charging",
+    "Setting" : 1,
+    "NetworkType" : "BlinkCharging",
+    "Count" : 1212
   },
   {
     "DisplayName" : "BP Pulse",
     "DataName" : "BP Pulse",
     "Setting" : 1,
-    "NetworkType" : "BPPulse"
+    "NetworkType" : "BPPulse",
+    "Count" : 333
   },
   {
     "DisplayName" : "BP Pulse (POLAR)",
     "DataName" : "BP-Pulse (POLAR)",
     "Setting" : 1,
-    "NetworkType" : "BPPulsePOLAR"
+    "NetworkType" : "BPPulsePOLAR",
+    "Count" : 2981
   },
   {
     "DisplayName" : "Bradford Council",
     "DataName" : "Bradford Metropolitan District Council",
     "Setting" : 0,
-    "NetworkType" : "BradfordCouncil"
+    "NetworkType" : "BradfordCouncil",
+    "Count" : 4
   },
   {
     "DisplayName" : "C3EV",
     "DataName" : "C3EV",
     "Setting" : 0,
-    "NetworkType" : "C3EV"
+    "NetworkType" : "C3EV",
+    "Count" : 1
   },
   {
     "DisplayName" : "Car Charged",
     "DataName" : "Car charged UK ltd",
     "Setting" : 0,
-    "NetworkType" : "CarCharged"
+    "NetworkType" : "CarCharged",
+    "Count" : 7
   },
   {
     "DisplayName" : "Char.gy",
     "DataName" : "Char.gy",
     "Setting" : 0,
-    "NetworkType" : "Chargy"
+    "NetworkType" : "Chargy",
+    "Count" : 2381
   },
   {
     "DisplayName" : "Charge My Street",
     "DataName" : "Charge my Street",
     "Setting" : 0,
-    "NetworkType" : "ChargeMyStreet"
+    "NetworkType" : "ChargeMyStreet",
+    "Count" : 25
   },
   {
     "DisplayName" : "Charge Your Car",
     "DataName" : "Charge Your Car",
     "Setting" : 0,
-    "NetworkType" : "ChargeYourCar"
+    "NetworkType" : "ChargeYourCar",
+    "Count" : 1646
   },
   {
     "DisplayName" : "ChargePlace Scotland",
     "DataName" : "ChargePlace Scotland",
     "Setting" : 0,
-    "NetworkType" : "ChargePlaceScotland"
+    "NetworkType" : "ChargePlaceScotland",
+    "Count" : 1030
   },
   {
     "DisplayName" : "ChargePoint Network",
     "DataName" : "ChargePoint Network (Netherlands) B.V.",
     "Setting" : 0,
-    "NetworkType" : "ChargePointNetwork"
+    "NetworkType" : "ChargePointNetwork",
+    "Count" : 572
   },
   {
     "DisplayName" : "Cheshire East Council",
     "DataName" : "Cheshire East Council",
     "Setting" : 0,
-    "NetworkType" : "CheshireEastCouncil"
+    "NetworkType" : "CheshireEastCouncil",
+    "Count" : 2
   },
   {
     "DisplayName" : "City EV",
     "DataName" : "City EV",
     "Setting" : 0,
-    "NetworkType" : "CityEV"
+    "NetworkType" : "CityEV",
+    "Count" : 167
   },
   {
     "DisplayName" : "Clenergy EV",
     "DataName" : "Clenergy EV",
     "Setting" : 0,
-    "NetworkType" : "ClenergyEV"
+    "NetworkType" : "ClenergyEV",
+    "Count" : 71
   },
   {
     "DisplayName" : "Connected Kerb",
     "DataName" : "Connected Kerb",
     "Setting" : 0,
-    "NetworkType" : "ConnectedKerb"
+    "NetworkType" : "ConnectedKerb",
+    "Count" : 1084
   },
   {
     "DisplayName" : "Cotswold Council",
     "DataName" : "Cotswold District Council",
     "Setting" : 0,
-    "NetworkType" : "CotswoldCouncil"
+    "NetworkType" : "CotswoldCouncil",
+    "Count" : 2
   },
   {
     "DisplayName" : "D2N2",
     "DataName" : "D2N2",
     "Setting" : 0,
-    "NetworkType" : "D2N2"
+    "NetworkType" : "D2N2",
+    "Count" : 166
   },
   {
     "DisplayName" : "Dragon Charging Network",
     "DataName" : "Dragon Charging Network",
     "Setting" : 0,
-    "NetworkType" : "DragonChargingNetwork"
+    "NetworkType" : "DragonChargingNetwork",
+    "Count" : 132
   },
   {
     "DisplayName" : "Drax Energy Solutions",
     "DataName" : "Drax Energy Solutions Limited",
     "Setting" : 0,
-    "NetworkType" : "DraxEnergySolutions"
+    "NetworkType" : "DraxEnergySolutions",
+    "Count" : 52
   },
   {
     "DisplayName" : "Dumfries & Galloway Council",
     "DataName" : "Dumfries & Galloway Council",
     "Setting" : 0,
-    "NetworkType" : "DumfriesGallowayCouncil"
+    "NetworkType" : "DumfriesGallowayCouncil",
+    "Count" : 1
   },
   {
     "DisplayName" : "Dundee City Council",
     "DataName" : "Dundee City Council",
     "Setting" : 0,
-    "NetworkType" : "DundeeCityCouncil"
+    "NetworkType" : "DundeeCityCouncil",
+    "Count" : 13
   },
   {
     "DisplayName" : "E.ON Drive",
     "DataName" : "E.ON Drive",
     "Setting" : 0,
-    "NetworkType" : "EONDrive"
+    "NetworkType" : "EONDrive",
+    "Count" : 43
   },
   {
     "DisplayName" : "East Lothian Council",
     "DataName" : "East Lothian Council",
     "Setting" : 0,
-    "NetworkType" : "EastLothianCouncil"
-  },
-  {
-    "DisplayName" : "EB Charging",
-    "DataName" : "EB Charging",
-    "Setting" : 0,
-    "NetworkType" : "EBCharging"
+    "NetworkType" : "EastLothianCouncil",
+    "Count" : 3
   },
   {
     "DisplayName" : "ecars ESB",
     "DataName" : "ecars ESB",
     "Setting" : 0,
-    "NetworkType" : "ecarsESB"
+    "NetworkType" : "ecarsESB",
+    "Count" : 234
+  },
+  {
+    "DisplayName" : "ElectRoad",
+    "DataName" : "ElectRoad",
+    "Setting" : 0,
+    "NetworkType" : "ElectRoad",
+    "Count" : 1
   },
   {
     "DisplayName" : "ENGIE Charge Network",
     "DataName" : "ENGIE Charge Network",
     "Setting" : 0,
-    "NetworkType" : "ENGIEChargeNetwork"
+    "NetworkType" : "ENGIEChargeNetwork",
+    "Count" : 7
   },
   {
     "DisplayName" : "eo Charging",
     "DataName" : "eo Charging",
     "Setting" : 0,
-    "NetworkType" : "eoCharging"
+    "NetworkType" : "eoCharging",
+    "Count" : 12
   },
   {
     "DisplayName" : "Equans EV Solutions",
     "DataName" : "Equans EV Solutions",
     "Setting" : 0,
-    "NetworkType" : "EquansEVSolutions"
+    "NetworkType" : "EquansEVSolutions",
+    "Count" : 41
   },
   {
     "DisplayName" : "ESB EV Solutions",
     "DataName" : "ESB EV Solutions",
     "Setting" : 0,
-    "NetworkType" : "ESBEVSolutions"
+    "NetworkType" : "ESBEVSolutions",
+    "Count" : 158
   },
   {
     "DisplayName" : "Essex County Council",
     "DataName" : "Essex County Council",
     "Setting" : 0,
-    "NetworkType" : "EssexCountyCouncil"
+    "NetworkType" : "EssexCountyCouncil",
+    "Count" : 3
   },
   {
     "DisplayName" : "EV-Dot",
     "DataName" : "EV-Dot",
     "Setting" : 0,
-    "NetworkType" : "EVDot"
+    "NetworkType" : "EVDot",
+    "Count" : 47
   },
   {
     "DisplayName" : "EZ-Charge",
     "DataName" : "EZ-Charge",
     "Setting" : 0,
-    "NetworkType" : "EZCharge"
+    "NetworkType" : "EZCharge",
+    "Count" : 127
   },
   {
     "DisplayName" : "Fastned",
     "DataName" : "Fastned",
     "Setting" : 0,
-    "NetworkType" : "Fastned"
+    "NetworkType" : "Fastned",
+    "Count" : 87
   },
   {
     "DisplayName" : "First Group",
     "DataName" : "First Group",
     "Setting" : 0,
-    "NetworkType" : "FirstGroup"
+    "NetworkType" : "FirstGroup",
+    "Count" : 4
   },
   {
     "DisplayName" : "Green Mile Charging Co",
     "DataName" : "Green Mile Charging Co Ltd",
     "Setting" : 0,
-    "NetworkType" : "GreenMileChargingCo"
+    "NetworkType" : "GreenMileChargingCo",
+    "Count" : 3
   },
   {
     "DisplayName" : "Gridserve",
     "DataName" : "GRIDSERVE Sustainable Energy",
     "Setting" : 0,
-    "NetworkType" : "Gridserve"
+    "NetworkType" : "Gridserve",
+    "Count" : 306
   },
   {
     "DisplayName" : "Heathrow Airport",
     "DataName" : "Heathrow Airport Limited",
     "Setting" : 0,
-    "NetworkType" : "HeathrowAirport"
+    "NetworkType" : "HeathrowAirport",
+    "Count" : 7
   },
   {
     "DisplayName" : "Hubsta",
     "DataName" : "Hubsta",
     "Setting" : 0,
-    "NetworkType" : "Hubsta"
+    "NetworkType" : "Hubsta",
+    "Count" : 8
   },
   {
     "DisplayName" : "InstaVolt",
     "DataName" : "InstaVolt Ltd",
     "Setting" : 0,
-    "NetworkType" : "InstaVolt"
+    "NetworkType" : "InstaVolt",
+    "Count" : 280
   },
   {
     "DisplayName" : "IONITY",
     "DataName" : "IONITY GmbH",
     "Setting" : 0,
-    "NetworkType" : "IONITY"
+    "NetworkType" : "IONITY",
+    "Count" : 4
   },
   {
     "DisplayName" : "Kent County Council",
     "DataName" : "Kent County Council",
     "Setting" : 0,
-    "NetworkType" : "KentCountyCouncil"
+    "NetworkType" : "KentCountyCouncil",
+    "Count" : 26
   },
   {
     "DisplayName" : "Lancaster City Council",
     "DataName" : "Lancaster City Council",
     "Setting" : 0,
-    "NetworkType" : "LancasterCityCouncil"
+    "NetworkType" : "LancasterCityCouncil",
+    "Count" : 1
   },
   {
     "DisplayName" : "London Borough of Ealing",
     "DataName" : "London Borough of Ealing",
     "Setting" : 0,
-    "NetworkType" : "LondonBoroughofEaling"
+    "NetworkType" : "LondonBoroughofEaling",
+    "Count" : 45
   },
   {
     "DisplayName" : "London Borough of Hackney",
     "DataName" : "London Borough of Hackney",
     "Setting" : 0,
-    "NetworkType" : "LondonBoroughofHackney"
+    "NetworkType" : "LondonBoroughofHackney",
+    "Count" : 1
   },
   {
     "DisplayName" : "Luton Borough Council",
     "DataName" : "Luton Borough Council",
     "Setting" : 0,
-    "NetworkType" : "LutonBoroughCouncil"
+    "NetworkType" : "LutonBoroughCouncil",
+    "Count" : 1
   },
   {
     "DisplayName" : "Mer",
     "DataName" : "Mer",
     "Setting" : 0,
-    "NetworkType" : "Mer"
+    "NetworkType" : "Mer",
+    "Count" : 339
   },
   {
     "DisplayName" : "Merseytravel",
     "DataName" : "Merseytravel",
     "Setting" : 0,
-    "NetworkType" : "Merseytravel"
+    "NetworkType" : "Merseytravel",
+    "Count" : 14
   },
   {
     "DisplayName" : "Milton Keynes",
     "DataName" : "Milton Keynes",
     "Setting" : 0,
-    "NetworkType" : "MiltonKeynes"
+    "NetworkType" : "MiltonKeynes",
+    "Count" : 89
   },
   {
     "DisplayName" : "MiPermit",
     "DataName" : "MiPermit",
     "Setting" : 0,
-    "NetworkType" : "MiPermit"
+    "NetworkType" : "MiPermit",
+    "Count" : 2
   },
   {
     "DisplayName" : "NI Public Sector",
     "DataName" : "NI Public Sector",
     "Setting" : 0,
-    "NetworkType" : "NIPublicSector"
+    "NetworkType" : "NIPublicSector",
+    "Count" : 23
   },
   {
     "DisplayName" : "Nissan",
     "DataName" : "Nissan",
     "Setting" : 0,
-    "NetworkType" : "Nissan"
+    "NetworkType" : "Nissan",
+    "Count" : 15
   },
   {
     "DisplayName" : "Osprey",
     "DataName" : "Osprey",
     "Setting" : 0,
-    "NetworkType" : "Osprey"
+    "NetworkType" : "Osprey",
+    "Count" : 368
   },
   {
     "DisplayName" : "Pilot Group",
     "DataName" : "Pilot Group EV Charging Solutions",
     "Setting" : 0,
-    "NetworkType" : "PilotGroup"
+    "NetworkType" : "PilotGroup",
+    "Count" : 3
   },
   {
     "DisplayName" : "Plug N Go",
     "DataName" : "Plug N Go Ltd",
     "Setting" : 0,
-    "NetworkType" : "PlugNGo"
+    "NetworkType" : "PlugNGo",
+    "Count" : 40
   },
   {
     "DisplayName" : "Plugged-in Midlands",
     "DataName" : "Plugged-in Midlands",
     "Setting" : 0,
-    "NetworkType" : "PluggedInMidlands"
+    "NetworkType" : "PluggedInMidlands",
+    "Count" : 82
   },
   {
     "DisplayName" : "POD Point",
     "DataName" : "POD Point",
     "Setting" : 0,
-    "NetworkType" : "PODPoint"
+    "NetworkType" : "PODPoint",
+    "Count" : 3099
   },
   {
     "DisplayName" : "Project EV",
     "DataName" : "Project EV",
     "Setting" : 0,
-    "NetworkType" : "ProjectEV"
+    "NetworkType" : "ProjectEV",
+    "Count" : 5
   },
   {
     "DisplayName" : "RAW Infrastructure",
     "DataName" : "RAW Infrastructure Ltd",
     "Setting" : 0,
-    "NetworkType" : "RAWInfrastructure"
+    "NetworkType" : "RAWInfrastructure",
+    "Count" : 1
   },
   {
     "DisplayName" : "ScottishPower",
     "DataName" : "ScottishPower",
     "Setting" : 0,
-    "NetworkType" : "ScottishPower"
+    "NetworkType" : "ScottishPower",
+    "Count" : 15
   },
   {
     "DisplayName" : "Shell Recharge",
     "DataName" : "Shell Recharge Solutions",
     "Setting" : 0,
-    "NetworkType" : "ShellRecharge"
+    "NetworkType" : "ShellRecharge",
+    "Count" : 149
   },
   {
     "DisplayName" : "Shell Recharge",
     "DataName" : "Shell Recharge",
     "Setting" : 0,
-    "NetworkType" : "ShellRecharge"
+    "NetworkType" : "ShellRecharge",
+    "Count" : 320
   },
   {
     "DisplayName" : "Somerset West & Taunton Council",
     "DataName" : "Somerset West And Taunton District Council",
     "Setting" : 0,
-    "NetworkType" : "SomersetWestTauntonCouncil"
+    "NetworkType" : "SomersetWestTauntonCouncil",
+    "Count" : 14
   },
   {
     "DisplayName" : "Source London",
     "DataName" : "Source London",
     "Setting" : 0,
-    "NetworkType" : "SourceLondon"
+    "NetworkType" : "SourceLondon",
+    "Count" : 2300
   },
   {
     "DisplayName" : "Source West",
     "DataName" : "Source West",
     "Setting" : 0,
-    "NetworkType" : "SourceWest"
+    "NetworkType" : "SourceWest",
+    "Count" : 61
   },
   {
     "DisplayName" : "South Tyneside Council",
     "DataName" : "South Tyneside Council",
     "Setting" : 0,
-    "NetworkType" : "SouthTynesideCouncil"
+    "NetworkType" : "SouthTynesideCouncil",
+    "Count" : 9
   },
   {
     "DisplayName" : "SSE Energy Solutions",
     "DataName" : "SSE Energy Solutions",
     "Setting" : 0,
-    "NetworkType" : "SSEEnergySolutions"
+    "NetworkType" : "SSEEnergySolutions",
+    "Count" : 12
   },
   {
     "DisplayName" : "SSE",
     "DataName" : "SSE",
     "Setting" : 0,
-    "NetworkType" : "SSE"
+    "NetworkType" : "SSE",
+    "Count" : 3
   },
   {
     "DisplayName" : "SureCharge",
     "DataName" : "SureCharge\/FM Conway",
     "Setting" : 0,
-    "NetworkType" : "SureCharge"
+    "NetworkType" : "SureCharge",
+    "Count" : 2026
   },
   {
     "DisplayName" : "Swarco E.Connect",
     "DataName" : "Swarco E.Connect",
     "Setting" : 0,
-    "NetworkType" : "SwarcoEConnect"
+    "NetworkType" : "SwarcoEConnect",
+    "Count" : 163
   },
   {
     "DisplayName" : "GeniePoint",
     "DataName" : "The GeniePoint Network",
     "Setting" : 0,
-    "NetworkType" : "GeniePoint"
+    "NetworkType" : "GeniePoint",
+    "Count" : 980
   },
   {
     "DisplayName" : "Tonik Energy",
     "DataName" : "Tonik Energy",
     "Setting" : 0,
-    "NetworkType" : "TonikEnergy"
+    "NetworkType" : "TonikEnergy",
+    "Count" : 2
   },
   {
     "DisplayName" : "ubitricity",
     "DataName" : "ubitricity",
     "Setting" : 0,
-    "NetworkType" : "ubitricity"
+    "NetworkType" : "ubitricity",
+    "Count" : 6022
   },
   {
     "DisplayName" : "VendElectric",
     "DataName" : "VendElectric",
     "Setting" : 0,
-    "NetworkType" : "VendElectric"
+    "NetworkType" : "VendElectric",
+    "Count" : 2
   },
   {
     "DisplayName" : "Wattif EV",
     "DataName" : "Wattif EV UK Limited",
     "Setting" : 0,
-    "NetworkType" : "WattifEV"
+    "NetworkType" : "WattifEV",
+    "Count" : 14
   },
   {
     "DisplayName" : "York City Council",
     "DataName" : "York City Council",
     "Setting" : 0,
-    "NetworkType" : "YorkCityCouncil"
+    "NetworkType" : "YorkCityCouncil",
+    "Count" : 17
   },
   {
     "DisplayName" : "Zest",
     "DataName" : "Zest",
     "Setting" : 0,
-    "NetworkType" : "Zest"
+    "NetworkType" : "Zest",
+    "Count" : 161
   }
 ]

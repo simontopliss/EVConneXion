@@ -49,6 +49,13 @@
     "Filename" : "believ-128x128.svg"
   },
   {
+    "DisplayName" : "Blink Charging",
+    "Network" : "Blink Charging",
+    "Hex" : "9966FF",
+    "RGB" : "153.0, 102.0, 255.0",
+    "Filename" : "blink-128x128.svg"
+  },
+  {
     "DisplayName" : "BP Pulse",
     "Network" : "BP Pulse",
     "Hex" : "9900FF",
@@ -203,18 +210,18 @@
     "Filename" : "east-lothian-council-128x128.svg"
   },
   {
-    "DisplayName" : "EB Charging",
-    "Network" : "EB Charging",
-    "Hex" : "9966FF",
-    "RGB" : "153.0, 102.0, 255.0",
-    "Filename" : "blink-128x128.svg"
-  },
-  {
     "DisplayName" : "ecars ESB",
     "Network" : "ecars ESB",
     "Hex" : "FF6666",
     "RGB" : "255.0, 102.0, 102.0",
     "Filename" : "ecars-esb-128x128.svg"
+  },
+  {
+    "DisplayName" : "ElectRoad",
+    "Network" : "ElectRoad",
+    "Hex" : "33FF00",
+    "RGB" : "51.0, 255.0, 0.0",
+    "Filename" : "elect-road-128x128.svg"
   },
   {
     "DisplayName" : "ENGIE Charge Network",
