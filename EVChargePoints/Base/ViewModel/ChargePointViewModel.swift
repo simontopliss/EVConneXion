@@ -17,11 +17,14 @@ final class ChargePointViewModel: ObservableObject {
     @Published var networkGraphics: [NetworkGraphic] = []
     @Published var connectorTypes: [ConnectorTypeInfo] = []
 
+    @Published var distance: Double = 10.0
+    @Published var units: Endpoint.RegistryDataType.Unit = .mi
+
     @Published private(set) var error: NetworkManager.NetworkError?
     @Published private(set) var isLoading = false
     @Published var hasError = false
 
-    //private(set) var address: Address?
+    // private(set) var address: Address?
 
     // MARK: - FILTERS
 
@@ -29,9 +32,9 @@ final class ChargePointViewModel: ObservableObject {
     // API can only search for 1 at a time, so filter results instead
     // private var connectorTypes = ConnectorType.allCases
 
-    private(set) var distance = 2
-    private(set) var limit = 5
-    private(set) var units: Endpoint.RegistryDataType.Unit = .mi
+    // TODO: Is `limit` required?
+    private(set) var limit = 0
+    // private(set) var units: Endpoint.RegistryDataType.Unit = .mi
     private(set) var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
