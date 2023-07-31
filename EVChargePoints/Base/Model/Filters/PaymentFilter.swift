@@ -7,17 +7,26 @@
 
 import Foundation
 
-enum PaymentFilter {
+struct PaymentFilter: Decodable, Identifiable {
 
-    case paymentRequired
-    case subscriptionRequired
+    let id = UUID()
+    let paymentType: String
+    let dataName: String
+    var displayName: String
+    var setting: Bool
 
-    func displayName(_ key: PaymentFilter) -> String {
-        switch self {
-            case .paymentRequired:
-                return "Payment Required"
-            case .subscriptionRequired:
-                return "Subscription Required"
-        }
+    enum CodingKeys: String, CodingKey {
+        case paymentType  = "PaymentType"
+        case dataName     = "DataName"
+        case displayName  = "DisplayName"
+        case setting      = "Setting"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container     = try decoder.container(keyedBy: CodingKeys.self)
+        self.paymentType  = try container.decode(String.self, forKey: .paymentType)
+        self.dataName     = try container.decode(String.self, forKey: .dataName)
+        self.displayName  = try container.decode(String.self, forKey: .displayName)
+        self.setting      = (try container.decode(Int.self, forKey: .setting)) == 1 ? true : false
     }
 }

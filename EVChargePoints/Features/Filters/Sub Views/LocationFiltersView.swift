@@ -9,54 +9,27 @@ import SwiftUI
 
 struct LocationFiltersView: View {
 
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
-
-    @StateObject private var vm = FiltersViewModel()
-//    @State var allOn = false
+    @EnvironmentObject private var vm: FiltersViewModel
 
     var body: some View {
         VStack {
             Form {
-                Section("Locations") {
-                    ForEach($vm.locationFilters) { locationFilter in
-                        Setting(locationFilter: locationFilter)
+                Section("Location") {
+                    ForEach($vm.locationFilters) { filter in
+                        Toggle(isOn: filter.setting) {
+                            Text(filter.displayName.wrappedValue)
+                                .foregroundStyle(AppColors.textColor)
+                        }
                     }
                 }
-//                Section {
-//                    Toggle(isOn: $allOn) {
-//                        Text("All ") +
-//                        Text(allOn ? "on" : "off")
-//                    }
-//                    .onSubmit {
-//                        toggleAll()
-//                    }
-//                }
             }
         }
     }
-
-//    func toggleAll() {
-//        ForEach(0..<$vm.locationFilters.count) { index in
-//            $vm.locationFilters[index].value = $allOn
-//        }
-//    }
 }
 
 #Preview {
     LocationFiltersView()
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(FiltersViewModel())
         .environmentObject(NavigationRouter())
-}
-
-struct Setting: View {
-
-    @Binding var locationFilter: LocationFilter
-
-    var body: some View {
-        Toggle(isOn: $locationFilter.value) {
-            Text(locationFilter.displayName)
-        }
-//        .padding(.vertical, 4)
-    }
 }

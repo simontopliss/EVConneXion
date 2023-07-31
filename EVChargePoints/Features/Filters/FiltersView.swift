@@ -9,9 +9,7 @@ import SwiftUI
 
 struct FiltersView: View {
 
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var locationManager: LocationManager
 
     enum SelectedView: String {
         case access = "Access"
@@ -22,6 +20,8 @@ struct FiltersView: View {
         case chargers = "Chargers"
     }
 
+    let verticalPadding = 10.0
+
     var body: some View {
         VStack {
             NavigationStack(path: $routerManager.routes) {
@@ -31,42 +31,42 @@ struct FiltersView: View {
                             Image(systemName: "parkingsign.circle")
                             Text(SelectedView.access.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterConnectorTypesView) {
                         HStack {
                             Image(systemName: "ev.plug.ac.type.2")
                             Text(SelectedView.connectors.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterLocationTypesView) {
                         HStack {
                             Image(systemName: "mappin.and.ellipse.circle")
                             Text(SelectedView.locations.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterNetworkTypesView) {
                         HStack {
                             Image(systemName: "network")
                             Text(SelectedView.networks.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterPaymentTypesView) {
                         HStack {
                             PaymentSymbolView()
                             Text(SelectedView.payment.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterChargerTypesView) {
                         HStack {
                             Image(systemName: "bolt.circle")
                             Text(SelectedView.chargers.rawValue)
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, verticalPadding)
                     }
                 }
                 .font(.title3)
@@ -123,7 +123,6 @@ struct FiltersView: View {
     NavigationStack {
         FiltersView()
     }
-    .environmentObject(ChargePointViewModel())
+    .environmentObject(FiltersViewModel())
     .environmentObject(NavigationRouter())
-    .environmentObject(LocationManager())
 }

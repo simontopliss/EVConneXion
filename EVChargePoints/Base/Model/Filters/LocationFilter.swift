@@ -12,24 +12,23 @@ import Foundation
 struct LocationFilter: Decodable, Identifiable {
 
     let id = UUID()
+    let locationType: String
+    let dataName: String
     var displayName: String
-    var dataName: String
-    var locationType: String
-    var value: Bool
+    var setting: Bool
 
     enum CodingKeys: String, CodingKey {
-        case displayName   = "DisplayName"
-        case dataName      = "DataName"
         case locationType  = "LocationType"
-        case value         = "Value"
+        case dataName      = "DataName"
+        case displayName   = "DisplayName"
+        case setting       = "Setting"
     }
 
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.displayName = try container.decode(String.self, forKey: .displayName)
-        self.dataName = try container.decode(String.self, forKey: .dataName)
-        self.locationType = try container.decode(String.self, forKey: .locationType)
-        let value = try container.decode(Int.self, forKey: .value)
-        self.value = value == 1 ? true : false
+        let container      = try decoder.container(keyedBy: CodingKeys.self)
+        self.locationType  = try container.decode(String.self, forKey: .locationType)
+        self.dataName      = try container.decode(String.self, forKey: .dataName)
+        self.displayName   = try container.decode(String.self, forKey: .displayName)
+        self.setting       = (try container.decode(Int.self, forKey: .setting)) == 1 ? true : false
     }
 }

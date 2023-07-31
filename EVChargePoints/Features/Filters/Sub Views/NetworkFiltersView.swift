@@ -9,16 +9,27 @@ import SwiftUI
 
 struct NetworkFiltersView: View {
 
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
-    
+    @EnvironmentObject private var vm: FiltersViewModel
+
     var body: some View {
-        Text("NetworkTypesView")
+        VStack {
+            Form {
+                Section("Network") {
+                    ForEach($vm.networkFilters) { filter in
+                        Toggle(isOn: filter.setting) {
+                            Text(filter.displayName.wrappedValue)
+                                .foregroundStyle(AppColors.textColor)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NetworkFiltersView()
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(FiltersViewModel())
         .environmentObject(NavigationRouter())
 }

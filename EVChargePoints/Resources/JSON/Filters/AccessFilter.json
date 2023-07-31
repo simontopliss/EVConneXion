@@ -1,0 +1,27 @@
+[
+  {
+    "DataName" : "Accessible24Hours",
+    "Setting" : 1,
+    "DisplayName" : "Accessible 24 Hours"
+  },
+  {
+    "DataName" : "AccessRestrictionFlag",
+    "Setting" : 1,
+    "DisplayName" : "Access Restriction"
+  },
+  {
+    "DataName" : "OnStreetFlag",
+    "Setting" : 1,
+    "DisplayName" : "On Street"
+  },
+  {
+    "DataName" : "ParkingFeesFlag",
+    "Setting" : 1,
+    "DisplayName" : "Parking Fees"
+  },
+  {
+    "DataName" : "PhysicalRestrictionFlag",
+    "Setting" : 1,
+    "DisplayName" : "Physical Restriction"
+  }
+]

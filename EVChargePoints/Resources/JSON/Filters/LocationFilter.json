@@ -2,85 +2,85 @@
   {
     "DisplayName" : "Dealership Forecourt",
     "DataName" : "Dealership forecourt",
-    "LocationType" : "DealershipForecourt",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "DealershipForecourt"
   },
   {
     "DisplayName" : "Educational Establishment",
     "DataName" : "Educational establishment",
-    "LocationType" : "EducationalEstablishment",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "EducationalEstablishment"
   },
   {
     "DisplayName" : "Hotel \/ Accommodation",
     "DataName" : "Hotel \/ Accommodation",
-    "LocationType" : "HotelAccommodation",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "HotelAccommodation"
   },
   {
     "DisplayName" : "Leisure Centre",
     "DataName" : "Leisure centre",
-    "LocationType" : "LeisureCentre",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "LeisureCentre"
   },
   {
     "DisplayName" : "NHS Property",
     "DataName" : "NHS property",
-    "LocationType" : "NhsProperty",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "NhsProperty"
   },
   {
     "DisplayName" : "On-Street",
     "DataName" : "On-street",
-    "LocationType" : "OnStreet",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "OnStreet"
   },
   {
     "DisplayName" : "Other",
     "DataName" : "Other",
-    "LocationType" : "Other",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "Other"
   },
   {
     "DisplayName" : "Park & Ride Site",
     "DataName" : "Park & Ride site",
-    "LocationType" : "ParkRideSite",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "ParkRideSite"
   },
   {
     "DisplayName" : "Private Home",
     "DataName" : "Private home",
-    "LocationType" : "PrivateHome",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "PrivateHome"
   },
   {
     "DisplayName" : "Public Car Park",
     "DataName" : "Public car park",
-    "LocationType" : "PublicCarPark",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "PublicCarPark"
   },
   {
     "DisplayName" : "Public Estate",
     "DataName" : "Public estate",
-    "LocationType" : "PublicEstate",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "PublicEstate"
   },
   {
     "DisplayName" : "Retail Car Park",
     "DataName" : "Retail car park",
-    "LocationType" : "RetailCarPark",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "RetailCarPark"
   },
   {
     "DisplayName" : "Service Station",
     "DataName" : "Service station",
-    "LocationType" : "ServiceStation",
-    "Value" : 1
+    "Setting" : 1,
+    "LocationType" : "ServiceStation"
   },
   {
     "DisplayName" : "Workplace Car Park",
     "DataName" : "Workplace car park",
-    "LocationType" : "WorkplaceCarPark",
-    "Value" : 0
+    "Setting" : 0,
+    "LocationType" : "WorkplaceCarPark"
   }
 ]

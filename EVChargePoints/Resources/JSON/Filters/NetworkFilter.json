@@ -1,0 +1,494 @@
+[
+  {
+    "DisplayName" : "No Network",
+    "DataName" : "*No Network",
+    "Setting" : 0,
+    "NetworkType" : "NoNetwork"
+  },
+  {
+    "DisplayName" : "Alfa Power",
+    "DataName" : "Alfa Power",
+    "Setting" : 0,
+    "NetworkType" : "AlfaPower"
+  },
+  {
+    "DisplayName" : "Allego",
+    "DataName" : "Allego",
+    "Setting" : 0,
+    "NetworkType" : "Allego"
+  },
+  {
+    "DisplayName" : "Apetrel",
+    "DataName" : "Apetrel",
+    "Setting" : 0,
+    "NetworkType" : "Apetrel"
+  },
+  {
+    "DisplayName" : "AW Energy",
+    "DataName" : "AW Energy",
+    "Setting" : 0,
+    "NetworkType" : "AWEnergy"
+  },
+  {
+    "DisplayName" : "Be.EV",
+    "DataName" : "Be.EV",
+    "Setting" : 0,
+    "NetworkType" : "BeEV"
+  },
+  {
+    "DisplayName" : "Believ",
+    "DataName" : "Believ",
+    "Setting" : 0,
+    "NetworkType" : "Believ"
+  },
+  {
+    "DisplayName" : "BP Pulse",
+    "DataName" : "BP Pulse",
+    "Setting" : 1,
+    "NetworkType" : "BPPulse"
+  },
+  {
+    "DisplayName" : "BP Pulse (POLAR)",
+    "DataName" : "BP-Pulse (POLAR)",
+    "Setting" : 1,
+    "NetworkType" : "BPPulsePOLAR"
+  },
+  {
+    "DisplayName" : "Bradford Council",
+    "DataName" : "Bradford Metropolitan District Council",
+    "Setting" : 0,
+    "NetworkType" : "BradfordCouncil"
+  },
+  {
+    "DisplayName" : "C3EV",
+    "DataName" : "C3EV",
+    "Setting" : 0,
+    "NetworkType" : "C3EV"
+  },
+  {
+    "DisplayName" : "Car Charged",
+    "DataName" : "Car charged UK ltd",
+    "Setting" : 0,
+    "NetworkType" : "CarCharged"
+  },
+  {
+    "DisplayName" : "Char.gy",
+    "DataName" : "Char.gy",
+    "Setting" : 0,
+    "NetworkType" : "Chargy"
+  },
+  {
+    "DisplayName" : "Charge My Street",
+    "DataName" : "Charge my Street",
+    "Setting" : 0,
+    "NetworkType" : "ChargeMyStreet"
+  },
+  {
+    "DisplayName" : "Charge Your Car",
+    "DataName" : "Charge Your Car",
+    "Setting" : 0,
+    "NetworkType" : "ChargeYourCar"
+  },
+  {
+    "DisplayName" : "ChargePlace Scotland",
+    "DataName" : "ChargePlace Scotland",
+    "Setting" : 0,
+    "NetworkType" : "ChargePlaceScotland"
+  },
+  {
+    "DisplayName" : "ChargePoint Network",
+    "DataName" : "ChargePoint Network (Netherlands) B.V.",
+    "Setting" : 0,
+    "NetworkType" : "ChargePointNetwork"
+  },
+  {
+    "DisplayName" : "Cheshire East Council",
+    "DataName" : "Cheshire East Council",
+    "Setting" : 0,
+    "NetworkType" : "CheshireEastCouncil"
+  },
+  {
+    "DisplayName" : "City EV",
+    "DataName" : "City EV",
+    "Setting" : 0,
+    "NetworkType" : "CityEV"
+  },
+  {
+    "DisplayName" : "Clenergy EV",
+    "DataName" : "Clenergy EV",
+    "Setting" : 0,
+    "NetworkType" : "ClenergyEV"
+  },
+  {
+    "DisplayName" : "Connected Kerb",
+    "DataName" : "Connected Kerb",
+    "Setting" : 0,
+    "NetworkType" : "ConnectedKerb"
+  },
+  {
+    "DisplayName" : "Cotswold Council",
+    "DataName" : "Cotswold District Council",
+    "Setting" : 0,
+    "NetworkType" : "CotswoldCouncil"
+  },
+  {
+    "DisplayName" : "D2N2",
+    "DataName" : "D2N2",
+    "Setting" : 0,
+    "NetworkType" : "D2N2"
+  },
+  {
+    "DisplayName" : "Dragon Charging Network",
+    "DataName" : "Dragon Charging Network",
+    "Setting" : 0,
+    "NetworkType" : "DragonChargingNetwork"
+  },
+  {
+    "DisplayName" : "Drax Energy Solutions",
+    "DataName" : "Drax Energy Solutions Limited",
+    "Setting" : 0,
+    "NetworkType" : "DraxEnergySolutions"
+  },
+  {
+    "DisplayName" : "Dumfries & Galloway Council",
+    "DataName" : "Dumfries & Galloway Council",
+    "Setting" : 0,
+    "NetworkType" : "DumfriesGallowayCouncil"
+  },
+  {
+    "DisplayName" : "Dundee City Council",
+    "DataName" : "Dundee City Council",
+    "Setting" : 0,
+    "NetworkType" : "DundeeCityCouncil"
+  },
+  {
+    "DisplayName" : "E.ON Drive",
+    "DataName" : "E.ON Drive",
+    "Setting" : 0,
+    "NetworkType" : "EONDrive"
+  },
+  {
+    "DisplayName" : "East Lothian Council",
+    "DataName" : "East Lothian Council",
+    "Setting" : 0,
+    "NetworkType" : "EastLothianCouncil"
+  },
+  {
+    "DisplayName" : "EB Charging",
+    "DataName" : "EB Charging",
+    "Setting" : 0,
+    "NetworkType" : "EBCharging"
+  },
+  {
+    "DisplayName" : "ecars ESB",
+    "DataName" : "ecars ESB",
+    "Setting" : 0,
+    "NetworkType" : "ecarsESB"
+  },
+  {
+    "DisplayName" : "ENGIE Charge Network",
+    "DataName" : "ENGIE Charge Network",
+    "Setting" : 0,
+    "NetworkType" : "ENGIEChargeNetwork"
+  },
+  {
+    "DisplayName" : "eo Charging",
+    "DataName" : "eo Charging",
+    "Setting" : 0,
+    "NetworkType" : "eoCharging"
+  },
+  {
+    "DisplayName" : "Equans EV Solutions",
+    "DataName" : "Equans EV Solutions",
+    "Setting" : 0,
+    "NetworkType" : "EquansEVSolutions"
+  },
+  {
+    "DisplayName" : "ESB EV Solutions",
+    "DataName" : "ESB EV Solutions",
+    "Setting" : 0,
+    "NetworkType" : "ESBEVSolutions"
+  },
+  {
+    "DisplayName" : "Essex County Council",
+    "DataName" : "Essex County Council",
+    "Setting" : 0,
+    "NetworkType" : "EssexCountyCouncil"
+  },
+  {
+    "DisplayName" : "EV-Dot",
+    "DataName" : "EV-Dot",
+    "Setting" : 0,
+    "NetworkType" : "EVDot"
+  },
+  {
+    "DisplayName" : "EZ-Charge",
+    "DataName" : "EZ-Charge",
+    "Setting" : 0,
+    "NetworkType" : "EZCharge"
+  },
+  {
+    "DisplayName" : "Fastned",
+    "DataName" : "Fastned",
+    "Setting" : 0,
+    "NetworkType" : "Fastned"
+  },
+  {
+    "DisplayName" : "First Group",
+    "DataName" : "First Group",
+    "Setting" : 0,
+    "NetworkType" : "FirstGroup"
+  },
+  {
+    "DisplayName" : "Green Mile Charging Co",
+    "DataName" : "Green Mile Charging Co Ltd",
+    "Setting" : 0,
+    "NetworkType" : "GreenMileChargingCo"
+  },
+  {
+    "DisplayName" : "Gridserve",
+    "DataName" : "GRIDSERVE Sustainable Energy",
+    "Setting" : 0,
+    "NetworkType" : "Gridserve"
+  },
+  {
+    "DisplayName" : "Heathrow Airport",
+    "DataName" : "Heathrow Airport Limited",
+    "Setting" : 0,
+    "NetworkType" : "HeathrowAirport"
+  },
+  {
+    "DisplayName" : "Hubsta",
+    "DataName" : "Hubsta",
+    "Setting" : 0,
+    "NetworkType" : "Hubsta"
+  },
+  {
+    "DisplayName" : "InstaVolt",
+    "DataName" : "InstaVolt Ltd",
+    "Setting" : 0,
+    "NetworkType" : "InstaVolt"
+  },
+  {
+    "DisplayName" : "IONITY",
+    "DataName" : "IONITY GmbH",
+    "Setting" : 0,
+    "NetworkType" : "IONITY"
+  },
+  {
+    "DisplayName" : "Kent County Council",
+    "DataName" : "Kent County Council",
+    "Setting" : 0,
+    "NetworkType" : "KentCountyCouncil"
+  },
+  {
+    "DisplayName" : "Lancaster City Council",
+    "DataName" : "Lancaster City Council",
+    "Setting" : 0,
+    "NetworkType" : "LancasterCityCouncil"
+  },
+  {
+    "DisplayName" : "London Borough of Ealing",
+    "DataName" : "London Borough of Ealing",
+    "Setting" : 0,
+    "NetworkType" : "LondonBoroughofEaling"
+  },
+  {
+    "DisplayName" : "London Borough of Hackney",
+    "DataName" : "London Borough of Hackney",
+    "Setting" : 0,
+    "NetworkType" : "LondonBoroughofHackney"
+  },
+  {
+    "DisplayName" : "Luton Borough Council",
+    "DataName" : "Luton Borough Council",
+    "Setting" : 0,
+    "NetworkType" : "LutonBoroughCouncil"
+  },
+  {
+    "DisplayName" : "Mer",
+    "DataName" : "Mer",
+    "Setting" : 0,
+    "NetworkType" : "Mer"
+  },
+  {
+    "DisplayName" : "Merseytravel",
+    "DataName" : "Merseytravel",
+    "Setting" : 0,
+    "NetworkType" : "Merseytravel"
+  },
+  {
+    "DisplayName" : "Milton Keynes",
+    "DataName" : "Milton Keynes",
+    "Setting" : 0,
+    "NetworkType" : "MiltonKeynes"
+  },
+  {
+    "DisplayName" : "MiPermit",
+    "DataName" : "MiPermit",
+    "Setting" : 0,
+    "NetworkType" : "MiPermit"
+  },
+  {
+    "DisplayName" : "NI Public Sector",
+    "DataName" : "NI Public Sector",
+    "Setting" : 0,
+    "NetworkType" : "NIPublicSector"
+  },
+  {
+    "DisplayName" : "Nissan",
+    "DataName" : "Nissan",
+    "Setting" : 0,
+    "NetworkType" : "Nissan"
+  },
+  {
+    "DisplayName" : "Osprey",
+    "DataName" : "Osprey",
+    "Setting" : 0,
+    "NetworkType" : "Osprey"
+  },
+  {
+    "DisplayName" : "Pilot Group",
+    "DataName" : "Pilot Group EV Charging Solutions",
+    "Setting" : 0,
+    "NetworkType" : "PilotGroup"
+  },
+  {
+    "DisplayName" : "Plug N Go",
+    "DataName" : "Plug N Go Ltd",
+    "Setting" : 0,
+    "NetworkType" : "PlugNGo"
+  },
+  {
+    "DisplayName" : "Plugged-in Midlands",
+    "DataName" : "Plugged-in Midlands",
+    "Setting" : 0,
+    "NetworkType" : "PluggedInMidlands"
+  },
+  {
+    "DisplayName" : "POD Point",
+    "DataName" : "POD Point",
+    "Setting" : 0,
+    "NetworkType" : "PODPoint"
+  },
+  {
+    "DisplayName" : "Project EV",
+    "DataName" : "Project EV",
+    "Setting" : 0,
+    "NetworkType" : "ProjectEV"
+  },
+  {
+    "DisplayName" : "RAW Infrastructure",
+    "DataName" : "RAW Infrastructure Ltd",
+    "Setting" : 0,
+    "NetworkType" : "RAWInfrastructure"
+  },
+  {
+    "DisplayName" : "ScottishPower",
+    "DataName" : "ScottishPower",
+    "Setting" : 0,
+    "NetworkType" : "ScottishPower"
+  },
+  {
+    "DisplayName" : "Shell Recharge",
+    "DataName" : "Shell Recharge Solutions",
+    "Setting" : 0,
+    "NetworkType" : "ShellRecharge"
+  },
+  {
+    "DisplayName" : "Shell Recharge",
+    "DataName" : "Shell Recharge",
+    "Setting" : 0,
+    "NetworkType" : "ShellRecharge"
+  },
+  {
+    "DisplayName" : "Somerset West & Taunton Council",
+    "DataName" : "Somerset West And Taunton District Council",
+    "Setting" : 0,
+    "NetworkType" : "SomersetWestTauntonCouncil"
+  },
+  {
+    "DisplayName" : "Source London",
+    "DataName" : "Source London",
+    "Setting" : 0,
+    "NetworkType" : "SourceLondon"
+  },
+  {
+    "DisplayName" : "Source West",
+    "DataName" : "Source West",
+    "Setting" : 0,
+    "NetworkType" : "SourceWest"
+  },
+  {
+    "DisplayName" : "South Tyneside Council",
+    "DataName" : "South Tyneside Council",
+    "Setting" : 0,
+    "NetworkType" : "SouthTynesideCouncil"
+  },
+  {
+    "DisplayName" : "SSE Energy Solutions",
+    "DataName" : "SSE Energy Solutions",
+    "Setting" : 0,
+    "NetworkType" : "SSEEnergySolutions"
+  },
+  {
+    "DisplayName" : "SSE",
+    "DataName" : "SSE",
+    "Setting" : 0,
+    "NetworkType" : "SSE"
+  },
+  {
+    "DisplayName" : "SureCharge",
+    "DataName" : "SureCharge\/FM Conway",
+    "Setting" : 0,
+    "NetworkType" : "SureCharge"
+  },
+  {
+    "DisplayName" : "Swarco E.Connect",
+    "DataName" : "Swarco E.Connect",
+    "Setting" : 0,
+    "NetworkType" : "SwarcoEConnect"
+  },
+  {
+    "DisplayName" : "GeniePoint",
+    "DataName" : "The GeniePoint Network",
+    "Setting" : 0,
+    "NetworkType" : "GeniePoint"
+  },
+  {
+    "DisplayName" : "Tonik Energy",
+    "DataName" : "Tonik Energy",
+    "Setting" : 0,
+    "NetworkType" : "TonikEnergy"
+  },
+  {
+    "DisplayName" : "ubitricity",
+    "DataName" : "ubitricity",
+    "Setting" : 0,
+    "NetworkType" : "ubitricity"
+  },
+  {
+    "DisplayName" : "VendElectric",
+    "DataName" : "VendElectric",
+    "Setting" : 0,
+    "NetworkType" : "VendElectric"
+  },
+  {
+    "DisplayName" : "Wattif EV",
+    "DataName" : "Wattif EV UK Limited",
+    "Setting" : 0,
+    "NetworkType" : "WattifEV"
+  },
+  {
+    "DisplayName" : "York City Council",
+    "DataName" : "York City Council",
+    "Setting" : 0,
+    "NetworkType" : "YorkCityCouncil"
+  },
+  {
+    "DisplayName" : "Zest",
+    "DataName" : "Zest",
+    "Setting" : 0,
+    "NetworkType" : "Zest"
+  }
+]
