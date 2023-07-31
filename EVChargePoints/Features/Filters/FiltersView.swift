@@ -10,6 +10,7 @@ import SwiftUI
 struct FiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
+    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
 
     enum SelectedView: String {
         case access = "Access"
@@ -20,50 +21,44 @@ struct FiltersView: View {
         case chargers = "Chargers"
     }
 
-    let verticalPadding = 10.0
+    var unit: String {
+        "\(Int(chargePointViewModel.distance))" +
+        "\(chargePointViewModel.units == .mi ? "miles" : "kilometers")"
+    }
 
-    @State private var value: Double = 40
+    let verticalPadding = 10.0
 
     var body: some View {
         VStack {
-             NavigationStack(path: $routerManager.routes) {
+            NavigationStack(path: $routerManager.routes) {
                 List {
 
-                    Slider(value: $value, in: 5...200, step: 5) {
-                        Text("Label")
-                    } minimumValueLabel: {
-                        Text("5 ")
-                    } maximumValueLabel: {
-                        Text("200")
-                    } onEditingChanged: {
-                        print("\($0)")
-                    }
-                    .padding(.vertical, verticalPadding)
+                    maximumDistance()
 
                     NavigationLink(destination: Route.filterAccessTypesView) {
                         HStack {
-                            Image(systemName: "parkingsign.circle")
+                            Symbols.accessSymbol
                             Text(SelectedView.access.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterConnectorTypesView) {
                         HStack {
-                            Image(systemName: "ev.plug.ac.type.2")
+                            Symbols.connectorSymbol
                             Text(SelectedView.connectors.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterLocationTypesView) {
                         HStack {
-                            Image(systemName: "mappin.and.ellipse.circle")
+                            Symbols.locationSymbol
                             Text(SelectedView.locations.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
                     }
                     NavigationLink(destination: Route.filterNetworkTypesView) {
                         HStack {
-                            Image(systemName: "network")
+                            Symbols.networkSymbol
                             Text(SelectedView.networks.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
@@ -77,7 +72,7 @@ struct FiltersView: View {
                     }
                     NavigationLink(destination: Route.filterChargerTypesView) {
                         HStack {
-                            Image(systemName: "bolt.circle")
+                            Symbols.chargerSymbol
                             Text(SelectedView.chargers.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
@@ -139,4 +134,36 @@ struct FiltersView: View {
     }
     .environmentObject(FiltersViewModel())
     .environmentObject(NavigationRouter())
+    .environmentObject(ChargePointViewModel())
+}
+
+extension FiltersView {
+
+    func maximumDistance() -> some View {
+        VStack(alignment: .leading) {
+            Text("Maximum distance (\(unit))")
+                .font(.body)
+            
+            Slider(
+                value: $chargePointViewModel.distance,
+                in: 5...100,
+                step: 5
+            ) {
+                Text("Label")
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+            } minimumValueLabel: {
+                Text("5")
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+            } maximumValueLabel: {
+                Text("100")
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+            } onEditingChanged: {
+                print("\($0)")
+            }
+        }
+        .padding(.vertical, verticalPadding)
+    }
 }
