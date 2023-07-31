@@ -24,17 +24,19 @@ struct ChargerFiltersView: View {
         VStack {
             Form {
                 Section("Charger") {
-                    Picker(
-                        "Charge Method",
-                        selection: $vm.chargerFilter.selectedChargeMethod
-                    ) {
-                        Text("Single Phase AC")
-                            .tag("Single Phase AC")
-                        Text("Three Phase AC")
-                            .tag("Three Phase AC")
-                        Text("DC")
-                            .tag("DC")
+                    // TODO: I think I need to change the corresponding Method/Speed depending on what is selected.
+                    // E.g. If DC is selected should the speed be set to Fast at a minimum?
+                    Picker("Method", selection: $vm.chargerFilter.selectedMethod) {
+                        ForEach(vm.chargerFilter.chargeMethods, id: \.self) {
+                            Text($0)
+                        }
                     }
+                    Picker("Speed", selection: $vm.chargerFilter.selectedSpeed) {
+                        ForEach(vm.chargerFilter.chargeSpeeds, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    // If DC is selected, should tethered by selected too?
                     Toggle(isOn: $vm.chargerFilter.tetheredCable) {
                         Text("Tethered Cable")
                     }
