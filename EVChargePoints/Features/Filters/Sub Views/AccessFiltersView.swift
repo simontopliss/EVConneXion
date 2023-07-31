@@ -16,12 +16,14 @@ struct AccessFiltersView: View {
         Form {
             Section("Access") {
                 ForEach($vm.accessFilters) { filter in
+                    Symbols.access24HoursSymbol
                     Toggle(isOn: filter.setting) {
                         Text(filter.displayName.wrappedValue)
-                            .foregroundStyle(AppColors.textColor)
                     }
-                    .padding(.vertical, 4)
                 }
+                .font(.headline)
+                .foregroundColor(AppColors.textColor)
+                .padding(.vertical, 4)
             }
         }
     }
