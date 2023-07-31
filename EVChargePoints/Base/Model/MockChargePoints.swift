@@ -14,7 +14,7 @@ extension ChargePointData {
             file: "SE1 7PB - London Eye - 1 mile - connector-type-id 4",
             type: ChargePointData.self
         )
-        print("chargeDevices count = \(chargePointData!.chargeDevices.count)")
+//        print("chargeDevices count = \(chargePointData!.chargeDevices.count)")
         return chargePointData!.chargeDevices
     }
 
