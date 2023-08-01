@@ -23,7 +23,7 @@ struct FiltersView: View {
 
     var unit: String {
         "\(Int(chargePointViewModel.distance))" +
-        "\(chargePointViewModel.units == .mi ? "miles" : "kilometers")"
+            "\(chargePointViewModel.units == .mi ? "miles" : "kilometers")"
     }
 
     let verticalPadding = 10.0
@@ -42,6 +42,15 @@ struct FiltersView: View {
                         }
                         .padding(.vertical, verticalPadding)
                     }
+
+                    NavigationLink(destination: Route.filterChargerTypesView) {
+                        HStack {
+                            Symbols.chargerSymbol
+                            Text(SelectedView.chargers.rawValue)
+                        }
+                        .padding(.vertical, verticalPadding)
+                    }
+
                     NavigationLink(destination: Route.filterConnectorTypesView) {
                         HStack {
                             Symbols.connectorSymbol
@@ -49,6 +58,7 @@ struct FiltersView: View {
                         }
                         .padding(.vertical, verticalPadding)
                     }
+
                     NavigationLink(destination: Route.filterLocationTypesView) {
                         HStack {
                             Symbols.locationSymbol
@@ -56,6 +66,7 @@ struct FiltersView: View {
                         }
                         .padding(.vertical, verticalPadding)
                     }
+
                     NavigationLink(destination: Route.filterNetworkTypesView) {
                         HStack {
                             Symbols.networkSymbol
@@ -63,17 +74,11 @@ struct FiltersView: View {
                         }
                         .padding(.vertical, verticalPadding)
                     }
+
                     NavigationLink(destination: Route.filterPaymentTypesView) {
                         HStack {
-                            PaymentSymbolView()
+                            Symbols.paymentSymbol
                             Text(SelectedView.payment.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-                    NavigationLink(destination: Route.filterChargerTypesView) {
-                        HStack {
-                            Symbols.chargerSymbol
-                            Text(SelectedView.chargers.rawValue)
                         }
                         .padding(.vertical, verticalPadding)
                     }
@@ -143,7 +148,7 @@ extension FiltersView {
         VStack(alignment: .leading) {
             Text("Maximum distance (\(unit))")
                 .font(.body)
-            
+
             Slider(
                 value: $chargePointViewModel.distance,
                 in: 5...100,

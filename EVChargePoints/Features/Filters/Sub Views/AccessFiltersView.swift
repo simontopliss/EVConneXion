@@ -16,7 +16,6 @@ struct AccessFiltersView: View {
         Form {
             Section("Access") {
                 ForEach($vm.accessFilters) { filter in
-                    Symbols.access24HoursSymbol
                     Toggle(isOn: filter.setting) {
                         Text(filter.displayName.wrappedValue)
                     }
