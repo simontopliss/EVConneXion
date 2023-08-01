@@ -306,7 +306,6 @@
 				62B9EA882A72DC6600629421 /* DeviceMapItem.swift */,
 				626810442A616A020032C3CA /* MockChargePoints.swift */,
 				625CEF712A65934800A82048 /* NetworkGraphic.swift */,
-				62918F2B2A76F6950099418A /* Filters */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +335,19 @@
 				62FCCDC92A72A094004A9778 /* VM+NetworkGraphics.swift */,
 			);
 			path = "Extensions to VM";
+			sourceTree = "<group>";
+		};
+		6260D0F32A79400C005925C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62918F2C2A76F76B0099418A /* AccessFilter.swift */,
+				62918F2F2A76FD8B0099418A /* ChargerFilter.swift */,
+				62918F3F2A77BDE00099418A /* ConnectorFilter.swift */,
+				62918F392A771BFF0099418A /* LocationFilter.swift */,
+				62918F412A77C3680099418A /* NetworkFilter.swift */,
+				62918F332A7703A20099418A /* PaymentFilter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		62718B142A51D659004F0168 /* Networking */ = {
@@ -486,19 +498,6 @@
 			path = "Test JSON";
 			sourceTree = "<group>";
 		};
-		62918F2B2A76F6950099418A /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				62918F2C2A76F76B0099418A /* AccessFilter.swift */,
-				62918F2F2A76FD8B0099418A /* ChargerFilter.swift */,
-				62918F3F2A77BDE00099418A /* ConnectorFilter.swift */,
-				62918F392A771BFF0099418A /* LocationFilter.swift */,
-				62918F412A77C3680099418A /* NetworkFilter.swift */,
-				62918F332A7703A20099418A /* PaymentFilter.swift */,
-			);
-			path = Filters;
-			sourceTree = "<group>";
-		};
 		62918F2E2A76F96C0099418A /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +589,7 @@
 		62B32CBC2A4DCE2700C6E8DF /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				6260D0F32A79400C005925C4 /* Model */,
 				62918F352A7705280099418A /* FiltersViewModel.swift */,
 				62B32CBA2A4DCDF900C6E8DF /* FiltersView.swift */,
 				62918F2E2A76F96C0099418A /* Sub Views */,
