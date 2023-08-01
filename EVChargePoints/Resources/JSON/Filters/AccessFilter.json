@@ -1,27 +1,32 @@
 [
   {
+    "Setting" : 1,
     "DataName" : "Accessible24Hours",
-    "Setting" : 1,
-    "DisplayName" : "Accessible 24 Hours"
+    "DisplayName" : "Accessible 24 Hours",
+    "Symbol" : "24.circle"
   },
   {
+    "Setting" : 1,
     "DataName" : "AccessRestrictionFlag",
-    "Setting" : 1,
-    "DisplayName" : "Access Restriction"
+    "DisplayName" : "Access Restriction",
+    "Symbol" : "slash.circle"
   },
   {
+    "Setting" : 1,
     "DataName" : "OnStreetFlag",
-    "Setting" : 1,
-    "DisplayName" : "On Street"
+    "DisplayName" : "On Street",
+    "Symbol" : "road.lanes"
   },
   {
+    "Setting" : 1,
     "DataName" : "ParkingFeesFlag",
-    "Setting" : 1,
-    "DisplayName" : "Parking Fees"
+    "DisplayName" : "Parking Fees",
+    "Symbol" : "parkingsign.circle"
   },
   {
-    "DataName" : "PhysicalRestrictionFlag",
     "Setting" : 1,
-    "DisplayName" : "Physical Restriction"
+    "DataName" : "PhysicalRestrictionFlag",
+    "DisplayName" : "Physical Restriction",
+    "Symbol" : "wrongwaysign"
   }
 ]
