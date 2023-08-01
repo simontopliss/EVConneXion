@@ -16,8 +16,15 @@ struct AccessFiltersView: View {
         Form {
             Section("Access") {
                 ForEach($vm.accessFilters) { filter in
-                    Toggle(isOn: filter.setting) {
-                        Text(filter.displayName.wrappedValue)
+                    HStack {
+                        SFSymbolImage(
+                            imageName: filter.symbol.wrappedValue,
+                            toggled: filter.setting
+                        )
+                        Toggle(isOn: filter.setting) {
+                            Text(filter.displayName.wrappedValue)
+                        }
+                        .tag(filter.id)
                     }
                 }
                 .font(.headline)

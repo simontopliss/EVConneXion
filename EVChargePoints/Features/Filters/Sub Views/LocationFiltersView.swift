@@ -16,8 +16,15 @@ struct LocationFiltersView: View {
         Form {
             Section("Location") {
                 ForEach($vm.locationFilters) { filter in
-                    Toggle(isOn: filter.setting) {
-                        Text(filter.displayName.wrappedValue)
+                    HStack {
+                        SymbolImage(
+                            imageName: filter.symbol.wrappedValue,
+                            toggled: filter.setting
+                        )
+                        Toggle(isOn: filter.setting) {
+                            Text(filter.displayName.wrappedValue)
+                        }
+                        .tag(filter.id)
                     }
                 }
                 .font(.headline)

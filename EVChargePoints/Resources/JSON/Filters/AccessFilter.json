@@ -13,12 +13,6 @@
   },
   {
     "Setting" : 1,
-    "DataName" : "OnStreetFlag",
-    "DisplayName" : "On Street",
-    "Symbol" : "road.lanes"
-  },
-  {
-    "Setting" : 1,
     "DataName" : "ParkingFeesFlag",
     "DisplayName" : "Parking Fees",
     "Symbol" : "parkingsign.circle"

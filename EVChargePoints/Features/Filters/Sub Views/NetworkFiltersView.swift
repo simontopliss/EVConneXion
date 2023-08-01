@@ -18,17 +18,18 @@ struct NetworkFiltersView: View {
             Section("Network") {
                 // TODO: Would user want to sort this list?
                 ForEach($vm.networkFilters) { filter in
-                    Toggle(isOn: filter.setting) {
-                        HStack {
-                            Image(
-                                chargePointViewModel.networkGraphicFor(network: filter.dataName.wrappedValue)
-                            )
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 60, maxHeight: 30, alignment: .leading)
+                    HStack {
+                        SymbolImage(
+                            imageName: chargePointViewModel.networkGraphicFor(network: filter.displayName.wrappedValue),
+                            imageWidth: 60.0,
+                            imageHeight: 40.0,
+                            toggled: filter.setting
+                        )
 
+                        Toggle(isOn: filter.setting) {
                             Text(filter.displayName.wrappedValue)
                         }
+                        .tag(filter.id)
                     }
                 }
                 .font(.headline)

@@ -16,8 +16,16 @@ struct PaymentFiltersView: View {
         Form {
             Section("Payment") {
                 ForEach($vm.paymentFilters) { filter in
-                    Toggle(isOn: filter.setting) {
-                        Text(filter.displayName.wrappedValue)
+                    HStack {
+                        SFSymbolImage(
+                            imageName: filter.symbol.wrappedValue,
+                            toggled: filter.setting
+                        )
+
+                        Toggle(isOn: filter.setting) {
+                            Text(filter.displayName.wrappedValue)
+                        }
+                        .tag(filter.id)
                     }
                 }
                 .font(.headline)

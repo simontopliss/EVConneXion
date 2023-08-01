@@ -17,16 +17,15 @@ struct ConnectorFiltersView: View {
         Form {
             Section("Connector") {
                 ForEach($vm.connectorFilters) { filter in
-                    Toggle(isOn: filter.setting) {
-                        HStack {
-                            Image(filter.dataName.wrappedValue)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
-                            .padding(.trailing, 6)
-
+                    HStack {
+                        SymbolImage(
+                            imageName: filter.dataName.wrappedValue,
+                            toggled: filter.setting
+                        )
+                        Toggle(isOn: filter.setting) {
                             Text(filter.displayName.wrappedValue)
                         }
+                        .tag(filter.id)
                     }
                 }
                 .font(.headline)
