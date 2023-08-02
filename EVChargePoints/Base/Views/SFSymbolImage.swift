@@ -31,6 +31,7 @@ struct SFSymbolImage: View {
                 value: toggled
             )
             .fontWeight(.regular)
+            .opacity(toggled ? 1.0 : 0.4)
             .padding(.trailing, 6)
     }
 }
@@ -38,6 +39,6 @@ struct SFSymbolImage: View {
 #Preview {
     SFSymbolImage(
         symbolName: "wrongwaysign",
-        toggled: .constant(true)
+        toggled: .constant(false)
     )
 }
