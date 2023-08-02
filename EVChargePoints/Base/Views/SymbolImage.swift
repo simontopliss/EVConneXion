@@ -10,13 +10,16 @@ import SwiftUI
 struct SymbolImage: View {
 
     let imageName: String
+    var tintImageName: String {
+        imageName + "-60"
+    }
     var imageWidth: Double = 32.0
     var imageHeight: Double = 32.0
 
     @Binding var toggled: Bool
 
     var body: some View {
-        Image(imageName)
+        Image(toggled == true ? imageName : tintImageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(
