@@ -81,15 +81,6 @@
     "Hex" : "9900FF"
   },
   {
-    "RGB" : "255.0, 102.0, 0.0",
-    "DisplayName" : "BP-Pulse",
-    "Setting" : 1,
-    "Network" : "BP-Pulse (POLAR)",
-    "GraphicName" : "bp-pulse-128",
-    "Count" : 2981,
-    "Hex" : "FF6600"
-  },
-  {
     "RGB" : "102.0, 51.0, 153.0",
     "DisplayName" : "Bradford Council",
     "Setting" : 0,
@@ -603,15 +594,6 @@
     "Hex" : "009900"
   },
   {
-    "RGB" : "255.0, 102.0, 255.0",
-    "DisplayName" : "Shell Recharge",
-    "Setting" : 0,
-    "Network" : "Shell Recharge",
-    "GraphicName" : "shell-recharge-128",
-    "Count" : 320,
-    "Hex" : "FF66FF"
-  },
-  {
     "RGB" : "0.0, 255.0, 255.0",
     "DisplayName" : "Somerset West & Taunton Council",
     "Setting" : 0,
@@ -655,15 +637,6 @@
     "GraphicName" : "sse-128",
     "Count" : 12,
     "Hex" : "CC3399"
-  },
-  {
-    "RGB" : "51.0, 204.0, 255.0",
-    "DisplayName" : "SSE",
-    "Setting" : 0,
-    "Network" : "SSE",
-    "GraphicName" : "sse-128",
-    "Count" : 3,
-    "Hex" : "33CCFF"
   },
   {
     "RGB" : "153.0, 153.0, 0.0",

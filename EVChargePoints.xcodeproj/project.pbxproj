@@ -45,6 +45,7 @@
 		62718BAF2A533B3F004F0168 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */; };
 		627531D92A6946E000F0D8A6 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531D82A6946E000F0D8A6 /* NavigationRouter.swift */; };
 		627531DB2A69470800F0D8A6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531DA2A69470800F0D8A6 /* Route.swift */; };
+		6285AFE32A7AF92900F78AD7 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6285AFE22A7AF92900F78AD7 /* NetworkData.json */; };
 		628C33102A61E8AE00232351 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C330F2A61E8AE00232351 /* Address.swift */; };
 		628C33132A61E91A00232351 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C33122A61E91A00232351 /* String+Ext.swift */; };
 		628E15C52A71A9930081D8C4 /* SE1 7PB - London Eye - 1 mile - connector-type-id 4.json in Resources */ = {isa = PBXBuildFile; fileRef = 628E15C42A71A9930081D8C4 /* SE1 7PB - London Eye - 1 mile - connector-type-id 4.json */; };
@@ -75,7 +76,6 @@
 		62B777C12A7A853100C3857F /* PaymentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62B777BB2A7A853000C3857F /* PaymentData.json */; };
 		62B777C22A7A853100C3857F /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62B777BC2A7A853100C3857F /* ConnectorData.json */; };
 		62B777C32A7A853100C3857F /* ChargerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62B777BD2A7A853100C3857F /* ChargerData.json */; };
-		62B777C52A7A853100C3857F /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62B777BF2A7A853100C3857F /* NetworkData.json */; };
 		62B777C82A7AA8B800C3857F /* ToggleWithSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B777C62A7AA8B800C3857F /* ToggleWithSymbol.swift */; };
 		62B777C92A7AA8B800C3857F /* ToggleWithGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B777C72A7AA8B800C3857F /* ToggleWithGraphic.swift */; };
 		62B777CB2A7AAC6300C3857F /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62B777CA2A7AAC6300C3857F /* LocationData.json */; };
@@ -139,6 +139,7 @@
 		62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		627531D82A6946E000F0D8A6 /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		627531DA2A69470800F0D8A6 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6285AFE22A7AF92900F78AD7 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		628C330F2A61E8AE00232351 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		628C33122A61E91A00232351 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		628E15C42A71A9930081D8C4 /* SE1 7PB - London Eye - 1 mile - connector-type-id 4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SE1 7PB - London Eye - 1 mile - connector-type-id 4.json"; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		62B777BB2A7A853000C3857F /* PaymentData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PaymentData.json; sourceTree = "<group>"; };
 		62B777BC2A7A853100C3857F /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
 		62B777BD2A7A853100C3857F /* ChargerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChargerData.json; sourceTree = "<group>"; };
-		62B777BF2A7A853100C3857F /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		62B777C62A7AA8B800C3857F /* ToggleWithSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleWithSymbol.swift; sourceTree = "<group>"; };
 		62B777C72A7AA8B800C3857F /* ToggleWithGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleWithGraphic.swift; sourceTree = "<group>"; };
 		62B777CA2A7AAC6300C3857F /* LocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
@@ -364,7 +364,7 @@
 				62B777BD2A7A853100C3857F /* ChargerData.json */,
 				62B777BC2A7A853100C3857F /* ConnectorData.json */,
 				62B777CA2A7AAC6300C3857F /* LocationData.json */,
-				62B777BF2A7A853100C3857F /* NetworkData.json */,
+				6285AFE22A7AF92900F78AD7 /* NetworkData.json */,
 				62B777BB2A7A853000C3857F /* PaymentData.json */,
 				628FDF1D2A75881400E85672 /* Test JSON */,
 			);
@@ -700,7 +700,7 @@
 				62B777C12A7A853100C3857F /* PaymentData.json in Resources */,
 				621A70482A3B3BC900A04669 /* Assets.xcassets in Resources */,
 				62B777C02A7A853100C3857F /* AccessData.json in Resources */,
-				62B777C52A7A853100C3857F /* NetworkData.json in Resources */,
+				6285AFE32A7AF92900F78AD7 /* NetworkData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
