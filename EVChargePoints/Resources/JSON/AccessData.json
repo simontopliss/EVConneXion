@@ -1,0 +1,30 @@
+[
+  {
+    "DisplayName" : "Accessible 24 Hours",
+    "DataName" : "Accessible24Hours",
+    "Setting" : 1,
+    "Symbol" : "24.circle",
+    "Access" : "Accessible24Hours"
+  },
+  {
+    "DisplayName" : "Access Restriction",
+    "DataName" : "AccessRestrictionFlag",
+    "Setting" : 1,
+    "Symbol" : "slash.circle",
+    "Access" : "AccessRestriction"
+  },
+  {
+    "DisplayName" : "Parking Fees",
+    "DataName" : "ParkingFeesFlag",
+    "Setting" : 1,
+    "Symbol" : "parkingsign.circle",
+    "Access" : "ParkingFees"
+  },
+  {
+    "DisplayName" : "Physical Restriction",
+    "DataName" : "PhysicalRestrictionFlag",
+    "Setting" : 1,
+    "Symbol" : "wrongwaysign",
+    "Access" : "PhysicalRestriction"
+  }
+]

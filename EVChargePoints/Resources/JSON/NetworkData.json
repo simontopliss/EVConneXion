@@ -1,0 +1,749 @@
+[
+  {
+    "RGB" : "0.0, 102.0, 255.0",
+    "DisplayName" : "No Network",
+    "Setting" : 0,
+    "Network" : "*No Network",
+    "GraphicName" : "no-network-128",
+    "Count" : 174,
+    "Hex" : "0066FF"
+  },
+  {
+    "RGB" : "153.0, 255.0, 153.0",
+    "DisplayName" : "Alfa Power",
+    "Setting" : 0,
+    "Network" : "Alfa Power",
+    "GraphicName" : "alfa-power-128",
+    "Count" : 64,
+    "Hex" : "99FF99"
+  },
+  {
+    "RGB" : "102.0, 0.0, 153.0",
+    "DisplayName" : "Allego",
+    "Setting" : 0,
+    "Network" : "Allego",
+    "GraphicName" : "allego-128",
+    "Count" : 7,
+    "Hex" : "660099"
+  },
+  {
+    "RGB" : "102.0, 51.0, 0.0",
+    "DisplayName" : "Apetrel",
+    "Setting" : 0,
+    "Network" : "Apetrel",
+    "GraphicName" : "apetrel-128",
+    "Count" : 1,
+    "Hex" : "663300"
+  },
+  {
+    "RGB" : "0.0, 51.0, 102.0",
+    "DisplayName" : "AW Energy",
+    "Setting" : 0,
+    "Network" : "AW Energy",
+    "GraphicName" : "aw-energy-128",
+    "Count" : 3,
+    "Hex" : "003366"
+  },
+  {
+    "RGB" : "0.0, 204.0, 0.0",
+    "DisplayName" : "Be.EV",
+    "Setting" : 0,
+    "Network" : "Be.EV",
+    "GraphicName" : "be-ev-128",
+    "Count" : 137,
+    "Hex" : "00CC00"
+  },
+  {
+    "RGB" : "51.0, 153.0, 204.0",
+    "DisplayName" : "Believ",
+    "Setting" : 0,
+    "Network" : "Believ",
+    "GraphicName" : "believ-128",
+    "Count" : 460,
+    "Hex" : "3399CC"
+  },
+  {
+    "RGB" : "153.0, 102.0, 255.0",
+    "DisplayName" : "Blink Charging",
+    "Setting" : 1,
+    "Network" : "Blink Charging",
+    "GraphicName" : "blink-128",
+    "Count" : 1212,
+    "Hex" : "9966FF"
+  },
+  {
+    "RGB" : "153.0, 0.0, 255.0",
+    "DisplayName" : "BP Pulse",
+    "Setting" : 1,
+    "Network" : "BP Pulse",
+    "GraphicName" : "bp-pulse-128",
+    "Count" : 333,
+    "Hex" : "9900FF"
+  },
+  {
+    "RGB" : "255.0, 102.0, 0.0",
+    "DisplayName" : "BP-Pulse",
+    "Setting" : 1,
+    "Network" : "BP-Pulse (POLAR)",
+    "GraphicName" : "bp-pulse-128",
+    "Count" : 2981,
+    "Hex" : "FF6600"
+  },
+  {
+    "RGB" : "102.0, 51.0, 153.0",
+    "DisplayName" : "Bradford Council",
+    "Setting" : 0,
+    "Network" : "Bradford Metropolitan District Council",
+    "GraphicName" : "bradford-council-128",
+    "Count" : 4,
+    "Hex" : "663399"
+  },
+  {
+    "RGB" : "204.0, 51.0, 0.0",
+    "DisplayName" : "C3EV",
+    "Setting" : 0,
+    "Network" : "C3EV",
+    "GraphicName" : "c3ev-128",
+    "Count" : 1,
+    "Hex" : "CC3300"
+  },
+  {
+    "RGB" : "153.0, 51.0, 153.0",
+    "DisplayName" : "Car Charged",
+    "Setting" : 0,
+    "Network" : "Car charged UK ltd",
+    "GraphicName" : "car-charged-128",
+    "Count" : 7,
+    "Hex" : "993399"
+  },
+  {
+    "RGB" : "102.0, 102.0, 0.0",
+    "DisplayName" : "Char.gy",
+    "Setting" : 0,
+    "Network" : "Char.gy",
+    "GraphicName" : "char-gy-128",
+    "Count" : 2381,
+    "Hex" : "666600"
+  },
+  {
+    "RGB" : "51.0, 255.0, 204.0",
+    "DisplayName" : "Charge My Street",
+    "Setting" : 0,
+    "Network" : "Charge my Street",
+    "GraphicName" : "charge-my-street-128",
+    "Count" : 25,
+    "Hex" : "33FFCC"
+  },
+  {
+    "RGB" : "0.0, 0.0, 204.0",
+    "DisplayName" : "Charge Your Car",
+    "Setting" : 0,
+    "Network" : "Charge Your Car",
+    "GraphicName" : "charge-your-car-128",
+    "Count" : 1646,
+    "Hex" : "0000CC"
+  },
+  {
+    "RGB" : "51.0, 102.0, 0.0",
+    "DisplayName" : "ChargePlace Scotland",
+    "Setting" : 0,
+    "Network" : "ChargePlace Scotland",
+    "GraphicName" : "chargeplace-scotland-128",
+    "Count" : 1030,
+    "Hex" : "336600"
+  },
+  {
+    "RGB" : "204.0, 0.0, 0.0",
+    "DisplayName" : "ChargePoint Network",
+    "Setting" : 0,
+    "Network" : "ChargePoint Network (Netherlands) B.V.",
+    "GraphicName" : "chargepoint-network-128",
+    "Count" : 572,
+    "Hex" : "CC0000"
+  },
+  {
+    "RGB" : "102.0, 204.0, 0.0",
+    "DisplayName" : "Cheshire East Council",
+    "Setting" : 0,
+    "Network" : "Cheshire East Council",
+    "GraphicName" : "cheshire-east-council-128",
+    "Count" : 2,
+    "Hex" : "66CC00"
+  },
+  {
+    "RGB" : "153.0, 204.0, 255.0",
+    "DisplayName" : "City EV",
+    "Setting" : 0,
+    "Network" : "City EV",
+    "GraphicName" : "city-ev-128",
+    "Count" : 167,
+    "Hex" : "99CCFF"
+  },
+  {
+    "RGB" : "153.0, 153.0, 255.0",
+    "DisplayName" : "Clenergy EV",
+    "Setting" : 0,
+    "Network" : "Clenergy EV",
+    "GraphicName" : "clenergy-ev-128",
+    "Count" : 71,
+    "Hex" : "9999FF"
+  },
+  {
+    "RGB" : "102.0, 255.0, 102.0",
+    "DisplayName" : "Connected Kerb",
+    "Setting" : 0,
+    "Network" : "Connected Kerb",
+    "GraphicName" : "connected-kerb-128",
+    "Count" : 1084,
+    "Hex" : "66FF66"
+  },
+  {
+    "RGB" : "153.0, 102.0, 153.0",
+    "DisplayName" : "Cotswold Council",
+    "Setting" : 0,
+    "Network" : "Cotswold District Council",
+    "GraphicName" : "cotswold-council-128",
+    "Count" : 2,
+    "Hex" : "996699"
+  },
+  {
+    "RGB" : "0.0, 102.0, 0.0",
+    "DisplayName" : "D2N2",
+    "Setting" : 0,
+    "Network" : "D2N2",
+    "GraphicName" : "d2n2-128",
+    "Count" : 166,
+    "Hex" : "006600"
+  },
+  {
+    "RGB" : "255.0, 51.0, 153.0",
+    "DisplayName" : "Dragon Charging Network",
+    "Setting" : 0,
+    "Network" : "Dragon Charging Network",
+    "GraphicName" : "dragon-charging-network-128",
+    "Count" : 132,
+    "Hex" : "FF3399"
+  },
+  {
+    "RGB" : "204.0, 204.0, 0.0",
+    "DisplayName" : "Drax Energy Solutions",
+    "Setting" : 0,
+    "Network" : "Drax Energy Solutions Limited",
+    "GraphicName" : "drax-128",
+    "Count" : 52,
+    "Hex" : "CCCC00"
+  },
+  {
+    "RGB" : "204.0, 102.0, 0.0",
+    "DisplayName" : "Dumfries & Galloway Council",
+    "Setting" : 0,
+    "Network" : "Dumfries & Galloway Council",
+    "GraphicName" : "dumfries-galloway-council-128",
+    "Count" : 1,
+    "Hex" : "CC6600"
+  },
+  {
+    "RGB" : "102.0, 204.0, 153.0",
+    "DisplayName" : "Dundee City Council",
+    "Setting" : 0,
+    "Network" : "Dundee City Council",
+    "GraphicName" : "dundee-city-council-128",
+    "Count" : 13,
+    "Hex" : "66CC99"
+  },
+  {
+    "RGB" : "0.0, 153.0, 255.0",
+    "DisplayName" : "E.ON Drive",
+    "Setting" : 0,
+    "Network" : "E.ON Drive",
+    "GraphicName" : "eon-drive-128",
+    "Count" : 43,
+    "Hex" : "0099FF"
+  },
+  {
+    "RGB" : "255.0, 102.0, 153.0",
+    "DisplayName" : "East Lothian Council",
+    "Setting" : 0,
+    "Network" : "East Lothian Council",
+    "GraphicName" : "east-lothian-council-128",
+    "Count" : 3,
+    "Hex" : "FF6699"
+  },
+  {
+    "RGB" : "255.0, 102.0, 102.0",
+    "DisplayName" : "ecars ESB",
+    "Setting" : 0,
+    "Network" : "ecars ESB",
+    "GraphicName" : "ecars-esb-128",
+    "Count" : 234,
+    "Hex" : "FF6666"
+  },
+  {
+    "RGB" : "51.0, 255.0, 0.0",
+    "DisplayName" : "ElectRoad",
+    "Setting" : 0,
+    "Network" : "ElectRoad",
+    "GraphicName" : "elect-road-128",
+    "Count" : 1,
+    "Hex" : "33FF00"
+  },
+  {
+    "RGB" : "204.0, 102.0, 153.0",
+    "DisplayName" : "ENGIE Charge Network",
+    "Setting" : 0,
+    "Network" : "ENGIE Charge Network",
+    "GraphicName" : "engie-charge-network-128",
+    "Count" : 7,
+    "Hex" : "CC6699"
+  },
+  {
+    "RGB" : "153.0, 0.0, 0.0",
+    "DisplayName" : "eo Charging",
+    "Setting" : 0,
+    "Network" : "eo Charging",
+    "GraphicName" : "eo-charging-128",
+    "Count" : 12,
+    "Hex" : "990000"
+  },
+  {
+    "RGB" : "102.0, 51.0, 255.0",
+    "DisplayName" : "Equans EV Solutions",
+    "Setting" : 0,
+    "Network" : "Equans EV Solutions",
+    "GraphicName" : "equans-ev-solutions-128",
+    "Count" : 41,
+    "Hex" : "6633FF"
+  },
+  {
+    "RGB" : "0.0, 204.0, 255.0",
+    "DisplayName" : "ESB EV Solutions",
+    "Setting" : 0,
+    "Network" : "ESB EV Solutions",
+    "GraphicName" : "esb-ev-solutions-128",
+    "Count" : 158,
+    "Hex" : "00CCFF"
+  },
+  {
+    "RGB" : "0.0, 0.0, 153.0",
+    "DisplayName" : "Essex County Council",
+    "Setting" : 0,
+    "Network" : "Essex County Council",
+    "GraphicName" : "essex-county-council-128",
+    "Count" : 3,
+    "Hex" : "000099"
+  },
+  {
+    "RGB" : "102.0, 255.0, 204.0",
+    "DisplayName" : "EV-Dot",
+    "Setting" : 0,
+    "Network" : "EV-Dot",
+    "GraphicName" : "ev-dot-128",
+    "Count" : 47,
+    "Hex" : "66FFCC"
+  },
+  {
+    "RGB" : "102.0, 153.0, 0.0",
+    "DisplayName" : "EZ-Charge",
+    "Setting" : 0,
+    "Network" : "EZ-Charge",
+    "GraphicName" : "ez-charge-128",
+    "Count" : 127,
+    "Hex" : "669900"
+  },
+  {
+    "RGB" : "255.0, 51.0, 0.0",
+    "DisplayName" : "Fastned",
+    "Setting" : 0,
+    "Network" : "Fastned",
+    "GraphicName" : "fastned-128",
+    "Count" : 87,
+    "Hex" : "FF3300"
+  },
+  {
+    "RGB" : "51.0, 51.0, 153.0",
+    "DisplayName" : "First Group",
+    "Setting" : 0,
+    "Network" : "First Group",
+    "GraphicName" : "first-group-128",
+    "Count" : 4,
+    "Hex" : "333399"
+  },
+  {
+    "RGB" : "51.0, 51.0, 255.0",
+    "DisplayName" : "Green Mile Charging Co",
+    "Setting" : 0,
+    "Network" : "Green Mile Charging Co Ltd",
+    "GraphicName" : "green-mile-charging-128",
+    "Count" : 3,
+    "Hex" : "3333FF"
+  },
+  {
+    "RGB" : "102.0, 153.0, 255.0",
+    "DisplayName" : "Gridserve",
+    "Setting" : 0,
+    "Network" : "GRIDSERVE Sustainable Energy",
+    "GraphicName" : "gridserve-128",
+    "Count" : 306,
+    "Hex" : "6699FF"
+  },
+  {
+    "RGB" : "153.0, 51.0, 255.0",
+    "DisplayName" : "Heathrow Airport",
+    "Setting" : 0,
+    "Network" : "Heathrow Airport Limited",
+    "GraphicName" : "heathrow-airport-128",
+    "Count" : 7,
+    "Hex" : "9933FF"
+  },
+  {
+    "RGB" : "102.0, 102.0, 255.0",
+    "DisplayName" : "Hubsta",
+    "Setting" : 0,
+    "Network" : "Hubsta",
+    "GraphicName" : "hubsta-128",
+    "Count" : 8,
+    "Hex" : "6666FF"
+  },
+  {
+    "RGB" : "102.0, 153.0, 153.0",
+    "DisplayName" : "InstaVolt",
+    "Setting" : 0,
+    "Network" : "InstaVolt Ltd",
+    "GraphicName" : "instavolt-128",
+    "Count" : 280,
+    "Hex" : "669999"
+  },
+  {
+    "RGB" : "51.0, 204.0, 0.0",
+    "DisplayName" : "IONITY",
+    "Setting" : 0,
+    "Network" : "IONITY GmbH",
+    "GraphicName" : "ionity-128",
+    "Count" : 4,
+    "Hex" : "33CC00"
+  },
+  {
+    "RGB" : "153.0, 0.0, 153.0",
+    "DisplayName" : "Kent County Council",
+    "Setting" : 0,
+    "Network" : "Kent County Council",
+    "GraphicName" : "kent-county-council-128",
+    "Count" : 26,
+    "Hex" : "990099"
+  },
+  {
+    "RGB" : "255.0, 153.0, 153.0",
+    "DisplayName" : "Lancaster City Council",
+    "Setting" : 0,
+    "Network" : "Lancaster City Council",
+    "GraphicName" : "lancaster-city-council-128",
+    "Count" : 1,
+    "Hex" : "FF9999"
+  },
+  {
+    "RGB" : "0.0, 51.0, 204.0",
+    "DisplayName" : "London Borough of Ealing",
+    "Setting" : 0,
+    "Network" : "London Borough of Ealing",
+    "GraphicName" : "london-borough-of-ealing-128",
+    "Count" : 45,
+    "Hex" : "0033CC"
+  },
+  {
+    "RGB" : "51.0, 102.0, 102.0",
+    "DisplayName" : "London Borough of Hackney",
+    "Setting" : 0,
+    "Network" : "London Borough of Hackney",
+    "GraphicName" : "london-borough-of-hackney-128",
+    "Count" : 1,
+    "Hex" : "336666"
+  },
+  {
+    "RGB" : "255.0, 0.0, 255.0",
+    "DisplayName" : "Luton Borough Council",
+    "Setting" : 0,
+    "Network" : "Luton Borough Council",
+    "GraphicName" : "luton-borough-council-128",
+    "Count" : 1,
+    "Hex" : "FF00FF"
+  },
+  {
+    "RGB" : "51.0, 0.0, 153.0",
+    "DisplayName" : "Mer",
+    "Setting" : 0,
+    "Network" : "Mer",
+    "GraphicName" : "mer-128",
+    "Count" : 339,
+    "Hex" : "330099"
+  },
+  {
+    "RGB" : "102.0, 204.0, 255.0",
+    "DisplayName" : "Merseytravel",
+    "Setting" : 0,
+    "Network" : "Merseytravel",
+    "GraphicName" : "merseytravel-128",
+    "Count" : 14,
+    "Hex" : "66CCFF"
+  },
+  {
+    "RGB" : "204.0, 51.0, 255.0",
+    "DisplayName" : "Milton Keynes",
+    "Setting" : 0,
+    "Network" : "Milton Keynes",
+    "GraphicName" : "milton-keynes-128",
+    "Count" : 89,
+    "Hex" : "CC33FF"
+  },
+  {
+    "RGB" : "204.0, 102.0, 255.0",
+    "DisplayName" : "MiPermit",
+    "Setting" : 0,
+    "Network" : "MiPermit",
+    "GraphicName" : "mipermit-128",
+    "Count" : 2,
+    "Hex" : "CC66FF"
+  },
+  {
+    "RGB" : "153.0, 204.0, 102.0",
+    "DisplayName" : "NI Public Sector",
+    "Setting" : 0,
+    "Network" : "NI Public Sector",
+    "GraphicName" : "ni-public-sector-128",
+    "Count" : 23,
+    "Hex" : "99CC66"
+  },
+  {
+    "RGB" : "153.0, 102.0, 0.0",
+    "DisplayName" : "Nissan",
+    "Setting" : 0,
+    "Network" : "Nissan",
+    "GraphicName" : "nissan-128",
+    "Count" : 15,
+    "Hex" : "996600"
+  },
+  {
+    "RGB" : "51.0, 102.0, 153.0",
+    "DisplayName" : "Osprey",
+    "Setting" : 0,
+    "Network" : "Osprey",
+    "GraphicName" : "osprey-128",
+    "Count" : 368,
+    "Hex" : "336699"
+  },
+  {
+    "RGB" : "0.0, 255.0, 204.0",
+    "DisplayName" : "Pilot Group",
+    "Setting" : 0,
+    "Network" : "Pilot Group EV Charging Solutions",
+    "GraphicName" : "pilot-group-128",
+    "Count" : 3,
+    "Hex" : "00FFCC"
+  },
+  {
+    "RGB" : "153.0, 204.0, 204.0",
+    "DisplayName" : "Plug N Go",
+    "Setting" : 0,
+    "Network" : "Plug N Go Ltd",
+    "GraphicName" : "plug-n-go-128",
+    "Count" : 40,
+    "Hex" : "99CCCC"
+  },
+  {
+    "RGB" : "0.0, 102.0, 102.0",
+    "DisplayName" : "Plugged-in Midlands",
+    "Setting" : 0,
+    "Network" : "Plugged-in Midlands",
+    "GraphicName" : "plugged-in-midlands-128",
+    "Count" : 82,
+    "Hex" : "006666"
+  },
+  {
+    "RGB" : "255.0, 0.0, 0.0",
+    "DisplayName" : "POD Point",
+    "Setting" : 0,
+    "Network" : "POD Point",
+    "GraphicName" : "pod-point-128",
+    "Count" : 3099,
+    "Hex" : "FF0000"
+  },
+  {
+    "RGB" : "102.0, 0.0, 255.0",
+    "DisplayName" : "Project EV",
+    "Setting" : 0,
+    "Network" : "Project EV",
+    "GraphicName" : "project-ev-128",
+    "Count" : 5,
+    "Hex" : "6600FF"
+  },
+  {
+    "RGB" : "51.0, 0.0, 204.0",
+    "DisplayName" : "RAW Infrastructure",
+    "Setting" : 0,
+    "Network" : "RAW Infrastructure Ltd",
+    "GraphicName" : "raw-infrastructure-128",
+    "Count" : 1,
+    "Hex" : "3300CC"
+  },
+  {
+    "RGB" : "51.0, 153.0, 255.0",
+    "DisplayName" : "ScottishPower",
+    "Setting" : 0,
+    "Network" : "ScottishPower",
+    "GraphicName" : "scottishpower-128",
+    "Count" : 15,
+    "Hex" : "3399FF"
+  },
+  {
+    "RGB" : "0.0, 153.0, 0.0",
+    "DisplayName" : "Shell Recharge",
+    "Setting" : 0,
+    "Network" : "Shell Recharge Solutions",
+    "GraphicName" : "shell-recharge-128",
+    "Count" : 149,
+    "Hex" : "009900"
+  },
+  {
+    "RGB" : "255.0, 102.0, 255.0",
+    "DisplayName" : "Shell Recharge",
+    "Setting" : 0,
+    "Network" : "Shell Recharge",
+    "GraphicName" : "shell-recharge-128",
+    "Count" : 320,
+    "Hex" : "FF66FF"
+  },
+  {
+    "RGB" : "0.0, 255.0, 255.0",
+    "DisplayName" : "Somerset West & Taunton Council",
+    "Setting" : 0,
+    "Network" : "Somerset West And Taunton District Council",
+    "GraphicName" : "somerset-west-taunton-council-128",
+    "Count" : 14,
+    "Hex" : "00FFFF"
+  },
+  {
+    "RGB" : "0.0, 255.0, 0.0",
+    "DisplayName" : "Source London",
+    "Setting" : 0,
+    "Network" : "Source London",
+    "GraphicName" : "source-london-128",
+    "Count" : 2300,
+    "Hex" : "00FF00"
+  },
+  {
+    "RGB" : "255.0, 153.0, 0.0",
+    "DisplayName" : "Source West",
+    "Setting" : 0,
+    "Network" : "Source West",
+    "GraphicName" : "revive-128",
+    "Count" : 61,
+    "Hex" : "FF9900"
+  },
+  {
+    "RGB" : "51.0, 102.0, 255.0",
+    "DisplayName" : "South Tyneside Council",
+    "Setting" : 0,
+    "Network" : "South Tyneside Council",
+    "GraphicName" : "south-tyneside-council-128",
+    "Count" : 9,
+    "Hex" : "3366FF"
+  },
+  {
+    "RGB" : "204.0, 51.0, 153.0",
+    "DisplayName" : "SSE Energy Solutions",
+    "Setting" : 0,
+    "Network" : "SSE Energy Solutions",
+    "GraphicName" : "sse-128",
+    "Count" : 12,
+    "Hex" : "CC3399"
+  },
+  {
+    "RGB" : "51.0, 204.0, 255.0",
+    "DisplayName" : "SSE",
+    "Setting" : 0,
+    "Network" : "SSE",
+    "GraphicName" : "sse-128",
+    "Count" : 3,
+    "Hex" : "33CCFF"
+  },
+  {
+    "RGB" : "153.0, 153.0, 0.0",
+    "DisplayName" : "SureCharge",
+    "Setting" : 0,
+    "Network" : "SureCharge\/FM Conway",
+    "GraphicName" : "surecharge-128",
+    "Count" : 2026,
+    "Hex" : "999900"
+  },
+  {
+    "RGB" : "0.0, 204.0, 153.0",
+    "DisplayName" : "Swarco E.Connect",
+    "Setting" : 0,
+    "Network" : "Swarco E.Connect",
+    "GraphicName" : "swarco-e-connect-128",
+    "Count" : 163,
+    "Hex" : "00CC99"
+  },
+  {
+    "RGB" : "204.0, 0.0, 255.0",
+    "DisplayName" : "GeniePoint",
+    "Setting" : 0,
+    "Network" : "The GeniePoint Network",
+    "GraphicName" : "the-geniepoint-network-128",
+    "Count" : 980,
+    "Hex" : "CC00FF"
+  },
+  {
+    "RGB" : "204.0, 153.0, 255.0",
+    "DisplayName" : "Tonik Energy",
+    "Setting" : 0,
+    "Network" : "Tonik Energy",
+    "GraphicName" : "tonik-energy-128",
+    "Count" : 2,
+    "Hex" : "CC99FF"
+  },
+  {
+    "RGB" : "51.0, 153.0, 102.0",
+    "DisplayName" : "ubitricity",
+    "Setting" : 0,
+    "Network" : "ubitricity",
+    "GraphicName" : "ubitricity-128",
+    "Count" : 6022,
+    "Hex" : "339966"
+  },
+  {
+    "RGB" : "204.0, 153.0, 102.0",
+    "DisplayName" : "VendElectric",
+    "Setting" : 0,
+    "Network" : "VendElectric",
+    "GraphicName" : "vendelectric-128",
+    "Count" : 2,
+    "Hex" : "CC9966"
+  },
+  {
+    "RGB" : "255.0, 0.0, 102.0",
+    "DisplayName" : "Wattif EV",
+    "Setting" : 0,
+    "Network" : "Wattif EV UK Limited",
+    "GraphicName" : "wattif-ev-uk-128",
+    "Count" : 14,
+    "Hex" : "FF0066"
+  },
+  {
+    "RGB" : "153.0, 51.0, 0.0",
+    "DisplayName" : "York City Council",
+    "Setting" : 0,
+    "Network" : "York City Council",
+    "GraphicName" : "york-city-council-128",
+    "Count" : 17,
+    "Hex" : "993300"
+  },
+  {
+    "RGB" : "153.0, 255.0, 0.0",
+    "DisplayName" : "Zest",
+    "Setting" : 0,
+    "Network" : "Zest",
+    "GraphicName" : "zest-128",
+    "Count" : 161,
+    "Hex" : "99FF00"
+  }
+]

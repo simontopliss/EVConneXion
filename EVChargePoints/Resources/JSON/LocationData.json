@@ -1,0 +1,100 @@
+[
+  {
+    "DisplayName" : "Dealership Forecourt",
+    "DataName" : "Dealership forecourt",
+    "Location" : "DealershipForecourt",
+    "Setting" : 0,
+    "Symbol" : "dealership-forecourt-128"
+  },
+  {
+    "DisplayName" : "Educational Establishment",
+    "DataName" : "Educational establishment",
+    "Location" : "EducationalEstablishment",
+    "Setting" : 0,
+    "Symbol" : "educational-establishment-128"
+  },
+  {
+    "DisplayName" : "Hotel \/ Accommodation",
+    "DataName" : "Hotel \/ Accommodation",
+    "Location" : "HotelAccommodation",
+    "Setting" : 0,
+    "Symbol" : "hotel-accommodation-128"
+  },
+  {
+    "DisplayName" : "Leisure Centre",
+    "DataName" : "Leisure centre",
+    "Location" : "LeisureCentre",
+    "Setting" : 1,
+    "Symbol" : "leisure-centre-128"
+  },
+  {
+    "DisplayName" : "NHS Property",
+    "DataName" : "NHS property",
+    "Location" : "NhsProperty",
+    "Setting" : 0,
+    "Symbol" : "nhs-property-128"
+  },
+  {
+    "DisplayName" : "On-Street",
+    "DataName" : "On-street",
+    "Location" : "OnStreet",
+    "Setting" : 1,
+    "Symbol" : "on-street-128"
+  },
+  {
+    "DisplayName" : "Other",
+    "DataName" : "Other",
+    "Location" : "Other",
+    "Setting" : 1,
+    "Symbol" : "other-128"
+  },
+  {
+    "DisplayName" : "Park & Ride Site",
+    "DataName" : "Park & Ride site",
+    "Location" : "ParkRideSite",
+    "Setting" : 1,
+    "Symbol" : "parking-128"
+  },
+  {
+    "DisplayName" : "Private Home",
+    "DataName" : "Private home",
+    "Location" : "PrivateHome",
+    "Setting" : 0,
+    "Symbol" : "private-home-128"
+  },
+  {
+    "DisplayName" : "Public Car Park",
+    "DataName" : "Public car park",
+    "Location" : "PublicCarPark",
+    "Setting" : 1,
+    "Symbol" : "parking-128"
+  },
+  {
+    "DisplayName" : "Public Estate",
+    "DataName" : "Public estate",
+    "Location" : "PublicEstate",
+    "Setting" : 1,
+    "Symbol" : "public-estate-128"
+  },
+  {
+    "DisplayName" : "Retail Car Park",
+    "DataName" : "Retail car park",
+    "Location" : "RetailCarPark",
+    "Setting" : 1,
+    "Symbol" : "parking-128"
+  },
+  {
+    "DisplayName" : "Service Station",
+    "DataName" : "Service station",
+    "Location" : "ServiceStation",
+    "Setting" : 1,
+    "Symbol" : "parking-128"
+  },
+  {
+    "DisplayName" : "Workplace Car Park",
+    "DataName" : "Workplace car park",
+    "Location" : "WorkplaceCarPark",
+    "Setting" : 0,
+    "Symbol" : "workplace-car-park-128"
+  }
+]
