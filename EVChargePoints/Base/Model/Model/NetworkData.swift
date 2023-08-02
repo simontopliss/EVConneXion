@@ -7,6 +7,11 @@
 
 import Foundation
 
+/// ### NOTE THESE NETWORKS NEED COMBING WHEN SEARCHING AND FILTERING:
+/// - BP Pulse and BP-Pulse (POLAR)
+/// - Shell Recharge Solutions and Shell Recharge
+/// - SSE Energy Solutions and SSE
+
 struct NetworkData: Identifiable {
     let id = UUID()
     var network: String
