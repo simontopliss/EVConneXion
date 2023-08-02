@@ -1,5 +1,5 @@
 //
-//  VM+NetworkGraphics.swift
+//  VM+NetworkData.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 27/07/2023.
@@ -9,11 +9,11 @@ import SwiftUI
 
 extension ChargePointViewModel {
 
-    /// Loads the network graphics from a JSON file
-    func loadNetworkGraphics() {
-        networkGraphics = try! StaticJSONMapper.decode(
-            file: "NetworkGraphics",
-            type: [NetworkGraphic].self
+    /// Loads the network data from a JSON file
+    func loadNetworkData() {
+        networkData = try! StaticJSONMapper.decode(
+            file: "NetworkData",
+            type: [NetworkData].self
         )
     }
 
@@ -46,10 +46,10 @@ extension ChargePointViewModel {
 
     /// Description returns the svg or png for a given attribution
     /// - Parameter attribution: String
-    /// - Returns: name of the corresponding network graphic from NetworkGraphics.json
+    /// - Returns: name of the corresponding network graphic from NetworkData.json
     func networkGraphicFor(attribution: String) -> String {
-        let item = networkGraphics.first { $0.network == attribution }
-        guard let filename = item?.filename else { return "default-network-128x128" }
+        let item = networkData.first { $0.network == attribution }
+        guard let filename = item?.graphicName else { return "default-network-128x128" }
         guard let fileURL = URL(string: filename) else {
             print("No network graphic found for \(attribution)")
             return "default-network-128x128"
@@ -59,10 +59,10 @@ extension ChargePointViewModel {
 
     /// Description returns the svg or png for a given attribution
     /// - Parameter network: network String
-    /// - Returns: name of the corresponding network graphic from NetworkGraphics.json
+    /// - Returns: name of the corresponding network graphic from NetworkData.json
     func networkGraphicFor(network: String) -> String {
-        let item = networkGraphics.first { $0.network == network }
-        guard let filename = item?.filename else { return "default-network-128x128" }
+        let item = networkData.first { $0.network == network }
+        guard let filename = item?.graphicName else { return "default-network-128x128" }
         guard let fileURL = URL(string: filename) else {
             print("No network graphic found for \(network)")
             return "default-network-128x128"
@@ -72,9 +72,9 @@ extension ChargePointViewModel {
 
     /// Gets the shortened display name for a network
     /// - Parameter network: network String
-    /// - Returns: the shorter display name from NetworkGraphics.json
+    /// - Returns: the shorter display name from NetworkData.json
     func displayNameFor(network: String) -> String {
-        let item = networkGraphics.first { $0.network == network }
+        let item = networkData.first { $0.network == network }
         guard let displayName = item?.displayName else { return network }
         return displayName
     }
@@ -106,7 +106,7 @@ extension ChargePointViewModel {
     }
 
     func networkColorFor(network: String) -> Color? {
-        let item = networkGraphics.first { $0.network == network }
+        let item = networkData.first { $0.network == network }
         guard let rgbValues = item?.rgbValues else { return nil }
         let networkColor = Color(
             UIColor(

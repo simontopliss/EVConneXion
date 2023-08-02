@@ -10,27 +10,18 @@ import SwiftUI
 struct PaymentFiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var vm: FiltersViewModel
+    @EnvironmentObject private var filtersViewModel: FiltersViewModel
 
     var body: some View {
         Form {
             Section("Payment") {
-                ForEach($vm.paymentFilters) { filter in
-                    HStack {
-                        SFSymbolImage(
-                            imageName: filter.symbol.wrappedValue,
-                            toggled: filter.setting
-                        )
-
-                        Toggle(isOn: filter.setting) {
-                            Text(filter.displayName.wrappedValue)
-                        }
-                        .tag(filter.id)
-                    }
+                ForEach($filtersViewModel.paymentData) { filter in
+                   ToggleWithSymbol(
+                        displayName: filter.displayName.wrappedValue,
+                        symbolName: filter.symbol.wrappedValue,
+                        toggled: filter.setting
+                    )
                 }
-                .font(.headline)
-                .foregroundColor(AppColors.textColor)
-                .padding(.vertical, 4)
             }
         }
     }

@@ -10,26 +10,18 @@ import SwiftUI
 struct LocationFiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var vm: FiltersViewModel
+    @EnvironmentObject private var filtersViewModel: FiltersViewModel
 
     var body: some View {
         Form {
             Section("Location") {
-                ForEach($vm.locationFilters) { filter in
-                    HStack {
-                        SymbolImage(
-                            imageName: filter.symbol.wrappedValue,
-                            toggled: filter.setting
-                        )
-                        Toggle(isOn: filter.setting) {
-                            Text(filter.displayName.wrappedValue)
-                        }
-                        .tag(filter.id)
-                    }
+                ForEach($filtersViewModel.locationData) { filter in
+                    ToggleWithGraphic(
+                        displayName: filter.displayName.wrappedValue,
+                        imageName: filter.graphicName.wrappedValue,
+                        toggled: filter.setting
+                    )
                 }
-                .font(.headline)
-                .foregroundColor(AppColors.textColor)
-                .padding(.vertical, 4)
             }
         }
     }

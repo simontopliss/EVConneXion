@@ -24,7 +24,7 @@ struct SymbolImage: View {
                 maxHeight: imageHeight,
                 alignment: .center
             )
-            .scaleEffect(toggled ? 1.0 : 0.85)
+            .scaleEffect(toggled ? 1.0 : 0.80)
             .animation(
                 .spring(duration: 0.5, bounce: 0.80)
                 .repeatCount(1, autoreverses: true),

@@ -14,8 +14,8 @@ final class ChargePointViewModel: ObservableObject {
     // MARK: - PROPERTIES
 
     @Published var chargeDevices: [ChargeDevice] = []
-    @Published var networkGraphics: [NetworkGraphic] = []
-    @Published var connectorTypes: [ConnectorTypeInfo] = []
+    @Published var networkData: [NetworkData] = []
+    @Published var connectorData: [ConnectorData] = []
 
     @Published var distance: Double = 10.0
     @Published var units: Endpoint.RegistryDataType.Unit = .mi
@@ -45,7 +45,7 @@ final class ChargePointViewModel: ObservableObject {
         self.networkManager = networkManager
         chargeDevices = ChargePointData.mockChargeDevices
         chargeDevices.sort(by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser })
-        loadNetworkGraphics()
+        loadNetworkData()
         loadConnectorTypes()
     }
 

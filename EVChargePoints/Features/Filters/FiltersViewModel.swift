@@ -10,55 +10,36 @@ import SwiftUI
 
 final class FiltersViewModel: ObservableObject {
 
-    @Published var accessFilters: [AccessFilter] = []
-    @Published var chargerFilter: ChargerFilter = ChargerFilter()
-    @Published var connectorFilters: [ConnectorFilter] = []
-    @Published var locationFilters: [LocationFilter] = []
-    @Published var networkFilters: [NetworkFilter] = []
-    @Published var paymentFilters: [PaymentFilter] = []
+    @Published var accessData: [AccessData] = []
+    @Published var chargerData: ChargerData = ChargerData()
+    @Published var locationData: [LocationData] = []
+    @Published var paymentData: [PaymentData] = []
 
     init() {
         /// Load JSON files
-        loadAccessFilters()
-        loadConnectorFilters()
-        loadLocationFilters()
-        loadNetworkFilters()
-        loadPaymentFilters()
+        loadAccessData()
+        loadLocationData()
+        loadPaymentData()
     }
 
-    func loadAccessFilters() {
-        self.accessFilters = try! StaticJSONMapper.decode(
-            file: "AccessFilter",
-            type: [AccessFilter].self
+    func loadAccessData() {
+        self.accessData = try! StaticJSONMapper.decode(
+            file: "AccessData",
+            type: [AccessData].self
         )
     }
 
-    func loadConnectorFilters() {
-        self.connectorFilters = try! StaticJSONMapper.decode(
-            file: "ConnectorFilter",
-            type: [ConnectorFilter].self
+    func loadLocationData() {
+        self.locationData = try! StaticJSONMapper.decode(
+            file: "LocationData",
+            type: [LocationData].self
         )
     }
 
-    func loadLocationFilters() {
-        self.locationFilters = try! StaticJSONMapper.decode(
-            file: "LocationFilter",
-            type: [LocationFilter].self
-        )
-    }
-
-    func loadNetworkFilters() {
-        self.networkFilters = try! StaticJSONMapper.decode(
-            file: "NetworkFilter",
-            type: [NetworkFilter].self
-        )
-        self.networkFilters.sort { $0.total > $1.total }
-    }
-
-    func loadPaymentFilters() {
-        self.paymentFilters = try! StaticJSONMapper.decode(
-            file: "PaymentFilter",
-            type: [PaymentFilter].self
+    func loadPaymentData() {
+        self.paymentData = try! StaticJSONMapper.decode(
+            file: "PaymentData",
+            type: [PaymentData].self
         )
     }
 }

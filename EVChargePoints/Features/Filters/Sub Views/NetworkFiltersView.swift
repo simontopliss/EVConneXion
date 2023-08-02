@@ -10,17 +10,17 @@ import SwiftUI
 struct NetworkFiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var vm: FiltersViewModel
+    @EnvironmentObject private var filtersViewModel: FiltersViewModel
     @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
 
     var body: some View {
         Form {
             Section("Network") {
                 // TODO: Would user want to sort this list?
-                ForEach($vm.networkFilters) { filter in
+                ForEach($chargePointViewModel.networkData) { filter in
                     HStack {
                         SymbolImage(
-                            imageName: chargePointViewModel.networkGraphicFor(network: filter.displayName.wrappedValue),
+                            imageName: filter.graphicName.wrappedValue,
                             imageWidth: 60.0,
                             imageHeight: 40.0,
                             toggled: filter.setting

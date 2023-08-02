@@ -10,26 +10,18 @@ import SwiftUI
 struct AccessFiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var vm: FiltersViewModel
+    @EnvironmentObject private var filtersViewModel: FiltersViewModel
 
     var body: some View {
         Form {
             Section("Access") {
-                ForEach($vm.accessFilters) { filter in
-                    HStack {
-                        SFSymbolImage(
-                            imageName: filter.symbol.wrappedValue,
-                            toggled: filter.setting
-                        )
-                        Toggle(isOn: filter.setting) {
-                            Text(filter.displayName.wrappedValue)
-                        }
-                        .tag(filter.id)
-                    }
+                ForEach($filtersViewModel.accessData) { filter in
+                    ToggleWithSymbol(
+                        displayName: filter.displayName.wrappedValue,
+                        symbolName: filter.symbol.wrappedValue,
+                        toggled: filter.setting
+                    )
                 }
-                .font(.headline)
-                .foregroundColor(AppColors.textColor)
-                .padding(.vertical, 4)
             }
         }
     }

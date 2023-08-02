@@ -1,5 +1,5 @@
 //
-//  VM+NetworkGraphics.swift
+//  VM+ConnectorData.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 27/07/2023.
@@ -11,9 +11,9 @@ extension ChargePointViewModel {
 
     /// Loads the network graphics from a JSON file
     func loadConnectorTypes() {
-        connectorTypes = try! StaticJSONMapper.decode(
-            file: "ConnectorTypes",
-            type: [ConnectorTypeInfo].self
+        connectorData = try! StaticJSONMapper.decode(
+            file: "ConnectorData",
+            type: [ConnectorData].self
         )
     }
 }

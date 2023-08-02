@@ -13,17 +13,17 @@ struct FiltersView: View {
     @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
 
     enum SelectedView: String {
-        case access = "Access"
-        case connectors = "Connectors"
-        case locations = "Locations"
-        case networks = "Networks"
-        case payment = "Payment"
-        case chargers = "Chargers"
+        case access      = "Access"
+        case connectors  = "Connectors"
+        case locations   = "Locations"
+        case networks    = "Networks"
+        case payment     = "Payment"
+        case chargers    = "Chargers"
     }
 
-    var unit: String {
-        "\(Int(chargePointViewModel.distance))" +
-            "\(chargePointViewModel.units == .mi ? "miles" : "kilometers")"
+    var maximumDistanceLabel: String {
+        "Maximum distance \(Int(chargePointViewModel.distance)) " +
+        "\(chargePointViewModel.units == .mi ? "miles" : "kilometres")"
     }
 
     let verticalPadding = 10.0
@@ -146,7 +146,7 @@ extension FiltersView {
 
     func maximumDistance() -> some View {
         VStack(alignment: .leading) {
-            Text("Maximum distance (\(unit))")
+            Text(maximumDistanceLabel)
                 .font(.body)
 
             Slider(
