@@ -42,7 +42,7 @@ extension ChargerFiltersView {
 
     func chargingMethod() -> some View {
         HStack {
-            SFSymbolImage(
+            SFSymbolImageBounce(
                 symbolName: filtersViewModel.chargerData.chargeMethodsSymbol,
                 toggled: $methodChanged
             )
@@ -63,12 +63,14 @@ extension ChargerFiltersView {
 
 extension ChargerFiltersView {
 
+    @ViewBuilder
     func chargingSpeed() -> some View {
         HStack {
-            SFSymbolImage(
+            SFSymbolImageBounce(
                 symbolName: filtersViewModel.chargerData.chargeSpeedsSymbol,
                 toggled: $speedChanged
             )
+
             Picker("Charger Speed", selection: $filtersViewModel.chargerData.selectedSpeed) {
                 ForEach(filtersViewModel.chargerData.chargeSpeeds, id: \.self) {
                     Text($0)
@@ -78,6 +80,7 @@ extension ChargerFiltersView {
                 speedChanged.toggle()
             }
         }
+
     }
 }
 
@@ -85,10 +88,11 @@ extension ChargerFiltersView {
 
     func tetheredCable() -> some View {
         HStack {
-            SFSymbolImage(
+            SFSymbolImageBounce(
                 symbolName: filtersViewModel.chargerData.tetheredCableSymbol,
                 toggled: $tetheredChanged
             )
+
             // If DC is selected, should tethered by selected too?
             Toggle(isOn: $filtersViewModel.chargerData.tetheredCable) {
                 Text("Tethered Cable")

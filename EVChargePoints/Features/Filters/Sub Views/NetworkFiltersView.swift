@@ -19,7 +19,7 @@ struct NetworkFiltersView: View {
                 // TODO: Would user want to sort this list?
                 ForEach($chargePointViewModel.networkData) { filter in
                     HStack {
-                        SymbolImage(
+                        SymbolImageAnimated(
                             imageName: filter.graphicName.wrappedValue,
                             imageWidth: 60.0,
                             imageHeight: 40.0,
