@@ -24,4 +24,8 @@ enum Symbols {
     static let networkSymbol    = Image(systemName: "network")
     static let chargerSymbol    = Image(systemName: "bolt.circle")
     static let paymentSymbol    = Image(systemName: "sterlingsign.circle")
+
+    /// Map Symbols
+    static let filterSymbol     = Image(systemName: "slider.horizontal.3")
+    static let searchSymbol     = Image(systemName: "text.magnifyingglass")
 }
