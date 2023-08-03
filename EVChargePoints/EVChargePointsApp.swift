@@ -45,9 +45,9 @@ struct EVChargePointsApp: App {
 
                 FiltersView()
                     .tabItem {
-                        Label(Tabs.routes.label, systemImage: Tabs.routes.icon)
+                        Label(Tabs.filters.label, systemImage: Tabs.filters.icon)
                     }
-                    .tag(Tabs.routes)
+                    .tag(Tabs.filters)
                     .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
                     .environmentObject(filtersViewModel)
@@ -59,13 +59,6 @@ struct EVChargePointsApp: App {
                     .tag(Tabs.settings)
             }
             .tint(.accentColor)
-            .onAppear {
-                let appearance = UITabBarAppearance()
-                appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-                appearance.backgroundColor = UIColor(Color.gray.opacity(0.1))
-                UITabBar.appearance().standardAppearance = appearance
-                UITabBar.appearance().scrollEdgeAppearance = appearance
-            }
         }
     }
 }
