@@ -1,5 +1,5 @@
 //
-//  SearchView.swift
+//  RecentSearchesView.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 29/06/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct RecentSearchesView: View {
 
     @Binding var showSheet: Bool
 
@@ -43,5 +43,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView(showSheet: .constant(true))
+    RecentSearchesView(showSheet: .constant(true))
 }
