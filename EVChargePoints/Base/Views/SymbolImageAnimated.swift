@@ -1,5 +1,5 @@
 //
-//  SymbolImage.swift
+//  SymbolImageAnimated.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 01/08/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SymbolImage: View {
+struct SymbolImageAnimated: View {
 
     let imageName: String
     var tintImageName: String {
@@ -38,7 +38,7 @@ struct SymbolImage: View {
 }
 
 #Preview {
-    SymbolImage(
+    SymbolImageAnimated(
         imageName: "dealership-forecourt-128x128",
         toggled: .constant(true)
     )

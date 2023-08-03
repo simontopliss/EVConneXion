@@ -1,5 +1,5 @@
 //
-//  SFSymbolImage.swift
+//  SFSymbolImageAnimated.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 01/08/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SFSymbolImage: View {
+struct SFSymbolImageAnimated: View {
 
     let symbolName: String
     var imageWidth: Double = 32.0
@@ -37,7 +37,7 @@ struct SFSymbolImage: View {
 }
 
 #Preview {
-    SFSymbolImage(
+    SFSymbolImageAnimated(
         symbolName: "wrongwaysign",
         toggled: .constant(false)
     )
