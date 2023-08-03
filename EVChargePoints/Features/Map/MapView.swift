@@ -18,7 +18,7 @@ struct MapView: View {
 
     /// Map Properties
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
-    @State private var deviceSelection: ChargeDevice?
+    @State private var deviceSelected: ChargeDevice?
     @State private var viewingRegion: MKCoordinateRegion?
     @Namespace private var locationSpace
 
@@ -38,7 +38,7 @@ struct MapView: View {
     /// User Location Animation
     @State private var delay: Double = 0
     @State private var userLocationScale: CGFloat = 0.6
-    @State private var pinScale: CGFloat = 0.75
+    @State private var pinScale: CGFloat = 1.0
     @State private var duration = 0.8
 
     /// Search Sheet
@@ -58,7 +58,8 @@ struct MapView: View {
 
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
-                            deviceSelection = chargeDevice
+//                            pinScale = 1.3
+                            deviceSelected = chargeDevice
                             withAnimation(.snappy) {
                                 // TODO: Move the camera up a bit to accommodate the MapDetails detent
                                 cameraPosition = .region(chargeDevice.deviceMapItem.region)
@@ -66,16 +67,15 @@ struct MapView: View {
                         } label: {
                             MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
                         }
-//                        .scaleEffect(pinScale)
+//                        .scaleEffect(deviceSelected == chargeDevice ? pinScale : 1.0, anchor: .bottom)
 //                        .animation(
-//                            Animation.easeInOut(duration: duration)
-//                                .repeatForever()
-//                                .delay(delay),
-//                            value: pinScale
+//                            deviceSelected != chargeDevice ? .none :
+//                                Animation.easeInOut(duration: duration)
+//                                .repeatForever().delay(delay), value: pinScale
 //                        )
 //                        .onAppear {
 //                            withAnimation {
-//                                self.pinScale = 1
+//                                self.pinScale = 1.0
 //                            }
 //                        }
                     }
@@ -116,7 +116,9 @@ struct MapView: View {
 //                            withAnimation {  dismiss() }
 //                            showDetails = false
 //                        }
-                        dismiss()
+                        withAnimation {
+                            dismiss()
+                        }
                         showSearch.toggle()
                     } label: {
                         Symbols.searchSymbol
@@ -169,7 +171,7 @@ struct MapView: View {
             prompt: "Enter postcode, town or city…"
         )
         .navigationDestination(for: Route.self) { $0 }
-        .onChange(of: deviceSelection) { _, newValue in
+        .onChange(of: deviceSelected) { _, newValue in
             // TODO: Animate map pin when selected
 
             /// Displaying Details about the Selected Place
@@ -284,7 +286,7 @@ extension MapView {
                     /// Closing View
                     showDetails = false
                     withAnimation(.snappy) {
-                        deviceSelection = nil
+                        deviceSelected = nil
                     }
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
@@ -316,10 +318,10 @@ extension MapView {
             withAnimation(.snappy) {
                 routeDisplaying = false
                 showDetails = true
-                deviceSelection = routeDestination
+                deviceSelected = routeDestination
                 routeDestination = nil
                 route = nil
-                if let coordinate = deviceSelection?.deviceMapItem.coordinate {
+                if let coordinate = deviceSelected?.deviceMapItem.coordinate {
                     cameraPosition = .region(
                         .init(
                             center: coordinate,
@@ -337,12 +339,12 @@ extension MapView {
 
     /// Fetching Location Preview
     func fetchLookAroundPreview() {
-        if let deviceSelection {
+        if let deviceSelected {
             /// Clearing Old One
             lookAroundScene = nil
             Task {
                 let request = MKLookAroundSceneRequest(
-                    coordinate: deviceSelection.deviceMapItem.coordinate
+                    coordinate: deviceSelected.deviceMapItem.coordinate
                 )
                 lookAroundScene = try? await request.scene
             }
@@ -351,18 +353,18 @@ extension MapView {
 
     /// Fetching Route
     func fetchRoute() {
-        if let deviceSelection {
+        if let deviceSelected {
             let request = MKDirections.Request()
             request.source = .init(
                 placemark: .init(coordinate: locationManager.userLocation)
             )
-            request.destination = deviceSelection.deviceMapItem.mapItem
+            request.destination = deviceSelected.deviceMapItem.mapItem
 
             Task {
                 let result = try? await MKDirections(request: request).calculate()
                 route = result?.routes.first
                 /// Saving Route Destination
-                routeDestination = deviceSelection
+                routeDestination = deviceSelected
 
                 withAnimation(.snappy) {
                     routeDisplaying = true
