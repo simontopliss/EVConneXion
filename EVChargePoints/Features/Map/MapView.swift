@@ -14,11 +14,17 @@ struct MapView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
+    @Environment(\.dismiss) var dismiss
+
     /// Map Properties
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var deviceSelection: ChargeDevice?
     @State private var viewingRegion: MKCoordinateRegion?
     @Namespace private var locationSpace
+
+    /// Navigation Bar Properties
+    @State private var showFilters = false
+    @State private var showSearch = false
 
     /// Map Selection Detail Properties
     @State private var showDetails = false
@@ -34,6 +40,9 @@ struct MapView: View {
     @State private var userLocationScale: CGFloat = 0.6
     @State private var pinScale: CGFloat = 0.75
     @State private var duration = 0.8
+
+    /// Search Sheet
+    @State private var searchText = ""
 
     var body: some View {
         NavigationStack {
@@ -88,8 +97,45 @@ struct MapView: View {
             .mapScope(locationSpace)
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar, .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button {
+//                        // Open FiltersView
+//                    } label: {
+//                        NavigationLink(destination: Route.filtersView) {}
+//                        Symbols.filterSymbol
+//                    }
+//                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        // Open SearchView as detent
+//                        if showDetails {
+//                            withAnimation {  dismiss() }
+//                            showDetails = false
+//                        }
+                        dismiss()
+                        showSearch.toggle()
+                    } label: {
+                        Symbols.searchSymbol
+                    }
+                }
+            }
+            .sheet(isPresented: $showSearch, onDismiss: {
+                withAnimation(.snappy) {
+                    showDetails = false
+                }
+            }, content: {
+                SearchView(showSheet: $showSearch)
+                    .presentationDetents([.height(300)])
+                    .presentationBackgroundInteraction(
+                        .enabled(upThrough: .height(300))
+                    )
+                    .presentationCornerRadius(25)
+                    .interactiveDismissDisabled(true)
+            })
             .sheet(isPresented: $showDetails, onDismiss: {
                 withAnimation(.snappy) {
                     /// Zooming Region
@@ -117,7 +163,15 @@ struct MapView: View {
                 }
             }
         }
+        .searchable(
+            text: $searchText,
+            placement: .toolbar,
+            prompt: "Enter postcode, town or city…"
+        )
+        .navigationDestination(for: Route.self) { $0 }
         .onChange(of: deviceSelection) { _, newValue in
+            // TODO: Animate map pin when selected
+
             /// Displaying Details about the Selected Place
             showDetails = newValue != nil
             /// Fetching Look Around Preview, when ever selection Changes
