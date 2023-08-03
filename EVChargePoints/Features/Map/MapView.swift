@@ -128,7 +128,7 @@ struct MapView: View {
                     showDetails = false
                 }
             }, content: {
-                SearchView(showSheet: $showSearch)
+                RecentSearchesView(showSheet: $showSearch)
                     .presentationDetents([.height(300)])
                     .presentationBackgroundInteraction(
                         .enabled(upThrough: .height(300))

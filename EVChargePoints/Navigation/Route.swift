@@ -73,7 +73,7 @@ extension Route: View {
             case .filtersView:
                 FiltersView()
             case .searchView:
-                SearchView(showSheet: .constant(true))
+                RecentSearchesView(showSheet: .constant(true))
             case .filterAccessTypesView:
                 AccessFiltersView()
             case .filterConnectorTypesView:
