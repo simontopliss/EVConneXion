@@ -18,7 +18,7 @@ struct ToggleWithGraphic: View {
 
     var body: some View {
         HStack {
-            SymbolImage(
+            SymbolImageAnimated(
                 imageName: imageName,
                 toggled: $toggled
             )

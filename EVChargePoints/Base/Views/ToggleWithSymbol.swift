@@ -18,7 +18,7 @@ struct ToggleWithSymbol: View {
 
     var body: some View {
         HStack {
-            SFSymbolImage(
+            SFSymbolImageAnimated(
                 symbolName: symbolName,
                 toggled: $toggled
             )
