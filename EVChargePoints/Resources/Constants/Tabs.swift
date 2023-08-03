@@ -11,7 +11,7 @@ enum Tabs: Int {
 
     case map
     case list
-    case routes
+    case filters
     case settings
 
     var label: String {
@@ -20,8 +20,8 @@ enum Tabs: Int {
                 return "Map"
             case .list:
                 return "List"
-            case .routes:
-                return "Routes"
+            case .filters:
+                return "Filters"
             case .settings:
                 return "Settings"
         }
@@ -33,8 +33,8 @@ enum Tabs: Int {
                 return "map"
             case .list:
                 return "list.bullet"
-            case .routes:
-                return "arrow.triangle.swap"
+            case .filters:
+                return "slider.horizontal.3"
             case .settings:
                 return "gearshape"
         }
