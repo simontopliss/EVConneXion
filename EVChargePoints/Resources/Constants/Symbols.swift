@@ -9,6 +9,9 @@ import SwiftUI
 
 enum Symbols {
 
+    static let symbolWidth     = 32.0
+    static let symbolHeight    = 32.0
+
     static let genericNetwork  = Image(systemName: "network")
 
     static let evChargerName   = "bolt.circle.fill" // "ev.charger.fill"
