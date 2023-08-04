@@ -70,7 +70,7 @@ struct LocationDetailsView: View {
                 } label: {
                     Text("Open in Maps")
                         .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 170, height: 48)
                         .background(.green)
                         .cornerRadius(12)
@@ -82,7 +82,7 @@ struct LocationDetailsView: View {
                 } label: {
                     Text("Get Directions")
                         .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 170, height: 48)
                         .background(.blue)
                         .cornerRadius(12)

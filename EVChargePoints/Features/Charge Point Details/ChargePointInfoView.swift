@@ -228,7 +228,7 @@ extension DeviceAccessSection {
                 .font(.subheadline.leading(.tight))
                 .multilineTextAlignment(.leading)
                 .frame(width: 90, alignment: .leading)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
 
             VStack(alignment: .leading) {
                 if openingDays.count == openingHours.count {
@@ -258,7 +258,7 @@ extension DeviceAccessSection {
             .font(.subheadline)
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundColor(AppColors.textColor)
+            .foregroundStyle(AppColors.textColor)
         }
     }
 }

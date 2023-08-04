@@ -85,7 +85,7 @@ struct FiltersView: View {
                 }
                 .font(.title3)
                 .fontWeight(.semibold)
-                .foregroundColor(AppColors.textColor)
+                .foregroundStyle(AppColors.textColor)
             }
 
 //            // TODO: This should be only enabled if the user has made changes
@@ -99,7 +99,7 @@ struct FiltersView: View {
 //            }
 //            .frame(width: 280, height: 44)
 //            .background(Color.accentColor)
-//            .foregroundColor(.white)
+//            .foregroundStyle(.white)
 //            .cornerRadius(8)
 //            .padding(.bottom, 48)
 

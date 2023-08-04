@@ -23,7 +23,7 @@ struct MapPinView: View {
             .shadow(color: .secondary, radius: 3.0)
             .overlay {
                 Image(systemName: "bolt.fill")
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .scaleEffect(0.90)
                     .offset(y: -1.75)
             }

@@ -27,7 +27,7 @@ struct ToggleWithSymbol: View {
             }
         }
         .font(.headline)
-        .foregroundColor(AppColors.textColor)
+        .foregroundStyle(AppColors.textColor)
         .padding(.vertical, 4)
     }
 }

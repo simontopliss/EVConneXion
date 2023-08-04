@@ -199,11 +199,11 @@ extension MapView {
 
             Circle()
                 .frame(width: 20, height: 20)
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
 
             Circle()
                 .frame(width: 12, height: 12)
-                .foregroundColor(.pink)
+                .foregroundStyle(.pink)
         }
         .scaleEffect(userLocationScale)
         .animation(

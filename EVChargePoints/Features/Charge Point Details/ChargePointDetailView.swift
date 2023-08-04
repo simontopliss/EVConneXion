@@ -60,7 +60,7 @@ struct FormText: View {
         Text(LocalizedStringKey(text.trim()))
             .font(.subheadline)
             .multilineTextAlignment(.leading)
-            .foregroundColor(AppColors.textColor)
+            .foregroundStyle(AppColors.textColor)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
@@ -74,7 +74,7 @@ struct FormLabel: View {
                 .font(.subheadline.leading(.tight))
                 .multilineTextAlignment(.leading)
                 .frame(width: 90, alignment: .leading)
-            .foregroundColor(.secondary)
+            .foregroundStyle(.secondary)
         }
     }
 }

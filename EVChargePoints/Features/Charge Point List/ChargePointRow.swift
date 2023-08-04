@@ -85,7 +85,7 @@ struct ChargePointRow: View {
             }
             .padding(EdgeInsets(top: 0, leading: inset, bottom: inset, trailing: inset))
         }
-        .foregroundColor(AppColors.textColor)
+        .foregroundStyle(AppColors.textColor)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppColors.listRowColor, in: RoundedRectangle(cornerRadius: 8))
     }
