@@ -9,78 +9,27 @@ import SwiftUI
 
 struct FiltersView: View {
 
+    @EnvironmentObject private var filtersViewModel: FiltersViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
 
-    enum SelectedView: String {
-        case access      = "Access"
-        case connectors  = "Connectors"
-        case locations   = "Locations"
-        case networks    = "Networks"
-        case payment     = "Payment"
-        case chargers    = "Chargers"
-    }
-
     var maximumDistanceLabel: String {
-        "Maximum distance \(Int(chargePointViewModel.distance)) " +
-        "\(chargePointViewModel.units == .mi ? "miles" : "kilometres")"
+        "\(Int(chargePointViewModel.distance)) \(chargePointViewModel.units == .mi ? "miles" : "kilometres")"
     }
-
-    let verticalPadding = 10.0
 
     var body: some View {
         VStack {
             NavigationStack(path: $routerManager.routes) {
-                List {
 
+                List {
                     maximumDistance()
 
-                    NavigationLink(destination: Route.filterAccessTypesView) {
-                        HStack {
-                            Symbols.accessSymbol
-                            Text(SelectedView.access.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-
-                    NavigationLink(destination: Route.filterChargerTypesView) {
-                        HStack {
-                            Symbols.chargerSymbol
-                            Text(SelectedView.chargers.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-
-                    NavigationLink(destination: Route.filterConnectorTypesView) {
-                        HStack {
-                            Symbols.connectorSymbol
-                            Text(SelectedView.connectors.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-
-                    NavigationLink(destination: Route.filterLocationTypesView) {
-                        HStack {
-                            Symbols.locationSymbol
-                            Text(SelectedView.locations.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-
-                    NavigationLink(destination: Route.filterNetworkTypesView) {
-                        HStack {
-                            Symbols.networkSymbol
-                            Text(SelectedView.networks.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
-                    }
-
-                    NavigationLink(destination: Route.filterPaymentTypesView) {
-                        HStack {
-                            Symbols.paymentSymbol
-                            Text(SelectedView.payment.rawValue)
-                        }
-                        .padding(.vertical, verticalPadding)
+                    ForEach($filtersViewModel.filters) { filter in
+                        FilterNavigationLink(
+                            destination: filter.destination,
+                            title: filter.title,
+                            symbol: filter.symbol
+                        )
                     }
                 }
                 .font(.title3)
@@ -146,8 +95,12 @@ extension FiltersView {
 
     func maximumDistance() -> some View {
         VStack(alignment: .leading) {
-            Text(maximumDistanceLabel)
-                .font(.body)
+            Group {
+                Text("Maximum distance: ")
+                    .fontWeight(.regular)
+                + Text("\(maximumDistanceLabel)")
+            }
+            .font(.body)
 
             Slider(
                 value: $chargePointViewModel.distance,
@@ -169,6 +122,31 @@ extension FiltersView {
                 print("\($0)")
             }
         }
-        .padding(.vertical, verticalPadding)
+        .padding(.vertical, 10)
+    }
+}
+
+struct FilterNavigationLink: View {
+
+    @Binding var destination: Route
+    @Binding var title: String
+    @Binding var symbol: Image
+
+    var body: some View {
+        NavigationLink(destination: destination) {
+            HStack {
+                symbol
+                    .font(.title)
+                    .fontWeight(.regular)
+                    .frame(
+                        maxWidth: Symbols.symbolWidth,
+                        maxHeight: Symbols.symbolHeight,
+                        alignment: .center
+                    )
+                    .padding(.trailing, 6)
+                Text(title)
+            }
+            .padding(.vertical, 10)
+        }
     }
 }

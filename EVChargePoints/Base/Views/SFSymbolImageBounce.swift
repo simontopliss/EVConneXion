@@ -10,8 +10,8 @@ import SwiftUI
 struct SFSymbolImageBounce: View {
 
     let symbolName: String
-    var imageWidth: Double = 32.0
-    var imageHeight: Double = 32.0
+    var symbolWidth: Double = Symbols.symbolWidth
+    var symbolHeight: Double = Symbols.symbolHeight
 
     @Binding var toggled: Bool
 
@@ -21,8 +21,8 @@ struct SFSymbolImageBounce: View {
             .font(.title)
             .fontWeight(.regular)
             .frame(
-                maxWidth: imageWidth,
-                maxHeight: imageHeight,
+                maxWidth: symbolWidth,
+                maxHeight: symbolHeight,
                 alignment: .center
             )
             .padding(.trailing, 6)

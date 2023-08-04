@@ -10,8 +10,8 @@ import SwiftUI
 struct SFSymbolImageAnimated: View {
 
     let symbolName: String
-    var imageWidth: Double = 32.0
-    var imageHeight: Double = 32.0
+    var symbolWidth: Double = Symbols.symbolWidth
+    var symbolHeight: Double = Symbols.symbolHeight
 
     @Binding var toggled: Bool
 
@@ -20,8 +20,8 @@ struct SFSymbolImageAnimated: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(
-                maxWidth: imageWidth,
-                maxHeight: imageHeight,
+                maxWidth: symbolWidth,
+                maxHeight: symbolHeight,
                 alignment: .center
             )
             .scaleEffect(toggled ? 1.0 : 0.80)

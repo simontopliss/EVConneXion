@@ -11,8 +11,8 @@ struct ToggleWithSymbol: View {
 
     let displayName: String
     let symbolName: String
-    var imageWidth: Double = 32.0
-    var imageHeight: Double = 32.0
+    var symbolWidth: Double = Symbols.symbolWidth
+    var symbolHeight: Double = Symbols.symbolHeight
 
     @Binding var toggled: Bool
 
