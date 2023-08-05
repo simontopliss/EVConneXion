@@ -54,7 +54,7 @@ struct ChargePointRow: View {
                 .font(.caption)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
 
-            Text(vm.separate(deviceNetworks: chargeDevice.deviceNetworks, by: ",\n"))
+            Text(chargeDevice.deviceNetworks.joined(separator: ",\n"))
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
