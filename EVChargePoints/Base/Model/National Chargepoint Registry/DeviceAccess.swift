@@ -40,7 +40,7 @@ extension DeviceAccess {
 
 // MARK: - RegularOpening
 
-struct RegularOpening: Codable {
+struct RegularOpening: Decodable {
     var days: String?
     var hours: Hours?
     var allDays = false
@@ -73,7 +73,7 @@ extension RegularOpening {
 
 // MARK: - Hours
 
-struct Hours: Codable {
+struct Hours: Decodable {
     var from: String
     var to: String
 
