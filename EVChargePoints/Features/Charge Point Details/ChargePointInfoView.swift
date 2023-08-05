@@ -125,32 +125,29 @@ struct PaymentSection: View {
     @EnvironmentObject private var vm: ChargePointViewModel
 
     let chargeDevice: ChargeDevice
-    var deviceNetworks: [String] {
-        vm.separate(deviceNetworks: chargeDevice.deviceNetworks)
-    }
 
     var body: some View {
         Section("PAYMENT") {
             LabeledContent {
                 VStack {
-                    ForEach(0..<deviceNetworks.count, id: \.self) { networkCount in
+                    ForEach(chargeDevice.deviceNetworks, id: \.self) { deviceNetwork in
                         HStack {
-                            FormText(text: vm.displayNameFor(network: deviceNetworks[networkCount]))
+                            FormText(text: vm.displayNameFor(network: deviceNetwork))
                                 .fontWeight(.semibold)
 
-                            Image(vm.networkGraphicFor(network: deviceNetworks[networkCount]))
+                            Image(vm.networkGraphicFor(network: deviceNetwork))
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 44, alignment: .leading)
                         }
 
-                        if networkCount < deviceNetworks.count - 1 {
+                        if deviceNetwork != chargeDevice.deviceNetworks.last {
                             Divider()
                         }
                     }
                 }
             } label: {
-                FormLabel(label: deviceNetworks.count > 1 ? "NETWORKS" : "NETWORK")
+                FormLabel(label: chargeDevice.deviceNetworks.count > 1 ? "NETWORKS" : "NETWORK")
             }
 
             LabeledContent {
