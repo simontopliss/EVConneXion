@@ -12,13 +12,13 @@ import Foundation
 struct Connector: Decodable {
     var connectorId: String
     var connectorType: ConnectorType
-    var ratedOutputkW: String
-    var ratedOutputVoltage: String
-    var ratedOutputCurrent: String
+    var ratedOutputkW: Double
+    var ratedOutputVoltage: Int
+    var ratedOutputCurrent: Int
     var chargeMethod: ChargeMethod
     var chargeMode: String
     var chargePointStatus: ChargeStatus
-    var tetheredCable: TetheredCable
+    var tetheredCable: Bool
     var information: String?
     var validated: String
 
@@ -35,17 +35,27 @@ struct Connector: Decodable {
         case information         = "Information"
         case validated           = "Validated"
     }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.connectorId = try container.decode(String.self, forKey: .connectorId)
+        self.connectorType = try container.decode(ConnectorType.self, forKey: .connectorType)
+        self.ratedOutputkW = Double(try container.decode(String.self, forKey: .ratedOutputkW)) ?? 0.0
+        self.ratedOutputVoltage = Int(try container.decode(String.self, forKey: .ratedOutputVoltage)) ?? 0
+        self.ratedOutputCurrent = Int(try container.decode(String.self, forKey: .ratedOutputCurrent)) ?? 0
+        self.chargeMethod = try container.decode(ChargeMethod.self, forKey: .chargeMethod)
+        self.chargeMode = try container.decode(String.self, forKey: .chargeMode)
+        self.chargePointStatus = try container.decode(ChargeStatus.self, forKey: .chargePointStatus)
+        self.tetheredCable = (try container.decode(String.self, forKey: .tetheredCable)) == "1" ? true : false
+        self.information = try container.decodeIfPresent(String.self, forKey: .information)
+        self.validated = try container.decode(String.self, forKey: .validated)
+    }
 }
 
 enum ChargeStatus: String, Decodable {
     case inService     = "In service"
     case outOfService  = "Out of service"
     case planned       = "Planned"
-}
-
-enum TetheredCable: String, Decodable {
-    case tethered     = "1"
-    case notTethered  = "0"
 }
 
 enum ChargeMethod: String, Decodable, CaseIterable {
