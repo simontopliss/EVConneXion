@@ -86,12 +86,15 @@ final class FiltersViewModel: ObservableObject {
         )
     }
 
-    func applyFilters(chargeDevices: [ChargeDevice], connectorData: [ConnectorData]) {
+    func applyFilters(chargeDevices: [ChargeDevice], connectorData: [ConnectorData], networkData: [NetworkData]) {
         filteredDevices = []
 
         filterDevicesByAccess(chargeDevices: chargeDevices)
         filteredDevicesByLocation(chargeDevices: chargeDevices)
         filterDevicesByConnectorType(chargeDevices: chargeDevices, connectorData: connectorData)
+        filterDevicesByPayment(chargeDevices: chargeDevices)
+        filterDevicesByChargerType(chargeDevices: chargeDevices)
+        filterByNetwork(chargeDevices: chargeDevices, networkData: networkData)
     }
 
     func filterDevicesByAccess(chargeDevices: [ChargeDevice]) {
@@ -159,48 +162,91 @@ final class FiltersViewModel: ObservableObject {
     func filterDevicesByConnectorType(chargeDevices: [ChargeDevice], connectorData: [ConnectorData]) {
         let connectorFilters: [ConnectorData] = connectorData.filter { $0.setting == true }
         for chargeDevice in chargeDevices {
-            let connectors = chargeDevice.connector
-            for connector in connectors {
-                for connectorFilter in connectorFilters {
-                    if connectorFilter.connector == "ThreePinTypeG" {
-                        if connector.connectorType == .threePinTypeG && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "ChAdeMo" {
-                        if connector.connectorType == .chAdeMo && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Type1" {
-                        if connector.connectorType == .type1 && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Type2Mennekes" {
-                        if connector.connectorType == .type2Mennekes && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Type3Scame" {
-                        if connector.connectorType == .type3Scame && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "CcsType2Combo" {
-                        if connector.connectorType == .ccsType2Combo && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Type2Tesla" {
-                        if connector.connectorType == .type2Tesla && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Commando2PE" {
-                        if connector.connectorType == .commando2PE && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
-                        }
-                    } else if connectorFilter.connector == "Commando3PNE" {
-                        if connector.connectorType == .commando3PNE && !filteredDevices.contains(chargeDevice) {
-                            filteredDevices.append(chargeDevice)
+            if filteredDevices.contains(chargeDevice) == false {
+                let connectors = chargeDevice.connector
+                for connector in connectors {
+                    for connectorFilter in connectorFilters {
+                        if connectorFilter.connector == "ThreePinTypeG" {
+                            if connector.connectorType == .threePinTypeG {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "ChAdeMo" {
+                            if connector.connectorType == .chAdeMo {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Type1" {
+                            if connector.connectorType == .type1 {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Type2Mennekes" {
+                            if connector.connectorType == .type2Mennekes {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Type3Scame" {
+                            if connector.connectorType == .type3Scame {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "CcsType2Combo" {
+                            if connector.connectorType == .ccsType2Combo {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Type2Tesla" {
+                            if connector.connectorType == .type2Tesla {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Commando2PE" {
+                            if connector.connectorType == .commando2PE {
+                                filteredDevices.append(chargeDevice)
+                            }
+                        } else if connectorFilter.connector == "Commando3PNE" {
+                            if connector.connectorType == .commando3PNE {
+                                filteredDevices.append(chargeDevice)
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+
+    func filterDevicesByChargerType(chargeDevices: [ChargeDevice]) {
+        let slowCharge  = 3.0...5.0
+        let fastCharge  = 7.0...36.0
+        let rapidCharge = 43.0...350
+
+        for chargeDevice in chargeDevices {
+            if filteredDevices.contains(chargeDevice) == false {
+                let connectors = chargeDevice.connector
+                for connector in connectors {
+
+                    if chargerData.selectedSpeed == "Slow" && slowCharge ~= connector.ratedOutputkW {
+                        filteredDevices.append(chargeDevice)
+                    } else if chargerData.selectedSpeed == "Fast" && fastCharge ~= connector.ratedOutputkW  {
+                        filteredDevices.append(chargeDevice)
+                    } else if chargerData.selectedSpeed == "Rapid+" && connector.ratedOutputkW > 36.0  {
+                        filteredDevices.append(chargeDevice)
+                    }
+
+                    if chargerData.selectedMethod == "Single Phase AC" && connector.chargeMethod == .singlePhaseAc {
+                        filteredDevices.append(chargeDevice)
+                    } else if chargerData.selectedMethod == "Three Phase AC" && connector.chargeMethod == .threePhaseAc {
+                        filteredDevices.append(chargeDevice)
+                    } else if chargerData.selectedMethod == "DC" && connector.chargeMethod == .dc {
+                        filteredDevices.append(chargeDevice)
+                    }
+
+                    if chargerData.tetheredCable && connector.tetheredCable == true {
+                        filteredDevices.append(chargeDevice)
+                    }
+                }
+            }
+        }
+    }
+
+    func filterByNetwork(chargeDevices: [ChargeDevice], networkData: [NetworkData]) {
+        let networkFilters: [NetworkData] = networkData.filter { $0.setting == true }
+        for networkFilter in networkFilters {
+            filteredDevices.append(contentsOf: chargeDevices.filter { $0.deviceNetworks.contains(networkFilter.network) })
         }
     }
 }
