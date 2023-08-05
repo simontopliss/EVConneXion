@@ -301,8 +301,13 @@
 		6223CA542A3DEB6A00A87875 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6260D0F32A79400C005925C4 /* Model */,
 				625CEF5E2A6554C000A82048 /* National Chargepoint Registry */,
+				62918F2C2A76F76B0099418A /* AccessData.swift */,
+				62918F2F2A76FD8B0099418A /* ChargerData.swift */,
+				62918F3F2A77BDE00099418A /* ConnectorData.swift */,
+				62918F392A771BFF0099418A /* LocationData.swift */,
+				625CEF712A65934800A82048 /* NetworkData.swift */,
+				62918F332A7703A20099418A /* PaymentData.swift */,
 				628C330F2A61E8AE00232351 /* Address.swift */,
 				62B9EA882A72DC6600629421 /* DeviceMapItem.swift */,
 				626810442A616A020032C3CA /* MockChargePoints.swift */,
@@ -335,19 +340,6 @@
 				62FCCDC92A72A094004A9778 /* VM+NetworkData.swift */,
 			);
 			path = "Extensions to VM";
-			sourceTree = "<group>";
-		};
-		6260D0F32A79400C005925C4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				62918F2C2A76F76B0099418A /* AccessData.swift */,
-				62918F2F2A76FD8B0099418A /* ChargerData.swift */,
-				62918F3F2A77BDE00099418A /* ConnectorData.swift */,
-				62918F392A771BFF0099418A /* LocationData.swift */,
-				625CEF712A65934800A82048 /* NetworkData.swift */,
-				62918F332A7703A20099418A /* PaymentData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		62718B142A51D659004F0168 /* Networking */ = {
