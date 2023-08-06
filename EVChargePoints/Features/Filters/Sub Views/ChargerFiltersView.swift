@@ -51,7 +51,7 @@ extension ChargerFiltersView {
             // E.g. If DC is selected should the speed be set to Fast at a minimum?
             Picker("Supply", selection: $filtersViewModel.chargerData.selectedMethod) {
                 ForEach(filtersViewModel.chargerData.chargeMethods, id: \.self) {
-                    Text($0)
+                    Text($0.rawValue)
                 }
             }
             .onChange(of: filtersViewModel.chargerData.selectedMethod) {
