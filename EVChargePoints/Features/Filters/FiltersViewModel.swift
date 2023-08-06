@@ -127,7 +127,7 @@ final class FiltersViewModel: ObservableObject {
         var filterConnectorDevices: [ChargeDevice] = []
         let slowCharge = 3.0...5.0
         let fastCharge = 7.0...36.0
-        let rapidCharge = 43.0...350
+        // let rapidCharge = 43.0...350
 
         for chargeDevice in chargeDevices {
             if filterConnectorDevices.contains(chargeDevice) == false {
