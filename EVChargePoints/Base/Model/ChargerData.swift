@@ -8,13 +8,16 @@
 import Foundation
 
 struct ChargerData {
-    var chargeSpeeds    = ["Slow", "Fast", "Rapid+"]
-    var chargeMethods   = ["Single Phase AC", "Three Phase AC", "DC"]
-    var tetheredCable   = false
 
-    var selectedSpeed   = "Fast"
-    var selectedMethod  = "DC"
+    // MARK: - Charger Speed
 
+    enum ChargerSpeed: String, CaseIterable {
+        case slow = "Slow"
+        case fast = "Fast"
+        case rapid = "Rapid+"
+    }
+
+    var chargeSpeeds = ["Slow", "Fast", "Rapid+"]
     var chargeSpeedsSymbol: String {
         if selectedSpeed == "Slow" {
             return "gauge.with.dots.needle.bottom.0percent"
@@ -24,9 +27,17 @@ struct ChargerData {
             return "gauge.with.dots.needle.bottom.100percent"
         }
     }
+    var selectedSpeed = "Fast"
 
+    // MARK: - Charge Method
+
+    var chargeMethods: [ChargeMethod] = [.dc, .singlePhaseAc, .threePhaseAc]
     var chargeMethodsSymbol = "ev.charger"
+    var selectedMethod = ChargeMethod.dc
 
+    // MARK: - Charger Tethered Cable
+
+    var tetheredCable = false
     var tetheredCableSymbol: String {
         tetheredCable ? "powercord.fill" : "powercord"
     }
