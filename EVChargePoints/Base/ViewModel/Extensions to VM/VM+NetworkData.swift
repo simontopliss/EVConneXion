@@ -33,10 +33,10 @@ extension ChargePointViewModel {
     func networkGraphicFor(network: String) -> String {
         let item = networkData.first { $0.network == network }
 
-        guard let filename = item?.graphicName else { return "default-network-128x128" }
+        guard let filename = item?.graphicName else { return "default-network-128" }
         guard let fileURL = URL(string: filename) else {
             print("No network graphic found for \(network)")
-            return "default-network-128x128"
+            return "default-network-128"
         }
         return fileURL.deletingPathExtension().lastPathComponent
     }
@@ -44,13 +44,14 @@ extension ChargePointViewModel {
     /// Returns the connector graphics and total for each connector
     /// - Parameter connectors: array connectors of a charge device
     /// - Returns: Array of structs of ConnectorGraphic
-    func graphicsAndCountsFor(connectors: [Connector]) -> [ConnectorGraphic] {
+    func graphicsAndCountsFor(connectors: [Connector], colorScheme: ColorScheme) -> [ConnectorGraphic] {
 
         var connectorGraphics: [String] = []
         var connectorGraphicsAndCounts: [ConnectorGraphic] = []
 
         for connector in connectors {
-            let connectorType = connector.connectorType.rawValue // + ".svg"
+            let connectorType = connector.connectorType.rawValue
+            let graphicName = connectorGraphicFor(connectorType: connectorType, colorScheme: colorScheme)
             if connectorGraphics.contains(connectorType) {
                 for index in 0..<connectorGraphicsAndCounts.count {
                     if connectorGraphicsAndCounts[index].name == connectorType {
@@ -59,7 +60,11 @@ extension ChargePointViewModel {
                 }
             } else {
                 connectorGraphics.append(connectorType)
-                connectorGraphicsAndCounts.append(ConnectorGraphic(name: connectorType, count: 1))
+                connectorGraphicsAndCounts.append(ConnectorGraphic(
+                    name: connectorType,
+                    graphicName: graphicName,
+                    count: 1
+                ))
             }
         }
 
