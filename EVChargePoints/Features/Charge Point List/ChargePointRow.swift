@@ -19,7 +19,10 @@ struct ChargePointRow: View {
         vm.createAddress(chargeDevice: chargeDevice)
     }
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
-        vm.graphicsAndCountsFor(connectors: chargeDevice.connector)
+        vm.graphicsAndCountsFor(
+            connectors: chargeDevice.connector,
+            colorScheme: colorScheme
+        )
     }
 
     private let inset = 12.0
@@ -46,13 +49,14 @@ struct ChargePointRow: View {
                 .foregroundStyle(.white)
                 .padding(.vertical, 2)
                 .padding(.horizontal, 8)
-                .background(Color.accentColor, in: Capsule())
+                .background(AppColors.darkGreen, in: Capsule())
             }
             .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
 
             Text("Ref: \(chargeDevice.chargeDeviceRef.trim())")
                 .font(.caption)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
+                .foregroundStyle(.secondary)
 
             Text(chargeDevice.deviceNetworks.joined(separator: ",\n"))
                 .font(.subheadline)
@@ -64,12 +68,13 @@ struct ChargePointRow: View {
                 .font(.caption)
                 .multilineTextAlignment(.leading)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
+                .foregroundStyle(.secondary)
 
             HStack {
                 // Get the connector types and add a count next to the graphic
                 ForEach(connectorGraphicsAndCounts) { connector in
                     HStack {
-                        Image(connector.name)
+                        Image(connector.graphicName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 22)
