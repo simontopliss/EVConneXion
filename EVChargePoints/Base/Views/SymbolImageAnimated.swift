@@ -9,17 +9,25 @@ import SwiftUI
 
 struct SymbolImageAnimated: View {
 
-    let imageName: String
-    var tintImageName: String {
-        imageName + "-60"
+    @Environment(\.colorScheme) var colorScheme
+
+    let graphicName: String
+
+    var colorSchemeGraphicName: String {
+        colorScheme == .dark ? graphicName + "-i" : graphicName
     }
+
+    var tintGraphicName: String {
+        colorScheme == .dark ? graphicName + "-60-i" : graphicName + "-60"
+    }
+
     var symbolWidth: Double = Symbols.symbolWidth
     var symbolHeight: Double = Symbols.symbolHeight
 
     @Binding var toggled: Bool
 
     var body: some View {
-        Image(toggled == true ? imageName : tintImageName)
+        Image(toggled == true ? colorSchemeGraphicName : tintGraphicName)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(
@@ -39,7 +47,7 @@ struct SymbolImageAnimated: View {
 
 #Preview {
     SymbolImageAnimated(
-        imageName: "dealership-forecourt-128x128",
+        graphicName: "dealership-forecourt-128",
         toggled: .constant(true)
     )
 }
