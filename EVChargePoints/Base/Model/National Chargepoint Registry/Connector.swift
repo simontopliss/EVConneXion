@@ -81,5 +81,6 @@ enum ConnectorType: String, Decodable, CaseIterable {
 struct ConnectorGraphic: Identifiable {
     var id = UUID()
     var name: String
+    var graphicName: String
     var count: Int
 }
