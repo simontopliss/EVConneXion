@@ -18,7 +18,7 @@ struct LocationFiltersView: View {
                 ForEach($filtersViewModel.locationData) { filter in
                     ToggleWithGraphic(
                         displayName: filter.displayName.wrappedValue,
-                        imageName: filter.graphicName.wrappedValue,
+                        graphicName: filter.graphicName.wrappedValue,
                         toggled: filter.setting
                     )
                 }

@@ -19,7 +19,7 @@ struct ConnectorFiltersView: View {
                 ForEach($chargePointViewModel.connectorData) { filter in
                     ToggleWithGraphic(
                         displayName: filter.displayName.wrappedValue,
-                        imageName: filter.graphicName.wrappedValue,
+                        graphicName: filter.graphicName.wrappedValue,
                         toggled: filter.setting
                     )
                 }

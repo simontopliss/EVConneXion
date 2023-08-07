@@ -20,7 +20,7 @@ struct NetworkFiltersView: View {
                 ForEach($chargePointViewModel.networkData) { filter in
                     HStack {
                         SymbolImageAnimated(
-                            imageName: filter.graphicName.wrappedValue,
+                            graphicName: filter.graphicName.wrappedValue,
                             symbolWidth: 60.0,
                             symbolHeight: 40.0,
                             toggled: filter.setting
