@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChargePointDevicesView: View {
 
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var vm: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
 
@@ -88,40 +89,24 @@ struct DeviceOwnerSection: View {
 }
 
 struct ConnectionSection: View {
+
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var vm: ChargePointViewModel
+
     let connector: Connector
     var connectorCount: Int
-
-    var connectorTypeDisplayName: String {
-        switch connector.connectorType {
-            case .threePinTypeG:
-                return "3-pin"
-            case .chAdeMo:
-                return "CHAdeMO"
-            case .type1:
-                return "Type 1"
-            case .type2Mennekes:
-                return "Type 2 Mennekes"
-            case .type3Scame:
-                return "Type 3 Scame"
-            case .ccsType2Combo:
-                return "CCS Type 2 Combo"
-            case .type2Tesla:
-                return "Type 2 Tesla"
-            case .commando2PE:
-                return "Commando 2P+E"
-            case .commando3PNE:
-                return "Commando 3P+N+E"
-        }
-    }
 
     var body: some View {
         Section("CONNECTOR \(connectorCount + 1)") {
 
             LabeledContent {
-                FormText(text: connectorTypeDisplayName)
+                FormText(text: vm.displayNameFor(connectorType: connector.connectorType.rawValue))
                     .fontWeight(.semibold)
 
-                Image(connector.connectorType.rawValue)
+                Image(vm.connectorGraphicFor(
+                    connectorType: connector.connectorType.rawValue,
+                    colorScheme: colorScheme
+                ))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 36)
