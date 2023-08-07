@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ChargePointDetailView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
-
     enum SelectedView: String {
         case information = "Information"
         case devices = "Devices"
