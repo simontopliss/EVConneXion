@@ -78,7 +78,7 @@ final class EndpointTests: XCTestCase {
     func test_buildURL_succeedsForPostcode() {
         let postcodeURL = Endpoint.buildURL(
             requestType: .postcode("DE7 8LN"),
-            distance: 0,
+            distance: 0.0,
             limit: 5,
             units: .mi,
             country: .gb
@@ -86,14 +86,14 @@ final class EndpointTests: XCTestCase {
 
         XCTAssertEqual(
             postcodeURL,
-            "https://chargepoints.dft.gov.uk/api/retrieve/registry/postcode/DE7+8LN/dist/0/units/limit/5/mi/format/json"
+            "https://chargepoints.dft.gov.uk/api/retrieve/registry/postcode/DE7+8LN/dist/0.0/units/limit/5/mi/format/json"
         )
     }
 
     func test_buildURL_succeedsForPostTown() {
         let postTownURL = Endpoint.buildURL(
             requestType: .postTown("South Shields"),
-            distance: 0,
+            distance: 0.0,
             limit: 5,
             units: .mi,
             country: .gb
@@ -101,7 +101,7 @@ final class EndpointTests: XCTestCase {
 
         XCTAssertEqual(
             postTownURL,
-            "https://chargepoints.dft.gov.uk/api/retrieve/registry/post-town/South%20Shields/dist/0/units/limit/5/mi/format/json"
+            "https://chargepoints.dft.gov.uk/api/retrieve/registry/post-town/South%20Shields/dist/0.0/units/limit/5/mi/format/json"
         )
     }
 

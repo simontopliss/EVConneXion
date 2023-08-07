@@ -1,0 +1,981 @@
+{
+    "Scheme": {
+        "SchemeCode": "NA",
+        "SchemeData": {
+            "OrganisationName": "NA",
+            "Website": "NA",
+            "TelephoneNo": "NA"
+        }
+    },
+    "ChargeDevice": [
+        {
+            "ChargeDeviceId": "4ccc3735e387537e61269a976a33e412",
+            "ChargeDeviceRef": "CM1703",
+            "ChargeDeviceName": "Ron Brooks Toyota Ilkeston",
+            "ChargeDeviceText": "Restricted access to Toyota customers",
+            "ChargeDeviceLocation": {
+                "Latitude": "52.966772",
+                "Longitude": "-1.314395",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "The Gateway",
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Derby Road",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbyshire",
+                    "PostCode": "DE7 5FH",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": "Dealership forecourt",
+                "LocationLongDescription": "Dealership forecourt. Access for Toyota customers only. Please report to reception. Fitted under Midlands PiP"
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": "",
+            "PublishStatusID": "1",
+            "DateCreated": "2013-08-05 16:15:12",
+            "DateUpdated": "2021-03-16 10:27:29",
+            "Attribution": "BP-Pulse (POLAR)",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "0",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "Ron Brooks Toyota",
+                "SchemeCode": "O161",
+                "Website": "http://ronbrooks.toyota.co.uk",
+                "TelephoneNo": "0115 882 0226"
+            },
+            "DeviceController": {
+                "OrganisationName": "BP Pulse",
+                "SchemeCode": "BPPulse",
+                "Website": "https://www.bpchargemaster.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceAccess": {
+                "RegularOpenings": [
+                    {
+                        "Days": "Monday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Tuesday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Wednesday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Thursday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Friday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Saturday",
+                        "Hours": {
+                            "From": "08:00",
+                            "To": "18:00"
+                        }
+                    },
+                    {
+                        "Days": "Sunday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "16:00"
+                        }
+                    }
+                ],
+                "Open24Hours": true
+            },
+            "DeviceNetworks": "BP-Pulse (POLAR),Plugged-in Midlands",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "Y",
+            "RecordLastUpdated": "2020-05-03 16:21:07",
+            "RecordLastUpdatedBy": "Mer",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": "",
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": "",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": "",
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": "",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "Dealership forecourt",
+            "Bearing": null,
+            "Accessible24Hours": true
+        },
+        {
+            "ChargeDeviceId": "76d4a91e4e3ee83a467a2d783f390257",
+            "ChargeDeviceRef": "12156953P",
+            "ChargeDeviceName": "Bristol Street Motors Ilkeston Nissan 1",
+            "ChargeDeviceText": "Restricted access to Renault and Nissan customers\r\n",
+            "ChargeDeviceLocation": {
+                "Latitude": "52.966980",
+                "Longitude": "-1.311098",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": null,
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Derby Road",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbyshire",
+                    "PostCode": "DE7 5FH",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": "Dealership forecourt",
+                "LocationLongDescription": "Dealership forecourt. Front RH corner of dealership. Access to Nissan and Renault customers only. Please report to reception during working hours. Key operated. Fitted under Midlands PiP\r\n"
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2013-08-09 12:27:44",
+            "DateUpdated": "2021-04-09 10:10:28",
+            "Attribution": "*No Network",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "0",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "Vertu Group",
+                "SchemeCode": "O198",
+                "Website": "http://www.vertumotors.com",
+                "TelephoneNo": "0843 308 75 72"
+            },
+            "DeviceController": {
+                "OrganisationName": "metermanager",
+                "SchemeCode": "C229",
+                "Website": "https://secure.ss4meteronline.co.uk",
+                "TelephoneNo": "08448 73 31 21"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "*No Network",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": null,
+            "SubscriptionRequiredFlag": false,
+            "SubscriptionDetails": null,
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": null,
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": null,
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": null,
+            "OnStreetFlag": false,
+            "LocationType": "Other",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "3dff32f4dc3b6cf9ea2ebaa90cc97240",
+            "ChargeDeviceRef": "DBTDQ_ZCF038",
+            "ChargeDeviceName": "IKEA Nottingham",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "53.002666",
+                "Longitude": "-1.283308",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "",
+                    "BuildingNumber": "",
+                    "Thoroughfare": "Giltbrook",
+                    "Street": "",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Nottingham",
+                    "County": "Nottinghamshire",
+                    "PostCode": "NG16 2RP",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": ""
+            },
+            "ChargeDeviceManufacturer": "DBT",
+            "ChargeDeviceModel": "",
+            "PublishStatusID": "1",
+            "DateCreated": "2015-10-15 12:36:03",
+            "DateUpdated": "2016-11-24 10:12:17",
+            "Attribution": "GRIDSERVE Sustainable Energy",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "43.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "63",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "1",
+                    "Information": "x 7-pin Type 2 Mennekes – Rapid AC (43kW 120A)",
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "2",
+                    "ConnectorType": "JEVS G105 (CHAdeMO) DC",
+                    "RatedOutputkW": "50.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "125",
+                    "ChargeMethod": "DC",
+                    "ChargeMode": "4",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "1",
+                    "Information": "x 10-pin CHAdeMO – Rapid DC (50kW 120A)",
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "GRIDSERVE Sustainable Energy",
+                "SchemeCode": "ECOTCTY",
+                "Website": "https://www.gridserve.com",
+                "TelephoneNo": "0333 1234333"
+            },
+            "DeviceController": {
+                "OrganisationName": "GRIDSERVE Sustainable Energy",
+                "SchemeCode": "ECOTCTY",
+                "Website": "https://www.gridserve.com",
+                "TelephoneNo": "0333 1234333"
+            },
+            "DeviceAccess": {
+                "RegularOpenings": [
+                    {
+                        "Days": "Monday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Tuesday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Wednesday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Thursday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Friday",
+                        "Hours": {
+                            "From": "10:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Saturday",
+                        "Hours": {
+                            "From": "09:00",
+                            "To": "22:00"
+                        }
+                    },
+                    {
+                        "Days": "Sunday",
+                        "Hours": {
+                            "From": "11:00",
+                            "To": "17:00"
+                        }
+                    }
+                ]
+            },
+            "DeviceNetworks": "GRIDSERVE Sustainable Energy",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": true,
+            "PaymentDetails": "£6 for 30 minutes",
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": "www.electrichighway.co.uk",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": "",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "Retail car park",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "af65037895abdcc6042b4bf0b9f786f6",
+            "ChargeDeviceRef": "DCHS01",
+            "ChargeDeviceName": "Ilkeston Hospital",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.988770",
+                "Longitude": "-1.320366",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "Ilkeston Hospital",
+                    "BuildingNumber": "",
+                    "Thoroughfare": "Heanor Road",
+                    "Street": "",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbyshire",
+                    "PostCode": "DE7 8LN",
+                    "Country": "gb",
+                    "UPRN": ""
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": "After turning right from main hospital site entrance, the device is on wall of building on left side approximately 50m along access road "
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": "",
+            "PublishStatusID": "1",
+            "DateCreated": "2016-01-19 11:13:46",
+            "DateUpdated": "2021-12-14 13:29:06",
+            "Attribution": "D2N2",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "ILK01",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "ILK02",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "Derbyshire Community Health Services NHS FT",
+                "SchemeCode": "DCHSNHSFT",
+                "Website": "http://www.dchs.nhs.uk/",
+                "TelephoneNo": "01246 515581"
+            },
+            "DeviceController": {
+                "OrganisationName": "BP Pulse",
+                "SchemeCode": "BPPulse",
+                "Website": "https://www.bpchargemaster.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "D2N2",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "Y",
+            "RecordLastUpdated": "2021-12-14 13:29:06",
+            "RecordLastUpdatedBy": "Derbyshire Community Health Services NHS FT",
+            "PaymentRequiredFlag": true,
+            "PaymentDetails": "20p/Kwh, 50p minimum charge",
+            "SubscriptionRequiredFlag": false,
+            "SubscriptionDetails": "",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": "",
+            "AccessRestrictionFlag": true,
+            "AccessRestrictionDetails": "Hospital users, visitors and staff only during normal working week; unrestricted evenings and weekends.\r\n\r\nLimited during working hours to active charging period only or duration of hospital appointment/visiting, as space required for hospital users.   No time restrictions evenings and weekends.\r\n",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "NHS property",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "a666207268130f1d938c0dda6bd9fc21",
+            "ChargeDeviceRef": "80599",
+            "ChargeDeviceName": "80599",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.988960",
+                "Longitude": "-1.320430",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": "Ilkeston Hospital",
+                    "BuildingNumber": "",
+                    "Thoroughfare": "",
+                    "Street": "Heanor Road",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbys",
+                    "PostCode": "DE7 8LN",
+                    "Country": "gb",
+                    "UPRN": ""
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": ""
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": "",
+            "PublishStatusID": "1",
+            "DateCreated": "2019-04-27 16:36:34",
+            "DateUpdated": "2020-04-26 18:16:59",
+            "Attribution": "D2N2",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "2",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": "",
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "Derbyshire County Council",
+                "SchemeCode": "derbycc",
+                "Website": "https://www.derbyshire.gov.uk/",
+                "TelephoneNo": "01629 533190"
+            },
+            "DeviceController": {
+                "OrganisationName": "BP-Pulse (POLAR)",
+                "SchemeCode": "C224",
+                "Website": "https://www.chargemasterplc.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "D2N2",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "Y",
+            "RecordLastUpdated": "2020-04-26 18:16:44",
+            "RecordLastUpdatedBy": "NCR Admin",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": "",
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": "",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": "",
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": "",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "NHS property",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "360045b0d83a05ef34eb3e4044bf1197",
+            "ChargeDeviceRef": "CM11723",
+            "ChargeDeviceName": "Ilkeston Hospital",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.988960",
+                "Longitude": "-1.320432",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": null,
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Heanor Road",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "NA",
+                    "PostCode": "DE7 8LN",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": null
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2020-05-04 12:51:53",
+            "DateUpdated": "2023-07-12 15:10:06",
+            "Attribution": "BP-Pulse (POLAR)",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "2",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "22.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Three Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "BP-Pulse (POLAR)",
+                "SchemeCode": "POLAR",
+                "Website": "https://www.chargemasterplc.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceController": {
+                "OrganisationName": "BP Pulse",
+                "SchemeCode": "BPPulse",
+                "Website": "https://www.bpchargemaster.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "BP-Pulse (POLAR)",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "Y",
+            "RecordLastUpdated": "2023-07-12 16:10:06",
+            "RecordLastUpdatedBy": "BP Pulse",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": "",
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": "",
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": "",
+            "ParkingFeesUrl": "",
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": "Unit located by the estates",
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": "",
+            "OnStreetFlag": false,
+            "LocationType": "NHS property",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "f66b440fb50420757bc73916e5b70fe9",
+            "ChargeDeviceRef": "CM24723",
+            "ChargeDeviceName": "Pimlico Car Park",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.971794",
+                "Longitude": "-1.311135",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": null,
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Pimlico",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "NA",
+                    "PostCode": "DE7 8AA",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": null
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2020-05-13 18:02:50",
+            "DateUpdated": "2020-05-13 18:02:50",
+            "Attribution": "BP-Pulse (POLAR)",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "JEVS G105 (CHAdeMO) DC",
+                    "RatedOutputkW": "50.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "125",
+                    "ChargeMethod": "DC",
+                    "ChargeMode": "4",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "1",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "2",
+                    "ConnectorType": "JEVS G105 (CHAdeMO) DC",
+                    "RatedOutputkW": "50.0",
+                    "RatedOutputVoltage": "400",
+                    "RatedOutputCurrent": "125",
+                    "ChargeMethod": "DC",
+                    "ChargeMode": "4",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "1",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "BP-Pulse (POLAR)",
+                "SchemeCode": "POLAR",
+                "Website": "https://www.chargemasterplc.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceController": {
+                "OrganisationName": "BP Pulse",
+                "SchemeCode": "BPPulse",
+                "Website": "https://www.bpchargemaster.com",
+                "TelephoneNo": "01582 400331"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "BP-Pulse (POLAR)",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": null,
+            "SubscriptionRequiredFlag": true,
+            "SubscriptionDetails": null,
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": null,
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": null,
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": null,
+            "OnStreetFlag": false,
+            "LocationType": "Private home",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "2189cbf6a44f6b1663b9328edf808327",
+            "ChargeDeviceRef": "PG-84520",
+            "ChargeDeviceName": "Tesco Extra - Ilkeston Chalons Way",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.977643",
+                "Longitude": "-1.306799",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": null,
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Rutland Street",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbyshire",
+                    "PostCode": "DE7 8DG",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": null
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2021-05-04 12:59:34",
+            "DateUpdated": "2021-05-04 12:59:34",
+            "Attribution": "POD Point",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "0",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "*No Owner",
+                "SchemeCode": "NOOWN",
+                "Website": "http://www.national-charge-point-registry.uk/",
+                "TelephoneNo": "No phone number"
+            },
+            "DeviceController": {
+                "OrganisationName": "POD Point",
+                "SchemeCode": "PP",
+                "Website": "http://pod-point.com",
+                "TelephoneNo": "020 7247 4114"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "POD Point",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": null,
+            "SubscriptionRequiredFlag": false,
+            "SubscriptionDetails": null,
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": null,
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": null,
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": null,
+            "OnStreetFlag": false,
+            "LocationType": "Retail car park",
+            "Bearing": null,
+            "Accessible24Hours": false
+        },
+        {
+            "ChargeDeviceId": "dcb1306cdca4b7ebe22e52ed9cfdcefa",
+            "ChargeDeviceRef": "PG-70279",
+            "ChargeDeviceName": "Tesco Extra - Ilkeston Chalons Way",
+            "ChargeDeviceText": null,
+            "ChargeDeviceLocation": {
+                "Latitude": "52.977643",
+                "Longitude": "-1.306799",
+                "Address": {
+                    "SubBuildingName": null,
+                    "BuildingName": null,
+                    "BuildingNumber": null,
+                    "Thoroughfare": null,
+                    "Street": "Rutland Street",
+                    "DoubleDependantLocality": null,
+                    "DependantLocality": null,
+                    "PostTown": "Ilkeston",
+                    "County": "Derbyshire",
+                    "PostCode": "DE7 8DG",
+                    "Country": "gb",
+                    "UPRN": null
+                },
+                "LocationShortDescription": null,
+                "LocationLongDescription": null
+            },
+            "ChargeDeviceManufacturer": null,
+            "ChargeDeviceModel": null,
+            "PublishStatusID": "1",
+            "DateCreated": "2021-05-04 12:59:38",
+            "DateUpdated": "2021-05-04 12:59:38",
+            "Attribution": "POD Point",
+            "DateDeleted": "n/a",
+            "Connector": [
+                {
+                    "ConnectorId": "0",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                },
+                {
+                    "ConnectorId": "1",
+                    "ConnectorType": "Type 2 Mennekes (IEC62196)",
+                    "RatedOutputkW": "7.0",
+                    "RatedOutputVoltage": "230",
+                    "RatedOutputCurrent": "32",
+                    "ChargeMethod": "Single Phase AC",
+                    "ChargeMode": "3",
+                    "ChargePointStatus": "In service",
+                    "TetheredCable": "0",
+                    "Information": null,
+                    "Validated": "0"
+                }
+            ],
+            "DeviceOwner": {
+                "OrganisationName": "*No Owner",
+                "SchemeCode": "NOOWN",
+                "Website": "http://www.national-charge-point-registry.uk/",
+                "TelephoneNo": "No phone number"
+            },
+            "DeviceController": {
+                "OrganisationName": "POD Point",
+                "SchemeCode": "PP",
+                "Website": "http://pod-point.com",
+                "TelephoneNo": "020 7247 4114"
+            },
+            "DeviceAccess": [],
+            "DeviceNetworks": "POD Point",
+            "ChargeDeviceStatus": "In service",
+            "PublishStatus": "Published",
+            "DeviceValidated": "0",
+            "RecordModerated": "N",
+            "RecordLastUpdated": null,
+            "RecordLastUpdatedBy": "",
+            "PaymentRequiredFlag": false,
+            "PaymentDetails": null,
+            "SubscriptionRequiredFlag": false,
+            "SubscriptionDetails": null,
+            "ParkingFeesFlag": false,
+            "ParkingFeesDetails": null,
+            "ParkingFeesUrl": null,
+            "AccessRestrictionFlag": false,
+            "AccessRestrictionDetails": null,
+            "PhysicalRestrictionFlag": false,
+            "PhysicalRestrictionText": null,
+            "OnStreetFlag": false,
+            "LocationType": "Retail car park",
+            "Bearing": null,
+            "Accessible24Hours": false
+        }
+    ]
+}

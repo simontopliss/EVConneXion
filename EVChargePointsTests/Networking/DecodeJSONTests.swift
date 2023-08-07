@@ -89,7 +89,7 @@ final class DecodeJSONTests: XCTestCase {
 
         let connector = chargeDevice.connector.first!
         XCTAssertEqual(connector.connectorType.rawValue, "Type 2 Mennekes (IEC62196)")
-        XCTAssertEqual(connector.ratedOutputkW, "3.7")
+        XCTAssertEqual(connector.ratedOutputkW, 3.7)
         XCTAssertEqual(connector.chargeMethod.rawValue, "Single Phase AC")
     }
 
