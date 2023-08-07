@@ -32,10 +32,7 @@ struct RecentSearchesView: View {
             Button(role: .cancel) {
                 showSheet.toggle()
             } label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title)
-                    .foregroundStyle(.black.opacity(0.20))
-                    .background(.white, in: .circle)
+                XmarkButtonView(foregroundColor: .primary.opacity(0.2))
             }
             .padding([.top, .trailing])
         }
@@ -44,4 +41,5 @@ struct RecentSearchesView: View {
 
 #Preview {
     RecentSearchesView(showSheet: .constant(true))
+        .environment(\.colorScheme, .dark)
 }
