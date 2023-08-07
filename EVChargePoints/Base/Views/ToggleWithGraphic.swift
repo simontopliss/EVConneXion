@@ -10,7 +10,7 @@ import SwiftUI
 struct ToggleWithGraphic: View {
 
     let displayName: String
-    let imageName: String
+    let graphicName: String
     var symbolWidth: Double = Symbols.symbolWidth
     var symbolHeight: Double = Symbols.symbolHeight
 
@@ -19,7 +19,7 @@ struct ToggleWithGraphic: View {
     var body: some View {
         HStack {
             SymbolImageAnimated(
-                imageName: imageName,
+                graphicName: graphicName,
                 toggled: $toggled
             )
             Toggle(isOn: $toggled) {
@@ -33,7 +33,7 @@ struct ToggleWithGraphic: View {
 #Preview {
     ToggleWithGraphic(
         displayName: "Dealership Forecourt",
-        imageName: "dealership-forecourt-128x128",
+        graphicName: "dealership-forecourt-128",
         toggled: .constant(true)
     )
 }
