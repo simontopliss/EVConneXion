@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MapView: View {
 
+    @Environment(\.colorScheme) var colorScheme
+
     @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
@@ -38,7 +40,7 @@ struct MapView: View {
     /// User Location Animation
     @State private var delay: Double = 0
     @State private var userLocationScale: CGFloat = 0.6
-    @State private var pinScale: CGFloat = 1.0
+    @State private var pinScale: CGFloat = 0.75
     @State private var duration = 0.8
 
     /// Search Sheet
@@ -58,7 +60,7 @@ struct MapView: View {
 
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
-//                            pinScale = 1.3
+                            //pinScale = 1.0
                             deviceSelected = chargeDevice
                             withAnimation(.snappy) {
                                 // TODO: Move the camera up a bit to accommodate the MapDetails detent
@@ -67,11 +69,11 @@ struct MapView: View {
                         } label: {
                             MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
                         }
-//                        .scaleEffect(deviceSelected == chargeDevice ? pinScale : 1.0, anchor: .bottom)
+                        .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
 //                        .animation(
 //                            deviceSelected != chargeDevice ? .none :
 //                                Animation.easeInOut(duration: duration)
-//                                .repeatForever().delay(delay), value: pinScale
+//                                .repeatForever().delay(delay), value: deviceSelected
 //                        )
 //                        .onAppear {
 //                            withAnimation {
@@ -100,26 +102,16 @@ struct MapView: View {
             .toolbarBackground(.visible, for: .navigationBar, .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button {
-//                        // Open FiltersView
-//                    } label: {
-//                        NavigationLink(destination: Route.filtersView) {}
-//                        Symbols.filterSymbol
-//                    }
-//                }
-
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        // Open SearchView as detent
-//                        if showDetails {
-//                            withAnimation {  dismiss() }
-//                            showDetails = false
-//                        }
-                        withAnimation {
-                            dismiss()
+                        withAnimation(.snappy) {
+                            showDetails = false
                         }
-                        showSearch.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            withAnimation(.snappy) {
+                                showSearch.toggle()
+                            }
+                        }
                     } label: {
                         Symbols.searchSymbol
                     }
@@ -195,7 +187,7 @@ extension MapView {
         ZStack {
             Circle()
                 .frame(width: 32, height: 32)
-                .foregroundStyle(.pink.opacity(0.25))
+                .foregroundStyle(colorScheme == .dark ? .pink.opacity(0.50) : .pink.opacity(0.25))
 
             Circle()
                 .frame(width: 20, height: 20)
@@ -289,10 +281,7 @@ extension MapView {
                         deviceSelected = nil
                     }
                 }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                        .foregroundStyle(.black)
-                        .background(.white, in: .circle)
+                        XmarkButtonView()
                 })
                 .padding(10)
             }
