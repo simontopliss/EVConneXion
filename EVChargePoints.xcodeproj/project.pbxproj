@@ -86,6 +86,7 @@
 		62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
+		62DFF0582A805CB2004B8CAA /* XmarkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */; };
 		62E16DDB2A72D77500DB3B01 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E16DDA2A72D77500DB3B01 /* LocationDetailsView.swift */; };
 		62FCCDCA2A72A094004A9778 /* VM+NetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCCDC92A72A094004A9778 /* VM+NetworkData.swift */; };
 /* End PBXBuildFile section */
@@ -182,6 +183,7 @@
 		62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointDevicesView.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmarkButtonView.swift; sourceTree = "<group>"; };
 		62E16DDA2A72D77500DB3B01 /* LocationDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		62FCCDC92A72A094004A9778 /* VM+NetworkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VM+NetworkData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +216,7 @@
 				62B777B82A79B8C700C3857F /* SFSymbolImageAnimated.swift */,
 				62B777C72A7AA8B800C3857F /* ToggleWithGraphic.swift */,
 				62B777C62A7AA8B800C3857F /* ToggleWithSymbol.swift */,
+				62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,12 +358,7 @@
 		62718B152A51D661004F0168 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				62B777BA2A7A853000C3857F /* AccessData.json */,
-				62B777BD2A7A853100C3857F /* ChargerData.json */,
-				62B777BC2A7A853100C3857F /* ConnectorData.json */,
-				62B777CA2A7AAC6300C3857F /* LocationData.json */,
-				6285AFE22A7AF92900F78AD7 /* NetworkData.json */,
-				62B777BB2A7A853000C3857F /* PaymentData.json */,
+				62D3FFAD2A816D63004D3F5A /* Data */,
 				628FDF1D2A75881400E85672 /* Test JSON */,
 			);
 			path = JSON;
@@ -596,6 +594,19 @@
 			path = "Charge Point Details";
 			sourceTree = "<group>";
 		};
+		62D3FFAD2A816D63004D3F5A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				62B777BA2A7A853000C3857F /* AccessData.json */,
+				62B777BD2A7A853100C3857F /* ChargerData.json */,
+				62B777BC2A7A853100C3857F /* ConnectorData.json */,
+				62B777CA2A7AAC6300C3857F /* LocationData.json */,
+				6285AFE22A7AF92900F78AD7 /* NetworkData.json */,
+				62B777BB2A7A853000C3857F /* PaymentData.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		62DFA7492A6D3FDF00208E1B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +750,7 @@
 				625CEF722A65934800A82048 /* NetworkData.swift in Sources */,
 				62B777B92A79B8C700C3857F /* SFSymbolImageAnimated.swift in Sources */,
 				62718B332A52038F004F0168 /* DecodeJSON.swift in Sources */,
+				62DFF0582A805CB2004B8CAA /* XmarkButtonView.swift in Sources */,
 				625CEF642A65563100A82048 /* Connector.swift in Sources */,
 				6255F90D2A72A178006FF6C9 /* VM+DistanceFormatting.swift in Sources */,
 				62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */,
