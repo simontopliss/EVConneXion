@@ -9,21 +9,21 @@
   {
     "DisplayName" : "Access Restriction",
     "DataName" : "AccessRestrictionFlag",
-    "Setting" : 1,
+    "Setting" : 0,
     "Symbol" : "slash.circle",
     "Access" : "AccessRestriction"
   },
   {
     "DisplayName" : "Parking Fees",
     "DataName" : "ParkingFeesFlag",
-    "Setting" : 1,
+    "Setting" : 0,
     "Symbol" : "parkingsign.circle",
     "Access" : "ParkingFees"
   },
   {
     "DisplayName" : "Physical Restriction",
     "DataName" : "PhysicalRestrictionFlag",
-    "Setting" : 1,
+    "Setting" : 0,
     "Symbol" : "wrongwaysign",
     "Access" : "PhysicalRestriction"
   }

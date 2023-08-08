@@ -33,7 +33,7 @@ struct ToggleWithGraphic: View {
 #Preview {
     ToggleWithGraphic(
         displayName: "Dealership Forecourt",
-        graphicName: "dealership-forecourt-128",
+        graphicName: "dealership-forecourt",
         toggled: .constant(true)
     )
 }

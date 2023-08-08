@@ -3,21 +3,21 @@
     "DisplayName" : "Rated Output kW",
     "DataName" : "RatedOutputkW",
     "DisplayValues" : "3.0, 3.7, 4.8, 5.0, 7.0, 11.0, 22.0, 36.0, 43.0, 50.0, 60.0, 75.0, 100.0, 120.0, 150.0, 175.0, 300.0, 350.0",
-    "Setting" : "350.0",
+    "Setting" : 350,
     "Symbol" : "gauge.with.dots.needle.bottom.0percent"
   },
   {
     "DisplayName" : "Rated Output Voltage",
     "DataName" : "RatedOutputVoltage",
     "DisplayValues" : "220, 230, 400, 500, 600, 930",
-    "Setting" : "930",
+    "Setting" : 930,
     "Symbol" : "gauge.with.dots.needle.bottom.50percent"
   },
   {
     "DisplayName" : "Rated Output Current",
     "DataName" : "RatedOutputCurrent",
     "DisplayValues" : "7, 13, 16, 32, 60, 63, 90, 120, 125, 190, 250, 300, 375, 500",
-    "Setting" : "500",
+    "Setting" : 500,
     "Symbol" : "gauge.with.dots.needle.bottom.100percent"
   },
   {
@@ -31,7 +31,7 @@
     "DisplayName" : "Tethered Cable",
     "DataName" : "TetheredCable",
     "DisplayValues" : "",
-    "Setting" : "1",
+    "Setting" : 1,
     "Symbol" : "powercord"
   }
 ]

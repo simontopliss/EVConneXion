@@ -18,7 +18,7 @@ struct SymbolImageAnimated: View {
     }
 
     var tintGraphicName: String {
-        colorScheme == .dark ? graphicName + "-60-i" : graphicName + "-60"
+        colorScheme == .dark ? graphicName + "-40-i" : graphicName + "-40"
     }
 
     var symbolWidth: Double = Symbols.symbolWidth
@@ -47,7 +47,7 @@ struct SymbolImageAnimated: View {
 
 #Preview {
     SymbolImageAnimated(
-        graphicName: "dealership-forecourt-128",
+        graphicName: "dealership-forecourt",
         toggled: .constant(true)
     )
 }

@@ -33,10 +33,10 @@ extension ChargePointViewModel {
     func networkGraphicFor(network: String) -> String {
         let item = networkData.first { $0.network == network }
 
-        guard let filename = item?.graphicName else { return "default-network-128" }
+        guard let filename = item?.graphicName else { return "default-network" }
         guard let fileURL = URL(string: filename) else {
             print("No network graphic found for \(network)")
-            return "default-network-128"
+            return "default-network"
         }
         return fileURL.deletingPathExtension().lastPathComponent
     }
