@@ -15,10 +15,9 @@ struct EVChargePointsApp: App {
 
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
-    @StateObject private var routerManager         = NavigationRouter()
-    @StateObject private var locationManager       = LocationManager()
-    @StateObject private var filtersViewModel      = FiltersViewModel()
-    @StateObject private var dataManager           = DataManager()
+    @StateObject private var dataManager      = DataManager()
+    @StateObject private var locationManager  = LocationManager()
+    @StateObject private var routerManager    = NavigationRouter()
 
     var body: some Scene {
         WindowGroup {
@@ -28,27 +27,18 @@ struct EVChargePointsApp: App {
                         Label(Tabs.map.label, systemImage: Tabs.map.icon)
                     }
                     .tag(Tabs.map)
-                    .environmentObject(routerManager)
-                    .environmentObject(locationManager)
-                    .environmentObject(filtersViewModel)
 
                 ChargePointListView()
                     .tabItem {
                         Label(Tabs.list.label, systemImage: Tabs.list.icon)
                     }
                     .tag(Tabs.list)
-                    .environmentObject(routerManager)
-                    .environmentObject(locationManager)
-                    .environmentObject(filtersViewModel)
 
                 FiltersView()
                     .tabItem {
                         Label(Tabs.filters.label, systemImage: Tabs.filters.icon)
                     }
                     .tag(Tabs.filters)
-                    .environmentObject(routerManager)
-                    .environmentObject(filtersViewModel)
-                    .environmentObject(dataManager)
 
                 SettingsView()
                     .tabItem {
@@ -58,6 +48,9 @@ struct EVChargePointsApp: App {
             }
             .tint(.accentColor)
         }
+        .environmentObject(dataManager)
+        .environmentObject(locationManager)
+        .environmentObject(routerManager)
     }
 }
 
