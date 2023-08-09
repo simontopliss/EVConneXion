@@ -60,7 +60,6 @@ struct MapView: View {
 
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
-                            //pinScale = 1.0
                             deviceSelected = chargeDevice
                             withAnimation(.snappy) {
                                 // TODO: Move the camera up a bit to accommodate the MapDetails detent
@@ -70,16 +69,6 @@ struct MapView: View {
                             MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
                         }
                         .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
-//                        .animation(
-//                            deviceSelected != chargeDevice ? .none :
-//                                Animation.easeInOut(duration: duration)
-//                                .repeatForever().delay(delay), value: deviceSelected
-//                        )
-//                        .onAppear {
-//                            withAnimation {
-//                                self.pinScale = 1.0
-//                            }
-//                        }
                     }
                     .tag(chargeDevice.id)
                 }
@@ -97,7 +86,7 @@ struct MapView: View {
                 mapControls()
             }
             .mapScope(locationSpace)
-            .navigationTitle("Map")
+            .navigationTitle("Charge Device Locations")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.visible, for: .navigationBar, .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
