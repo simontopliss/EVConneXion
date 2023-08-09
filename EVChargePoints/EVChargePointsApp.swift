@@ -52,6 +52,7 @@ struct EVChargePointsApp: App {
                     .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
                     .environmentObject(filtersViewModel)
+                    .environmentObject(dataManager)
 
                 SettingsView()
                     .tabItem {

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ChargerFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     @State private var methodChanged = false
     @State private var speedChanged = false
@@ -34,8 +33,7 @@ struct ChargerFiltersView: View {
 
 #Preview {
     ChargerFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
+        .environmentObject(DataManager())
 }
 
 extension ChargerFiltersView {
@@ -43,18 +41,18 @@ extension ChargerFiltersView {
     func chargingMethod() -> some View {
         HStack {
             SFSymbolImageBounce(
-                symbolName: filtersViewModel.chargerData.chargeMethodsSymbol,
+                symbolName: dataManager.chargerData.chargeMethodsSymbol,
                 toggled: $methodChanged
             )
 
             // TODO: I think I need to change the corresponding Method/Speed depending on what is selected.
             // E.g. If DC is selected should the speed be set to Fast at a minimum?
-            Picker("Supply", selection: $filtersViewModel.chargerData.selectedMethod) {
-                ForEach(filtersViewModel.chargerData.chargeMethods, id: \.self) {
+            Picker("Supply", selection: $dataManager.chargerData.selectedMethod) {
+                ForEach(dataManager.chargerData.chargeMethods, id: \.self) {
                     Text($0.rawValue)
                 }
             }
-            .onChange(of: filtersViewModel.chargerData.selectedMethod) {
+            .onChange(of: dataManager.chargerData.selectedMethod) {
                 methodChanged.toggle()
             }
         }
@@ -67,16 +65,16 @@ extension ChargerFiltersView {
     func chargingSpeed() -> some View {
         HStack {
             SFSymbolImageBounce(
-                symbolName: filtersViewModel.chargerData.chargeSpeedsSymbol,
+                symbolName: dataManager.chargerData.chargeSpeedsSymbol,
                 toggled: $speedChanged
             )
 
-            Picker("Charger Speed", selection: $filtersViewModel.chargerData.selectedSpeed) {
-                ForEach(filtersViewModel.chargerData.chargeSpeeds, id: \.self) {
+            Picker("Charger Speed", selection: $dataManager.chargerData.selectedSpeed) {
+                ForEach(dataManager.chargerData.chargeSpeeds, id: \.self) {
                     Text($0)
                 }
             }
-            .onChange(of: filtersViewModel.chargerData.selectedSpeed) {
+            .onChange(of: dataManager.chargerData.selectedSpeed) {
                 speedChanged.toggle()
             }
         }
@@ -89,15 +87,15 @@ extension ChargerFiltersView {
     func tetheredCable() -> some View {
         HStack {
             SFSymbolImageBounce(
-                symbolName: filtersViewModel.chargerData.tetheredCableSymbol,
+                symbolName: dataManager.chargerData.tetheredCableSymbol,
                 toggled: $tetheredChanged
             )
 
             // If DC is selected, should tethered by selected too?
-            Toggle(isOn: $filtersViewModel.chargerData.tetheredCable) {
+            Toggle(isOn: $dataManager.chargerData.tetheredCable) {
                 Text("Tethered Cable")
             }
-            .onChange(of: filtersViewModel.chargerData.tetheredCable) {
+            .onChange(of: dataManager.chargerData.tetheredCable) {
                 tetheredChanged.toggle()
             }
         }

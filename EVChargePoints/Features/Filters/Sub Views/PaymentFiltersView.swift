@@ -10,12 +10,12 @@ import SwiftUI
 struct PaymentFiltersView: View {
 
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
         Form {
             Section("Payment") {
-                ForEach($filtersViewModel.paymentData) { filter in
+                ForEach($dataManager.paymentData) { filter in
                    ToggleWithSymbol(
                         displayName: filter.displayName.wrappedValue,
                         symbolName: filter.symbol.wrappedValue,
@@ -29,6 +29,5 @@ struct PaymentFiltersView: View {
 
 #Preview {
     PaymentFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
+        .environmentObject(DataManager())
 }

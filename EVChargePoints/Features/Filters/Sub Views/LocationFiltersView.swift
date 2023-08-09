@@ -9,13 +9,12 @@ import SwiftUI
 
 struct LocationFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
         Form {
             Section("Location") {
-                ForEach($filtersViewModel.locationData) { filter in
+                ForEach($dataManager.locationData) { filter in
                     ToggleWithGraphic(
                         displayName: filter.displayName.wrappedValue,
                         graphicName: filter.graphicName.wrappedValue,
@@ -29,6 +28,5 @@ struct LocationFiltersView: View {
 
 #Preview {
     LocationFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
+        .environmentObject(DataManager())
 }

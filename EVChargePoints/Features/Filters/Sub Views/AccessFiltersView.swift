@@ -9,13 +9,12 @@ import SwiftUI
 
 struct AccessFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
         Form {
             Section("Access") {
-                ForEach($filtersViewModel.accessData) { filter in
+                ForEach($dataManager.accessData) { filter in
                     ToggleWithSymbol(
                         displayName: filter.displayName.wrappedValue,
                         symbolName: filter.symbol.wrappedValue,
@@ -29,6 +28,5 @@ struct AccessFiltersView: View {
 
 #Preview {
     AccessFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
+        .environmentObject(DataManager())
 }
