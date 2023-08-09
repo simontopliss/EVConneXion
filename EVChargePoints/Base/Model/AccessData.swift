@@ -12,29 +12,32 @@ struct AccessData: Identifiable, Codable {
     var dataName: String
     var displayName: String
     var symbol: String
-    var setting: Bool {
-        didSet { saveData() }
-    }
+    var setting: Bool
+//    var userSetting: Bool
 }
 
 extension AccessData {
     enum CodingKeys: String, CodingKey {
-        case id           = "ID"
-        case dataName     = "DataName"
-        case displayName  = "DisplayName"
-        case symbol       = "Symbol"
-        case setting      = "Setting"
+        case id          = "ID"
+        case dataName    = "DataName"
+        case displayName = "DisplayName"
+        case symbol      = "Symbol"
+        case setting     = "Setting"
     }
 }
 
 extension AccessData {
     init(from decoder: Decoder) throws {
-        let container  = try decoder.container(keyedBy: CodingKeys.self)
-        id             = try container.decode(UUID.self, forKey: .id)
-        dataName       = try container.decode(String.self, forKey: .dataName)
-        displayName    = try container.decode(String.self, forKey: .displayName)
-        symbol         = try container.decode(String.self, forKey: .symbol)
-        setting        = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id            = try container.decode(UUID.self, forKey: .id)
+        dataName      = try container.decode(String.self, forKey: .dataName)
+        displayName   = try container.decode(String.self, forKey: .displayName)
+        symbol        = try container.decode(String.self, forKey: .symbol)
+        setting       = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+
+//        userSetting = UserDefaults.standard.bool(forKey: "\(id)")
+//        print("userSetting: \(userSetting)")
+//        print("setting: \(setting)")
     }
 }
 

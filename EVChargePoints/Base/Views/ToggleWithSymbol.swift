@@ -27,6 +27,9 @@ struct ToggleWithSymbol: View {
                 Text(displayName)
             }
             .tag(itemID)
+//            .onTapGesture {
+//                UserDefaults.standard.set(toggled, forKey: "\(itemID)")
+//            }
         }
         .font(.headline)
         .foregroundStyle(AppColors.textColor)
