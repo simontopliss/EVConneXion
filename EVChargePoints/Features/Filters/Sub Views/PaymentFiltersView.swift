@@ -19,7 +19,8 @@ struct PaymentFiltersView: View {
                    ToggleWithSymbol(
                         displayName: filter.displayName.wrappedValue,
                         symbolName: filter.symbol.wrappedValue,
-                        toggled: filter.setting
+                        toggled: filter.setting,
+                        itemID: filter.id
                     )
                 }
             }

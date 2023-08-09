@@ -18,7 +18,8 @@ struct LocationFiltersView: View {
                     ToggleWithGraphic(
                         displayName: filter.displayName.wrappedValue,
                         graphicName: filter.graphicName.wrappedValue,
-                        toggled: filter.setting
+                        toggled: filter.setting,
+                        itemID: filter.id
                     )
                 }
             }

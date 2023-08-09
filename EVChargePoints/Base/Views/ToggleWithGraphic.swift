@@ -15,6 +15,7 @@ struct ToggleWithGraphic: View {
     var symbolHeight: Double = Symbols.symbolHeight
 
     @Binding var toggled: Bool
+    var itemID: UUID
 
     var body: some View {
         HStack {
@@ -25,6 +26,7 @@ struct ToggleWithGraphic: View {
             Toggle(isOn: $toggled) {
                 Text(displayName)
             }
+            .tag(itemID)
         }
         .padding(.vertical, 4)
     }
@@ -34,6 +36,7 @@ struct ToggleWithGraphic: View {
     ToggleWithGraphic(
         displayName: "Dealership Forecourt",
         graphicName: "dealership-forecourt",
-        toggled: .constant(true)
+        toggled: .constant(true),
+        itemID: UUID()
     )
 }

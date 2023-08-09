@@ -13,8 +13,9 @@ struct ToggleWithSymbol: View {
     let symbolName: String
     var symbolWidth: Double = Symbols.symbolWidth
     var symbolHeight: Double = Symbols.symbolHeight
-
+    
     @Binding var toggled: Bool
+    var itemID: UUID
 
     var body: some View {
         HStack {
@@ -25,6 +26,7 @@ struct ToggleWithSymbol: View {
             Toggle(isOn: $toggled) {
                 Text(displayName)
             }
+            .tag(itemID)
         }
         .font(.headline)
         .foregroundStyle(AppColors.textColor)
@@ -36,6 +38,7 @@ struct ToggleWithSymbol: View {
     ToggleWithSymbol(
         displayName: "Payment Required",
         symbolName: "sterlingsign.circle",
-        toggled: .constant(true)
+        toggled: .constant(true),
+        itemID: UUID()
     )
 }
