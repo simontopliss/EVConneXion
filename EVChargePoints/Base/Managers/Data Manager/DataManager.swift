@@ -22,23 +22,24 @@ final class DataManager: ObservableObject {
 
     // TODO: Is `limit` required?
     private(set) var limit = 0
-    // private(set) var units: Endpoint.RegistryDataType.Unit = .mi
     private(set) var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
+
+    //@AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
         chargeDevices = ChargePointData.mockChargeDevices
         chargeDevices.sort(by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser })
-        /// Load JSON files
 
-        loadNetworkData()
-        loadConnectorTypes()
+        // Load JSON files
         loadAccessData()
+        loadConnectorTypes()
         loadLocationData()
+        loadNetworkData()
         loadPaymentData()
     }
 
@@ -176,7 +177,7 @@ extension DataManager {
     }
 
     func filterDevicesByConnector(chargeDevices: [ChargeDevice], connectorData: [ConnectorData]) -> [ChargeDevice] {
-        let filteredConnectorTypes: [String] = connectorData.filter { $0.setting == true }.map { $0.dataName }
+        let filteredConnectorTypes: [String] = connectorData.filter { $0.setting == true }.map { $0.connectorType.rawValue }
 
         let filteredConnectorDevices = chargeDevices.filter { chargeDevice in
             chargeDevice.connector.contains(where: { connector in
@@ -187,7 +188,7 @@ extension DataManager {
     }
 
     func filterDevicesByLocation(chargeDevices: [ChargeDevice]) -> [ChargeDevice] {
-        let filteredLocationTypes: [String] = locationData.filter { $0.setting == true }.map { $0.dataName }
+        let filteredLocationTypes: [String] = locationData.filter { $0.setting == true }.map { $0.locationType.rawValue }
 
         let filteredLocationDevices = chargeDevices.filter { chargeDevice in
             filteredLocationTypes.contains(chargeDevice.locationType.rawValue)
@@ -211,11 +212,11 @@ extension DataManager {
         let filteredPaymentTypes: [PaymentData] = paymentData.filter { $0.setting == true }
 
         for filteredPaymentType in filteredPaymentTypes {
-            if filteredPaymentType.payment == "PaymentRequired" {
+            if filteredPaymentType.dataName == "PaymentRequiredFlag" {
                 filteredPaymentDevices.append(contentsOf: chargeDevices.filter {
                     $0.paymentRequiredFlag == filteredPaymentType.setting
                 })
-            } else if filteredPaymentType.payment == "SubscriptionRequired" {
+            } else if filteredPaymentType.dataName == "SubscriptionRequiredFlag" {
                 filteredPaymentDevices.append(contentsOf: chargeDevices.filter {
                     $0.subscriptionRequiredFlag == filteredPaymentType.setting
                 })

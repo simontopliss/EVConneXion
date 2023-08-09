@@ -18,7 +18,7 @@ extension DataManager {
     }
 
     func connectorGraphicFor(connectorType: String, colorScheme: ColorScheme) -> String {
-        let item = connectorData.first { $0.dataName == connectorType }
+        let item = connectorData.first { $0.connectorType.rawValue == connectorType }
 
         guard let graphicName = item?.graphicName else {
             // TODO: Should probably handle a missing graphic
@@ -30,7 +30,7 @@ extension DataManager {
     }
 
     func displayNameFor(connectorType: String) -> String {
-        let item = connectorData.first { $0.dataName == connectorType }
+        let item = connectorData.first { $0.connectorType.rawValue == connectorType }
 
         guard let displayName = item?.displayName else {
             fatalError("No display name for for \(connectorType)")
