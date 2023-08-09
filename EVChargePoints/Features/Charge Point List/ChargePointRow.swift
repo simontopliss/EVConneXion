@@ -11,13 +11,13 @@ import SwiftUI
 struct ChargePointRow: View {
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var locationManager: LocationManager
 
     var chargeDevice: ChargeDevice
 
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
-        vm.graphicsAndCountsFor(
+        dataManager.graphicsAndCountsFor(
             connectors: chargeDevice.connector,
             colorScheme: colorScheme
         )
@@ -36,9 +36,9 @@ struct ChargePointRow: View {
                 Spacer()
 
                 Text(
-                    vm.getFormattedDistance(
+                    dataManager.getFormattedDistance(
                         distance: chargeDevice.deviceMapItem.distanceFromUser,
-                        unit: vm.units
+                        unit: dataManager.units
                     )
                 )
                 .font(.subheadline)
@@ -98,7 +98,7 @@ struct ChargePointRow: View {
     ChargePointRow(
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .environmentObject(ChargePointViewModel())
+    .environmentObject(DataManager())
     .environmentObject(LocationManager())
     .background(AppColors.backgroundColor)
     .padding()

@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ConnectorFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
         Form {
             Section("Connector") {
-                ForEach($chargePointViewModel.connectorData) { filter in
+                ForEach($dataManager.connectorData) { filter in
                     ToggleWithGraphic(
                         displayName: filter.displayName.wrappedValue,
                         graphicName: filter.graphicName.wrappedValue,
@@ -30,7 +28,5 @@ struct ConnectorFiltersView: View {
 
 #Preview {
     ConnectorFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(DataManager())
 }

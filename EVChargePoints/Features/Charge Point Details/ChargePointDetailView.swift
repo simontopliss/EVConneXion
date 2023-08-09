@@ -48,7 +48,7 @@ struct ChargePointDetailView: View {
             chargeDevice: ChargePointData.mockChargeDevice
         )
     }
-    .environmentObject(ChargePointViewModel())
+    .environmentObject(DataManager())
 }
 
 struct FormText: View {

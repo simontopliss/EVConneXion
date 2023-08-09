@@ -10,8 +10,7 @@ import SwiftUI
 struct ChargePointDevicesView: View {
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var vm: ChargePointViewModel
-    @EnvironmentObject private var routerManager: NavigationRouter
+    @EnvironmentObject private var dataManager: DataManager
 
     let chargeDevice: ChargeDevice
 
@@ -30,8 +29,7 @@ struct ChargePointDevicesView: View {
     ChargePointDevicesView(
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .environmentObject(ChargePointViewModel())
-    .environmentObject(NavigationRouter())
+    .environmentObject(DataManager())
 }
 
 struct DeviceOwnerSection: View {
@@ -91,7 +89,7 @@ struct DeviceOwnerSection: View {
 struct ConnectionSection: View {
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     let connector: Connector
     var connectorCount: Int
@@ -100,10 +98,10 @@ struct ConnectionSection: View {
         Section("CONNECTOR \(connectorCount + 1)") {
 
             LabeledContent {
-                FormText(text: vm.displayNameFor(connectorType: connector.connectorType.rawValue))
+                FormText(text: dataManager.displayNameFor(connectorType: connector.connectorType.rawValue))
                     .fontWeight(.semibold)
 
-                Image(vm.connectorGraphicFor(
+                Image(dataManager.connectorGraphicFor(
                     connectorType: connector.connectorType.rawValue,
                     colorScheme: colorScheme
                 ))

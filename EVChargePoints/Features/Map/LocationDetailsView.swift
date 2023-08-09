@@ -10,10 +10,9 @@ import MapKit
 
 struct LocationDetailsView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    var chargeDevice: ChargeDevice
 
     @Binding var mapSelection: MKMapItem?
-    var chargeDevice: ChargeDevice
     @Binding var show: Bool
     @Binding var getDirections: Bool
 
@@ -114,10 +113,9 @@ extension LocationDetailsView {
 
 #Preview {
     LocationDetailsView(
+        chargeDevice: ChargePointData.mockChargeDevice, 
         mapSelection: .constant(nil),
-        chargeDevice: ChargePointData.mockChargeDevice,
         show: .constant(true),
         getDirections: .constant(true)
     )
-    .environmentObject(ChargePointViewModel())
 }

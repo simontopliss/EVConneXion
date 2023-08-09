@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChargePointInfoView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
 
     let chargeDevice: ChargeDevice
@@ -30,13 +30,13 @@ struct ChargePointInfoView: View {
     ChargePointInfoView(
         chargeDevice: ChargePointData.mockChargeDevice
     )
-    .environmentObject(ChargePointViewModel())
+    .environmentObject(DataManager())
     .environmentObject(NavigationRouter())
 }
 
 struct LocationSection: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     let chargeDevice: ChargeDevice
 
@@ -119,7 +119,7 @@ struct ParkingSection: View {
 }
 
 struct PaymentSection: View {
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     let chargeDevice: ChargeDevice
 
@@ -129,10 +129,10 @@ struct PaymentSection: View {
                 VStack {
                     ForEach(chargeDevice.deviceNetworks, id: \.self) { deviceNetwork in
                         HStack {
-                            FormText(text: vm.displayNameFor(network: deviceNetwork))
+                            FormText(text: dataManager.displayNameFor(network: deviceNetwork))
                                 .fontWeight(.semibold)
 
-                            Image(vm.networkGraphicFor(network: deviceNetwork))
+                            Image(dataManager.networkGraphicFor(network: deviceNetwork))
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 44, alignment: .leading)
@@ -180,7 +180,7 @@ struct PaymentSection: View {
 
 struct DeviceAccessSection: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     let deviceAccess: DeviceAccess
 
@@ -214,8 +214,8 @@ extension DeviceAccessSection {
     @ViewBuilder
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]) -> some View {
 
-        let openingDays = vm.openingsDaysFor(regularOpenings: regularOpenings)
-        let openingHours = vm.openingsHoursFor(regularOpenings: regularOpenings)
+        let openingDays = dataManager.openingsDaysFor(regularOpenings: regularOpenings)
+        let openingHours = dataManager.openingsHoursFor(regularOpenings: regularOpenings)
 
         HStack {
             Text("REGULAR OPENINGS")

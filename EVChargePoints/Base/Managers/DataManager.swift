@@ -3,17 +3,73 @@ import SwiftUI
 
 final class DataManager: ObservableObject {
 
+    @Published var chargeDevices: [ChargeDevice] = []
+    @Published var networkData: [NetworkData] = []
+    @Published var connectorData: [ConnectorData] = []
+
+    @Published var distance: Double = 10.0
+    @Published var units: Endpoint.RegistryDataType.Unit = .mi
+
+    @Published private(set) var error: NetworkManager.NetworkError?
+    @Published private(set) var isLoading = false
+    @Published var hasError = false
+
     @Published var accessData: [AccessData] = []
     @Published var chargerData: ChargerData = .init()
     @Published var locationData: [LocationData] = []
     @Published var paymentData: [PaymentData] = []
     @Published var filteredDevices: [ChargeDevice] = []
 
-    init() {
+    // TODO: Is `limit` required?
+    private(set) var limit = 0
+    // private(set) var units: Endpoint.RegistryDataType.Unit = .mi
+    private(set) var country: Endpoint.RegistryDataType.Country = .gb
+
+    // Dependency Injection of NetworkManagerImpl protocol
+    private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
+
+    // Constructor uses DI for testing
+    init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
+        self.networkManager = networkManager
+        chargeDevices = ChargePointData.mockChargeDevices
+        chargeDevices.sort(by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser })
         /// Load JSON files
+
+        loadNetworkData()
+        loadConnectorTypes()
         loadAccessData()
         loadLocationData()
         loadPaymentData()
+    }
+
+    // MARK: - API Call
+
+    @MainActor
+    func fetchChargeDevices(requestType: Endpoint.RequestType) async {
+
+        let url = Endpoint.buildURL(
+            requestType: requestType,
+            distance: distance,
+            limit: limit,
+            units: units,
+            country: country
+        )
+
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            chargeDevices = chargePointData.chargeDevices
+            // dump(chargePointData.chargeDevices[0])
+        } catch {
+            hasError = true
+            if let networkError = error as? NetworkManager.NetworkError {
+                self.error = networkError
+            } else {
+                self.error = .custom(error: error)
+            }
+        }
     }
 
     func loadAccessData() {

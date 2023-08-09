@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChargePointListView: View {
 
-    @EnvironmentObject private var vm: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
@@ -19,7 +19,7 @@ struct ChargePointListView: View {
         NavigationStack(path: $routerManager.routes) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
-                    ForEach(vm.chargeDevices) { chargeDevice in
+                    ForEach(dataManager.chargeDevices) { chargeDevice in
                         NavigationLink(value: Route.chargePointDetail(chargeDevice: chargeDevice)) {
                             ChargePointRow(chargeDevice: chargeDevice)
                         }
@@ -33,8 +33,8 @@ struct ChargePointListView: View {
             .navigationDestination(for: Route.self) { $0 }
             .buttonStyle(PlainButtonStyle())
             // .task {
-            //      await vm.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
-            //      await vm.fetchChargeDevices(requestType: .postTown("South Shields"))
+            //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
+            //      await dataManager.fetchChargeDevices(requestType: .postTown("South Shields"))
             // }
         }
     }
@@ -42,7 +42,7 @@ struct ChargePointListView: View {
 
 #Preview {
     ChargePointListView()
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(DataManager())
         .environmentObject(NavigationRouter())
         .environmentObject(LocationManager())
 }

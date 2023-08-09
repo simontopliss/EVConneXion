@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ChargePointViewModel {
+extension DataManager {
 
     func regularOpeningsBuilder(regularOpenings: [RegularOpening]?) -> ([String], [String]) {
         var openingDays: [String] = []

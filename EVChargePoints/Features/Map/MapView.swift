@@ -12,7 +12,7 @@ struct MapView: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
@@ -56,7 +56,7 @@ struct MapView: View {
                 }
                 .annotationTitles(.hidden)
 
-                ForEach(chargePointViewModel.chargeDevices) { chargeDevice in
+                ForEach(dataManager.chargeDevices) { chargeDevice in
 
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
@@ -176,7 +176,7 @@ struct MapView: View {
 
 #Preview {
     MapView()
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(DataManager())
         .environmentObject(NavigationRouter())
         .environmentObject(LocationManager())
 }
@@ -212,7 +212,7 @@ extension MapView {
     }
 
     func networkColor(attribution: String) -> Color {
-        chargePointViewModel.networkColorFor(network: attribution) ?? Color.accentColor
+        dataManager.networkColorFor(network: attribution) ?? Color.accentColor
     }
 }
 

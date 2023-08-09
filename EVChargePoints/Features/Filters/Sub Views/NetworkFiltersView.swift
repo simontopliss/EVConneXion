@@ -9,15 +9,13 @@ import SwiftUI
 
 struct NetworkFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var filtersViewModel: FiltersViewModel
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
         Form {
             Section("Network") {
                 // TODO: Would user want to sort this list?
-                ForEach($chargePointViewModel.networkData) { filter in
+                ForEach($dataManager.networkData) { filter in
                     HStack {
                         SymbolImageAnimated(
                             graphicName: filter.graphicName.wrappedValue,
@@ -42,7 +40,5 @@ struct NetworkFiltersView: View {
 
 #Preview {
     NetworkFiltersView()
-        .environmentObject(FiltersViewModel())
-        .environmentObject(NavigationRouter())
-        .environmentObject(ChargePointViewModel())
+        .environmentObject(DataManager())
 }

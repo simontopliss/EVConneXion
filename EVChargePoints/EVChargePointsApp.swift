@@ -15,7 +15,6 @@ struct EVChargePointsApp: App {
 
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
-    @StateObject private var chargePointViewModel  = ChargePointViewModel()
     @StateObject private var routerManager         = NavigationRouter()
     @StateObject private var locationManager       = LocationManager()
     @StateObject private var filtersViewModel      = FiltersViewModel()
@@ -29,7 +28,6 @@ struct EVChargePointsApp: App {
                         Label(Tabs.map.label, systemImage: Tabs.map.icon)
                     }
                     .tag(Tabs.map)
-                    .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
                     .environmentObject(locationManager)
                     .environmentObject(filtersViewModel)
@@ -39,7 +37,6 @@ struct EVChargePointsApp: App {
                         Label(Tabs.list.label, systemImage: Tabs.list.icon)
                     }
                     .tag(Tabs.list)
-                    .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
                     .environmentObject(locationManager)
                     .environmentObject(filtersViewModel)
@@ -49,7 +46,6 @@ struct EVChargePointsApp: App {
                         Label(Tabs.filters.label, systemImage: Tabs.filters.icon)
                     }
                     .tag(Tabs.filters)
-                    .environmentObject(chargePointViewModel)
                     .environmentObject(routerManager)
                     .environmentObject(filtersViewModel)
                     .environmentObject(dataManager)

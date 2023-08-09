@@ -11,10 +11,10 @@ struct FiltersView: View {
 
     @EnvironmentObject private var filtersViewModel: FiltersViewModel
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var chargePointViewModel: ChargePointViewModel
+    @EnvironmentObject private var dataManager: DataManager
 
     var maximumDistanceLabel: String {
-        "\(Int(chargePointViewModel.distance)) \(chargePointViewModel.units == .mi ? "miles" : "kilometres")"
+        "\(Int(dataManager.distance)) \(dataManager.units == .mi ? "miles" : "kilometres")"
     }
 
     var body: some View {
@@ -86,9 +86,9 @@ struct FiltersView: View {
     NavigationStack {
         FiltersView()
     }
+    .environmentObject(DataManager())
     .environmentObject(FiltersViewModel())
     .environmentObject(NavigationRouter())
-    .environmentObject(ChargePointViewModel())
 }
 
 extension FiltersView {
@@ -103,7 +103,7 @@ extension FiltersView {
             .font(.body)
 
             Slider(
-                value: $chargePointViewModel.distance,
+                value: $dataManager.distance,
                 in: 5...100,
                 step: 5
             ) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ChargePointViewModel {
+extension DataManager {
 
     /// Returns a formatted distance string
     /// - Parameters:

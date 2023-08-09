@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension ChargePointViewModel {
+extension DataManager {
 
     /// Loads the network data from a JSON file
     func loadNetworkData() {
