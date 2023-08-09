@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct LocationData: Identifiable {
+struct LocationData: Identifiable, Codable {
     let id = UUID()
-    var location: String
-    var dataName: String
+    var locationType: LocationType
     var displayName: String
     var graphicName: String
     var setting: Bool
@@ -18,7 +17,7 @@ struct LocationData: Identifiable {
 
 extension LocationData {
     enum CodingKeys: String, CodingKey {
-        case location     = "Location"
+        case locationType = "LocationType"
         case dataName     = "DataName"
         case displayName  = "DisplayName"
         case graphicName  = "GraphicName"
@@ -26,13 +25,19 @@ extension LocationData {
     }
 }
 
-extension LocationData: Decodable {
+extension LocationData {
     init(from decoder: Decoder) throws {
         let container  = try decoder.container(keyedBy: CodingKeys.self)
-        location       = try container.decode(String.self, forKey: .location)
-        dataName       = try container.decode(String.self, forKey: .dataName)
+        locationType   = try container.decode(LocationType.self, forKey: .locationType)
         displayName    = try container.decode(String.self, forKey: .displayName)
         graphicName    = try container.decode(String.self, forKey: .graphicName)
         setting        = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+    }
+}
+
+extension LocationData {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.setting, forKey: .setting)
     }
 }

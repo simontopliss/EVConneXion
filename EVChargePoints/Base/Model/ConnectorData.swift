@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct ConnectorData: Identifiable {
+struct ConnectorData: Identifiable, Codable {
     let id = UUID()
-    var connector: String
-    var dataName: String
+    var connectorType: ConnectorType
     var displayName: String
     var graphicName: String
     var setting: Bool
@@ -18,21 +17,26 @@ struct ConnectorData: Identifiable {
 
 extension ConnectorData {
     enum CodingKeys: String, CodingKey {
-        case connector    = "Connector"
-        case dataName     = "DataName"
-        case displayName  = "DisplayName"
-        case graphicName  = "GraphicName"
-        case setting      = "Setting"
+        case connectorType  = "ConnectorType"
+        case displayName    = "DisplayName"
+        case graphicName    = "GraphicName"
+        case setting        = "Setting"
     }
 }
 
-extension ConnectorData: Decodable {
+extension ConnectorData {
     init(from decoder: Decoder) throws {
         let container  = try decoder.container(keyedBy: CodingKeys.self)
-        connector      = try container.decode(String.self, forKey: .connector)
-        dataName       = try container.decode(String.self, forKey: .dataName)
+        connectorType  = try container.decode(ConnectorType.self, forKey: .connectorType)
         displayName    = try container.decode(String.self, forKey: .displayName)
         graphicName    = try container.decode(String.self, forKey: .graphicName)
         setting        = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+    }
+}
+
+extension ConnectorData {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.setting, forKey: .setting)
     }
 }

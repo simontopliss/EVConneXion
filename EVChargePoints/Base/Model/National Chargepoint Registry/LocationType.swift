@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - LocationType
 
-enum LocationType: String, Decodable, CaseIterable {
+enum LocationType: String, Codable, CaseIterable {
     case dealershipForecourt            = "Dealership forecourt"
     case educationalEstablishment       = "Educational establishment"
     case hotelAccommodation             = "Hotel / Accommodation"

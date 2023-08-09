@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Connector
 
-struct Connector: Decodable {
+struct Connector: Codable {
     var connectorId: String
     var connectorType: ConnectorType
     var ratedOutputkW: Double
@@ -50,21 +50,26 @@ struct Connector: Decodable {
         self.information = try container.decodeIfPresent(String.self, forKey: .information)
         self.validated = try container.decode(String.self, forKey: .validated)
     }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.connectorType, forKey: .connectorType)
+    }
 }
 
-enum ChargeStatus: String, Decodable {
+enum ChargeStatus: String, Codable {
     case inService     = "In service"
     case outOfService  = "Out of service"
     case planned       = "Planned"
 }
 
-enum ChargeMethod: String, Decodable, CaseIterable {
+enum ChargeMethod: String, Codable, CaseIterable {
     case dc             = "DC"
     case singlePhaseAc  = "Single Phase AC"
     case threePhaseAc   = "Three Phase AC"
 }
 
-enum ConnectorType: String, Decodable, CaseIterable {
+enum ConnectorType: String, Codable, CaseIterable {
     case threePinTypeG  = "3-pin Type G (BS1363)"
     case chAdeMo        = "JEVS G105 (CHAdeMO) DC"
     case type1          = "Type 1 SAEJ1772 (IEC 62196)"

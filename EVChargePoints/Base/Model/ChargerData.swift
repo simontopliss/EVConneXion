@@ -7,15 +7,9 @@
 
 import Foundation
 
-struct ChargerData {
+struct ChargerData: Codable {
 
     // MARK: - Charger Speed
-
-    enum ChargerSpeed: String, CaseIterable {
-        case slow = "Slow"
-        case fast = "Fast"
-        case rapid = "Rapid+"
-    }
 
     var chargeSpeeds = ["Slow", "Fast", "Rapid+"]
     var chargeSpeedsSymbol: String {
@@ -40,5 +34,22 @@ struct ChargerData {
     var tetheredCable = false
     var tetheredCableSymbol: String {
         tetheredCable ? "powercord.fill" : "powercord"
+    }
+}
+
+extension ChargerData {
+    enum ChargerSpeed: String, CaseIterable {
+        case slow = "Slow"
+        case fast = "Fast"
+        case rapid = "Rapid+"
+    }
+}
+
+extension ChargerData {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.selectedSpeed, forKey: .selectedSpeed)
+        try container.encode(self.selectedMethod, forKey: .selectedMethod)
+        try container.encode(self.tetheredCable, forKey: .tetheredCable)
     }
 }

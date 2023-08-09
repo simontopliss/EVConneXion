@@ -12,7 +12,7 @@ import Foundation
 /// - Shell Recharge Solutions and Shell Recharge
 /// - SSE Energy Solutions and SSE
 
-struct NetworkData: Identifiable {
+struct NetworkData: Identifiable, Codable {
     let id = UUID()
     var network: String
     var displayName: String
@@ -39,7 +39,7 @@ extension NetworkData {
     }
 }
 
-extension NetworkData: Decodable {
+extension NetworkData {
     init(from decoder: Decoder) throws {
         let container     = try decoder.container(keyedBy: CodingKeys.self)
         self.network      = try container.decode(String.self, forKey: .network)
@@ -53,7 +53,6 @@ extension NetworkData: Decodable {
 }
 
 extension NetworkData {
-    
     struct RGBValue {
         let red: Double
         let green: Double
@@ -71,5 +70,12 @@ extension NetworkData {
                 green  = 0.0
             }
         }
+    }
+}
+
+extension NetworkData {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.setting, forKey: .setting)
     }
 }
