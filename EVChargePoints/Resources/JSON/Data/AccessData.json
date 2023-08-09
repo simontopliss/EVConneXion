@@ -1,30 +1,30 @@
 [
   {
-    "DisplayName" : "Accessible 24 Hours",
+    "ID" : "2753ADD2-797F-4F64-BD55-D5D33E178970",
     "DataName" : "Accessible24Hours",
+    "DisplayName" : "Accessible 24 Hours",
     "Setting" : 1,
-    "Symbol" : "24.circle",
-    "Access" : "Accessible24Hours"
+    "Symbol" : "24.circle"
   },
   {
-    "DisplayName" : "Access Restriction",
+    "ID" : "F017594F-203C-4866-A19D-1E0DF45817B8",
     "DataName" : "AccessRestrictionFlag",
+    "DisplayName" : "Access Restriction",
     "Setting" : 0,
-    "Symbol" : "slash.circle",
-    "Access" : "AccessRestriction"
+    "Symbol" : "slash.circle"
   },
   {
-    "DisplayName" : "Parking Fees",
+    "ID" : "7DDB8453-C55E-4510-A2E5-2DFE44666C98",
     "DataName" : "ParkingFeesFlag",
+    "DisplayName" : "Parking Fees",
     "Setting" : 0,
-    "Symbol" : "parkingsign.circle",
-    "Access" : "ParkingFees"
+    "Symbol" : "parkingsign.circle"
   },
   {
-    "DisplayName" : "Physical Restriction",
+    "ID" : "005E7ED5-4285-4DC0-B01D-0E9ABD5AC8C0",
     "DataName" : "PhysicalRestrictionFlag",
+    "DisplayName" : "Physical Restriction",
     "Setting" : 0,
-    "Symbol" : "wrongwaysign",
-    "Access" : "PhysicalRestriction"
+    "Symbol" : "wrongwaysign"
   }
 ]

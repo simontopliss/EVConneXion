@@ -3,14 +3,12 @@
     "DisplayName" : "Payment Required",
     "DataName" : "PaymentRequiredFlag",
     "Setting" : 1,
-    "Payment" : "PaymentRequired",
     "Symbol" : "sterlingsign.circle"
   },
   {
     "DisplayName" : "Subscription Required",
     "DataName" : "SubscriptionRequiredFlag",
     "Setting" : 0,
-    "Payment" : "SubscriptionRequired",
     "Symbol" : "creditcard.trianglebadge.exclamationmark"
   }
 ]

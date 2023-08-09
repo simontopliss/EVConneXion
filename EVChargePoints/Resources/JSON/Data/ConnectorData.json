@@ -1,65 +1,56 @@
 [
   {
     "DisplayName" : "3-pin Type G",
-    "DataName" : "3-pin Type G (BS1363)",
-    "Connector" : "ThreePinTypeG",
     "Setting" : 0,
-    "GraphicName" : "3-pin-type-g"
+    "GraphicName" : "3-pin-type-g",
+    "ConnectorType" : "3-pin Type G (BS1363)"
   },
   {
     "DisplayName" : "CHAdeMO",
-    "DataName" : "JEVS G105 (CHAdeMO) DC",
-    "Connector" : "ChAdeMo",
     "Setting" : 1,
-    "GraphicName" : "chademo"
+    "GraphicName" : "chademo",
+    "ConnectorType" : "JEVS G105 (CHAdeMO) DC"
   },
   {
     "DisplayName" : "Type 1",
-    "DataName" : "Type 1 SAEJ1772 (IEC 62196)",
-    "Connector" : "Type1",
     "Setting" : 0,
-    "GraphicName" : "type-1"
+    "GraphicName" : "type-1",
+    "ConnectorType" : "Type 1 SAEJ1772 (IEC 62196)"
   },
   {
     "DisplayName" : "Type 2 Mennekes",
-    "DataName" : "Type 2 Mennekes (IEC62196)",
-    "Connector" : "Type2Mennekes",
     "Setting" : 0,
-    "GraphicName" : "type-2-mennekes"
+    "GraphicName" : "type-2-mennekes",
+    "ConnectorType" : "Type 2 Mennekes (IEC62196)"
   },
   {
     "DisplayName" : "Type 3 Scame",
-    "DataName" : "Type 3 Scame (IEC62196)",
-    "Connector" : "Type3Scame",
     "Setting" : 0,
-    "GraphicName" : "type-3-scame"
+    "GraphicName" : "type-3-scame",
+    "ConnectorType" : "Type 3 Scame (IEC62196)"
   },
   {
     "DisplayName" : "CCS Type 2 Combo",
-    "DataName" : "CCS Type 2 Combo (IEC62196)",
-    "Connector" : "CcsType2Combo",
     "Setting" : 0,
-    "GraphicName" : "ccs-type-2-combo"
+    "GraphicName" : "ccs-type-2-combo",
+    "ConnectorType" : "CCS Type 2 Combo (IEC62196)"
   },
   {
     "DisplayName" : "Type 2 Tesla",
-    "DataName" : "Type 2 Tesla (IEC62196) DC",
-    "Connector" : "Type2Tesla",
     "Setting" : 0,
-    "GraphicName" : "type-2-tesla"
+    "GraphicName" : "type-2-tesla",
+    "ConnectorType" : "Type 2 Tesla (IEC62196) DC"
   },
   {
     "DisplayName" : "Commando 2P+E",
-    "DataName" : "Commando 2P+E (IEC60309)",
-    "Connector" : "Commando2PE",
     "Setting" : 0,
-    "GraphicName" : "commando-2pe"
+    "GraphicName" : "commando-2pe",
+    "ConnectorType" : "Commando 2P+E (IEC60309)"
   },
   {
     "DisplayName" : "Commando 3P+N+E",
-    "DataName" : "Commando 3P+N+E (IEC60309)",
-    "Connector" : "Commando3PNE",
     "Setting" : 0,
-    "GraphicName" : "commando-3pne"
+    "GraphicName" : "commando-3pne",
+    "ConnectorType" : "Commando 3P+N+E (IEC60309)"
   }
 ]
