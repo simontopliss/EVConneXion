@@ -329,15 +329,16 @@
 			path = "National Chargepoint Registry";
 			sourceTree = "<group>";
 		};
-		625EB14A2A72A02200E36AA3 /* Extensions to DataManager */ = {
+		625EB14A2A72A02200E36AA3 /* Data Manager */ = {
 			isa = PBXGroup;
 			children = (
+				62D9B4942A83A1AD00FB26A4 /* DataManager.swift */,
 				628FDF222A758BA000E85672 /* DataManager+ConnectorTypes.swift */,
 				6255F90C2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift */,
 				625EB1482A72A01E00E36AA3 /* DataManager+RegularOpenings.swift */,
 				62FCCDC92A72A094004A9778 /* DataManager+NetworkData.swift */,
 			);
-			path = "Extensions to DataManager";
+			path = "Data Manager";
 			sourceTree = "<group>";
 		};
 		62718B142A51D659004F0168 /* Networking */ = {
@@ -605,8 +606,7 @@
 		62DFA7492A6D3FDF00208E1B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				625EB14A2A72A02200E36AA3 /* Extensions to DataManager */,
-				62D9B4942A83A1AD00FB26A4 /* DataManager.swift */,
+				625EB14A2A72A02200E36AA3 /* Data Manager */,
 				62DFA74A2A6D400000208E1B /* LocationManager.swift */,
 				6223CA482A3CF46E00A87875 /* NetworkManager.swift */,
 			);

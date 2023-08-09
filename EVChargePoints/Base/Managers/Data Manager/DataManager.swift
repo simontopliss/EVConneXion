@@ -92,6 +92,11 @@ final class DataManager: ObservableObject {
             type: [PaymentData].self
         )
     }
+}
+
+// MARK: - Filters
+
+extension DataManager {
 
     func applyFilters(chargeDevices: [ChargeDevice], connectorData: [ConnectorData], networkData: [NetworkData]) {
         var filteredDevices: [ChargeDevice] = []
