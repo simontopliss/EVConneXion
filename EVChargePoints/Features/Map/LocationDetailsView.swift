@@ -19,10 +19,6 @@ struct LocationDetailsView: View {
 
     @State private var lookAroundScene: MKLookAroundScene?
 
-    var address: Address {
-        return vm.createAddress(chargeDevice: chargeDevice)
-    }
-
     var body: some View {
         VStack {
             HStack {
@@ -31,7 +27,7 @@ struct LocationDetailsView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
 
-                    Text(address.singleLineAddress)
+                    Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
                         .font(.footnote)
                         .foregroundStyle(.gray)
                         .lineLimit(2)

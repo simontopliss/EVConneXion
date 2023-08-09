@@ -39,9 +39,6 @@ struct LocationSection: View {
     @EnvironmentObject private var vm: ChargePointViewModel
 
     let chargeDevice: ChargeDevice
-    var address: Address {
-        vm.createAddress(chargeDevice: chargeDevice)
-    }
 
     var description: String {
         if Validator.isValid(chargeDevice.chargeDeviceLocation.locationShortDescription) &&
@@ -75,7 +72,7 @@ struct LocationSection: View {
             }
 
             LabeledContent {
-                FormText(text: address.fullAddress)
+                FormText(text: chargeDevice.chargeDeviceLocation.fullAddress)
             } label: {
                 FormLabel(label: "ADDRESS")
             }

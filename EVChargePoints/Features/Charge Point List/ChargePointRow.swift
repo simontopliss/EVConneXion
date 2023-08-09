@@ -15,9 +15,7 @@ struct ChargePointRow: View {
     @EnvironmentObject private var locationManager: LocationManager
 
     var chargeDevice: ChargeDevice
-    var address: Address {
-        vm.createAddress(chargeDevice: chargeDevice)
-    }
+
     var connectorGraphicsAndCounts: [ConnectorGraphic] {
         vm.graphicsAndCountsFor(
             connectors: chargeDevice.connector,
@@ -64,7 +62,7 @@ struct ChargePointRow: View {
                 .multilineTextAlignment(.leading)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
 
-            Text(address.singleLineAddress)
+            Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
                 .font(.caption)
                 .multilineTextAlignment(.leading)
                 .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
