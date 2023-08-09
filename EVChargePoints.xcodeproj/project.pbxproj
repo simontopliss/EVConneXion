@@ -84,6 +84,7 @@
 		62D3FFFD2A8288AC004D3F5A /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFF72A8288AC004D3F5A /* LocationData.json */; };
 		62D3FFFE2A8288AC004D3F5A /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFF82A8288AC004D3F5A /* NetworkData.json */; };
 		62D3FFFF2A8288AC004D3F5A /* PaymentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFF92A8288AC004D3F5A /* PaymentData.json */; };
+		62D9B4952A83A1AD00FB26A4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9B4942A83A1AD00FB26A4 /* DataManager.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
 		62DFF0582A805CB2004B8CAA /* XmarkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */; };
@@ -181,6 +182,7 @@
 		62D3FFFA2A8288AC004D3F5A /* AccessData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AccessData.json; sourceTree = "<group>"; };
 		62D3FFFB2A8288AC004D3F5A /* ChargerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChargerData.json; sourceTree = "<group>"; };
 		62D3FFFC2A8288AC004D3F5A /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
+		62D9B4942A83A1AD00FB26A4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmarkButtonView.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 		62DFA7492A6D3FDF00208E1B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				62D9B4942A83A1AD00FB26A4 /* DataManager.swift */,
 				62DFA74A2A6D400000208E1B /* LocationManager.swift */,
 				6223CA482A3CF46E00A87875 /* NetworkManager.swift */,
 			);
@@ -800,6 +803,7 @@
 				620929A72A74072800B18959 /* MapPinView.swift in Sources */,
 				628FDF2E2A75968800E85672 /* ChargerFiltersView.swift in Sources */,
 				62918F342A7703A20099418A /* PaymentData.swift in Sources */,
+				62D9B4952A83A1AD00FB26A4 /* DataManager.swift in Sources */,
 				628FDF2D2A75968800E85672 /* LocationFiltersView.swift in Sources */,
 				628FDF2A2A75968800E85672 /* ConnectorFiltersView.swift in Sources */,
 				62B777C82A7AA8B800C3857F /* ToggleWithSymbol.swift in Sources */,

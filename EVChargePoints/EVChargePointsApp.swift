@@ -19,6 +19,7 @@ struct EVChargePointsApp: App {
     @StateObject private var routerManager         = NavigationRouter()
     @StateObject private var locationManager       = LocationManager()
     @StateObject private var filtersViewModel      = FiltersViewModel()
+    @StateObject private var dataManager           = DataManager()
 
     var body: some Scene {
         WindowGroup {
