@@ -9,9 +9,10 @@ import SwiftUI
 
 struct FiltersView: View {
 
-    @StateObject private var filtersViewModel = FiltersViewModel()
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var dataManager: DataManager
+
+    @StateObject private var filtersViewModel = FiltersViewModel()
 
     var maximumDistanceLabel: String {
         "\(Int(dataManager.distance)) \(dataManager.units == .mi ? "miles" : "kilometres")"
