@@ -70,6 +70,8 @@
 		6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */; };
 		6298B9FA2A85759200DFB494 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9F92A85759200DFB494 /* Array+Duplicates.swift */; };
 		6298B9FC2A858EC700DFB494 /* DataManager+Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */; };
+		6298B9FE2A85994E00DFB494 /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9FD2A85994E00DFB494 /* FormTextView.swift */; };
+		6298BA002A85998B00DFB494 /* FormLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9FF2A85998B00DFB494 /* FormLabelView.swift */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
 		62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* Tabs.swift */; };
@@ -171,6 +173,8 @@
 		6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+ChargeDevices.swift"; sourceTree = "<group>"; };
 		6298B9F92A85759200DFB494 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Filters.swift"; sourceTree = "<group>"; };
+		6298B9FD2A85994E00DFB494 /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
+		6298B9FF2A85998B00DFB494 /* FormLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLabelView.swift; sourceTree = "<group>"; };
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				62B777C72A7AA8B800C3857F /* ToggleWithGraphic.swift */,
 				62B777C62A7AA8B800C3857F /* ToggleWithSymbol.swift */,
 				62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */,
+				6298B9FD2A85994E00DFB494 /* FormTextView.swift */,
+				6298B9FF2A85998B00DFB494 /* FormLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -765,9 +771,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				625CEF722A65934800A82048 /* NetworkData.swift in Sources */,
+				6298B9FE2A85994E00DFB494 /* FormTextView.swift in Sources */,
 				62B777B92A79B8C700C3857F /* SFSymbolImageAnimated.swift in Sources */,
 				62718B332A52038F004F0168 /* DecodeJSON.swift in Sources */,
 				62DFF0582A805CB2004B8CAA /* XmarkButtonView.swift in Sources */,
+				6298BA002A85998B00DFB494 /* FormLabelView.swift in Sources */,
 				625CEF642A65563100A82048 /* Connector.swift in Sources */,
 				6255F90D2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift in Sources */,
 				62718BA82A53314B004F0168 /* NetworkManagerFailureMock.swift in Sources */,
