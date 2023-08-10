@@ -22,6 +22,9 @@ struct ChargePointDevicesView: View {
                 ConnectionSection(connector: chargeDevice.connector[index], connectorCount: index)
             }
         }
+        .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
     }
 }
 

@@ -31,6 +31,9 @@ struct ChargePointListView: View {
             .navigationTitle("Charge Devices")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: Route.self) { $0 }
+            .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+            .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .buttonStyle(PlainButtonStyle())
             // .task {
             //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))

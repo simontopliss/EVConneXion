@@ -39,6 +39,9 @@ struct ChargePointDetailView: View {
         }
         .navigationTitle(chargeDevice.chargeDeviceName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
     }
 }
 

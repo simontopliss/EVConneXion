@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("Hello, SettingsView!")
+        VStack {
+            Text("Hello, SettingsView!")
+        }
+        .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
     }
 }
 

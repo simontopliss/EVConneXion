@@ -89,6 +89,7 @@ struct MapView: View {
             .navigationTitle("Charge Device Locations")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+            .toolbarBackground(.ultraThinMaterial, for: .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

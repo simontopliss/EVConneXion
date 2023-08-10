@@ -23,6 +23,9 @@ struct ChargePointInfoView: View {
                 DeviceAccessSection(deviceAccess: deviceAccess)
             }
         }
+        .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
     }
 }
 
