@@ -20,6 +20,8 @@ final class DataManager: ObservableObject {
     @Published var paymentData: [PaymentData] = []
     @Published var filteredDevices: [ChargeDevice] = []
 
+    @Published var filtersChanged = false
+
     // TODO: Is `limit` required?
     private(set) var limit = 0
     private(set) var country: Endpoint.RegistryDataType.Country = .gb
@@ -105,6 +107,7 @@ final class DataManager: ObservableObject {
     }
 
     func saveSettings(_ jsonFile: EVChargePointsApp.JSONFiles) {
+        filtersChanged = true
         switch jsonFile {
             case .access:
                 AccessData.saveData(data: accessData)

@@ -21,7 +21,6 @@ struct FiltersView: View {
     var body: some View {
         VStack {
             NavigationStack(path: $routerManager.routes) {
-
                 List {
                     maximumDistance()
 
@@ -36,28 +35,39 @@ struct FiltersView: View {
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(AppColors.textColor)
+//                .onChange(of: filtersViewModel.filters, initial: false) {
+//                    dataManager.filtersChanged = true
+//                }
             }
 
-//            // TODO: This should be only enabled if the user has made changes
-//            Button {
-//                // Apply Filters and return back to previous screen
-//                routerManager.goBack()
-//            } label: {
-//                Text("Apply Filter")
-//                    .font(.title2)
-//                    .fontWeight(.semibold)
-//            }
-//            .frame(width: 280, height: 44)
-//            .background(Color.accentColor)
-//            .foregroundStyle(.white)
-//            .cornerRadius(8)
-//            .padding(.bottom, 48)
-
+            Button {
+                // TODO: Apply Filters and return back to previous screen
+                dataManager.filtersChanged = false
+                routerManager.goBack()
+            } label: {
+                Text("Apply Filter")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+            }
+            .frame(height: 44)
+            .padding(.horizontal, 30)
+            .background(dataManager.filtersChanged ? AppColors.darkGreen : Color.secondary)
+            .foregroundStyle(.white)
+            .cornerRadius(22)
+            .padding(.bottom, 18)
+            // TODO: This should be only enabled if the user has made changes
+            .disabled(!dataManager.filtersChanged)
+        }
+        .onAppear {
+            dataManager.filtersChanged = false
         }
         .background(Color.background)
         .navigationDestination(for: Route.self) { $0 }
         .navigationTitle("Filters")
         .navigationBarTitleDisplayMode(.large)
+        .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
@@ -197,7 +207,7 @@ final class FiltersViewModel: ObservableObject {
 }
 
 extension FiltersViewModel {
-    struct Filter: Identifiable {
+    struct Filter: Identifiable, Equatable {
         var id = UUID()
         var title: String
         var symbol: Image
