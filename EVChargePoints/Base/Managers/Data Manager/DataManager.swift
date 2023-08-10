@@ -31,7 +31,7 @@ final class DataManager: ObservableObject {
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
 
-        self.chargeDevices = sortAndRemoveDuplicateDevices(chargeDevices: ChargePointData.mockChargeDevices)
+        self.chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
 
         // Load JSON files
         loadAccessData()
