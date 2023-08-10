@@ -30,8 +30,8 @@ final class DataManager: ObservableObject {
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
-        chargeDevices = ChargePointData.mockChargeDevices
-        chargeDevices.sort(by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser })
+
+        self.chargeDevices = sortAndRemoveDuplicateDevices(chargeDevices: ChargePointData.mockChargeDevices)
 
         // Load JSON files
         loadAccessData()

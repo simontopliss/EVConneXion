@@ -67,6 +67,8 @@
 		6298B9E62A85071900DFB494 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9E12A85071900DFB494 /* NetworkData.json */; };
 		6298B9E82A85071900DFB494 /* AccessData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9E32A85071900DFB494 /* AccessData.json */; };
 		6298B9EC2A8509BE00DFB494 /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9EB2A8509BE00DFB494 /* ConnectorData.json */; };
+		6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */; };
+		6298B9FA2A85759200DFB494 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9F92A85759200DFB494 /* Array+Duplicates.swift */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
 		62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* Tabs.swift */; };
@@ -165,6 +167,8 @@
 		6298B9E12A85071900DFB494 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		6298B9E32A85071900DFB494 /* AccessData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AccessData.json; sourceTree = "<group>"; };
 		6298B9EB2A8509BE00DFB494 /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
+		6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+ChargeDevices.swift"; sourceTree = "<group>"; };
+		6298B9F92A85759200DFB494 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				62D9B4942A83A1AD00FB26A4 /* DataManager.swift */,
+				6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */,
 				628FDF222A758BA000E85672 /* DataManager+ConnectorTypes.swift */,
 				6255F90C2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift */,
 				625EB1482A72A01E00E36AA3 /* DataManager+RegularOpenings.swift */,
@@ -476,6 +481,7 @@
 				628C33122A61E91A00232351 /* String+Ext.swift */,
 				62C9F6612A68033B00151FB4 /* View+Navigation.swift */,
 				6298B9DD2A84FFA200DFB494 /* Sequence+Unique.swift */,
+				6298B9F92A85759200DFB494 /* Array+Duplicates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				628FDF2A2A75968800E85672 /* ConnectorFiltersView.swift in Sources */,
 				62B777C82A7AA8B800C3857F /* ToggleWithSymbol.swift in Sources */,
 				62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */,
+				6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */,
 				628FDF2B2A75968800E85672 /* NetworkFiltersView.swift in Sources */,
 				628FDF2C2A75968800E85672 /* PaymentFiltersView.swift in Sources */,
 				62918F402A77BDE00099418A /* ConnectorData.swift in Sources */,
@@ -823,6 +830,7 @@
 				62B9EA892A72DC6600629421 /* DeviceMapItem.swift in Sources */,
 				62E16DDB2A72D77500DB3B01 /* LocationDetailsView.swift in Sources */,
 				62718B2E2A51E464004F0168 /* StaticJSONMapper.swift in Sources */,
+				6298B9FA2A85759200DFB494 /* Array+Duplicates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

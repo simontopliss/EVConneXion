@@ -13,7 +13,7 @@ struct ChargeDeviceLocation: Decodable {
 
     var latitude: String
     var longitude: String
-    var address: [String: String?]
+    var address: Address
     var locationShortDescription: String?
     var locationLongDescription: String?
 
@@ -32,14 +32,14 @@ struct ChargeDeviceLocation: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.latitude = try container.decode(String.self, forKey: .latitude)
         self.longitude = try container.decode(String.self, forKey: .longitude)
-        self.address = try container.decode([String : String?].self, forKey: .address)
+        let address = try container.decode([String : String?].self, forKey: .address)
         self.locationShortDescription = try container.decodeIfPresent(String.self, forKey: .locationShortDescription)
         self.locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
 
         // Create the Address struct
-        let address = Address(address: address)
-        self.singleLineAddress = address.singleLineAddress
-        self.fullAddress = address.fullAddress
+        self.address = Address(address: address)
+        self.singleLineAddress = self.address.singleLineAddress
+        self.fullAddress = self.address.fullAddress
     }
 }
 

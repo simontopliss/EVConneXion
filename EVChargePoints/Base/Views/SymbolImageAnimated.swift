@@ -46,8 +46,14 @@ struct SymbolImageAnimated: View {
 }
 
 #Preview {
-    SymbolImageAnimated(
-        graphicName: "dealership-forecourt",
-        toggled: .constant(true)
-    )
+    VStack {
+        SymbolImageAnimated(
+            graphicName: "dealership-forecourt",
+            toggled: .constant(false)
+        )
+        SymbolImageAnimated(
+            graphicName: "dealership-forecourt",
+            toggled: .constant(true)
+        )
+    }
 }
