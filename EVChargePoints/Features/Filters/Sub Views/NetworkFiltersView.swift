@@ -19,6 +19,7 @@ struct NetworkFiltersView: View {
                     HStack {
                         SymbolImageAnimated(
                             graphicName: filter.graphicName.wrappedValue,
+                            invertForDarkMode: false,
                             symbolWidth: 60.0,
                             symbolHeight: 40.0,
                             toggled: filter.setting
