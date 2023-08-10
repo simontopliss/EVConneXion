@@ -50,29 +50,3 @@ struct ChargePointDetailView: View {
     }
     .environmentObject(DataManager())
 }
-
-struct FormText: View {
-    let text: String
-
-    var body: some View {
-        Text(LocalizedStringKey(text.trim()))
-            .font(.subheadline)
-            .multilineTextAlignment(.leading)
-            .foregroundStyle(AppColors.textColor)
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-struct FormLabel: View {
-    let label: String
-
-    var body: some View {
-        VStack {
-            Text(label)
-                .font(.subheadline.leading(.tight))
-                .multilineTextAlignment(.leading)
-                .frame(width: 90, alignment: .leading)
-            .foregroundStyle(.secondary)
-        }
-    }
-}
