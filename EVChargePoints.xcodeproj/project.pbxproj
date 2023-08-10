@@ -69,6 +69,7 @@
 		6298B9EC2A8509BE00DFB494 /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9EB2A8509BE00DFB494 /* ConnectorData.json */; };
 		6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */; };
 		6298B9FA2A85759200DFB494 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9F92A85759200DFB494 /* Array+Duplicates.swift */; };
+		6298B9FC2A858EC700DFB494 /* DataManager+Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */; };
 		62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */; };
 		62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CAF2A4DC3F300C6E8DF /* MapView.swift */; };
 		62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32CB12A4DC6F600C6E8DF /* Tabs.swift */; };
@@ -169,6 +170,7 @@
 		6298B9EB2A8509BE00DFB494 /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
 		6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+ChargeDevices.swift"; sourceTree = "<group>"; };
 		6298B9F92A85759200DFB494 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
+		6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Filters.swift"; sourceTree = "<group>"; };
 		62B32CA02A4DBE4800C6E8DF /* EVChargePointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChargePointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B32CAD2A4DC3E500C6E8DF /* ChargePointDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargePointDetailView.swift; sourceTree = "<group>"; };
 		62B32CAF2A4DC3F300C6E8DF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				6255F90C2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift */,
 				625EB1482A72A01E00E36AA3 /* DataManager+RegularOpenings.swift */,
 				62FCCDC92A72A094004A9778 /* DataManager+NetworkData.swift */,
+				6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */,
 			);
 			path = "Data Manager";
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				628FDF2D2A75968800E85672 /* LocationFiltersView.swift in Sources */,
 				628FDF2A2A75968800E85672 /* ConnectorFiltersView.swift in Sources */,
 				62B777C82A7AA8B800C3857F /* ToggleWithSymbol.swift in Sources */,
+				6298B9FC2A858EC700DFB494 /* DataManager+Filters.swift in Sources */,
 				62B32CB22A4DC6F600C6E8DF /* Tabs.swift in Sources */,
 				6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */,
 				628FDF2B2A75968800E85672 /* NetworkFiltersView.swift in Sources */,
