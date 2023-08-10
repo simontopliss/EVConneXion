@@ -27,8 +27,6 @@ final class DataManager: ObservableObject {
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
 
-    //@AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
-
     // Constructor uses DI for testing
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
@@ -37,6 +35,7 @@ final class DataManager: ObservableObject {
 
         // Load JSON files
         loadAccessData()
+        loadChargerData()
         loadConnectorTypes()
         loadLocationData()
         loadNetworkData()
@@ -76,22 +75,50 @@ final class DataManager: ObservableObject {
     func loadAccessData() {
         accessData = try! StaticJSONMapper.decode(
             file: "AccessData",
-            type: [AccessData].self
+            type: [AccessData].self,
+            location: .documents
+        )
+    }
+
+    func loadChargerData() {
+        chargerData = try! StaticJSONMapper.decode(
+            file: "ChargerData",
+            type: ChargerData.self,
+            location: .documents
         )
     }
 
     func loadLocationData() {
         locationData = try! StaticJSONMapper.decode(
             file: "LocationData",
-            type: [LocationData].self
+            type: [LocationData].self,
+            location: .documents
         )
     }
 
     func loadPaymentData() {
         paymentData = try! StaticJSONMapper.decode(
             file: "PaymentData",
-            type: [PaymentData].self
+            type: [PaymentData].self,
+            location: .documents
         )
+    }
+
+    func saveSettings(_ jsonFile: EVChargePointsApp.JSONFiles) {
+        switch jsonFile {
+            case .access:
+                AccessData.saveData(data: accessData)
+            case .charger:
+                ChargerData.saveData(data: chargerData)
+            case .connector:
+                ConnectorData.saveData(data: connectorData)
+            case .location:
+                LocationData.saveData(data: locationData)
+            case .network:
+                NetworkData.saveData(data: networkData)
+            case .payment:
+                PaymentData.saveData(data: paymentData)
+        }
     }
 }
 
@@ -151,23 +178,23 @@ extension DataManager {
                 let connectors = chargeDevice.connector
 
                 for connector in connectors {
-                    if chargerData.selectedSpeed == "Slow" && slowCharge ~= connector.ratedOutputkW {
+                    if chargerData.selectedSpeed == "Slow", slowCharge ~= connector.ratedOutputkW {
                         filterConnectorDevices.append(chargeDevice)
-                    } else if chargerData.selectedSpeed == "Fast" && fastCharge ~= connector.ratedOutputkW {
+                    } else if chargerData.selectedSpeed == "Fast", fastCharge ~= connector.ratedOutputkW {
                         filterConnectorDevices.append(chargeDevice)
-                    } else if chargerData.selectedSpeed == "Rapid+" && connector.ratedOutputkW > 36.0 {
-                        filterConnectorDevices.append(chargeDevice)
-                    }
-
-                    if chargerData.selectedMethod.rawValue == "Single Phase AC" && connector.chargeMethod == .singlePhaseAc {
-                        filterConnectorDevices.append(chargeDevice)
-                    } else if chargerData.selectedMethod.rawValue == "Three Phase AC" && connector.chargeMethod == .threePhaseAc {
-                        filterConnectorDevices.append(chargeDevice)
-                    } else if chargerData.selectedMethod.rawValue == "DC" && connector.chargeMethod == .dc {
+                    } else if chargerData.selectedSpeed == "Rapid+", connector.ratedOutputkW > 36.0 {
                         filterConnectorDevices.append(chargeDevice)
                     }
 
-                    if chargerData.tetheredCable && connector.tetheredCable == true {
+                    if chargerData.selectedMethod.rawValue == "Single Phase AC", connector.chargeMethod == .singlePhaseAc {
+                        filterConnectorDevices.append(chargeDevice)
+                    } else if chargerData.selectedMethod.rawValue == "Three Phase AC", connector.chargeMethod == .threePhaseAc {
+                        filterConnectorDevices.append(chargeDevice)
+                    } else if chargerData.selectedMethod.rawValue == "DC", connector.chargeMethod == .dc {
+                        filterConnectorDevices.append(chargeDevice)
+                    }
+
+                    if chargerData.tetheredCable, connector.tetheredCable == true {
                         filterConnectorDevices.append(chargeDevice)
                     }
                 }

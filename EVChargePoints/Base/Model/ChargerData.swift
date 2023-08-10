@@ -35,6 +35,12 @@ struct ChargerData: Codable {
     var tetheredCableSymbol: String {
         tetheredCable ? "powercord.fill" : "powercord"
     }
+
+    enum CodingKeys: String, CodingKey {
+        case selectedSpeed = "SelectedSpeed"
+        case selectedMethod = "SelectedMethod"
+        case tetheredCable = "TetheredCable"
+    }
 }
 
 extension ChargerData {
@@ -46,10 +52,40 @@ extension ChargerData {
 }
 
 extension ChargerData {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.selectedSpeed = try container.decode(String.self, forKey: .selectedSpeed)
+        self.selectedMethod = try container.decode(ChargeMethod.self, forKey: .selectedMethod)
+        self.tetheredCable = try container.decode(Bool.self, forKey: .tetheredCable)
+    }
+}
+
+extension ChargerData {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.selectedSpeed, forKey: .selectedSpeed)
         try container.encode(self.selectedMethod, forKey: .selectedMethod)
         try container.encode(self.tetheredCable, forKey: .tetheredCable)
+    }
+}
+
+extension ChargerData {
+    static func saveData(data: ChargerData) {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .withoutEscapingSlashes
+            encoder.outputFormatting = .prettyPrinted
+
+            let data = try? encoder.encode(data)
+
+            let savePath = FileManager.documentsDirectory
+                .appendingPathComponent("ChargerData")
+                .appendingPathExtension("json")
+
+            try data?.write(to: savePath, options: [.atomic, .completeFileProtection])
+
+        } catch {
+            print(error)
+        }
     }
 }

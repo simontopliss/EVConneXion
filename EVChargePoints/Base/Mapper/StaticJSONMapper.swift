@@ -12,13 +12,27 @@ enum StaticJSONMapper {
     static func decode<T: Decodable>(
         file: String,
         type _: T.Type,
+        location: Location = .bundle,
         dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
         keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys
     ) throws -> T {
 
-        guard !file.isEmpty,
-              let path = Bundle.main.path(forResource: file, ofType: "json"),
-              let data = FileManager.default.contents(atPath: path)
+        guard !file.isEmpty else { throw MappingError.failedToGetContents }
+
+        let path: String?
+
+        switch location {
+            case .bundle:
+                path = Bundle.main.path(forResource: file, ofType: "json")
+            case .documents:
+                path = FileManager.documentsDirectory
+                    .appendingPathComponent(file)
+                    .appendingPathExtension("json")
+                    .path
+        }
+
+        guard let path,
+            let data = FileManager.default.contents(atPath: path)
         else {
             throw MappingError.failedToGetContents
         }
@@ -45,5 +59,12 @@ enum StaticJSONMapper {
 extension StaticJSONMapper {
     enum MappingError: Error {
         case failedToGetContents
+    }
+}
+
+extension StaticJSONMapper {
+    enum Location {
+        case bundle
+        case documents
     }
 }

@@ -11,10 +11,11 @@ extension DataManager {
 
     /// Loads the network data from a JSON file
     func loadNetworkData() {
-        networkData = try! StaticJSONMapper.decode(
+        self.networkData = try! StaticJSONMapper.decode(
             file: "NetworkData",
-            type: [NetworkData].self
-        )
+            type: [NetworkData].self,
+            location: .documents
+        ).sorted { $0.total > $1.total }
     }
 
     /// Gets the shortened display name for a network

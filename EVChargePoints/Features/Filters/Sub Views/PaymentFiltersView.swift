@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PaymentFiltersView: View {
 
-    @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
@@ -22,6 +21,9 @@ struct PaymentFiltersView: View {
                         toggled: filter.setting,
                         itemID: filter.id
                     )
+                   .onChange(of: filter.setting.wrappedValue) {
+                       dataManager.saveSettings(.payment)
+                   }
                 }
             }
         }

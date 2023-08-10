@@ -42,7 +42,7 @@ extension LocationManager {
 extension LocationManager: CLLocationManagerDelegate {
 
     private func checkAuthorization() {
-        print(#function)
+        // print(#function)
 
         switch locationManager.authorizationStatus {
             case .notDetermined:
@@ -64,13 +64,13 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print(#function)
+        // print(#function)
         checkAuthorization()
     }
 
     // Required delegate conformance
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(#function)
+        // print(#function)
 
         guard let location = locations.last else { return }
 
@@ -83,7 +83,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(#function)
+        // print(#function)
         print(String(describing: error))
     }
 
@@ -95,7 +95,8 @@ extension LocationManager {
 
     func coordinateFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> CLLocationCoordinate2D? {
         guard let latitude = Double(chargeDeviceLocation.latitude),
-              let longitude = Double(chargeDeviceLocation.longitude) else {
+              let longitude = Double(chargeDeviceLocation.longitude)
+        else {
             return nil
         }
 

@@ -1,13 +1,15 @@
 [
   {
-    "DisplayName" : "Payment Required",
+    "ID" : "F0D3C3D7-AF1B-407B-8132-1789C63C5CBF",
     "DataName" : "PaymentRequiredFlag",
+    "DisplayName" : "Payment Required",
     "Setting" : 1,
     "Symbol" : "sterlingsign.circle"
   },
   {
-    "DisplayName" : "Subscription Required",
+    "ID" : "3F8E0D47-74B1-40A8-9DFE-57390E16B9BE",
     "DataName" : "SubscriptionRequiredFlag",
+    "DisplayName" : "Subscription Required",
     "Setting" : 0,
     "Symbol" : "creditcard.trianglebadge.exclamationmark"
   }

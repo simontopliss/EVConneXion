@@ -13,7 +13,8 @@ extension DataManager {
     func loadConnectorTypes() {
         connectorData = try! StaticJSONMapper.decode(
             file: "ConnectorData",
-            type: [ConnectorData].self
+            type: [ConnectorData].self,
+            location: .documents
         )
     }
 

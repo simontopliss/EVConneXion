@@ -21,6 +21,9 @@ struct LocationFiltersView: View {
                         toggled: filter.setting,
                         itemID: filter.id
                     )
+                    .onChange(of: filter.setting.wrappedValue) {
+                        dataManager.saveSettings(.location)
+                    }
                 }
             }
         }

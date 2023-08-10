@@ -20,7 +20,10 @@ struct ConnectorFiltersView: View {
                         graphicName: filter.graphicName.wrappedValue,
                         toggled: filter.setting,
                         itemID: filter.id
-                   )
+                    )
+                    .onChange(of: filter.setting.wrappedValue) {
+                        dataManager.saveSettings(.connector)
+                    }
                 }
             }
         }

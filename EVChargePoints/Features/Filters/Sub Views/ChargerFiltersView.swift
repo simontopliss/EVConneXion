@@ -54,6 +54,7 @@ extension ChargerFiltersView {
             }
             .onChange(of: dataManager.chargerData.selectedMethod) {
                 methodChanged.toggle()
+                dataManager.saveSettings(.charger)
             }
         }
     }
@@ -76,6 +77,7 @@ extension ChargerFiltersView {
             }
             .onChange(of: dataManager.chargerData.selectedSpeed) {
                 speedChanged.toggle()
+                dataManager.saveSettings(.charger)
             }
         }
 
@@ -97,6 +99,7 @@ extension ChargerFiltersView {
             }
             .onChange(of: dataManager.chargerData.tetheredCable) {
                 tetheredChanged.toggle()
+                dataManager.saveSettings(.charger)
             }
         }
     }

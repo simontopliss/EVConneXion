@@ -6,6 +6,7 @@
     "Network" : "*No Network",
     "GraphicName" : "no-network",
     "Count" : 174,
+    "ID" : "2B050669-54D9-4E4D-920A-F1282919EE32",
     "Hex" : "0066FF"
   },
   {
@@ -15,6 +16,7 @@
     "Network" : "Alfa Power",
     "GraphicName" : "alfa-power",
     "Count" : 64,
+    "ID" : "8807A719-7999-4589-BA73-9B95F83B508A",
     "Hex" : "99FF99"
   },
   {
@@ -24,6 +26,7 @@
     "Network" : "Allego",
     "GraphicName" : "allego",
     "Count" : 7,
+    "ID" : "6DADF205-1A64-4128-BA1B-EBEFB23CB576",
     "Hex" : "660099"
   },
   {
@@ -33,6 +36,7 @@
     "Network" : "Apetrel",
     "GraphicName" : "apetrel",
     "Count" : 1,
+    "ID" : "B2675259-052D-4523-9B10-E441911125BA",
     "Hex" : "663300"
   },
   {
@@ -42,6 +46,7 @@
     "Network" : "AW Energy",
     "GraphicName" : "aw-energy",
     "Count" : 3,
+    "ID" : "765ABCE7-358F-40EF-9F93-233A8C745DA8",
     "Hex" : "003366"
   },
   {
@@ -51,6 +56,7 @@
     "Network" : "Be.EV",
     "GraphicName" : "be-ev",
     "Count" : 137,
+    "ID" : "8D0C813A-431F-4289-8E36-8E87F2276D67",
     "Hex" : "00CC00"
   },
   {
@@ -60,6 +66,7 @@
     "Network" : "Believ",
     "GraphicName" : "believ",
     "Count" : 460,
+    "ID" : "27DBFD8F-ED0A-4FC3-BDC3-B29814366B9F",
     "Hex" : "3399CC"
   },
   {
@@ -69,6 +76,7 @@
     "Network" : "Blink Charging",
     "GraphicName" : "blink",
     "Count" : 1212,
+    "ID" : "679711CC-8D55-455E-8D03-12B84EF57947",
     "Hex" : "9966FF"
   },
   {
@@ -78,6 +86,7 @@
     "Network" : "BP Pulse",
     "GraphicName" : "bp-pulse",
     "Count" : 3314,
+    "ID" : "60774540-8720-4281-AE90-B87080F77146",
     "Hex" : "9900FF"
   },
   {
@@ -87,6 +96,7 @@
     "Network" : "Bradford Metropolitan District Council",
     "GraphicName" : "bradford-council",
     "Count" : 4,
+    "ID" : "897DEC83-E18A-4FD1-9F77-A4A2CE739659",
     "Hex" : "663399"
   },
   {
@@ -96,6 +106,7 @@
     "Network" : "C3EV",
     "GraphicName" : "c3ev",
     "Count" : 1,
+    "ID" : "6C9037C4-1373-442E-84BE-FD4DC7EC5336",
     "Hex" : "CC3300"
   },
   {
@@ -105,6 +116,7 @@
     "Network" : "Car charged UK ltd",
     "GraphicName" : "car-charged",
     "Count" : 7,
+    "ID" : "0F1A6B04-1E6D-4D9E-974C-7D4AD060989F",
     "Hex" : "993399"
   },
   {
@@ -114,6 +126,7 @@
     "Network" : "Char.gy",
     "GraphicName" : "char-gy",
     "Count" : 2381,
+    "ID" : "D395C309-F54F-41B2-B768-CE34DDE971C6",
     "Hex" : "666600"
   },
   {
@@ -123,6 +136,7 @@
     "Network" : "Charge my Street",
     "GraphicName" : "charge-my-street",
     "Count" : 25,
+    "ID" : "E56B10DE-A6E4-417B-8C50-B3BE7BBF114C",
     "Hex" : "33FFCC"
   },
   {
@@ -132,6 +146,7 @@
     "Network" : "Charge Your Car",
     "GraphicName" : "charge-your-car",
     "Count" : 1646,
+    "ID" : "88D73186-5841-4029-88CB-66B20A8BCB59",
     "Hex" : "0000CC"
   },
   {
@@ -141,6 +156,7 @@
     "Network" : "ChargePlace Scotland",
     "GraphicName" : "chargeplace-scotland",
     "Count" : 1030,
+    "ID" : "8AA299EA-323A-4628-B544-EB6AE5ABDDEA",
     "Hex" : "336600"
   },
   {
@@ -150,6 +166,7 @@
     "Network" : "ChargePoint Network (Netherlands) B.V.",
     "GraphicName" : "chargepoint-network",
     "Count" : 572,
+    "ID" : "E30341DF-C460-4B97-B00B-8F2D2B6D0730",
     "Hex" : "CC0000"
   },
   {
@@ -159,6 +176,7 @@
     "Network" : "Cheshire East Council",
     "GraphicName" : "cheshire-east-council",
     "Count" : 2,
+    "ID" : "85CB2A67-0AF7-48E1-8B5E-C14DF4FFF857",
     "Hex" : "66CC00"
   },
   {
@@ -168,6 +186,7 @@
     "Network" : "City EV",
     "GraphicName" : "city-ev",
     "Count" : 167,
+    "ID" : "82CCB947-9A98-4EBC-A3DA-AE7AA6181511",
     "Hex" : "99CCFF"
   },
   {
@@ -177,6 +196,7 @@
     "Network" : "Clenergy EV",
     "GraphicName" : "clenergy-ev",
     "Count" : 71,
+    "ID" : "E4929ADF-C7C3-4EAC-8E60-1705481011BA",
     "Hex" : "9999FF"
   },
   {
@@ -186,6 +206,7 @@
     "Network" : "Connected Kerb",
     "GraphicName" : "connected-kerb",
     "Count" : 1084,
+    "ID" : "589DB80F-3AED-4610-9BA9-0EAA69A14C74",
     "Hex" : "66FF66"
   },
   {
@@ -195,6 +216,7 @@
     "Network" : "Cotswold District Council",
     "GraphicName" : "cotswold-council",
     "Count" : 2,
+    "ID" : "92A1D81D-F849-498D-9BD4-4D7C55E142A8",
     "Hex" : "996699"
   },
   {
@@ -204,6 +226,7 @@
     "Network" : "D2N2",
     "GraphicName" : "d2n2",
     "Count" : 166,
+    "ID" : "CBA86950-18D3-4516-8EB5-A3F861D72243",
     "Hex" : "006600"
   },
   {
@@ -213,6 +236,7 @@
     "Network" : "Dragon Charging Network",
     "GraphicName" : "dragon-charging-network",
     "Count" : 132,
+    "ID" : "C3A639C7-F8EC-4388-8540-FBDE388FC3A0",
     "Hex" : "FF3399"
   },
   {
@@ -222,6 +246,7 @@
     "Network" : "Drax Energy Solutions Limited",
     "GraphicName" : "drax",
     "Count" : 52,
+    "ID" : "A6E0EA92-661C-422D-B548-F116ECF09559",
     "Hex" : "CCCC00"
   },
   {
@@ -231,6 +256,7 @@
     "Network" : "Dumfries & Galloway Council",
     "GraphicName" : "dumfries-galloway-council",
     "Count" : 1,
+    "ID" : "0065B581-8DCC-496B-BEDF-BF46F84288B5",
     "Hex" : "CC6600"
   },
   {
@@ -240,6 +266,7 @@
     "Network" : "Dundee City Council",
     "GraphicName" : "dundee-city-council",
     "Count" : 13,
+    "ID" : "F54A7EFB-E964-4FA2-AE6F-10D85AFAF0FE",
     "Hex" : "66CC99"
   },
   {
@@ -249,6 +276,7 @@
     "Network" : "E.ON Drive",
     "GraphicName" : "eon-drive",
     "Count" : 43,
+    "ID" : "AEF19CE6-BB69-4544-8441-04FF77BB0A18",
     "Hex" : "0099FF"
   },
   {
@@ -258,6 +286,7 @@
     "Network" : "East Lothian Council",
     "GraphicName" : "east-lothian-council",
     "Count" : 3,
+    "ID" : "3474FD6B-54C7-450F-9FDF-22A7906B7E71",
     "Hex" : "FF6699"
   },
   {
@@ -267,6 +296,7 @@
     "Network" : "ecars ESB",
     "GraphicName" : "ecars-esb",
     "Count" : 234,
+    "ID" : "8B18129C-7EEE-4F80-8DA5-456C04DAB338",
     "Hex" : "FF6666"
   },
   {
@@ -276,6 +306,7 @@
     "Network" : "ElectRoad",
     "GraphicName" : "elect-road",
     "Count" : 1,
+    "ID" : "D4D34322-2105-40D8-BE7D-616A569C5A30",
     "Hex" : "33FF00"
   },
   {
@@ -285,6 +316,7 @@
     "Network" : "ENGIE Charge Network",
     "GraphicName" : "engie-charge-network",
     "Count" : 7,
+    "ID" : "8497BB6B-0A7E-420C-9728-CC806D3F9DC1",
     "Hex" : "CC6699"
   },
   {
@@ -294,6 +326,7 @@
     "Network" : "eo Charging",
     "GraphicName" : "eo-charging",
     "Count" : 12,
+    "ID" : "B29F9FAE-17D8-436D-9739-ED81918FB3B4",
     "Hex" : "990000"
   },
   {
@@ -303,6 +336,7 @@
     "Network" : "Equans EV Solutions",
     "GraphicName" : "equans-ev-solutions",
     "Count" : 41,
+    "ID" : "CF235D2A-5D7F-45B3-8AF1-FD563E8E2F2E",
     "Hex" : "6633FF"
   },
   {
@@ -312,6 +346,7 @@
     "Network" : "ESB EV Solutions",
     "GraphicName" : "esb-ev-solutions",
     "Count" : 158,
+    "ID" : "891423EF-97DA-4FD9-AE98-E47E1B5B5C10",
     "Hex" : "00CCFF"
   },
   {
@@ -321,6 +356,7 @@
     "Network" : "Essex County Council",
     "GraphicName" : "essex-county-council",
     "Count" : 3,
+    "ID" : "9C8E797D-0D7A-4623-8FD6-CACDF0D1C0C7",
     "Hex" : "000099"
   },
   {
@@ -330,6 +366,7 @@
     "Network" : "EV-Dot",
     "GraphicName" : "ev-dot",
     "Count" : 47,
+    "ID" : "96C5BA2F-C2D1-4470-A139-FCE6D5E5B974",
     "Hex" : "66FFCC"
   },
   {
@@ -339,6 +376,7 @@
     "Network" : "EZ-Charge",
     "GraphicName" : "ez-charge",
     "Count" : 127,
+    "ID" : "3F9EEA28-3E68-4E65-A245-8DF9123F9D03",
     "Hex" : "669900"
   },
   {
@@ -348,6 +386,7 @@
     "Network" : "Fastned",
     "GraphicName" : "fastned",
     "Count" : 87,
+    "ID" : "FF5D48D5-F547-4593-8A89-17BF865D93E2",
     "Hex" : "FF3300"
   },
   {
@@ -357,6 +396,7 @@
     "Network" : "First Group",
     "GraphicName" : "first-group",
     "Count" : 4,
+    "ID" : "725E430D-2D6F-4494-8A7B-F263B951C5F7",
     "Hex" : "333399"
   },
   {
@@ -366,6 +406,7 @@
     "Network" : "Green Mile Charging Co Ltd",
     "GraphicName" : "green-mile-charging",
     "Count" : 3,
+    "ID" : "9A3CD5E9-7E72-43E2-829B-D1539B0661F4",
     "Hex" : "3333FF"
   },
   {
@@ -375,6 +416,7 @@
     "Network" : "GRIDSERVE Sustainable Energy",
     "GraphicName" : "gridserve",
     "Count" : 306,
+    "ID" : "7A463BE4-E76C-47A5-8BB6-450119B2A655",
     "Hex" : "6699FF"
   },
   {
@@ -384,6 +426,7 @@
     "Network" : "Heathrow Airport Limited",
     "GraphicName" : "heathrow-airport",
     "Count" : 7,
+    "ID" : "73EF5432-6919-4EB8-9132-16D0BEF7E9CE",
     "Hex" : "9933FF"
   },
   {
@@ -393,6 +436,7 @@
     "Network" : "Hubsta",
     "GraphicName" : "hubsta",
     "Count" : 8,
+    "ID" : "8EFBF90A-CF47-4EB4-ACD7-C171198AE289",
     "Hex" : "6666FF"
   },
   {
@@ -402,6 +446,7 @@
     "Network" : "InstaVolt Ltd",
     "GraphicName" : "instavolt",
     "Count" : 280,
+    "ID" : "65DEAF52-E9B1-48F1-9E24-14C1132C382F",
     "Hex" : "669999"
   },
   {
@@ -411,6 +456,7 @@
     "Network" : "IONITY GmbH",
     "GraphicName" : "ionity",
     "Count" : 4,
+    "ID" : "77EDCCE7-F222-4618-A362-CB9EDA698646",
     "Hex" : "33CC00"
   },
   {
@@ -420,6 +466,7 @@
     "Network" : "Kent County Council",
     "GraphicName" : "kent-county-council",
     "Count" : 26,
+    "ID" : "9D079F31-E37B-4618-883F-11FD285C108E",
     "Hex" : "990099"
   },
   {
@@ -429,6 +476,7 @@
     "Network" : "Lancaster City Council",
     "GraphicName" : "lancaster-city-council",
     "Count" : 1,
+    "ID" : "8133B768-E8ED-40D9-A157-F927C2F0129B",
     "Hex" : "FF9999"
   },
   {
@@ -438,6 +486,7 @@
     "Network" : "London Borough of Ealing",
     "GraphicName" : "london-borough-of-ealing",
     "Count" : 45,
+    "ID" : "C44235B2-8E0A-4B4A-91A3-84414A1D535D",
     "Hex" : "0033CC"
   },
   {
@@ -447,6 +496,7 @@
     "Network" : "London Borough of Hackney",
     "GraphicName" : "london-borough-of-hackney",
     "Count" : 1,
+    "ID" : "331CD7C0-570B-457A-845F-AFE8F473D44A",
     "Hex" : "336666"
   },
   {
@@ -456,6 +506,7 @@
     "Network" : "Luton Borough Council",
     "GraphicName" : "luton-borough-council",
     "Count" : 1,
+    "ID" : "E5196DE6-307C-4157-A607-1D3B1BB9EBC2",
     "Hex" : "FF00FF"
   },
   {
@@ -465,6 +516,7 @@
     "Network" : "Mer",
     "GraphicName" : "mer",
     "Count" : 339,
+    "ID" : "C9E5B3C7-BAC7-42C0-8DCF-8A137FB04955",
     "Hex" : "330099"
   },
   {
@@ -474,6 +526,7 @@
     "Network" : "Merseytravel",
     "GraphicName" : "merseytravel",
     "Count" : 14,
+    "ID" : "81800602-1692-4FC0-BA50-DA7AB553CB70",
     "Hex" : "66CCFF"
   },
   {
@@ -483,6 +536,7 @@
     "Network" : "Milton Keynes",
     "GraphicName" : "milton-keynes",
     "Count" : 89,
+    "ID" : "B661EC43-B652-427F-9564-80BE9C37B554",
     "Hex" : "CC33FF"
   },
   {
@@ -492,6 +546,7 @@
     "Network" : "MiPermit",
     "GraphicName" : "mipermit",
     "Count" : 2,
+    "ID" : "8170DEDE-558C-4643-BB2A-E37306FB9CBB",
     "Hex" : "CC66FF"
   },
   {
@@ -501,6 +556,7 @@
     "Network" : "NI Public Sector",
     "GraphicName" : "ni-public-sector",
     "Count" : 23,
+    "ID" : "9846DC44-CB2D-4B73-AE2B-033B53FC93B2",
     "Hex" : "99CC66"
   },
   {
@@ -510,6 +566,7 @@
     "Network" : "Nissan",
     "GraphicName" : "nissan",
     "Count" : 15,
+    "ID" : "1892AEAB-6066-4D66-A8F0-C314D9B4207B",
     "Hex" : "996600"
   },
   {
@@ -519,6 +576,7 @@
     "Network" : "Osprey",
     "GraphicName" : "osprey",
     "Count" : 368,
+    "ID" : "C1344A40-0178-4B78-8203-B555AD46BC4D",
     "Hex" : "336699"
   },
   {
@@ -528,6 +586,7 @@
     "Network" : "Pilot Group EV Charging Solutions",
     "GraphicName" : "pilot-group",
     "Count" : 3,
+    "ID" : "50A9E799-E96E-4B12-9BE5-3F007E4F7FC2",
     "Hex" : "00FFCC"
   },
   {
@@ -537,6 +596,7 @@
     "Network" : "Plug N Go Ltd",
     "GraphicName" : "plug-n-go",
     "Count" : 40,
+    "ID" : "15A89B65-ACAF-4022-8A82-AE3DCB82120F",
     "Hex" : "99CCCC"
   },
   {
@@ -546,6 +606,7 @@
     "Network" : "Plugged-in Midlands",
     "GraphicName" : "plugged-in-midlands",
     "Count" : 82,
+    "ID" : "53B49CF8-21E7-4F3D-B7CB-155D2F0EC29D",
     "Hex" : "006666"
   },
   {
@@ -555,6 +616,7 @@
     "Network" : "POD Point",
     "GraphicName" : "pod-point",
     "Count" : 3099,
+    "ID" : "E25A6E4C-6862-4F89-BAB4-0824E74650C6",
     "Hex" : "FF0000"
   },
   {
@@ -564,6 +626,7 @@
     "Network" : "Project EV",
     "GraphicName" : "project-ev",
     "Count" : 5,
+    "ID" : "3E7EEBD0-4A18-427C-83CE-4253D7DFCB26",
     "Hex" : "6600FF"
   },
   {
@@ -573,6 +636,7 @@
     "Network" : "RAW Infrastructure Ltd",
     "GraphicName" : "raw-infrastructure",
     "Count" : 1,
+    "ID" : "6009FB0A-4450-4BB5-A0D7-C248FA03411B",
     "Hex" : "3300CC"
   },
   {
@@ -582,6 +646,7 @@
     "Network" : "ScottishPower",
     "GraphicName" : "scottishpower",
     "Count" : 15,
+    "ID" : "D32A1111-B434-4B12-944E-284FB0F2A967",
     "Hex" : "3399FF"
   },
   {
@@ -591,6 +656,7 @@
     "Network" : "Shell Recharge",
     "GraphicName" : "shell-recharge",
     "Count" : 469,
+    "ID" : "856FA389-D5BB-4D78-84AB-AE7899F4CBC0",
     "Hex" : "009900"
   },
   {
@@ -600,6 +666,7 @@
     "Network" : "Somerset West And Taunton District Council",
     "GraphicName" : "somerset-west-taunton-council",
     "Count" : 14,
+    "ID" : "F52C1680-8BB2-4494-88F3-9B5663C61A11",
     "Hex" : "00FFFF"
   },
   {
@@ -609,6 +676,7 @@
     "Network" : "Source London",
     "GraphicName" : "source-london",
     "Count" : 2300,
+    "ID" : "01358ABA-C2FC-4D10-9999-45C0671320C8",
     "Hex" : "00FF00"
   },
   {
@@ -618,6 +686,7 @@
     "Network" : "Source West",
     "GraphicName" : "revive",
     "Count" : 61,
+    "ID" : "54D4F4EC-05D2-4EF3-B7A8-A4347633EC09",
     "Hex" : "FF9900"
   },
   {
@@ -627,6 +696,7 @@
     "Network" : "South Tyneside Council",
     "GraphicName" : "south-tyneside-council",
     "Count" : 9,
+    "ID" : "331B7DEA-EF3D-431A-A45B-77AA7A1CB957",
     "Hex" : "3366FF"
   },
   {
@@ -636,6 +706,7 @@
     "Network" : "SSE Energy Solutions",
     "GraphicName" : "sse",
     "Count" : 15,
+    "ID" : "646E6EC2-55E5-48BF-81B1-30F0D51265D9",
     "Hex" : "CC3399"
   },
   {
@@ -645,6 +716,7 @@
     "Network" : "SureCharge\/FM Conway",
     "GraphicName" : "surecharge",
     "Count" : 2026,
+    "ID" : "E91A47B0-AFB2-4135-94B8-A88C80D93908",
     "Hex" : "999900"
   },
   {
@@ -654,6 +726,7 @@
     "Network" : "Swarco E.Connect",
     "GraphicName" : "swarco-e-connect",
     "Count" : 163,
+    "ID" : "5047C244-1533-49D2-A55D-F813862C8CBF",
     "Hex" : "00CC99"
   },
   {
@@ -663,6 +736,7 @@
     "Network" : "The GeniePoint Network",
     "GraphicName" : "the-geniepoint-network",
     "Count" : 980,
+    "ID" : "054CE4EA-9B7C-4232-AA01-60486F8F0868",
     "Hex" : "CC00FF"
   },
   {
@@ -672,6 +746,7 @@
     "Network" : "Tonik Energy",
     "GraphicName" : "tonik-energy",
     "Count" : 2,
+    "ID" : "EF2A0886-A98E-4A1D-9D93-1D9B0E5EBC95",
     "Hex" : "CC99FF"
   },
   {
@@ -681,6 +756,7 @@
     "Network" : "ubitricity",
     "GraphicName" : "ubitricity",
     "Count" : 6022,
+    "ID" : "D0487E1E-4764-47B4-8F7B-CE1183E366A2",
     "Hex" : "339966"
   },
   {
@@ -690,6 +766,7 @@
     "Network" : "VendElectric",
     "GraphicName" : "vendelectric",
     "Count" : 2,
+    "ID" : "4BCC8A77-6FC0-4C28-B9F4-E5B2E099904D",
     "Hex" : "CC9966"
   },
   {
@@ -699,6 +776,7 @@
     "Network" : "Wattif EV UK Limited",
     "GraphicName" : "wattif-ev-uk",
     "Count" : 14,
+    "ID" : "0C240DD6-C325-4A6C-82F7-7A42485CBBAF",
     "Hex" : "FF0066"
   },
   {
@@ -708,6 +786,7 @@
     "Network" : "York City Council",
     "GraphicName" : "york-city-council",
     "Count" : 17,
+    "ID" : "4427C26A-E437-4BC2-88C6-FEAD96830E37",
     "Hex" : "993300"
   },
   {
@@ -717,6 +796,7 @@
     "Network" : "Zest",
     "GraphicName" : "zest",
     "Count" : 161,
+    "ID" : "369CE07C-1364-4334-93EC-547A37EFAA79",
     "Hex" : "99FF00"
   }
 ]

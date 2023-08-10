@@ -28,6 +28,9 @@ struct NetworkFiltersView: View {
                             Text(filter.displayName.wrappedValue)
                         }
                         .tag(filter.id)
+                        .onChange(of: filter.setting.wrappedValue) {
+                            dataManager.saveSettings(.network)
+                        }
                     }
                 }
                 .font(.headline)

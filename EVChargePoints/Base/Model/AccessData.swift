@@ -13,7 +13,6 @@ struct AccessData: Identifiable, Codable {
     var displayName: String
     var symbol: String
     var setting: Bool
-//    var userSetting: Bool
 }
 
 extension AccessData {
@@ -33,11 +32,11 @@ extension AccessData {
         dataName      = try container.decode(String.self, forKey: .dataName)
         displayName   = try container.decode(String.self, forKey: .displayName)
         symbol        = try container.decode(String.self, forKey: .symbol)
-        setting       = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
-
-//        userSetting = UserDefaults.standard.bool(forKey: "\(id)")
-//        print("userSetting: \(userSetting)")
-//        print("setting: \(setting)")
+        do {
+            setting = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+        } catch {
+            setting = try container.decode(Bool.self, forKey: .setting)
+        }
     }
 }
 
@@ -53,13 +52,13 @@ extension AccessData {
 }
 
 extension AccessData {
-    func saveData() {
+    static func saveData(data: [AccessData]) {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .withoutEscapingSlashes
             encoder.outputFormatting = .prettyPrinted
 
-            let data = try? encoder.encode(self)
+            let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
                 .appendingPathComponent("AccessData")

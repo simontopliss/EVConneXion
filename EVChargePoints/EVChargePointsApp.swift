@@ -13,11 +13,16 @@ struct EVChargePointsApp: App {
     // Create a delegate to check for when performing UI Testing
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
-    @StateObject private var dataManager      = DataManager()
-    @StateObject private var locationManager  = LocationManager()
-    @StateObject private var routerManager    = NavigationRouter()
+    @StateObject private var dataManager = DataManager()
+    @StateObject private var locationManager = LocationManager()
+    @StateObject private var routerManager = NavigationRouter()
+
+    init() {
+        copyJSONFilesOnFirstLaunch(isFirstLaunch: &isFirstLaunch)
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -64,5 +69,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UITestingHelper.isUITesting { print("👷🏻‍♂️ UI Testing") }
         #endif
         return true
+    }
+}
+
+extension EVChargePointsApp {
+
+    private func copyJSONFilesOnFirstLaunch(isFirstLaunch: inout Bool) {
+        if isFirstLaunch {
+            for JSONFile in JSONFiles.allCases {
+                copyFileToDocumentsFolder(nameForFile: JSONFile.rawValue, extForFile: "json")
+            }
+            isFirstLaunch = false
+        }
+    }
+
+    private func copyFileToDocumentsFolder(nameForFile: String, extForFile: String) {
+        let documentsURL = FileManager.documentsDirectory
+        let destURL = documentsURL.appendingPathComponent(nameForFile).appendingPathExtension(extForFile)
+        guard let sourceURL = Bundle.main.url(forResource: nameForFile, withExtension: extForFile) else {
+            print("Source file not found.")
+            return
+        }
+        do {
+            try FileManager.default.copyItem(at: sourceURL, to: destURL)
+        } catch {
+            print("Unable to copy file")
+        }
+    }
+}
+
+extension EVChargePointsApp {
+    enum JSONFiles: String, CaseIterable {
+        case access     = "AccessData"
+        case charger    = "ChargerData"
+        case connector  = "ConnectorData"
+        case location   = "LocationData"
+        case network    = "NetworkData"
+        case payment    = "PaymentData"
     }
 }

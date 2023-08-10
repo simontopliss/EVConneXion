@@ -1,26 +1,5 @@
-[
-  {
-    "Setting" : 350,
-    "DataName" : "RatedOutputkW",
-    "DisplayName" : "Rated Output kW",
-    "Symbol" : "gauge.with.dots.needle.bottom.0percent"
-  },
-  {
-    "Setting" : 500,
-    "DataName" : "RatedOutputCurrent",
-    "DisplayName" : "Rated Output Current",
-    "Symbol" : "gauge.with.dots.needle.bottom.100percent"
-  },
-  {
-    "Setting" : "Three Phase AC",
-    "DataName" : "ChargeMethod",
-    "DisplayName" : "Charge Method",
-    "Symbol" : "ev.charger"
-  },
-  {
-    "Setting" : 1,
-    "DataName" : "TetheredCable",
-    "DisplayName" : "Tethered Cable",
-    "Symbol" : "powercord"
-  }
-]
+{
+    "SelectedSpeed" : "Fast",
+    "SelectedMethod" : "DC",
+    "TetheredCable" : false
+}
