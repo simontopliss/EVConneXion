@@ -38,10 +38,15 @@ struct FiltersView: View {
             }
 
             Button {
-                // TODO: Apply Filters and return back to previous screen
                 dataManager.filtersChanged = false
                 dataManager.applyFilters()
-                routerManager.goBack()
+                // TODO: Apply Filters and return back to previous screen
+//                let _ = print(routerManager.routes)
+//                if routerManager.routes.isEmpty {
+//                    routerManager.push(to: .mapView)
+//                } else {
+//                    routerManager.goBack()
+//                }
             } label: {
                 Text("Apply Filter \(Image(systemName: "slider.horizontal.3"))")
                     .font(.title3)
