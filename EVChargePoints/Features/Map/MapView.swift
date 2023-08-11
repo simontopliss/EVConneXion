@@ -56,7 +56,7 @@ struct MapView: View {
                 }
                 .annotationTitles(.hidden)
 
-                ForEach(dataManager.chargeDevices) { chargeDevice in
+                ForEach(dataManager.filteredDevices) { chargeDevice in
 
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
