@@ -33,7 +33,8 @@ final class DataManager: ObservableObject {
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
 
-        self.chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
+        chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
+        filteredDevices = chargeDevices
 
         // Load JSON files
         loadAccessData()
@@ -107,7 +108,6 @@ final class DataManager: ObservableObject {
     }
 
     func saveSettings(_ jsonFile: EVChargePointsApp.JSONFiles) {
-        filtersChanged = true
         switch jsonFile {
             case .access:
                 AccessData.saveData(data: accessData)
@@ -122,9 +122,10 @@ final class DataManager: ObservableObject {
             case .payment:
                 PaymentData.saveData(data: paymentData)
         }
+        filtersChanged = true
+    }
+
+    func anyConnectorSelected() -> Bool {
+        return connectorData.first(where: { $0.setting == true }) != nil
     }
 }
-
-// MARK: - Filters
-
-
