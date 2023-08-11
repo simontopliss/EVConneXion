@@ -10,7 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         VStack {
-            Text("Hello, SettingsView!")
+            // TODO: Add user settings
+            Text("Miles or Kilometres")
         }
         .toolbarBackground(.visible, for: .navigationBar, .tabBar)
         .toolbarBackground(.ultraThinMaterial, for: .tabBar)
