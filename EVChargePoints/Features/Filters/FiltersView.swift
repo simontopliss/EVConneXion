@@ -35,17 +35,15 @@ struct FiltersView: View {
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(AppColors.textColor)
-//                .onChange(of: filtersViewModel.filters, initial: false) {
-//                    dataManager.filtersChanged = true
-//                }
             }
 
             Button {
                 // TODO: Apply Filters and return back to previous screen
                 dataManager.filtersChanged = false
+                dataManager.applyFilters()
                 routerManager.goBack()
             } label: {
-                Text("Apply Filter")
+                Text("Apply Filter \(Image(systemName: "slider.horizontal.3"))")
                     .font(.title3)
                     .fontWeight(.semibold)
             }
@@ -55,7 +53,6 @@ struct FiltersView: View {
             .foregroundStyle(.white)
             .cornerRadius(22)
             .padding(.bottom, 18)
-            // TODO: This should be only enabled if the user has made changes
             .disabled(!dataManager.filtersChanged)
         }
         .onAppear {
@@ -79,16 +76,16 @@ struct FiltersView: View {
                 }
             }
 
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    // Save filters
-                } label: {
-                    HStack(alignment: .firstTextBaseline) {
-                        Text("Save Filter")
-                        Image(systemName: "square.and.arrow.down")
-                    }
-                }
-            }
+//            ToolbarItem(placement: .topBarTrailing) {
+//                Button {
+//                    // Save filters
+//                } label: {
+//                    HStack(alignment: .firstTextBaseline) {
+//                        Text("Save Filter")
+//                        Image(systemName: "square.and.arrow.down")
+//                    }
+//                }
+//            }
         }
     }
 }
