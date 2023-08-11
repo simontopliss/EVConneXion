@@ -9,36 +9,35 @@ import Foundation
 
 extension DataManager {
 
-    func applyFilters(chargeDevices: [ChargeDevice], connectorData: [ConnectorData], networkData: [NetworkData]) {
+    func applyFilters() {
+        print(#function)
+
         var filteredDevices: [ChargeDevice] = []
 
-        filteredDevices.append(
-            contentsOf: filterDevicesByAccess(chargeDevices: chargeDevices)
-        )
-        filteredDevices.append(
-            contentsOf: filterDevicesByLocation(chargeDevices: chargeDevices)
-        )
-        filteredDevices.append(
-            contentsOf: filterDevicesByConnector(chargeDevices: chargeDevices, connectorData: connectorData)
-        )
-        filteredDevices.append(
-            contentsOf: filterDevicesByPayment(chargeDevices: chargeDevices)
-        )
-        filteredDevices.append(
-            contentsOf: filterDevicesByChargerType(chargeDevices: chargeDevices)
-        )
-        filteredDevices.append(
-            contentsOf: filterDevicesByNetwork(chargeDevices: chargeDevices, networkData: networkData)
-        )
+        let filteredAccessDevices = filterDevicesByAccess()
+        let filteredLocationTypes = filterDevicesByLocation()
+        let filteredConnectorDevices = filterDevicesByConnector()
+        let filteredPaymentDevices = filterDevicesByPayment()
+        let filteredChargerDevices = filterDevicesByChargerType()
+        let filteredNetworkDevices = filterDevicesByNetwork()
 
-        filteredDevices = Array(Set(filteredDevices))
+        if !filteredAccessDevices.isEmpty { filteredDevices += filteredAccessDevices }
+        if !filteredLocationTypes.isEmpty { filteredDevices += filteredLocationTypes }
+        if !filteredConnectorDevices.isEmpty { filteredDevices += filteredConnectorDevices }
+        if !filteredPaymentDevices.isEmpty { filteredDevices += filteredPaymentDevices }
+        if !filteredChargerDevices.isEmpty { filteredDevices += filteredChargerDevices }
+        if !filteredNetworkDevices.isEmpty { filteredDevices += filteredNetworkDevices }
+
+        filteredDevices = filteredDevices.compactMap { $0 }
 
         self.filteredDevices.sort(
             by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser }
         )
     }
 
-    func filterDevicesByAccess(chargeDevices: [ChargeDevice]) -> [ChargeDevice] {
+    func filterDevicesByAccess() -> [ChargeDevice] {
+        print(#function)
+
         var filteredAccessDevices: [ChargeDevice] = []
         let filteredAccessTypes: [AccessData] = accessData.filter { $0.setting == true }
 
@@ -64,56 +63,57 @@ extension DataManager {
         return filteredAccessDevices
     }
 
-    func filterDevicesByChargerType(chargeDevices: [ChargeDevice]) -> [ChargeDevice] {
-        var filterConnectorDevices: [ChargeDevice] = []
+    func filterDevicesByChargerType() -> [ChargeDevice] {
+        print(#function)
+
+        var filteredChargerDevices: [ChargeDevice] = []
         let slowCharge = 3.0...5.0
         let fastCharge = 7.0...36.0
         // let rapidCharge = 43.0...350
 
         for chargeDevice in chargeDevices {
-            if filterConnectorDevices.contains(chargeDevice) == false {
+            if filteredChargerDevices.contains(chargeDevice) == false {
                 let connectors = chargeDevice.connector
 
                 for connector in connectors {
                     if chargerData.selectedSpeed == "Slow", slowCharge ~= connector.ratedOutputkW {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     } else if chargerData.selectedSpeed == "Fast",
                               fastCharge ~= connector.ratedOutputkW
                     {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     } else if chargerData.selectedSpeed == "Rapid+",
                               connector.ratedOutputkW > 36.0
                     {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     }
 
                     if chargerData.selectedMethod.rawValue == "Single Phase AC",
                        connector.chargeMethod == .singlePhaseAc
                     {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     } else if chargerData.selectedMethod.rawValue == "Three Phase AC",
                               connector.chargeMethod == .threePhaseAc
                     {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     } else if chargerData.selectedMethod.rawValue == "DC",
                               connector.chargeMethod == .dc
                     {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     }
 
                     if chargerData.tetheredCable, connector.tetheredCable == true {
-                        filterConnectorDevices.append(chargeDevice)
+                        filteredChargerDevices.append(chargeDevice)
                     }
                 }
             }
         }
-        return filterConnectorDevices
+        return filteredChargerDevices
     }
 
-    func filterDevicesByConnector(
-        chargeDevices: [ChargeDevice],
-        connectorData: [ConnectorData]
-    ) -> [ChargeDevice] {
+    func filterDevicesByConnector() -> [ChargeDevice] {
+        print(#function)
+
         let filteredConnectorTypes: [String] = connectorData.filter {
             $0.setting == true
         }.map { $0.connectorType.rawValue }
@@ -126,7 +126,9 @@ extension DataManager {
         return filteredConnectorDevices
     }
 
-    func filterDevicesByLocation(chargeDevices: [ChargeDevice]) -> [ChargeDevice] {
+    func filterDevicesByLocation() -> [ChargeDevice] {
+        print(#function)
+
         let filteredLocationTypes: [String] = locationData.filter {
             $0.setting == true
         }.map { $0.locationType.rawValue
@@ -138,18 +140,22 @@ extension DataManager {
         return filteredLocationDevices
     }
 
-    func filterDevicesByNetwork(chargeDevices: [ChargeDevice], networkData: [NetworkData]) -> [ChargeDevice] {
+    func filterDevicesByNetwork() -> [ChargeDevice] {
+        print(#function)
+
         let networkFilters: [String] = networkData.filter { $0.setting == true }.map { $0.network }
 
-        let filterNetworkDevices = chargeDevices.filter { chargeDevice in
+        let filteredNetworkDevices = chargeDevices.filter { chargeDevice in
             chargeDevice.deviceNetworks.contains(where: { networkDevice in
                 networkFilters.contains(networkDevice)
             })
         }
-        return filterNetworkDevices
+        return filteredNetworkDevices
     }
 
-    func filterDevicesByPayment(chargeDevices: [ChargeDevice]) -> [ChargeDevice] {
+    func filterDevicesByPayment() -> [ChargeDevice] {
+        print(#function)
+
         var filteredPaymentDevices: [ChargeDevice] = []
         let filteredPaymentTypes: [PaymentData] = paymentData.filter { $0.setting == true }
 
