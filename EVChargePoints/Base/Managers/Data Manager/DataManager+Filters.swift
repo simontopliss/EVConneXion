@@ -14,12 +14,15 @@ extension DataManager {
 
         var filteredDevices: [ChargeDevice] = []
 
-        let filteredAccessDevices = filterDevicesByAccess()
-        let filteredLocationTypes = filterDevicesByLocation()
-        let filteredConnectorDevices = filterDevicesByConnector()
-        let filteredPaymentDevices = filterDevicesByPayment()
-        let filteredChargerDevices = filterDevicesByChargerType()
-        let filteredNetworkDevices = filterDevicesByNetwork()
+        let filteredAccessDevices     = filterDevicesByAccess()
+        let filteredLocationTypes     = filterDevicesByLocation()
+        let filteredConnectorDevices  = filterDevicesByConnector()
+        let filteredPaymentDevices    = filterDevicesByPayment()
+        let filteredChargerDevices    = filterDevicesByChargerType()
+        let filteredNetworkDevices    = filterDevicesByNetwork()
+
+        // TODO: Need to fix if no filteredLocationTypes, filteredConnectorDevices, filteredChargerDevices or
+        //     filteredNetworkDevices are found, the user should see an No Results screen
 
         if !filteredAccessDevices.isEmpty { filteredDevices += filteredAccessDevices }
         if !filteredLocationTypes.isEmpty { filteredDevices += filteredLocationTypes }
