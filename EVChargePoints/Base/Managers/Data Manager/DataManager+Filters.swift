@@ -10,7 +10,6 @@ import Foundation
 extension DataManager {
 
     func applyFilters() {
-        print(#function)
 
         var filteredDevices: [ChargeDevice] = []
 
@@ -22,7 +21,7 @@ extension DataManager {
         let filteredNetworkDevices    = filterDevicesByNetwork()
 
         // TODO: Need to fix if no filteredLocationTypes, filteredConnectorDevices, filteredChargerDevices or
-        //     filteredNetworkDevices are found, the user should see an No Results screen
+        // filteredNetworkDevices are found, the user should see an No Results screen
 
         if !filteredAccessDevices.isEmpty { filteredDevices += filteredAccessDevices }
         if !filteredLocationTypes.isEmpty { filteredDevices += filteredLocationTypes }
@@ -39,7 +38,6 @@ extension DataManager {
     }
 
     func filterDevicesByAccess() -> [ChargeDevice] {
-        print(#function)
 
         var filteredAccessDevices: [ChargeDevice] = []
         let filteredAccessTypes: [AccessData] = accessData.filter { $0.setting == true }
@@ -67,7 +65,6 @@ extension DataManager {
     }
 
     func filterDevicesByChargerType() -> [ChargeDevice] {
-        print(#function)
 
         var filteredChargerDevices: [ChargeDevice] = []
         let slowCharge = 3.0...5.0
@@ -115,7 +112,6 @@ extension DataManager {
     }
 
     func filterDevicesByConnector() -> [ChargeDevice] {
-        print(#function)
 
         let filteredConnectorTypes: [String] = connectorData.filter {
             $0.setting == true
@@ -130,7 +126,6 @@ extension DataManager {
     }
 
     func filterDevicesByLocation() -> [ChargeDevice] {
-        print(#function)
 
         let filteredLocationTypes: [String] = locationData.filter {
             $0.setting == true
@@ -144,7 +139,6 @@ extension DataManager {
     }
 
     func filterDevicesByNetwork() -> [ChargeDevice] {
-        print(#function)
 
         let networkFilters: [String] = networkData.filter { $0.setting == true }.map { $0.network }
 
@@ -157,7 +151,6 @@ extension DataManager {
     }
 
     func filterDevicesByPayment() -> [ChargeDevice] {
-        print(#function)
 
         var filteredPaymentDevices: [ChargeDevice] = []
         let filteredPaymentTypes: [PaymentData] = paymentData.filter { $0.setting == true }
