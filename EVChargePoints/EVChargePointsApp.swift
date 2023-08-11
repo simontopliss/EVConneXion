@@ -32,26 +32,40 @@ struct EVChargePointsApp: App {
                         Label(Tabs.map.label, systemImage: Tabs.map.icon)
                     }
                     .tag(Tabs.map)
+//                    .onTapGesture {
+//                        routerManager.routes = [.mapView]
+//                    }
 
                 ChargePointListView()
                     .tabItem {
                         Label(Tabs.list.label, systemImage: Tabs.list.icon)
                     }
                     .tag(Tabs.list)
+//                    .onTapGesture {
+//                        routerManager.routes = [.chargePointListView]
+//                    }
 
                 FiltersView()
                     .tabItem {
                         Label(Tabs.filters.label, systemImage: Tabs.filters.icon)
                     }
                     .tag(Tabs.filters)
+//                    .onTapGesture {
+//                        routerManager.routes = [.filtersView]
+//                    }
 
-                SettingsView()
+                UserSettingsView()
                     .tabItem {
                         Label(Tabs.settings.label, systemImage: Tabs.settings.icon)
                     }
                     .tag(Tabs.settings)
+//                    .onTapGesture {
+//                        routerManager.routes = [.userSettingsView]
+//                    }
+
             }
             .tint(.accentColor)
+            // .navigationDestination(for: Route.self) { $0 }
         }
         .environmentObject(dataManager)
         .environmentObject(locationManager)
@@ -100,11 +114,12 @@ extension EVChargePointsApp {
 
 extension EVChargePointsApp {
     enum JSONFiles: String, CaseIterable {
-        case access     = "AccessData"
-        case charger    = "ChargerData"
-        case connector  = "ConnectorData"
-        case location   = "LocationData"
-        case network    = "NetworkData"
-        case payment    = "PaymentData"
+        case access        = "AccessData"
+        case charger       = "ChargerData"
+        case connector     = "ConnectorData"
+        case location      = "LocationData"
+        case network       = "NetworkData"
+        case payment       = "PaymentData"
+        case userSettings  = "UserSettings"
     }
 }

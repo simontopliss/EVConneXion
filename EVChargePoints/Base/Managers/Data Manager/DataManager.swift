@@ -19,6 +19,7 @@ final class DataManager: ObservableObject {
     @Published var locationData: [LocationData] = []
     @Published var paymentData: [PaymentData] = []
     @Published var filteredDevices: [ChargeDevice] = []
+    @Published var userSettings: UserSettings = .init()
 
     @Published var filtersChanged = false
 
@@ -43,6 +44,7 @@ final class DataManager: ObservableObject {
         loadLocationData()
         loadNetworkData()
         loadPaymentData()
+        loadUserSettings()
     }
 
     // MARK: - API Call
@@ -107,6 +109,13 @@ final class DataManager: ObservableObject {
         )
     }
 
+    func loadUserSettings() {
+        userSettings = try! StaticJSONMapper.decode(
+            file: "UserSettings",
+            type: UserSettings.self
+        )
+    }
+
     func saveSettings(_ jsonFile: EVChargePointsApp.JSONFiles) {
         switch jsonFile {
             case .access:
@@ -121,6 +130,8 @@ final class DataManager: ObservableObject {
                 NetworkData.saveData(data: networkData)
             case .payment:
                 PaymentData.saveData(data: paymentData)
+            case .userSettings:
+                UserSettings.saveData(data: userSettings)
         }
         filtersChanged = true
     }

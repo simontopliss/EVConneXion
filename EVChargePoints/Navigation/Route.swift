@@ -10,8 +10,9 @@ import SwiftUI
 
 enum Route {
     case mapView // TODO: Pass a navigation destination/location
+    case chargePointListView
     case chargePointDetail(chargeDevice: ChargeDevice)
-    case settingsView
+    case userSettingsView
     case filtersView
     case filterAccessTypesView
     case filterConnectorTypesView
@@ -33,9 +34,11 @@ extension Route: Hashable {
         switch (lhs, rhs) {
             case (.mapView, .mapView):
                 return true
+            case (.chargePointListView, .chargePointListView):
+                return true
             case let (.chargePointDetail(lhsChargeDevice), .chargePointDetail(rhsChargeDevice)):
                 return lhsChargeDevice == rhsChargeDevice
-            case (.settingsView, .settingsView):
+            case (.userSettingsView, .userSettingsView):
                 return true
             case (.filtersView, .filtersView):
                 return true
@@ -66,10 +69,12 @@ extension Route: View {
         switch self {
             case .mapView:
                 MapView()
+            case .chargePointListView:
+                ChargePointListView()
             case let .chargePointDetail(chargeDevice):
                 ChargePointDetailView(chargeDevice: chargeDevice)
-            case .settingsView:
-                SettingsView()
+            case .userSettingsView:
+                UserSettingsView()
             case .filtersView:
                 FiltersView()
             case .searchView:
