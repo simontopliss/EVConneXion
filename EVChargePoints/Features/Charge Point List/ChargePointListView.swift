@@ -19,7 +19,7 @@ struct ChargePointListView: View {
         NavigationStack(path: $routerManager.routes) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
-                    ForEach(dataManager.chargeDevices) { chargeDevice in
+                    ForEach(dataManager.filteredDevices) { chargeDevice in
                         NavigationLink(value: Route.chargePointDetail(chargeDevice: chargeDevice)) {
                             ChargePointRow(chargeDevice: chargeDevice)
                         }
