@@ -25,8 +25,6 @@ struct NetworkData: Identifiable, Codable {
     var rgbValues: RGBValue {
         RGBValue(rgb: rgb)
     }
-
-
 }
 
 extension NetworkData {
