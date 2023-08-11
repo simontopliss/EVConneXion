@@ -22,7 +22,11 @@ struct ConnectorFiltersView: View {
                         itemID: filter.id
                     )
                     .onChange(of: filter.setting.wrappedValue) {
-                        dataManager.saveSettings(.connector)
+                        if dataManager.anyConnectorSelected() {
+                            dataManager.saveSettings(.connector)
+                        } else {
+                            let _ = print("No Connector selected!")
+                        }
                     }
                 }
             }
