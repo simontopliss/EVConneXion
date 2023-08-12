@@ -27,7 +27,6 @@ final class DataManager: ObservableObject {
 
     // TODO: Is `limit` required?
     private(set) var limit = 0
-    private(set) var country: Endpoint.RegistryDataType.Country = .gb
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
@@ -58,8 +57,8 @@ final class DataManager: ObservableObject {
             requestType: requestType,
             distance: distance,
             limit: limit,
-            units: units,
-            country: country
+            units: userSettings.unitSetting,
+            country: userSettings.countrySetting
         )
 
         isLoading = true

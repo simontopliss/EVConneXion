@@ -10,15 +10,31 @@ import Foundation
 struct UserSettings: Identifiable, Codable {
     let id: UUID = UUID()
     var recentSearches: [String]?
-    var unitSetting = "Miles"
-    var country = "GB"
+    var unitSetting: Unit = .mi
+    var countrySetting: Country = .gb
+}
+
+extension UserSettings {
+    enum Unit: String, Codable, Identifiable {
+        var id: Self { self }
+        case mi = "Miles"
+        case km = "Kilometres"
+    }
+}
+
+extension UserSettings {
+    enum Country: String, Codable, Identifiable {
+        var id: Self { self }
+        case gb = "United Kingdom"
+        case ie = "Ireland"
+    }
 }
 
 extension UserSettings {
     enum CodingKeys: String, CodingKey {
         case recentSearches = "RecentSearches"
         case unitSetting = "UnitSetting"
-        case country = "Country"
+        case countrySetting = "CountrySetting"
     }
 }
 
@@ -26,8 +42,8 @@ extension UserSettings {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         recentSearches = try container.decodeIfPresent([String].self, forKey: .recentSearches)
-        unitSetting = try container.decode(String.self, forKey: .unitSetting)
-        country = try container.decode(String.self, forKey: .country)
+        unitSetting = try container.decode(Unit.self, forKey: .unitSetting)
+        countrySetting = try container.decode(Country.self, forKey: .countrySetting)
     }
 }
 
@@ -36,7 +52,7 @@ extension UserSettings {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(recentSearches, forKey: .recentSearches)
         try container.encode(unitSetting, forKey: .unitSetting)
-        try container.encode(country, forKey: .country)
+        try container.encode(countrySetting, forKey: .countrySetting)
     }
 }
 

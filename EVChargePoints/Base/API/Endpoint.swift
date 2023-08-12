@@ -13,7 +13,7 @@ enum Endpoint: String {
     case baseURL = "https://chargepoints.dft.gov.uk/api/retrieve"
 }
 
-extension Endpoint {
+extension Endpoint: Codable {
 
     enum DataType {
         /// registry - Charge Point Registry
@@ -35,12 +35,12 @@ extension Endpoint {
 
     enum RegistryDataType {
 
-        enum Unit: String {
+        enum Unit: String, Codable {
             case km
             case mi
         }
 
-        enum Country: String {
+        enum Country: String, Codable {
             case gb
             case ie
         }
@@ -59,7 +59,7 @@ extension Endpoint {
         static let lat = "lat"
         /// long - Longitude (lat required)
         static let long = "long"
-    /// limit - Integer to limit results returned, don't specify to return all devices
+        /// limit - Integer to limit results returned, don't specify to return all devices
         static let limit = "limit"
         /// postcode - Full or partial UK postcode (e.g. EC3A 7BR, EC3A 7, EC3A)
         static let postcode = "postcode"
@@ -95,8 +95,8 @@ extension Endpoint {
         requestType: RequestType,
         distance: Double,
         limit: Int,
-        units: RegistryDataType.Unit,
-        country: Endpoint.RegistryDataType.Country
+        units: UserSettings.Unit,
+        country: UserSettings.Country
     ) -> String {
 
         var urlComponents: [String] = []
