@@ -14,18 +14,14 @@ struct SymbolImageAnimated: View {
     let graphicName: String
 
     // Don't invert the graphic for Network as they don't have an inverted version
-    var invertForDarkMode = true
+    var invertTintForDarkMode = true
 
     var colorSchemeGraphicName: String {
-        if invertForDarkMode {
-            return colorScheme == .dark ? graphicName + "-i" : graphicName
-        } else {
-            return graphicName
-        }
+        colorScheme == .dark ? graphicName + "-i" : graphicName
     }
 
     var tintGraphicName: String {
-        if invertForDarkMode {
+        if invertTintForDarkMode {
             return colorScheme == .dark ? graphicName + "-40-i" : graphicName + "-40"
         } else {
             return graphicName + "-40"
