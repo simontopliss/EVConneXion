@@ -63,6 +63,11 @@ struct FiltersView: View {
         .onAppear {
             dataManager.filtersChanged = false
         }
+        .alert("Warning", isPresented: $dataManager.filterResultError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(dataManager.filterResultErrorMessage)
+        }
         .background(Color.background)
         .navigationDestination(for: Route.self) { $0 }
         .navigationTitle("Filters")
@@ -111,7 +116,7 @@ extension FiltersView {
             Group {
                 Text("Maximum distance: ")
                     .fontWeight(.regular)
-                + Text("\(maximumDistanceLabel)")
+                    + Text("\(maximumDistanceLabel)")
             }
             .font(.body)
 
@@ -216,4 +221,3 @@ extension FiltersViewModel {
         var destination: Route
     }
 }
-
