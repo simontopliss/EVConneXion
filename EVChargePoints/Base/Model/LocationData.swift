@@ -17,11 +17,11 @@ struct LocationData: Identifiable, Codable {
 
 extension LocationData {
     enum CodingKeys: String, CodingKey {
-        case id          = "ID"
-        case locationType = "LocationType"
-        case displayName  = "DisplayName"
-        case graphicName  = "GraphicName"
-        case setting      = "Setting"
+        case id            = "ID"
+        case locationType  = "LocationType"
+        case displayName   = "DisplayName"
+        case graphicName   = "GraphicName"
+        case setting       = "Setting"
     }
 }
 
@@ -33,9 +33,9 @@ extension LocationData {
         displayName    = try container.decode(String.self, forKey: .displayName)
         graphicName    = try container.decode(String.self, forKey: .graphicName)
         do {
-            setting = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+            setting    = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
         } catch {
-            setting = try container.decode(Bool.self, forKey: .setting)
+            setting    = try container.decode(Bool.self, forKey: .setting)
         }
     }
 }
@@ -43,11 +43,11 @@ extension LocationData {
 extension LocationData {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.id, forKey: .id)
-        try container.encode(self.locationType, forKey: .locationType)
-        try container.encode(self.displayName, forKey: .displayName)
-        try container.encode(self.graphicName, forKey: .graphicName)
-        try container.encode(self.setting, forKey: .setting)
+        try container.encode(id, forKey: .id)
+        try container.encode(locationType, forKey: .locationType)
+        try container.encode(displayName, forKey: .displayName)
+        try container.encode(graphicName, forKey: .graphicName)
+        try container.encode(setting, forKey: .setting)
     }
 }
 

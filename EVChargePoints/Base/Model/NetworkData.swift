@@ -42,18 +42,18 @@ extension NetworkData {
 
 extension NetworkData {
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id           = try container.decode(UUID.self, forKey: .id)
-        network      = try container.decode(String.self, forKey: .network)
-        displayName  = try container.decode(String.self, forKey: .displayName)
-        graphicName  = try container.decode(String.self, forKey: .graphicName)
-        hex          = try container.decode(String.self, forKey: .hex)
-        rgb          = try container.decode(String.self, forKey: .rgb)
-        total        = try container.decode(Int.self, forKey: .total)
+        let container  = try decoder.container(keyedBy: CodingKeys.self)
+        id             = try container.decode(UUID.self, forKey: .id)
+        network        = try container.decode(String.self, forKey: .network)
+        displayName    = try container.decode(String.self, forKey: .displayName)
+        graphicName    = try container.decode(String.self, forKey: .graphicName)
+        hex            = try container.decode(String.self, forKey: .hex)
+        rgb            = try container.decode(String.self, forKey: .rgb)
+        total          = try container.decode(Int.self, forKey: .total)
         do {
-            setting = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+            setting    = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
         } catch {
-            setting = try container.decode(Bool.self, forKey: .setting)
+            setting    = try container.decode(Bool.self, forKey: .setting)
         }
     }
 }

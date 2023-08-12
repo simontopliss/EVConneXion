@@ -17,7 +17,7 @@ struct ConnectorData: Identifiable, Codable {
 
 extension ConnectorData {
     enum CodingKeys: String, CodingKey {
-        case id          = "ID"
+        case id             = "ID"
         case connectorType  = "ConnectorType"
         case displayName    = "DisplayName"
         case graphicName    = "GraphicName"
@@ -33,9 +33,9 @@ extension ConnectorData {
         displayName    = try container.decode(String.self, forKey: .displayName)
         graphicName    = try container.decode(String.self, forKey: .graphicName)
         do {
-            setting = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+            setting    = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
         } catch {
-            setting = try container.decode(Bool.self, forKey: .setting)
+            setting    = try container.decode(Bool.self, forKey: .setting)
         }
     }
 }
@@ -43,11 +43,11 @@ extension ConnectorData {
 extension ConnectorData {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.id, forKey: .id)
-        try container.encode(self.connectorType, forKey: .connectorType)
-        try container.encode(self.displayName, forKey: .displayName)
-        try container.encode(self.graphicName, forKey: .graphicName)
-        try container.encode(self.setting, forKey: .setting)
+        try container.encode(id, forKey: .id)
+        try container.encode(connectorType, forKey: .connectorType)
+        try container.encode(displayName, forKey: .displayName)
+        try container.encode(graphicName, forKey: .graphicName)
+        try container.encode(setting, forKey: .setting)
     }
 }
 
