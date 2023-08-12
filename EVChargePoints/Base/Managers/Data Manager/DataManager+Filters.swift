@@ -9,32 +9,75 @@ import Foundation
 
 extension DataManager {
 
+    enum FilterResult: String {
+        case noLocations
+        case noConnectors
+        case noChargers
+        case noNetworks
+    }
+
     func applyFilters() {
 
         var filteredDevices: [ChargeDevice] = []
+        filterResultError = false
+        filterResultErrorMessage = ""
 
-        let filteredAccessDevices     = filterDevicesByAccess()
-        let filteredLocationTypes     = filterDevicesByLocation()
-        let filteredConnectorDevices  = filterDevicesByConnector()
-        let filteredPaymentDevices    = filterDevicesByPayment()
-        let filteredChargerDevices    = filterDevicesByChargerType()
-        let filteredNetworkDevices    = filterDevicesByNetwork()
+        let filteredLocationTypes = filterDevicesByLocation()
+        if filteredLocationTypes.isEmpty {
+            filterResultError = true
+            filterResultErrorMessage = "No location types found in this area. Try a wider search of choose a different filter."
+            filteredDevices = chargeDevices
+        } else {
+            filteredDevices += filteredLocationTypes
+        }
 
-        // TODO: Need to fix if no filteredLocationTypes, filteredConnectorDevices, filteredChargerDevices or
-        // filteredNetworkDevices are found, the user should see an No Results screen
+        let filteredConnectorDevices = filterDevicesByConnector()
+        if filteredConnectorDevices.isEmpty {
+            filterResultError = true
+            filterResultErrorMessage = "No connection types found in this area. Try a wider search of choose a different filter."
+            filteredDevices = chargeDevices
+        } else {
+            filteredDevices += filteredConnectorDevices
+        }
 
-        if !filteredAccessDevices.isEmpty { filteredDevices += filteredAccessDevices }
-        if !filteredLocationTypes.isEmpty { filteredDevices += filteredLocationTypes }
-        if !filteredConnectorDevices.isEmpty { filteredDevices += filteredConnectorDevices }
-        if !filteredPaymentDevices.isEmpty { filteredDevices += filteredPaymentDevices }
-        if !filteredChargerDevices.isEmpty { filteredDevices += filteredChargerDevices }
-        if !filteredNetworkDevices.isEmpty { filteredDevices += filteredNetworkDevices }
+        let filteredChargerDevices = filterDevicesByChargerType()
+        if filteredChargerDevices.isEmpty {
+            filterResultError = true
+            filterResultErrorMessage = "No charger types found in this area. Try a wider search of choose a different filter."
+            filteredDevices = chargeDevices
+        } else {
+            filteredDevices += filteredChargerDevices
+        }
 
-        filteredDevices = filteredDevices.compactMap { $0 }
+        let filteredNetworkDevices = filterDevicesByNetwork()
+        if filteredNetworkDevices.isEmpty {
+            filterResultError = true
+            filterResultErrorMessage = "No network types found in this area. Try a wider search of choose a different filter."
+            filteredDevices = chargeDevices
+        } else {
+            filteredDevices += filteredNetworkDevices
+        }
 
-        self.filteredDevices.sort(
-            by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser }
-        )
+        if !filterResultErrorMessage.isEmpty {
+
+            filteredDevices = chargeDevices
+
+        } else {
+
+            let filteredAccessDevices = filterDevicesByAccess()
+            if !filteredAccessDevices.isEmpty { filteredDevices += filteredAccessDevices }
+
+            let filteredPaymentDevices = filterDevicesByPayment()
+            if !filteredPaymentDevices.isEmpty { filteredDevices += filteredPaymentDevices }
+
+            filteredDevices = filteredDevices.compactMap { $0 }
+
+            filteredDevices.sort(
+                by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser }
+            )
+
+            self.filteredDevices = filteredDevices
+        }
     }
 
     func filterDevicesByAccess() -> [ChargeDevice] {
