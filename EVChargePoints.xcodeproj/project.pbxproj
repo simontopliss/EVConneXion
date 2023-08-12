@@ -18,6 +18,9 @@
 		6223CA532A3DEAE700A87875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223CA522A3DEAE700A87875 /* Endpoint.swift */; };
 		6255F90D2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6255F90C2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift */; };
 		625BCCA12A8677F300BBC677 /* UserSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA02A8677F300BBC677 /* UserSettings.json */; };
+		625BCCA52A86D49C00BBC677 /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA22A86D49B00BBC677 /* ConnectorData.json */; };
+		625BCCA62A86D49C00BBC677 /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA32A86D49C00BBC677 /* LocationData.json */; };
+		625BCCAB2A86DEBB00BBC677 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCAA2A86DEBB00BBC677 /* NetworkData.json */; };
 		625CEF5B2A62CC1500A82048 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* AppColors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
@@ -64,10 +67,7 @@
 		6298B9DC2A842A3900DFB494 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9DB2A842A3900DFB494 /* UserSettings.swift */; };
 		6298B9DE2A84FFA200DFB494 /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9DD2A84FFA200DFB494 /* Sequence+Unique.swift */; };
 		6298B9E42A85071900DFB494 /* PaymentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9DF2A85071900DFB494 /* PaymentData.json */; };
-		6298B9E52A85071900DFB494 /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9E02A85071900DFB494 /* LocationData.json */; };
-		6298B9E62A85071900DFB494 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9E12A85071900DFB494 /* NetworkData.json */; };
 		6298B9E82A85071900DFB494 /* AccessData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9E32A85071900DFB494 /* AccessData.json */; };
-		6298B9EC2A8509BE00DFB494 /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9EB2A8509BE00DFB494 /* ConnectorData.json */; };
 		6298B9EE2A855F1F00DFB494 /* DataManager+ChargeDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */; };
 		6298B9FA2A85759200DFB494 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9F92A85759200DFB494 /* Array+Duplicates.swift */; };
 		6298B9FC2A858EC700DFB494 /* DataManager+Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */; };
@@ -122,6 +122,9 @@
 		6223CA522A3DEAE700A87875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		6255F90C2A72A178006FF6C9 /* DataManager+DistanceFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataManager+DistanceFormatting.swift"; sourceTree = "<group>"; };
 		625BCCA02A8677F300BBC677 /* UserSettings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserSettings.json; sourceTree = "<group>"; };
+		625BCCA22A86D49B00BBC677 /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
+		625BCCA32A86D49C00BBC677 /* LocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
+		625BCCAA2A86DEBB00BBC677 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		625CEF5A2A62CC1500A82048 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
@@ -168,10 +171,7 @@
 		6298B9DB2A842A3900DFB494 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		6298B9DD2A84FFA200DFB494 /* Sequence+Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Unique.swift"; sourceTree = "<group>"; };
 		6298B9DF2A85071900DFB494 /* PaymentData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PaymentData.json; sourceTree = "<group>"; };
-		6298B9E02A85071900DFB494 /* LocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
-		6298B9E12A85071900DFB494 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		6298B9E32A85071900DFB494 /* AccessData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AccessData.json; sourceTree = "<group>"; };
-		6298B9EB2A8509BE00DFB494 /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
 		6298B9ED2A855F1F00DFB494 /* DataManager+ChargeDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+ChargeDevices.swift"; sourceTree = "<group>"; };
 		6298B9F92A85759200DFB494 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		6298B9FB2A858EC700DFB494 /* DataManager+Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Filters.swift"; sourceTree = "<group>"; };
@@ -614,9 +614,9 @@
 			children = (
 				6298B9E32A85071900DFB494 /* AccessData.json */,
 				6298B9972A83DDD300DFB494 /* ChargerData.json */,
-				6298B9EB2A8509BE00DFB494 /* ConnectorData.json */,
-				6298B9E02A85071900DFB494 /* LocationData.json */,
-				6298B9E12A85071900DFB494 /* NetworkData.json */,
+				625BCCA22A86D49B00BBC677 /* ConnectorData.json */,
+				625BCCA32A86D49C00BBC677 /* LocationData.json */,
+				625BCCAA2A86DEBB00BBC677 /* NetworkData.json */,
 				6298B9DF2A85071900DFB494 /* PaymentData.json */,
 				625BCCA02A8677F300BBC677 /* UserSettings.json */,
 			);
@@ -723,16 +723,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6298B9E42A85071900DFB494 /* PaymentData.json in Resources */,
-				6298B9E52A85071900DFB494 /* LocationData.json in Resources */,
 				62D3FFBB2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json in Resources */,
 				62D3FFB82A8177F1004D3F5A /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */,
-				6298B9E62A85071900DFB494 /* NetworkData.json in Resources */,
+				625BCCAB2A86DEBB00BBC677 /* NetworkData.json in Resources */,
 				625BCCA12A8677F300BBC677 /* UserSettings.json in Resources */,
+				625BCCA62A86D49C00BBC677 /* LocationData.json in Resources */,
 				621A704B2A3B3BC900A04669 /* Preview Assets.xcassets in Resources */,
 				6298B99D2A83DDD300DFB494 /* ChargerData.json in Resources */,
-				6298B9EC2A8509BE00DFB494 /* ConnectorData.json in Resources */,
 				6298B9E82A85071900DFB494 /* AccessData.json in Resources */,
 				62D3FFB92A8177F1004D3F5A /* DE7 8LN.json in Resources */,
+				625BCCA52A86D49C00BBC677 /* ConnectorData.json in Resources */,
 				628E15C52A71A9930081D8C4 /* SE1 7PB - London Eye - 1 mile - connector-type-id 4.json in Resources */,
 				621A70482A3B3BC900A04669 /* Assets.xcassets in Resources */,
 			);
