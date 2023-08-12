@@ -3,23 +3,22 @@ import SwiftUI
 
 final class DataManager: ObservableObject {
 
+    /// Main Data
     @Published var chargeDevices: [ChargeDevice] = []
     @Published var networkData: [NetworkData] = []
     @Published var connectorData: [ConnectorData] = []
-
-    @Published var distance: Double = 10.0
-    @Published var units: Endpoint.RegistryDataType.Unit = .mi
-
-    @Published private(set) var error: NetworkManager.NetworkError?
-    @Published private(set) var isLoading = false
-    @Published var hasError = false
-
     @Published var accessData: [AccessData] = []
     @Published var chargerData: ChargerData = .init()
     @Published var locationData: [LocationData] = []
     @Published var paymentData: [PaymentData] = []
     @Published var filteredDevices: [ChargeDevice] = []
-    @Published var userSettings: UserSettings = .init()
+    @Published var userSettings: UserSettings!
+
+//    @Published var distance: Double = 10.0
+
+    @Published private(set) var error: NetworkManager.NetworkError?
+    @Published private(set) var isLoading = false
+    @Published var hasError = false
 
     @Published var filtersChanged = false
     @Published var filterResultError = false
@@ -55,7 +54,7 @@ final class DataManager: ObservableObject {
 
         let url = Endpoint.buildURL(
             requestType: requestType,
-            distance: distance,
+            distance: userSettings.distance,
             limit: limit,
             units: userSettings.unitSetting,
             country: userSettings.countrySetting

@@ -15,7 +15,7 @@ struct FiltersView: View {
     @StateObject private var filtersViewModel = FiltersViewModel()
 
     var maximumDistanceLabel: String {
-        "\(Int(dataManager.distance)) \(dataManager.units == .mi ? "miles" : "kilometres")"
+        "\(Int(dataManager.userSettings.distance)) \(dataManager.userSettings.unitSetting == .mi ? "miles" : "kilometres")"
     }
 
     var body: some View {
@@ -121,7 +121,7 @@ extension FiltersView {
             .font(.body)
 
             Slider(
-                value: $dataManager.distance,
+                value: $dataManager.userSettings.distance,
                 in: 5...100,
                 step: 5
             ) {

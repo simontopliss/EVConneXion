@@ -14,7 +14,7 @@ extension DataManager {
     ///   - distance: the distance from the user to the device
     ///   - unit: the Endpoint.RegistryDataType.Unit
     /// - Returns: String of the formatted distance in km or miles
-    func getFormattedDistance(distance: Double, unit: Endpoint.RegistryDataType.Unit) -> String {
+    func getFormattedDistance(distance: Double, unit: UserSettings.Unit) -> String {
         let distanceMeters = Measurement(value: distance, unit: UnitLength.meters)
 
         switch unit {

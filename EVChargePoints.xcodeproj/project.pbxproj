@@ -311,8 +311,8 @@
 				62B32CAB2A4DC34000C6E8DF /* Map */,
 				62B32CAA2A4DC33500C6E8DF /* Charge Point List */,
 				62B32CC22A4DCEC800C6E8DF /* Charge Point Details */,
-				62B32CB42A4DCD1400C6E8DF /* Settings */,
 				62B32CBC2A4DCE2700C6E8DF /* Filters */,
+				62B32CB42A4DCD1400C6E8DF /* Settings */,
 				62B32CBD2A4DCE3000C6E8DF /* Search */,
 			);
 			path = Features;

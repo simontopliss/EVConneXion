@@ -38,7 +38,7 @@ struct ChargePointRow: View {
                 Text(
                     dataManager.getFormattedDistance(
                         distance: chargeDevice.deviceMapItem.distanceFromUser,
-                        unit: dataManager.units
+                        unit: dataManager.userSettings.unitSetting
                     )
                 )
                 .font(.subheadline)

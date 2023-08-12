@@ -12,6 +12,7 @@ struct UserSettings: Identifiable, Codable {
     var recentSearches: [String]?
     var unitSetting: Unit = .mi
     var countrySetting: Country = .gb
+    var distance: Double = 10.0
 }
 
 extension UserSettings {
@@ -32,18 +33,20 @@ extension UserSettings {
 
 extension UserSettings {
     enum CodingKeys: String, CodingKey {
-        case recentSearches = "RecentSearches"
-        case unitSetting = "UnitSetting"
-        case countrySetting = "CountrySetting"
+        case recentSearches  = "RecentSearches"
+        case unitSetting     = "UnitSetting"
+        case countrySetting  = "CountrySetting"
+        case distance        = "Distance"
     }
 }
 
 extension UserSettings {
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        recentSearches = try container.decodeIfPresent([String].self, forKey: .recentSearches)
-        unitSetting = try container.decode(Unit.self, forKey: .unitSetting)
-        countrySetting = try container.decode(Country.self, forKey: .countrySetting)
+        let container   = try decoder.container(keyedBy: CodingKeys.self)
+        recentSearches  = try container.decodeIfPresent([String].self, forKey: .recentSearches)
+        unitSetting     = try container.decode(Unit.self, forKey: .unitSetting)
+        countrySetting  = try container.decode(Country.self, forKey: .countrySetting)
+        distance        = try container.decode(Double.self, forKey: .distance)
     }
 }
 
@@ -53,6 +56,7 @@ extension UserSettings {
         try container.encodeIfPresent(recentSearches, forKey: .recentSearches)
         try container.encode(unitSetting, forKey: .unitSetting)
         try container.encode(countrySetting, forKey: .countrySetting)
+        try container.encode(distance, forKey: .distance)
     }
 }
 
