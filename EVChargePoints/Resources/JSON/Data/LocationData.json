@@ -2,99 +2,113 @@
   {
     "ID" : "7A29CF3C-29FE-46C8-BC0A-A59D09CE610D",
     "DisplayName" : "Dealership Forecourt",
-    "Setting" : 0,
+    "GraphicNameInverted" : "dealership-forecourt-i",
     "LocationType" : "Dealership forecourt",
-    "GraphicName" : "dealership-forecourt"
+    "GraphicName" : "dealership-forecourt",
+    "Setting" : 0
   },
   {
     "ID" : "F0467B78-AFBF-49C7-8DB7-EFE41B222EC4",
     "DisplayName" : "Educational Establishment",
-    "Setting" : 0,
+    "GraphicNameInverted" : "educational-establishment-i",
     "LocationType" : "Educational establishment",
-    "GraphicName" : "educational-establishment"
+    "GraphicName" : "educational-establishment",
+    "Setting" : 0
   },
   {
     "ID" : "7FDDCD69-FFC1-4218-98A1-52CB4782FED3",
     "DisplayName" : "Hotel \/ Accommodation",
-    "Setting" : 0,
+    "GraphicNameInverted" : "hotel-accommodation-i",
     "LocationType" : "Hotel \/ Accommodation",
-    "GraphicName" : "hotel-accommodation"
+    "GraphicName" : "hotel-accommodation",
+    "Setting" : 0
   },
   {
     "ID" : "E680F13F-7D80-470F-9ACF-4A929C239689",
     "DisplayName" : "Leisure Centre",
-    "Setting" : 1,
+    "GraphicNameInverted" : "leisure-centre-i",
     "LocationType" : "Leisure centre",
-    "GraphicName" : "leisure-centre"
+    "GraphicName" : "leisure-centre",
+    "Setting" : 1
   },
   {
     "ID" : "0F01986D-23B5-46A8-8A14-C96E2CFFDCD2",
     "DisplayName" : "NHS Property",
-    "Setting" : 0,
+    "GraphicNameInverted" : "nhs-property-i",
     "LocationType" : "NHS property",
-    "GraphicName" : "nhs-property"
+    "GraphicName" : "nhs-property",
+    "Setting" : 0
   },
   {
     "ID" : "428C985C-EAC4-4634-A05E-93FA0101D27F",
     "DisplayName" : "On-Street",
-    "Setting" : 1,
+    "GraphicNameInverted" : "on-street-i",
     "LocationType" : "On-street",
-    "GraphicName" : "on-street"
+    "GraphicName" : "on-street",
+    "Setting" : 1
   },
   {
     "ID" : "4959880E-4EC6-456A-BE9D-BF4149178B1D",
     "DisplayName" : "Other",
-    "Setting" : 1,
+    "GraphicNameInverted" : "other-i",
     "LocationType" : "Other",
-    "GraphicName" : "other"
+    "GraphicName" : "other",
+    "Setting" : 1
   },
   {
     "ID" : "E9DB2AE4-CB11-4D71-AF3E-F5D4D319EF79",
     "DisplayName" : "Park & Ride Site",
-    "Setting" : 1,
+    "GraphicNameInverted" : "parking-i",
     "LocationType" : "Park & Ride site",
-    "GraphicName" : "parking"
+    "GraphicName" : "parking",
+    "Setting" : 1
   },
   {
     "ID" : "44A0A5D4-A475-493C-8CF6-A61826474363",
     "DisplayName" : "Private Home",
-    "Setting" : 0,
+    "GraphicNameInverted" : "private-home-i",
     "LocationType" : "Private home",
-    "GraphicName" : "private-home"
+    "GraphicName" : "private-home",
+    "Setting" : 0
   },
   {
     "ID" : "CF55BDB9-6E89-4174-9FED-720D27F4A3D9",
     "DisplayName" : "Public Car Park",
-    "Setting" : 1,
+    "GraphicNameInverted" : "parking-i",
     "LocationType" : "Public car park",
-    "GraphicName" : "parking"
+    "GraphicName" : "parking",
+    "Setting" : 1
   },
   {
     "ID" : "95C75B16-6627-45A1-9F4D-ECAD4CBACED0",
     "DisplayName" : "Public Estate",
-    "Setting" : 1,
+    "GraphicNameInverted" : "public-estate-i",
     "LocationType" : "Public estate",
-    "GraphicName" : "public-estate"
+    "GraphicName" : "public-estate",
+    "Setting" : 1
   },
   {
     "ID" : "C23E0640-8DA8-4E33-8223-7F7AFB7B3F65",
     "DisplayName" : "Retail Car Park",
-    "Setting" : 1,
+    "GraphicNameInverted" : "parking-i",
     "LocationType" : "Retail car park",
-    "GraphicName" : "parking"
+    "GraphicName" : "parking",
+    "Setting" : 1
   },
   {
     "ID" : "5E16AC92-F3F2-47D3-8101-7DEEDCCD7497",
     "DisplayName" : "Service Station",
-    "Setting" : 1,
+    "GraphicNameInverted" : "parking-i",
     "LocationType" : "Service station",
-    "GraphicName" : "parking"
+    "GraphicName" : "parking",
+    "Setting" : 1
   },
   {
     "ID" : "6246FE1A-998E-41C2-A4D0-5B32FCE75430",
     "DisplayName" : "Workplace Car Park",
-    "Setting" : 0,
+    "GraphicNameInverted" : "workplace-car-park-i",
     "LocationType" : "Workplace car park",
-    "GraphicName" : "workplace-car-park"
+    "GraphicName" : "workplace-car-park",
+    "Setting" : 0
   }
 ]

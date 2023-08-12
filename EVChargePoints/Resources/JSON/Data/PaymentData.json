@@ -3,7 +3,7 @@
     "ID" : "F0D3C3D7-AF1B-407B-8132-1789C63C5CBF",
     "DataName" : "PaymentRequiredFlag",
     "DisplayName" : "Payment Required",
-    "Setting" : 1,
+    "Setting" : 0,
     "Symbol" : "sterlingsign.circle"
   },
   {

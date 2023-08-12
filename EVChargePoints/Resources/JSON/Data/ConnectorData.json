@@ -2,6 +2,7 @@
   {
     "ID" : "7A8EC509-665E-4A77-8DC3-F3CAC8C571A9",
     "DisplayName" : "3-pin Type G",
+    "GraphicNameInverted" : "3-pin-type-g-i",
     "Setting" : 0,
     "ConnectorType" : "3-pin Type G (BS1363)",
     "GraphicName" : "3-pin-type-g"
@@ -9,6 +10,7 @@
   {
     "ID" : "2729D494-1964-42A3-A06C-B85B362ECFAD",
     "DisplayName" : "CHAdeMO",
+    "GraphicNameInverted" : "chademo-i",
     "Setting" : 1,
     "ConnectorType" : "JEVS G105 (CHAdeMO) DC",
     "GraphicName" : "chademo"
@@ -16,6 +18,7 @@
   {
     "ID" : "C84E8C60-5BF8-4CD0-BD98-4BA0B6DC2304",
     "DisplayName" : "Type 1",
+    "GraphicNameInverted" : "type-1-i",
     "Setting" : 0,
     "ConnectorType" : "Type 1 SAEJ1772 (IEC 62196)",
     "GraphicName" : "type-1"
@@ -23,6 +26,7 @@
   {
     "ID" : "DA1EF8FD-314C-4CBE-98F4-A024E7EE3FB3",
     "DisplayName" : "Type 2 Mennekes",
+    "GraphicNameInverted" : "type-2-mennekes-i",
     "Setting" : 0,
     "ConnectorType" : "Type 2 Mennekes (IEC62196)",
     "GraphicName" : "type-2-mennekes"
@@ -30,6 +34,7 @@
   {
     "ID" : "311F1BFB-EEBE-470A-AA6B-6D9592820FA9",
     "DisplayName" : "Type 3 Scame",
+    "GraphicNameInverted" : "type-3-scame-i",
     "Setting" : 0,
     "ConnectorType" : "Type 3 Scame (IEC62196)",
     "GraphicName" : "type-3-scame"
@@ -37,6 +42,7 @@
   {
     "ID" : "8C1CFD6D-DDCE-49F9-9998-A11A25E5EA8A",
     "DisplayName" : "CCS Type 2 Combo",
+    "GraphicNameInverted" : "ccs-type-2-combo-i",
     "Setting" : 0,
     "ConnectorType" : "CCS Type 2 Combo (IEC62196)",
     "GraphicName" : "ccs-type-2-combo"
@@ -44,6 +50,7 @@
   {
     "ID" : "B445AB32-62A1-462D-9ACB-D9D09BF9F903",
     "DisplayName" : "Type 2 Tesla",
+    "GraphicNameInverted" : "type-2-tesla-i",
     "Setting" : 0,
     "ConnectorType" : "Type 2 Tesla (IEC62196) DC",
     "GraphicName" : "type-2-tesla"
@@ -51,6 +58,7 @@
   {
     "ID" : "DEF469C9-5091-4ED1-9B9D-44049323ACC4",
     "DisplayName" : "Commando 2P+E",
+    "GraphicNameInverted" : "commando-2pe-i",
     "Setting" : 0,
     "ConnectorType" : "Commando 2P+E (IEC60309)",
     "GraphicName" : "commando-2pe"
@@ -58,6 +66,7 @@
   {
     "ID" : "E390F0D4-23B9-48C7-97BC-35E3666AE093",
     "DisplayName" : "Commando 3P+N+E",
+    "GraphicNameInverted" : "commando-3pne-i",
     "Setting" : 0,
     "ConnectorType" : "Commando 3P+N+E (IEC60309)",
     "GraphicName" : "commando-3pne"
