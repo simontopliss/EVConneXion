@@ -22,6 +22,8 @@ final class DataManager: ObservableObject {
     @Published var userSettings: UserSettings = .init()
 
     @Published var filtersChanged = false
+    @Published var filterResultError = false
+    @Published var filterResultErrorMessage = ""
 
     // TODO: Is `limit` required?
     private(set) var limit = 0
