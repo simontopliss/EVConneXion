@@ -17,12 +17,13 @@ final class NetworkManager: NetworkManagerImpl {
     private init() {}
 
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T {
+        print(#function)
 
         guard let url = URL(string: baseURL) else {
             throw NetworkError.invalidURL
         }
 
-        // print(url)
+        print(url)
 
         let (data, response) = try await URLSession.shared.data(from: url)
 
@@ -36,12 +37,11 @@ final class NetworkManager: NetworkManagerImpl {
         do {
             let decodedResponse = try DecodeJSON.decode(
                 data: data,
-                type: T.self,
-                keyDecodingStrategy: .convertFromSnakeCase
+                type: T.self
             )
             return decodedResponse
         } catch {
-            // print("request() error:\n" + String(describing: error))
+            print("request() error:\n" + String(describing: error))
             if let decodeError = error as? DecodeJSON.DecodeJSONError {
                 throw decodeError
             } else {
