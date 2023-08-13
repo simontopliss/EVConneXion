@@ -10,13 +10,14 @@ import SwiftUI
 
 struct MapView: View {
 
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.isSearching) private var isSearching
 
     @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
-    @Environment(\.dismiss) var dismiss
 
     /// Map Properties
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
@@ -37,8 +38,7 @@ struct MapView: View {
     @State private var route: MKRoute?
     @State private var routeDestination: ChargeDevice?
 
-    /// Search
-    @State private var showSearchAlert = false
+    let delay = UInt64(0.25 * Double(NSEC_PER_SEC))
 
     var body: some View {
         NavigationStack {
@@ -62,6 +62,10 @@ struct MapView: View {
                             MapPinView(pinColor: dataManager.networkColor(attribution: chargeDevice.attribution))
                         }
                         .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
+                        .animation(
+                            .bouncy(duration: 0.5, extraBounce: 0.25),
+                            value: deviceSelected == chargeDevice
+                        )
                     }
                     .tag(chargeDevice.id)
                 }
@@ -90,13 +94,17 @@ struct MapView: View {
                         withAnimation(.snappy) {
                             showDetails = false
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        // NOTE: These seem to cause the "The compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions" bug
+                        // DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        //try await Task.sleep(nanoseconds: delay) { // Swift 5.5 version
                             withAnimation(.snappy) {
                                 showSearch.toggle()
                             }
-                        }
+                        //}
                     } label: {
                         Symbols.searchSymbol
+                            .font(.title2)
+                            .foregroundStyle(Color.accentColor)
                     }
                 }
             }
@@ -105,7 +113,7 @@ struct MapView: View {
                     showDetails = false
                 }
             }, content: {
-                RecentSearchesView(showSheet: $showSearch)
+                SearchView(showSheet: $showSearch)
                     .presentationDetents([.height(300)])
                     .presentationBackgroundInteraction(
                         .enabled(upThrough: .height(300))
@@ -140,19 +148,21 @@ struct MapView: View {
                 }
             }
         }
-        .searchable(
-            text: $dataManager.searchQuery,
-            placement: .toolbar,
-            prompt: "Enter postcode, town or city…"
-        )
-        .onSubmit(of: .search) {
-            await dataManager.searchForChargeDevices()
-        }
-        .alert("Warning", isPresented: $dataManager.searchError) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(dataManager.searchErrorMessage)
-        }
+//         .searchable(
+//             text: $dataManager.searchQuery,
+//             placement: .toolbar,
+//             prompt: "Enter postcode, town or city…"
+//         )
+//         .onSubmit(of: .search) {
+//             Task {
+//                 await dataManager.searchForChargeDevices()
+//             }
+//         }
+//         .alert("Warning", isPresented: $dataManager.searchError) {
+//             Button("OK", role: .cancel) {}
+//         } message: {
+//             Text(dataManager.searchErrorMessage)
+//         }
         .navigationDestination(for: Route.self) { $0 }
         .onChange(of: deviceSelected) { _, newValue in
             /// Displaying Details about the Selected Place
