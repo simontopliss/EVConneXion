@@ -15,7 +15,8 @@ struct FiltersView: View {
     @StateObject private var filtersViewModel = FiltersViewModel()
 
     var maximumDistanceLabel: String {
-        "\(Int(dataManager.userSettings.distance)) \(dataManager.userSettings.unitSetting == .mi ? "miles" : "kilometres")"
+        "\(Int(dataManager.userSettings.distance)) " +
+        "\(dataManager.userSettings.unitSetting.rawValue)"
     }
 
     var body: some View {
