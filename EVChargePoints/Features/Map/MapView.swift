@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MapView: View {
 
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.isSearching) private var isSearching
 
     @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
@@ -37,14 +37,8 @@ struct MapView: View {
     @State private var route: MKRoute?
     @State private var routeDestination: ChargeDevice?
 
-    /// User Location Animation
-    @State private var delay: Double = 0
-    @State private var userLocationScale: CGFloat = 0.6
-    @State private var pinScale: CGFloat = 0.75
-    @State private var duration = 0.8
-
-    /// Search Sheet
-    @State private var searchText = ""
+    /// Search
+    @State private var showSearchAlert = false
 
     var body: some View {
         NavigationStack {
@@ -52,12 +46,11 @@ struct MapView: View {
 
                 // UserAnnotation() // This needs changing when testing 'real' user location
                 Annotation("My Location", coordinate: locationManager.userLocation) {
-                    userAnnotation
+                    UserAnnotationView()
                 }
                 .annotationTitles(.hidden)
 
                 ForEach(dataManager.filteredDevices) { chargeDevice in
-
                     Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
                         Button {
                             deviceSelected = chargeDevice
@@ -66,7 +59,7 @@ struct MapView: View {
                                 cameraPosition = .region(chargeDevice.deviceMapItem.region)
                             }
                         } label: {
-                            MapPinView(pinColor: networkColor(attribution: chargeDevice.attribution))
+                            MapPinView(pinColor: dataManager.networkColor(attribution: chargeDevice.attribution))
                         }
                         .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
                     }
@@ -148,14 +141,20 @@ struct MapView: View {
             }
         }
         .searchable(
-            text: $searchText,
+            text: $dataManager.searchQuery,
             placement: .toolbar,
             prompt: "Enter postcode, town or city…"
         )
+        .onSubmit(of: .search) {
+            await dataManager.searchForChargeDevices()
+        }
+        .alert("Warning", isPresented: $dataManager.searchError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(dataManager.searchErrorMessage)
+        }
         .navigationDestination(for: Route.self) { $0 }
         .onChange(of: deviceSelected) { _, newValue in
-            // TODO: Animate map pin when selected
-
             /// Displaying Details about the Selected Place
             showDetails = newValue != nil
             /// Fetching Look Around Preview, when ever selection Changes
@@ -169,58 +168,6 @@ struct MapView: View {
         .environmentObject(DataManager())
         .environmentObject(NavigationRouter())
         .environmentObject(LocationManager())
-}
-
-extension MapView {
-
-    var userAnnotation: some View {
-        ZStack {
-            Circle()
-                .frame(width: 32, height: 32)
-                .foregroundStyle(colorScheme == .dark ? .pink.opacity(0.50) : .pink.opacity(0.25))
-
-            Circle()
-                .frame(width: 20, height: 20)
-                .foregroundStyle(.white)
-
-            Circle()
-                .frame(width: 12, height: 12)
-                .foregroundStyle(.pink)
-        }
-        .scaleEffect(userLocationScale)
-        .animation(
-            Animation.easeInOut(duration: duration)
-                .repeatForever()
-                .delay(delay),
-            value: userLocationScale
-        )
-        .onAppear {
-            withAnimation {
-                self.userLocationScale = 1
-            }
-        }
-    }
-
-    func networkColor(attribution: String) -> Color {
-        dataManager.networkColorFor(network: attribution) ?? Color.accentColor
-    }
-}
-
-extension MKMapRect {
-    func reducedRect(_ fraction: CGFloat = 0.35) -> MKMapRect {
-        var regionRect = self
-
-        let wPadding = regionRect.size.width * fraction
-        let hPadding = regionRect.size.height * fraction
-
-        regionRect.size.width += wPadding
-        regionRect.size.height += hPadding
-
-        regionRect.origin.x -= wPadding / 2
-        regionRect.origin.y -= hPadding / 2
-
-        return regionRect
-    }
 }
 
 extension MapView {
@@ -271,7 +218,7 @@ extension MapView {
                         deviceSelected = nil
                     }
                 }, label: {
-                        XmarkButtonView()
+                    XmarkButtonView()
                 })
                 .padding(10)
             }
