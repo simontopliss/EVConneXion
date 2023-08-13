@@ -18,11 +18,12 @@ struct MapView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
-
     /// Map Properties
     @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var deviceSelected: ChargeDevice?
+    @State private var mapSelection: MKMapItem?
     @State private var viewingRegion: MKCoordinateRegion?
+
     @Namespace private var locationSpace
 
     /// Navigation Bar Properties
@@ -42,7 +43,7 @@ struct MapView: View {
 
     var body: some View {
         NavigationStack {
-            Map(position: $cameraPosition, scope: locationSpace) {
+            Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
 
                 // UserAnnotation() // This needs changing when testing 'real' user location
                 Annotation("My Location", coordinate: locationManager.userLocation) {
@@ -50,21 +51,28 @@ struct MapView: View {
                 }
                 .annotationTitles(.hidden)
 
-                ForEach(dataManager.filteredDevices) { chargeDevice in
-                    Annotation(chargeDevice.chargeDeviceName, coordinate: chargeDevice.deviceMapItem.coordinate) {
+                ForEach($dataManager.filteredDevices) { chargeDevice in
+                    Annotation(
+                        chargeDevice.chargeDeviceName.wrappedValue,
+                        coordinate: chargeDevice.deviceMapItem.coordinate.wrappedValue
+                    ) {
                         Button {
-                            deviceSelected = chargeDevice
+                            deviceSelected = chargeDevice.wrappedValue
                             withAnimation(.snappy) {
                                 // TODO: Move the camera up a bit to accommodate the MapDetails detent
-                                cameraPosition = .region(chargeDevice.deviceMapItem.region)
+                                cameraPosition = .region(chargeDevice.deviceMapItem.region.wrappedValue)
                             }
                         } label: {
-                            MapPinView(pinColor: dataManager.networkColor(attribution: chargeDevice.attribution))
+                            MapPinView(
+                                pinColor: dataManager.networkColor(
+                                    attribution: chargeDevice.attribution.wrappedValue
+                                )
+                            )
                         }
-                        .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
+                        .scaleEffect(deviceSelected == chargeDevice.wrappedValue ? 1.5 : 1.0, anchor: .bottom)
                         .animation(
                             .bouncy(duration: 0.5, extraBounce: 0.25),
-                            value: deviceSelected == chargeDevice
+                            value: deviceSelected == chargeDevice.wrappedValue
                         )
                     }
                     .tag(chargeDevice.id)
@@ -90,28 +98,11 @@ struct MapView: View {
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        withAnimation(.snappy) {
-                            showDetails = false
-                        }
-                        // NOTE: These seem to cause the "The compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions" bug
-                        // DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        //try await Task.sleep(nanoseconds: delay) { // Swift 5.5 version
-                            withAnimation(.snappy) {
-                                showSearch.toggle()
-                            }
-                        //}
-                    } label: {
-                        Symbols.searchSymbol
-                            .font(.title2)
-                            .foregroundStyle(Color.accentColor)
-                    }
+                    MapToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
                 }
             }
             .sheet(isPresented: $showSearch, onDismiss: {
-                withAnimation(.snappy) {
-                    showDetails = false
-                }
+                withAnimation(.snappy) { showDetails = false }
             }, content: {
                 SearchView(showSheet: $showSearch)
                     .presentationDetents([.height(300)])
@@ -148,21 +139,21 @@ struct MapView: View {
                 }
             }
         }
-//         .searchable(
-//             text: $dataManager.searchQuery,
-//             placement: .toolbar,
-//             prompt: "Enter postcode, town or city…"
-//         )
-//         .onSubmit(of: .search) {
-//             Task {
-//                 await dataManager.searchForChargeDevices()
-//             }
-//         }
-//         .alert("Warning", isPresented: $dataManager.searchError) {
-//             Button("OK", role: .cancel) {}
-//         } message: {
-//             Text(dataManager.searchErrorMessage)
-//         }
+        .searchable(
+            text: $dataManager.searchQuery,
+            placement: .toolbar,
+            prompt: "Enter postcode, town or city…"
+        )
+        .onSubmit(of: .search) {
+            Task {
+                await dataManager.searchForChargeDevices()
+            }
+        }
+        .alert("Warning", isPresented: $dataManager.searchError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(dataManager.searchErrorMessage)
+        }
         .navigationDestination(for: Route.self) { $0 }
         .onChange(of: deviceSelected) { _, newValue in
             /// Displaying Details about the Selected Place
@@ -171,16 +162,6 @@ struct MapView: View {
             fetchLookAroundPreview()
         }
     }
-}
-
-#Preview {
-    MapView()
-        .environmentObject(DataManager())
-        .environmentObject(NavigationRouter())
-        .environmentObject(LocationManager())
-}
-
-extension MapView {
 
     func mapControls() -> some View {
         VStack(spacing: 15) {
@@ -202,9 +183,6 @@ extension MapView {
         .buttonBorderShape(.circle)
         .padding()
     }
-}
-
-extension MapView {
 
     /// Map Details View
     @ViewBuilder
@@ -243,11 +221,8 @@ extension MapView {
         }
         .padding(15)
     }
-}
 
-extension MapView {
-
-    // @ViewBuilder
+    @ViewBuilder
     func endRoute() -> some View {
         Button("End Route") {
             /// Closing The Route and Setting the Selection
@@ -269,9 +244,6 @@ extension MapView {
             }
         }
     }
-}
-
-extension MapView {
 
     /// Fetching Location Preview
     func fetchLookAroundPreview() {
@@ -309,4 +281,11 @@ extension MapView {
             }
         }
     }
+}
+
+#Preview {
+    MapView()
+        .environmentObject(DataManager())
+        .environmentObject(NavigationRouter())
+        .environmentObject(LocationManager())
 }

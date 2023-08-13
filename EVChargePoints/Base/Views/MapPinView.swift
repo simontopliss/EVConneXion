@@ -10,9 +10,7 @@ import SwiftUI
 struct MapPinView: View {
 
     var height: Double = 30.0
-    var width: Double {
-        height * 0.625
-    }
+    var width: Double = 18.75
 
     var pinColor: Color = .accentColor
 

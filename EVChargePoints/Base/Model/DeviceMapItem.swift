@@ -10,9 +10,9 @@ import SwiftUI
 
 struct DeviceMapItem {
 
-    let coordinate: CLLocationCoordinate2D
-    let mapItem: MKMapItem
-    let region: MKCoordinateRegion
+    var coordinate: CLLocationCoordinate2D
+    var mapItem: MKMapItem
+    var region: MKCoordinateRegion
     var distanceFromUser: CLLocationDistance // typealias of Double
 
     init(
