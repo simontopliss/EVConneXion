@@ -11,6 +11,7 @@ extension DataManager {
 
     @MainActor
     func searchForChargeDevices() async {
+        print(#function)
         searchError = false
         searchErrorMessage = ""
         searchQuery = searchQuery.trim()
@@ -24,7 +25,7 @@ extension DataManager {
 
     // TODO: Add unit tests to confirm this works
     func isPostcode(postcode: String) -> Bool {
-        return postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}([0-9][A-Z]|[0-9]{1,2})\\s[0-9][A-Z]{2}/) != nil
+        return postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/) != nil
     }
 
     func isSearchQueryValid() -> Bool {
