@@ -118,9 +118,16 @@ extension Endpoint {
 
         urlComponents.append(Endpoint.RegistryDataType.dist)
         urlComponents.append("\(distance)")
+
         urlComponents.append(Endpoint.RegistryDataType.units)
+        switch units {
+            case .mi:
+                urlComponents.append("mi")
+            case .km:
+                urlComponents.append("km")
+        }
+
         if limit > 0 { urlComponents.append("limit/\(limit)") }
-        urlComponents.append(units.rawValue)
         urlComponents.append(Endpoint.RequestFormatOption.json.rawValue)
 
         let url = urlComponents.joined(separator: "/")
