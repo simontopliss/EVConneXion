@@ -18,6 +18,10 @@ extension DataManager {
         ).sorted { $0.total > $1.total }
     }
 
+    func networkColor(attribution: String) -> Color {
+        networkColorFor(network: attribution) ?? Color.accentColor
+    }
+
     /// Gets the shortened display name for a network
     /// - Parameter network: network String
     /// - Returns: the shorter display name from NetworkData.json
