@@ -14,7 +14,7 @@ struct AnnotationButtonView: View {
 
     var chargeDevice: ChargeDevice
     @Binding var cameraPosition: MapCameraPosition
-    @Binding var deviceSelected: ChargeDevice
+    @Binding var deviceSelected: ChargeDevice?
 
     var body: some View {
         Button {
