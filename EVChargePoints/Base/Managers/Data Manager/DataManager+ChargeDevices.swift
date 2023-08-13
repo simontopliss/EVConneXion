@@ -32,7 +32,7 @@ extension DataManager {
         return finalChargeDevices
     }
 
-    func getDeviceNamesAndPostcodes(devices: [ChargeDevice]) -> [DeviceNameAndPostcode] {
+    private func getDeviceNamesAndPostcodes(devices: [ChargeDevice]) -> [DeviceNameAndPostcode] {
         let namesAndPostcodes = devices.compactMap {
             DeviceNameAndPostcode(
                 chargeDeviceName: $0.chargeDeviceName,
@@ -43,7 +43,7 @@ extension DataManager {
         return namesAndPostcodes
     }
 
-    func combineConnectorsFromDuplicateDevices(
+    private func combineConnectorsFromDuplicateDevices(
         duplicates: [DeviceNameAndPostcode],
         devices: [ChargeDevice]
     ) -> [ChargeDevice] {
@@ -70,7 +70,7 @@ extension DataManager {
         return duplicateChargeDevices
     }
 
-    func removeDuplicatesFromChargeDevices(
+    private func removeDuplicatesFromChargeDevices(
         duplicates: [DeviceNameAndPostcode],
         devices: [ChargeDevice]
     ) -> [ChargeDevice] {
