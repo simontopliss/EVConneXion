@@ -97,6 +97,7 @@ extension EVChargePointsApp {
         }
     }
 
+    // TODO: Should this not be `private` so I can copy new JSON files if needed?
     private func copyFileToDocumentsFolder(nameForFile: String, extForFile: String) {
         let documentsURL = FileManager.documentsDirectory
         let destURL = documentsURL.appendingPathComponent(nameForFile).appendingPathExtension(extForFile)
