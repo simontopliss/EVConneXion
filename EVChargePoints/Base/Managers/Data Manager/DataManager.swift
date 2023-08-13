@@ -61,6 +61,7 @@ final class DataManager: ObservableObject {
 
     // @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
+        print(#function)
 
         let url = Endpoint.buildURL(
             requestType: requestType,
@@ -76,6 +77,7 @@ final class DataManager: ObservableObject {
         do {
             let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
             chargeDevices = chargePointData.chargeDevices
+            print("chargeDevices count: \(chargeDevices.count)")
             // dump(chargePointData.chargeDevices[0])
         } catch {
             hasError = true
