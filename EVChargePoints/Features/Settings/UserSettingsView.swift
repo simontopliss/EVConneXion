@@ -19,11 +19,9 @@ struct UserSettingsView: View {
     var body: some View {
         Form {
             Section("Settings") {
-                unitPicker()
-                countryPicker()
+                unitPicker
+                countryPicker
             }
-            .font(.headline)
-            .foregroundStyle(AppColors.textColor)
             .padding(.vertical, 4)
         }
         .toolbarBackground(.visible, for: .navigationBar, .tabBar)
@@ -39,7 +37,7 @@ struct UserSettingsView: View {
 
 extension UserSettingsView {
 
-    func unitPicker() -> some View {
+    var unitPicker: some View {
         HStack {
             SFSymbolImageBounce(
                 symbolName: Symbols.unitSymbolName,
@@ -57,12 +55,14 @@ extension UserSettingsView {
                 dataManager.saveSettings(.userSettings)
             }
         }
+        .font(.headline)
+        .foregroundStyle(AppColors.textColor)
     }
 }
 
 extension UserSettingsView {
 
-    func countryPicker() -> some View {
+    var countryPicker: some View {
         HStack {
             SFSymbolImageBounce(
                 symbolName: Symbols.countrySymbolName,
@@ -80,5 +80,7 @@ extension UserSettingsView {
                 dataManager.saveSettings(.userSettings)
             }
         }
+        .font(.headline)
+        .foregroundStyle(AppColors.textColor)
     }
 }
