@@ -9,23 +9,32 @@ import SwiftUI
 
 struct RecentSearchesView: View {
 
+    @EnvironmentObject private var dataManager: DataManager
+
     @Binding var showSheet: Bool
 
-    // TDOD: Store in UserDefautlts
     let recentSearches = ["Bingley, BD16 1BE, England", "Beverley, HU17 ORX, England", "Erewash, DE7 8LN, England"]
 
     var body: some View {
         VStack {
-            // TODO: Show recent searches
-            List { // Add selection
-                Section("Recent Searches") {
-                    ForEach(recentSearches, id: \.self) {
-                        Text($0)
-                            .foregroundStyle(AppColors.textColor)
+            if dataManager.userSettings.recentSearches.isEmpty {
+                ContentUnavailableView(
+                    "No App Ideas",
+                    systemImage: "square.stack.3d.up.slash",
+                    description: Text("Tap add to create your first app idea.")
+                )
+            } else {
+                // TODO: Show recent searches
+                List { // Add selection
+                    Section("Recent Searches") {
+                        ForEach(dataManager.userSettings.recentSearches, id: \.self) {
+                            Text($0)
+                                .foregroundStyle(AppColors.textColor)
+                        }
                     }
                 }
+                .listStyle(InsetListStyle())
             }
-            .listStyle(InsetListStyle())
         }
         .padding(.top)
         .overlay(alignment: .topTrailing) {
@@ -41,5 +50,6 @@ struct RecentSearchesView: View {
 
 #Preview {
     RecentSearchesView(showSheet: .constant(true))
-        .environment(\.colorScheme, .dark)
+        .environmentObject(DataManager())
+        //.environment(\.colorScheme, .dark)
 }
