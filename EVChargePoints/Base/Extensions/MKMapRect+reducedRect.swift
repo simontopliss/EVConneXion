@@ -1,5 +1,5 @@
 //
-//  MapHelpers.swift
+//  MKMapRect+reducedRect.swift
 //  EVChargePoints
 //
 //  Created by Simon Topliss on 13/08/2023.
