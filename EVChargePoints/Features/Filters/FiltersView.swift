@@ -49,12 +49,16 @@ struct FiltersView: View {
 //                    routerManager.goBack()
 //                }
             } label: {
-                Text("Apply Filter \(Image(systemName: "slider.horizontal.3"))")
-                    .font(.title3)
-                    .fontWeight(.semibold)
+                HStack {
+                    Image(systemName: "slider.horizontal.3")
+                    Text("Apply Filter")
+                }
+                .font(.title3)
+                .fontWeight(.semibold)
             }
+//            .buttonStyle(.borderedProminent)
             .frame(height: 44)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 28)
             .background(dataManager.filtersChanged ? AppColors.darkGreen : Color.secondary)
             .foregroundStyle(.white)
             .cornerRadius(22)
