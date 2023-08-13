@@ -19,9 +19,9 @@ struct ChargerFiltersView: View {
         Form {
             Section("Charger") {
                 Group {
-                    chargingMethod()
-                    chargingSpeed()
-                    tetheredCable()
+                    chargingMethod
+                    chargingSpeed
+                    tetheredCable
                 }
                 .font(.headline)
                 .foregroundStyle(AppColors.textColor)
@@ -38,7 +38,7 @@ struct ChargerFiltersView: View {
 
 extension ChargerFiltersView {
 
-    func chargingMethod() -> some View {
+    var chargingMethod: some View {
         HStack {
             SFSymbolImageBounce(
                 symbolName: dataManager.chargerData.chargeMethodsSymbol,
@@ -63,7 +63,7 @@ extension ChargerFiltersView {
 extension ChargerFiltersView {
 
     @ViewBuilder
-    func chargingSpeed() -> some View {
+    var chargingSpeed: some View {
         HStack {
             SFSymbolImageBounce(
                 symbolName: dataManager.chargerData.chargeSpeedsSymbol,
@@ -86,7 +86,7 @@ extension ChargerFiltersView {
 
 extension ChargerFiltersView {
 
-    func tetheredCable() -> some View {
+    var tetheredCable: some View {
         HStack {
             SFSymbolImageBounce(
                 symbolName: dataManager.chargerData.tetheredCableSymbol,
