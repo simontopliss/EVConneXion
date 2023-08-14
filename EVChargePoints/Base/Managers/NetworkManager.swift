@@ -17,7 +17,7 @@ final class NetworkManager: NetworkManagerImpl {
     private init() {}
 
     func request<T: Decodable>(_ baseURL: String, type: T.Type) async throws -> T {
-        print(#function)
+        // print(#function)
 
         guard let url = URL(string: baseURL) else {
             throw NetworkError.invalidURL

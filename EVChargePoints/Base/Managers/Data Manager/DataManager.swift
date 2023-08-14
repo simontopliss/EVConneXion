@@ -61,7 +61,7 @@ final class DataManager: ObservableObject {
 
     // @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
-        print(#function)
+        // print(#function)
 
         let url = Endpoint.buildURL(
             requestType: requestType,
