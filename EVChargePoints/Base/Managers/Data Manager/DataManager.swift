@@ -126,14 +126,16 @@ final class DataManager: ObservableObject {
     private func loadUserSettings() {
         userSettings = try! StaticJSONMapper.decode(
             file: EVChargePointsApp.JSONFiles.userSettings.rawValue,
-            type: UserSettings.self
+            type: UserSettings.self,
+            location: .documents
         )
     }
 
     private func loadRecentSearches() {
         recentSearches = try! StaticJSONMapper.decode(
             file: EVChargePointsApp.JSONFiles.recentSearches.rawValue,
-            type: [RecentSearch].self
+            type: [RecentSearch].self,
+            location: .documents
         )
     }
 

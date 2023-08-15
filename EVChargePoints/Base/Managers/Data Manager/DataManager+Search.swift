@@ -23,12 +23,12 @@ extension DataManager {
         : await fetchChargeDevices(requestType: .postTown(searchQuery))
 
         if (networkError == nil) {
-//            let result = userSettings.recentSearches.filter { recentSearch in .searchQuery.rawValue == searchQuery }
-            if !userSettings.recentSearches.contains(searchQuery) {
-                userSettings.recentSearches.insert(searchQuery, at: 0)
-                saveSettings(.userSettings)
-                searchQuery = ""
+            let result = recentSearches.filter { $0.searchQuery == searchQuery }
+            if result.isEmpty {
+                recentSearches.insert(RecentSearch(searchQuery: searchQuery), at: 0)
+                saveSettings(.recentSearches)
             }
+            searchQuery = ""
         }
     }
 

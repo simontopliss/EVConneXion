@@ -21,19 +21,19 @@ struct SearchView: View {
             searchHeader
 
             Divider()
+                .padding(.bottom)
 
-            if dataManager.userSettings.recentSearches.isEmpty {
+            if dataManager.recentSearches.isEmpty {
                 contentUnavailable
             } else {
                 Section("Recent Searches") {
-                    List(dataManager.userSettings.recentSearches, id: \.self) { recentSearch in
-//                        ForEach(dataManager.userSettings.recentSearches, id: \.self) { recentSearch in
-                        Text(recentSearch)
+                    List(dataManager.recentSearches) { recentSearch in
+                        Text(recentSearch.searchQuery)
                             .foregroundStyle(AppColors.textColor)
-                            .tag(recentSearch)
+                            .tag(recentSearch.id)
                             .onTapGesture {
-                                print(recentSearch)
-                                dismiss()
+                                dataManager.searchQuery = recentSearch.searchQuery
+                                searchForChargeDevices()
                             }
                     }
                 }
@@ -49,10 +49,7 @@ struct SearchView: View {
         .alert(isPresented: $dataManager.hasError, error: dataManager.networkError) {
             // TODO: Check NetworkManager.NetworkError errorDescription
             Button("Retry") {
-                Task {
-                    await dataManager.searchForChargeDevices()
-                    dismiss()
-                }
+                searchForChargeDevices()
             }
         }
         .padding(.top)
@@ -89,10 +86,7 @@ extension SearchView {
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .foregroundStyle(AppColors.textColor)
             .onSubmit {
-                Task {
-                    await dataManager.searchForChargeDevices()
-                    dismiss()
-                }
+                searchForChargeDevices()
                 // TODO: Navigate to MapView or ListView if successHU17 0RXful and zoom map to region from searchQuery
             }
             .submitLabel(.search)
@@ -114,5 +108,14 @@ extension SearchView {
             description: Text("Your search history will automatically be displayed here.")
         )
         // .foregroundStyle(AppColors.textColor)
+    }
+}
+
+extension SearchView {
+    func searchForChargeDevices() {
+        Task {
+            await dataManager.searchForChargeDevices()
+            dismiss()
+        }
     }
 }
