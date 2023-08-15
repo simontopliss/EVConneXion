@@ -9,11 +9,18 @@ import Foundation
 
 struct UserSettings: Identifiable, Codable {
     let id: UUID = UUID()
-    var recentSearches: [String] = []
+    var recentSearches: [String]
     var unitSetting: Unit = .mi
     var countrySetting: Country = .gb
     var distance: Double = 10.0
 }
+
+//extension UserSettings {
+//    enum RecentSearch: String, Codable, Identifiable {
+//        var id: Self { self }
+//        case searchQuery = "SearchQuery"
+//    }
+//}
 
 extension UserSettings {
     enum Unit: String, Codable, Identifiable {
@@ -43,7 +50,14 @@ extension UserSettings {
 extension UserSettings {
     init(from decoder: Decoder) throws {
         let container   = try decoder.container(keyedBy: CodingKeys.self)
-        recentSearches  = try container.decode([String].self, forKey: .recentSearches)
+        var recentSearchesArray  = try container.nestedUnkeyedContainer(forKey: .recentSearches)
+        print(recentSearchesArray)
+        var recentSearches: [String] = []
+        while (!recentSearchesArray.isAtEnd) {
+            let recentSearch = try recentSearchesArray.decode(String.self)
+            recentSearches.append(recentSearch)
+        }
+        self.recentSearches = recentSearches
         unitSetting     = try container.decode(Unit.self, forKey: .unitSetting)
         countrySetting  = try container.decode(Country.self, forKey: .countrySetting)
         distance        = try container.decode(Double.self, forKey: .distance)
