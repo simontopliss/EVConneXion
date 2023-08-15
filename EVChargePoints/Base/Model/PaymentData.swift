@@ -61,7 +61,7 @@ extension PaymentData {
             let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
-                .appendingPathComponent("PaymentData")
+                .appendingPathComponent(EVChargePointsApp.JSONFiles.payment.rawValue)
                 .appendingPathExtension("json")
 
             try data?.write(to: savePath, options: [.atomic, .completeFileProtection])

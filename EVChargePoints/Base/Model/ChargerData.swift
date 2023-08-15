@@ -79,7 +79,7 @@ extension ChargerData {
             let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
-                .appendingPathComponent("ChargerData")
+                .appendingPathComponent(EVChargePointsApp.JSONFiles.charger.rawValue)
                 .appendingPathExtension("json")
 
             try data?.write(to: savePath, options: [.atomic, .completeFileProtection])

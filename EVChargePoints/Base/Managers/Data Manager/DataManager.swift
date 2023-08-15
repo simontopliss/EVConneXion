@@ -14,6 +14,7 @@ final class DataManager: ObservableObject {
     @Published var paymentData: [PaymentData] = []
     @Published var filteredDevices: [ChargeDevice] = []
     @Published var userSettings: UserSettings!
+    @Published var recentSearches: [RecentSearch] = []
 
     /// Network Manager
     @Published private(set) var networkError: NetworkManager.NetworkError?
@@ -55,6 +56,7 @@ final class DataManager: ObservableObject {
         loadNetworkData()
         loadPaymentData()
         loadUserSettings()
+        loadRecentSearches()
     }
 
     // MARK: - API Call
@@ -91,7 +93,7 @@ final class DataManager: ObservableObject {
 
     private func loadAccessData() {
         accessData = try! StaticJSONMapper.decode(
-            file: "AccessData",
+            file: EVChargePointsApp.JSONFiles.access.rawValue,
             type: [AccessData].self,
             location: .documents
         )
@@ -99,7 +101,7 @@ final class DataManager: ObservableObject {
 
     private func loadChargerData() {
         chargerData = try! StaticJSONMapper.decode(
-            file: "ChargerData",
+            file: EVChargePointsApp.JSONFiles.charger.rawValue,
             type: ChargerData.self,
             location: .documents
         )
@@ -107,7 +109,7 @@ final class DataManager: ObservableObject {
 
     private func loadLocationData() {
         locationData = try! StaticJSONMapper.decode(
-            file: "LocationData",
+            file: EVChargePointsApp.JSONFiles.location.rawValue,
             type: [LocationData].self,
             location: .documents
         )
@@ -115,7 +117,7 @@ final class DataManager: ObservableObject {
 
     private func loadPaymentData() {
         paymentData = try! StaticJSONMapper.decode(
-            file: "PaymentData",
+            file: EVChargePointsApp.JSONFiles.payment.rawValue,
             type: [PaymentData].self,
             location: .documents
         )
@@ -123,8 +125,15 @@ final class DataManager: ObservableObject {
 
     private func loadUserSettings() {
         userSettings = try! StaticJSONMapper.decode(
-            file: "UserSettings",
+            file: EVChargePointsApp.JSONFiles.userSettings.rawValue,
             type: UserSettings.self
+        )
+    }
+
+    private func loadRecentSearches() {
+        recentSearches = try! StaticJSONMapper.decode(
+            file: EVChargePointsApp.JSONFiles.recentSearches.rawValue,
+            type: [RecentSearch].self
         )
     }
 
@@ -144,6 +153,8 @@ final class DataManager: ObservableObject {
                 PaymentData.saveData(data: paymentData)
             case .userSettings:
                 UserSettings.saveData(data: userSettings)
+            case .recentSearches:
+                RecentSearch.saveData(data: recentSearches)
         }
         filtersChanged = true
     }

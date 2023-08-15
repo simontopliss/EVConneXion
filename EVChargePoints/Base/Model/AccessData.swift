@@ -61,7 +61,7 @@ extension AccessData {
             let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
-                .appendingPathComponent("AccessData")
+                .appendingPathComponent(EVChargePointsApp.JSONFiles.access.rawValue)
                 .appendingPathExtension("json")
 
             try data?.write(to: savePath, options: [.atomic, .completeFileProtection])

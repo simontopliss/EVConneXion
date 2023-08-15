@@ -84,7 +84,7 @@ extension UserSettings {
             let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
-                .appendingPathComponent("UserSettings")
+                .appendingPathComponent(EVChargePointsApp.JSONFiles.userSettings.rawValue)
                 .appendingPathExtension("json")
 
             try data?.write(to: savePath, options: [.atomic, .completeFileProtection])

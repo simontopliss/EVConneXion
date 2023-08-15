@@ -61,7 +61,7 @@ extension LocationData {
             let data = try? encoder.encode(data)
 
             let savePath = FileManager.documentsDirectory
-                .appendingPathComponent("LocationData")
+                .appendingPathComponent(EVChargePointsApp.JSONFiles.location.rawValue)
                 .appendingPathExtension("json")
 
             try data?.write(to: savePath, options: [.atomic, .completeFileProtection])
