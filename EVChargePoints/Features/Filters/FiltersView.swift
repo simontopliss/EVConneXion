@@ -59,7 +59,7 @@ struct FiltersView: View {
 //            .buttonStyle(.borderedProminent)
             .frame(height: 44)
             .padding(.horizontal, 28)
-            .background(dataManager.filtersChanged ? AppColors.darkGreen : Color.secondary)
+            .background(dataManager.filtersChanged ? AppColors.darkBlue : Color.secondary)
             .foregroundStyle(.white)
             .cornerRadius(22)
             .padding(.bottom, 18)
