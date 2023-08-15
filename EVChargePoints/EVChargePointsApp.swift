@@ -13,7 +13,7 @@ struct EVChargePointsApp: App {
     // Create a delegate to check for when performing UI Testing
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
+//    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     @StateObject private var dataManager = DataManager()
@@ -21,7 +21,7 @@ struct EVChargePointsApp: App {
     @StateObject private var routerManager = NavigationRouter()
 
     init() {
-        copyJSONFilesOnFirstLaunch(isFirstLaunch: &isFirstLaunch)
+        copyJSONFilesOnFirstLaunch()
     }
 
     var body: some Scene {
@@ -75,12 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension EVChargePointsApp {
 
-    private func copyJSONFilesOnFirstLaunch(isFirstLaunch: inout Bool) {
-        if isFirstLaunch {
-            for JSONFile in JSONFiles.allCases {
-                copyFileToDocumentsFolder(nameForFile: JSONFile.rawValue, extForFile: "json")
-            }
-            isFirstLaunch = false
+    private func copyJSONFilesOnFirstLaunch() {
+        for JSONFile in JSONFiles.allCases {
+            copyFileToDocumentsFolder(nameForFile: JSONFile.rawValue, extForFile: "json")
         }
     }
 
@@ -88,14 +85,16 @@ extension EVChargePointsApp {
     private func copyFileToDocumentsFolder(nameForFile: String, extForFile: String) {
         let documentsURL = FileManager.documentsDirectory
         let destURL = documentsURL.appendingPathComponent(nameForFile).appendingPathExtension(extForFile)
-        guard let sourceURL = Bundle.main.url(forResource: nameForFile, withExtension: extForFile) else {
-            print("Source file not found.")
-            return
-        }
-        do {
-            try FileManager.default.copyItem(at: sourceURL, to: destURL)
-        } catch {
-            print("Unable to copy file")
+        if !FileManager.default.fileExists(atPath: destURL.path) {
+            guard let sourceURL = Bundle.main.url(forResource: nameForFile, withExtension: extForFile) else {
+                print("Source file not found.")
+                return
+            }
+            do {
+                try FileManager.default.copyItem(at: sourceURL, to: destURL)
+            } catch {
+                print("Unable to copy file")
+            }
         }
     }
 }
