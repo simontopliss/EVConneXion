@@ -10,9 +10,10 @@ import SwiftUI
 struct SearchView: View {
 
     @EnvironmentObject private var dataManager: DataManager
+    @Environment(\.dismiss) var dismiss
 
-    @Binding var showSheet: Bool
     @FocusState private var isFocused: Bool
+    @Binding var showSheet: Bool
 
     var body: some View {
         VStack {
@@ -24,13 +25,16 @@ struct SearchView: View {
             if dataManager.userSettings.recentSearches.isEmpty {
                 contentUnavailable
             } else {
-
-                List { // Add selection
-                    Section("Recent Searches") {
-                        ForEach(dataManager.userSettings.recentSearches, id: \.self) {
-                            Text($0)
-                                .foregroundStyle(AppColors.textColor)
-                        }
+                Section("Recent Searches") {
+                    List(dataManager.userSettings.recentSearches, id: \.self) { recentSearch in
+//                        ForEach(dataManager.userSettings.recentSearches, id: \.self) { recentSearch in
+                        Text(recentSearch)
+                            .foregroundStyle(AppColors.textColor)
+                            .tag(recentSearch)
+                            .onTapGesture {
+                                print(recentSearch)
+                                dismiss()
+                            }
                     }
                 }
                 .listStyle(InsetListStyle())
@@ -42,11 +46,12 @@ struct SearchView: View {
         } message: {
             Text(dataManager.searchErrorMessage)
         }
-        .alert(isPresented: $dataManager.hasError, error: dataManager.error) {
+        .alert(isPresented: $dataManager.hasError, error: dataManager.networkError) {
             // TODO: Check NetworkManager.NetworkError errorDescription
             Button("Retry") {
                 Task {
                     await dataManager.searchForChargeDevices()
+                    dismiss()
                 }
             }
         }
@@ -86,8 +91,9 @@ extension SearchView {
             .onSubmit {
                 Task {
                     await dataManager.searchForChargeDevices()
+                    dismiss()
                 }
-                // TODO: Navigate to MapView or ListView if successful and zoom map to region from searchQuery
+                // TODO: Navigate to MapView or ListView if successHU17 0RXful and zoom map to region from searchQuery
             }
             .submitLabel(.search)
 
