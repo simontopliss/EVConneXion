@@ -16,7 +16,7 @@ final class DataManager: ObservableObject {
     @Published var userSettings: UserSettings!
 
     /// Network Manager
-    @Published private(set) var error: NetworkManager.NetworkError?
+    @Published private(set) var networkError: NetworkManager.NetworkError?
     @Published private(set) var isLoading = false
     @Published var hasError = false
 
@@ -82,9 +82,9 @@ final class DataManager: ObservableObject {
         } catch {
             hasError = true
             if let networkError = error as? NetworkManager.NetworkError {
-                self.error = networkError
+                self.networkError = networkError
             } else {
-                self.error = .custom(error: error)
+                self.networkError = .custom(error: error)
             }
         }
     }
