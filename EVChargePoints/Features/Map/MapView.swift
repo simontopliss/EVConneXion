@@ -56,24 +56,6 @@ struct MapView: View {
                         chargeDevice.chargeDeviceName.wrappedValue,
                         coordinate: chargeDevice.deviceMapItem.coordinate.wrappedValue
                     ) {
-//                        Button {
-//                            deviceSelected = chargeDevice.wrappedValue
-//                            withAnimation(.snappy) {
-//                                // TODO: Move the camera up a bit to accommodate the MapDetails detent
-//                                cameraPosition = .region(chargeDevice.deviceMapItem.region.wrappedValue)
-//                            }
-//                        } label: {
-//                            MapPinView(
-//                                pinColor: dataManager.networkColor(
-//                                    attribution: chargeDevice.attribution.wrappedValue
-//                                )
-//                            )
-//                        }
-//                        .scaleEffect(deviceSelected == chargeDevice.wrappedValue ? 1.5 : 1.0, anchor: .bottom)
-//                        .animation(
-//                            .bouncy(duration: 0.5, extraBounce: 0.25),
-//                            value: deviceSelected == chargeDevice.wrappedValue
-//                        )
                         AnnotationButtonView(
                             chargeDevice: chargeDevice.wrappedValue,
                             cameraPosition: $cameraPosition,
@@ -144,21 +126,6 @@ struct MapView: View {
                 }
             }
         }
-//        .searchable(
-//            text: $dataManager.searchQuery,
-//            placement: .toolbar,
-//            prompt: "Enter postcode, town or city…"
-//        )
-//        .onSubmit(of: .search) {
-//            Task {
-//                await dataManager.searchForChargeDevices()
-//            }
-//        }
-//        .alert("Warning", isPresented: $dataManager.searchError) {
-//            Button("OK", role: .cancel) {}
-//        } message: {
-//            Text(dataManager.searchErrorMessage)
-//        }
         .navigationDestination(for: Route.self) { $0 }
         .onChange(of: deviceSelected) { _, newValue in
             /// Displaying Details about the Selected Place
