@@ -18,7 +18,7 @@ struct MapPinView: View {
         MapPin()
             .fill(pinColor)
             .frame(width: width, height: height, alignment: .center)
-            .shadow(color: .secondary, radius: 3.0)
+            .shadow(color: .accentColor.opacity(0.50), radius: 3.0)
             .overlay {
                 Image(systemName: "bolt.fill")
                     .foregroundStyle(.white)

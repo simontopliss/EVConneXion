@@ -40,9 +40,9 @@ struct DeviceOwnerSection: View {
 
     var validSection: Bool {
         Validator.isValid(deviceOwner.organisationName) ||
-        Validator.isValid(deviceOwner.schemeCode, forType: .schemeCode) ||
-        Validator.isValid(deviceOwner.website, forType: .website) ||
-        Validator.isValid(deviceOwner.telephoneNo, forType: .telephoneNo) ? true : false
+            Validator.isValid(deviceOwner.schemeCode, forType: .schemeCode) ||
+            Validator.isValid(deviceOwner.website, forType: .website) ||
+            Validator.isValid(deviceOwner.telephoneNo, forType: .telephoneNo) ? true : false
     }
 
     var body: some View {
@@ -68,7 +68,7 @@ struct DeviceOwnerSection: View {
                 if Validator.isValid(deviceOwner.website, forType: .website) {
                     LabeledContent {
                         // TODO: Make into link
-                         FormText(text: deviceOwner.website)
+                        FormText(text: deviceOwner.website)
                     } label: {
                         FormLabel(label: "WEB SITE")
                     }
@@ -108,11 +108,11 @@ struct ConnectionSection: View {
                     connectorType: connector.connectorType.rawValue,
                     colorScheme: colorScheme
                 ))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 36)
-                    .padding(.vertical, 2)
-                    .shadow(color: .secondary, radius: 3.0)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 36)
+                .padding(.vertical, 2)
+                .shadow(color: .accentColor.opacity(0.50), radius: 3.0)
 
             } label: {
                 FormLabel(label: "TYPE")
