@@ -21,6 +21,15 @@ extension DataManager {
         isPostcode(postcode: searchQuery)
         ? await fetchChargeDevices(requestType: .postcode(searchQuery.localizedUppercase))
         : await fetchChargeDevices(requestType: .postTown(searchQuery))
+
+        if (networkError == nil) {
+//            let result = userSettings.recentSearches.filter { recentSearch in .searchQuery.rawValue == searchQuery }
+            if !userSettings.recentSearches.contains(searchQuery) {
+                userSettings.recentSearches.insert(searchQuery, at: 0)
+                saveSettings(.userSettings)
+                searchQuery = ""
+            }
+        }
     }
 
     // TODO: Add unit tests to confirm this works
