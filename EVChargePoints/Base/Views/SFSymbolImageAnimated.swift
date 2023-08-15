@@ -31,6 +31,7 @@ struct SFSymbolImageAnimated: View {
                 value: toggled
             )
             .fontWeight(.regular)
+            .foregroundStyle(Color.accentColor)
             .opacity(toggled ? 1.0 : 0.4)
             .padding(.trailing, 6)
     }

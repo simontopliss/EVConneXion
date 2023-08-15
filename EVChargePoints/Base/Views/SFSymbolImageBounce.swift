@@ -18,6 +18,7 @@ struct SFSymbolImageBounce: View {
     var body: some View {
         Image(systemName: symbolName)
             .symbolEffect(.bounce.up, value: toggled)
+            .foregroundStyle(Color.accentColor)
             .font(.title)
             .fontWeight(.regular)
             .frame(
