@@ -13,7 +13,8 @@ struct ChargePointListView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
     @EnvironmentObject private var locationManager: LocationManager
 
-    // TODO: Use NavigationSplitView for iPad support
+    @State private var showSearch = false
+    @State private var showDetails = false
 
     var body: some View {
         NavigationStack(path: $routerManager.routes) {
@@ -34,7 +35,24 @@ struct ChargePointListView: View {
             .toolbarBackground(.visible, for: .navigationBar, .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .tabBar)
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    MapToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
+                }
+            }
+            .sheet(isPresented: $showSearch, onDismiss: {
+                withAnimation(.snappy) { showDetails = false }
+            }, content: {
+                SearchView(showSheet: $showSearch)
+                    .presentationDetents([.height(300)])
+                    .presentationBackgroundInteraction(
+                        .enabled(upThrough: .height(300))
+                    )
+                    .presentationCornerRadius(25)
+                    .interactiveDismissDisabled(true)
+            })
             .buttonStyle(PlainButtonStyle())
+            // TODO: Go to last location, if there is one, else show London Eye with default filters
             // .task {
             //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
             //      await dataManager.fetchChargeDevices(requestType: .postTown("South Shields"))
