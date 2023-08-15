@@ -102,12 +102,13 @@ extension EVChargePointsApp {
 
 extension EVChargePointsApp {
     enum JSONFiles: String, CaseIterable {
-        case access        = "AccessData"
-        case charger       = "ChargerData"
-        case connector     = "ConnectorData"
-        case location      = "LocationData"
-        case network       = "NetworkData"
-        case payment       = "PaymentData"
-        case userSettings  = "UserSettings"
+        case access          = "AccessData"
+        case charger         = "ChargerData"
+        case connector       = "ConnectorData"
+        case location        = "LocationData"
+        case network         = "NetworkData"
+        case payment         = "PaymentData"
+        case userSettings    = "UserSettings"
+        case recentSearches  = "RecentSearches"
     }
 }
