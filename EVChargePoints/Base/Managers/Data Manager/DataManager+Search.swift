@@ -39,8 +39,8 @@ extension DataManager {
     }
 
     /*
-     This version will also accept a postcode with a space between the two parts
-     ^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$
+     This version will also accept a postcode without a space between the two parts
+     /^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$/
      */
 
     func isSearchQueryValid() -> Bool {
