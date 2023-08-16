@@ -88,6 +88,7 @@
 		62B9EA892A72DC6600629421 /* DeviceMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9EA882A72DC6600629421 /* DeviceMapItem.swift */; };
 		62C96ABA2A8B9E4300ACE6AA /* RecentSearches.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C96AB92A8B9E4300ACE6AA /* RecentSearches.json */; };
 		62C96ABC2A8B9EB000ACE6AA /* RecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C96ABB2A8B9EB000ACE6AA /* RecentSearch.swift */; };
+		62C96ABE2A8BF7F500ACE6AA /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C96ABD2A8BF7F500ACE6AA /* StatusView.swift */; };
 		62C9F6622A68033B00151FB4 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6612A68033B00151FB4 /* View+Navigation.swift */; };
 		62C9F6642A68044800151FB4 /* ChargePointInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6632A68044800151FB4 /* ChargePointInfoView.swift */; };
 		62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */; };
@@ -200,6 +201,7 @@
 		62B9EA882A72DC6600629421 /* DeviceMapItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceMapItem.swift; path = EVChargePoints/Base/Model/DeviceMapItem.swift; sourceTree = SOURCE_ROOT; };
 		62C96AB92A8B9E4300ACE6AA /* RecentSearches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecentSearches.json; sourceTree = "<group>"; };
 		62C96ABB2A8B9EB000ACE6AA /* RecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearch.swift; sourceTree = "<group>"; };
+		62C96ABD2A8BF7F500ACE6AA /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		62C9F6612A68033B00151FB4 /* View+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		62C9F6632A68044800151FB4 /* ChargePointInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointInfoView.swift; sourceTree = "<group>"; };
 		62C9F6652A68045300151FB4 /* ChargePointDevicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargePointDevicesView.swift; sourceTree = "<group>"; };
@@ -239,16 +241,17 @@
 		620929A52A74070200B18959 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6298B9FF2A85998B00DFB494 /* FormLabelView.swift */,
+				6298B9FD2A85994E00DFB494 /* FormTextView.swift */,
 				6213F46E2A73F51600F88877 /* MapPin.swift */,
 				620929A62A74072800B18959 /* MapPinView.swift */,
-				62B777B62A79AEE100C3857F /* SymbolImageAnimated.swift */,
-				6285AFE42A7AFF6600F78AD7 /* SFSymbolImageBounce.swift */,
 				62B777B82A79B8C700C3857F /* SFSymbolImageAnimated.swift */,
+				6285AFE42A7AFF6600F78AD7 /* SFSymbolImageBounce.swift */,
+				62C96ABD2A8BF7F500ACE6AA /* StatusView.swift */,
+				62B777B62A79AEE100C3857F /* SymbolImageAnimated.swift */,
 				62B777C72A7AA8B800C3857F /* ToggleWithGraphic.swift */,
 				62B777C62A7AA8B800C3857F /* ToggleWithSymbol.swift */,
 				62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */,
-				6298B9FD2A85994E00DFB494 /* FormTextView.swift */,
-				6298B9FF2A85998B00DFB494 /* FormLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				627531DB2A69470800F0D8A6 /* Route.swift in Sources */,
 				62B32CBB2A4DCDF900C6E8DF /* FiltersView.swift in Sources */,
 				625CEF6E2A65648C00A82048 /* Validator.swift in Sources */,
+				62C96ABE2A8BF7F500ACE6AA /* StatusView.swift in Sources */,
 				625EB1492A72A01E00E36AA3 /* DataManager+RegularOpenings.swift in Sources */,
 				625FA08A2A89542900F9A606 /* MapToolbarItem.swift in Sources */,
 				626810452A616A020032C3CA /* MockChargePoints.swift in Sources */,

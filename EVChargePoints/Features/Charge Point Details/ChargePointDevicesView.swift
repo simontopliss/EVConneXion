@@ -112,7 +112,7 @@ struct ConnectionSection: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 36)
                 .padding(.vertical, 2)
-                .shadow(color: .accentColor.opacity(0.50), radius: 3.0)
+                .shadow(color: .secondary, radius: 3.0)
 
             } label: {
                 FormLabel(label: "TYPE")
@@ -132,13 +132,7 @@ struct ConnectionSection: View {
 
             LabeledContent {
                 HStack {
-                    Circle()
-                        .stroke(Color.gray, lineWidth: 2.0)
-                        .fill(
-                            connector.chargePointStatus.rawValue == "Out of service" ? .red : .green
-                        )
-                        .shadow(color: .secondary, radius: 3.0)
-                        .frame(height: 12)
+                    StatusView(bool: connector.chargePointStatus.rawValue != "Out of service")
                     Spacer()
                 }
             } label: {
@@ -146,9 +140,8 @@ struct ConnectionSection: View {
             }
 
             LabeledContent {
-                // TODO: replace with coloured indicator
-                FormText(text: connector.tetheredCable ? Symbols.no : Symbols.yes)
-                    .shadow(color: .secondary, radius: 3.0)
+                StatusView(bool: connector.tetheredCable)
+                Spacer()
             } label: {
                 FormLabel(label: "TETHERED")
             }
