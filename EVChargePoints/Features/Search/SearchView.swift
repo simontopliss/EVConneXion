@@ -87,7 +87,7 @@ extension SearchView {
             .foregroundStyle(AppColors.textColor)
             .onSubmit {
                 searchForChargeDevices()
-                // TODO: Navigate to MapView or ListView if successHU17 0RXful and zoom map to region from searchQuery
+                // TODO: Navigate to MapView or ListView if successful and zoom map to region from searchQuery
             }
             .submitLabel(.search)
 
