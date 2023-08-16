@@ -99,11 +99,11 @@
 	<path style="fill:url(#SVGID_1_);" d="M30.307,79.231V49.346h22.759v3.021H33.657V76.21h19.409v3.021H30.307z M52.672,63.599v3.021
 		H38.353v-3.021H52.672z"/>
 	
-		<linearGradient id="SVGID_00000137846070911669965170000006676155655649643674_" gradientUnits="userSpaceOnUse" x1="60.1924" y1="64.9231" x2="91.6517" y2="64.9231" gradientTransform="matrix(1 0 0 -1 0 130)">
+		<linearGradient id="SVGID_00000125568441653614025270000015781192301408381629_" gradientUnits="userSpaceOnUse" x1="60.1924" y1="64.9231" x2="91.6517" y2="64.9231" gradientTransform="matrix(1 0 0 -1 0 130)">
 		<stop  offset="0" style="stop-color:#AAFFA9"/>
 		<stop  offset="1" style="stop-color:#11FFBD"/>
 	</linearGradient>
-	<path style="fill:url(#SVGID_00000137846070911669965170000006676155655649643674_);" d="M75.858,80.808L60.192,49.346h3.842
+	<path style="fill:url(#SVGID_00000125568441653614025270000015781192301408381629_);" d="M75.858,80.808L60.192,49.346h3.842
 		l11.823,24.269l11.987-24.269h3.842L75.858,80.808z"/>
 </g>
 </svg>
