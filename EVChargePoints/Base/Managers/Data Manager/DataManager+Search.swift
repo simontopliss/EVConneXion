@@ -11,7 +11,8 @@ extension DataManager {
 
     @MainActor
     func searchForChargeDevices() async {
-        // print(#function)
+        print(#function)
+        
         searchError = false
         searchErrorMessage = ""
         searchQuery = searchQuery.trim()
