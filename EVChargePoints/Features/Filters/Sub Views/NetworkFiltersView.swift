@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NetworkFiltersView: View {
 
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var dataManager: DataManager
 
     var body: some View {
@@ -18,8 +19,11 @@ struct NetworkFiltersView: View {
                 ForEach($dataManager.networkData) { filter in
                     HStack {
                         SymbolImageAnimated(
-                            graphicName: filter.graphicName.wrappedValue,
-                            invertTintForDarkMode: false,
+                            graphicName: (
+                                colorScheme == .dark
+                                ? filter.graphicName.wrappedValue + "-i"
+                                : filter.graphicName.wrappedValue
+                            ),
                             symbolWidth: 60.0,
                             symbolHeight: 40.0,
                             toggled: filter.setting

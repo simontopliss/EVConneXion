@@ -13,20 +13,8 @@ struct SymbolImageAnimated: View {
 
     let graphicName: String
 
-    // Don't invert the graphic for Network as they don't have an inverted version
-    var invertTintForDarkMode = true
-
-    var colorSchemeGraphicName: String {
-        colorScheme == .dark ? graphicName + "-i" : graphicName
-    }
-
-    var tintGraphicName: String {
-        if invertTintForDarkMode {
-            return colorScheme == .dark ? graphicName + "-40-i" : graphicName + "-40"
-        } else {
-            return graphicName + "-40"
-        }
-    }
+    // Don't invert the graphic for Network
+    var invertForDarkMode = true
 
     var symbolWidth: Double = Symbols.symbolWidth
     var symbolHeight: Double = Symbols.symbolHeight
@@ -34,7 +22,7 @@ struct SymbolImageAnimated: View {
     @Binding var toggled: Bool
 
     var body: some View {
-        Image(toggled == true ? colorSchemeGraphicName : tintGraphicName)
+        Image(graphicName)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(
@@ -43,6 +31,13 @@ struct SymbolImageAnimated: View {
                 alignment: .center
             )
             .scaleEffect(toggled ? 1.0 : 0.80)
+            .opacity(toggled ? 1.0 : 0.5)
+            .foregroundStyle(Color.accentColor)
+//            .shadow(
+//                color: colorScheme == .dark
+//                ? .white.opacity(0.75)
+//                : .black.opacity(0.75), radius: 3.0
+//            )
             .animation(
                 .spring(duration: 0.5, bounce: 0.80)
                 .repeatCount(1, autoreverses: true),
@@ -55,11 +50,23 @@ struct SymbolImageAnimated: View {
 #Preview {
     VStack {
         SymbolImageAnimated(
+            graphicName: "ubitricity",
+            invertForDarkMode: false,
+            toggled: .constant(false)
+        )
+        SymbolImageAnimated(
+            graphicName: "ubitricity",
+            invertForDarkMode: false,
+            toggled: .constant(true)
+        )
+        SymbolImageAnimated(
             graphicName: "dealership-forecourt",
+            invertForDarkMode: false,
             toggled: .constant(false)
         )
         SymbolImageAnimated(
             graphicName: "dealership-forecourt",
+            invertForDarkMode: false,
             toggled: .constant(true)
         )
     }
