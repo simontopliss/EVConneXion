@@ -44,10 +44,10 @@ struct ChargePointRow: View {
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .fontWidth(.condensed)
-                .foregroundStyle(.white)
+                .foregroundStyle(colorScheme == .dark ? .black : .white)
                 .padding(.vertical, 2)
                 .padding(.horizontal, 8)
-                .background(AppColors.darkBlue, in: Capsule())
+                .background(Color.accentColor, in: Capsule())
             }
             .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
 
@@ -76,7 +76,7 @@ struct ChargePointRow: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 22)
-                            .shadow(color: .accentColor.opacity(0.50), radius: 3.0)
+                            .shadow(color: .secondary, radius: 3.0)
 
                         Text("\(connector.count)")
                             .font(.footnote)
