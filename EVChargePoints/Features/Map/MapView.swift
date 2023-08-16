@@ -19,7 +19,7 @@ struct MapView: View {
     @EnvironmentObject private var locationManager: LocationManager
 
     /// Map Properties
-    @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
+//    @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var deviceSelected: ChargeDevice?
     @State private var mapSelection: MKMapItem?
     @State private var viewingRegion: MKCoordinateRegion?
@@ -43,7 +43,7 @@ struct MapView: View {
 
     var body: some View {
         NavigationStack {
-            Map(position: $cameraPosition, selection: $mapSelection, scope: locationSpace) {
+            Map(position: $locationManager.cameraPosition, selection: $mapSelection, scope: locationSpace) {
 
                 // UserAnnotation() // This needs changing when testing 'real' user location
                 Annotation("My Location", coordinate: locationManager.userLocation) {
@@ -58,7 +58,7 @@ struct MapView: View {
                     ) {
                         AnnotationButtonView(
                             chargeDevice: chargeDevice.wrappedValue,
-                            cameraPosition: $cameraPosition,
+                            cameraPosition: $locationManager.cameraPosition,
                             deviceSelected: $deviceSelected
                         )
                     }
@@ -103,7 +103,7 @@ struct MapView: View {
                 withAnimation(.snappy) {
                     /// Zooming Region
                     if let boundingRect = route?.polyline.boundingMapRect, routeDisplaying {
-                        cameraPosition = .rect(boundingRect.reducedRect(0.45))
+                        locationManager.cameraPosition = .rect(boundingRect.reducedRect(0.45))
                     }
                 }
             }, content: {
@@ -144,10 +144,13 @@ struct MapView: View {
             /// This will goes to the defined user region
             Button {
                 withAnimation(.smooth) {
-                    cameraPosition = .region(LocationManager.defaultRegion)
+                    //locationManager.region = dataManager.filteredDevices.first?.deviceMapItem.region ?? LocationManager.defaultRegion
+                    locationManager.cameraPosition = .region(
+                        dataManager.filteredDevices.first?.deviceMapItem.region ?? LocationManager.defaultRegion
+                    )
                 }
             } label: {
-                Image(systemName: "mappin")
+                Image(systemName: "ev.charger")
                     .font(.title3)
             }
             .buttonStyle(.borderedProminent)
@@ -205,7 +208,7 @@ struct MapView: View {
                 routeDestination = nil
                 route = nil
                 if let coordinate = deviceSelected?.deviceMapItem.coordinate {
-                    cameraPosition = .region(
+                    locationManager.cameraPosition = .region(
                         .init(
                             center: coordinate,
                             latitudinalMeters: .cameraHeight,

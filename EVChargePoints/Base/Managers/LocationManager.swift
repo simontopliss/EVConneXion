@@ -6,15 +6,17 @@
 //
 
 import CoreLocation
-import Foundation
 import MapKit
+import SwiftUI
 
 final class LocationManager: NSObject, ObservableObject {
 
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
+    @Published var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
+
     let locationManager = CLLocationManager()
 
-    static let cameraHeight: CLLocationDistance = 2500 // Distance in metres
+    ///static let cameraHeight: CLLocationDistance = 2500 // Distance in metres
 
     @Published var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
 
@@ -35,7 +37,11 @@ extension LocationManager {
     }
 
     static var defaultRegion: MKCoordinateRegion {
-        .init(center: defaultLocation, latitudinalMeters: cameraHeight, longitudinalMeters: cameraHeight)
+        .init(
+            center: defaultLocation,
+            latitudinalMeters: .cameraHeight,
+            longitudinalMeters: .cameraHeight
+        )
     }
 }
 
@@ -117,7 +123,7 @@ extension LocationManager {
 }
 
 extension CLLocationDistance {
-    static let cameraHeight: CLLocationDistance = 5000
+    static let cameraHeight: CLLocationDistance = 2500
 }
 
 extension CLLocationCoordinate2D {
