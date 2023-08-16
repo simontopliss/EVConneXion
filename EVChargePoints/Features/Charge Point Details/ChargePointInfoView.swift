@@ -113,7 +113,8 @@ struct ParkingSection: View {
             }
 
             LabeledContent {
-                FormText(text: chargeDevice.onStreetFlag ? Symbols.yes : Symbols.no)
+                StatusView(bool: chargeDevice.onStreetFlag)
+                Spacer()
             } label: {
                 FormLabel(label: "ON STREET PARKING")
             }
@@ -139,6 +140,7 @@ struct PaymentSection: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 44, alignment: .leading)
+                                .shadow(color: .secondary, radius: 3.0)
                         }
 
                         if deviceNetwork != chargeDevice.deviceNetworks.last {
@@ -148,10 +150,12 @@ struct PaymentSection: View {
                 }
             } label: {
                 FormLabel(label: chargeDevice.deviceNetworks.count > 1 ? "NETWORKS" : "NETWORK")
+                    .shadow(color: .secondary, radius: 1.5)
             }
 
             LabeledContent {
-                FormText(text: chargeDevice.paymentRequiredFlag ? Symbols.no : Symbols.yes)
+                StatusView(bool: chargeDevice.paymentRequiredFlag)
+                Spacer()
             } label: {
                 FormLabel(label: "FREE TO USE")
             }
@@ -165,7 +169,8 @@ struct PaymentSection: View {
             }
 
             LabeledContent {
-                FormText(text: chargeDevice.subscriptionRequiredFlag ? Symbols.yes : Symbols.no)
+                StatusView(bool: chargeDevice.subscriptionRequiredFlag)
+                Spacer()
             } label: {
                 FormLabel(label: "SUBS. REQUIRED")
             }
@@ -195,7 +200,9 @@ struct DeviceAccessSection: View {
         if validSection {
             Section("DEVICE ACCESS") {
                 LabeledContent {
-                    FormText(text: deviceAccess.open24Hours ? Symbols.yes : Symbols.no)
+                   StatusView(bool: deviceAccess.open24Hours)
+                    Spacer()
+
                 } label: {
                     FormLabel(label: "OPEN 24 HOURS")
                 }
