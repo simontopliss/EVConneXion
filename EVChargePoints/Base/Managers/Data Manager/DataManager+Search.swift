@@ -10,14 +10,14 @@ import Foundation
 extension DataManager {
 
     @MainActor
-    func searchForChargeDevices() async {
+    func searchForChargeDevices(searchQuery: String) async {
         print(#function)
         
         searchError = false
         searchErrorMessage = ""
-        searchQuery = searchQuery.trim()
+        var searchQuery = searchQuery.trim()
 
-        if !isSearchQueryValid() { return }
+        if !isSearchQueryValid(searchQuery: searchQuery) { return }
 
         isPostcode(postcode: searchQuery)
         ? await fetchChargeDevices(requestType: .postcode(searchQuery.localizedUppercase))
@@ -43,7 +43,7 @@ extension DataManager {
      /^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$/
      */
 
-    func isSearchQueryValid() -> Bool {
+    func isSearchQueryValid(searchQuery: String) -> Bool {
         if searchQuery.isEmpty { return false }
         if searchQuery.count < 3 { // Is this min correct?
             searchError = true
