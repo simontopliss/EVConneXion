@@ -29,11 +29,11 @@ final class DataManager: ObservableObject {
     /// Search
     @Published var searchError = false
     @Published var searchErrorMessage = ""
-    @Published var searchQuery: String = "" {
-        didSet {
-            // TODO: filter recentSearches for match
-        }
-    }
+//    @Published var searchQuery: String = "" {
+//        didSet {
+//            // TODO: filter recentSearches for match
+//        }
+//    }
 
     // TODO: Is `limit` required?
     private(set) var limit = 0
