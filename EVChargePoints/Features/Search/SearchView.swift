@@ -12,11 +12,17 @@ struct SearchView: View {
     @EnvironmentObject private var dataManager: DataManager
     @Environment(\.dismiss) var dismiss
 
+    /// Autocompletion for the input text
+    @ObservedObject private var autocomplete = AutocompleteObject()
+
+    /// Input text in the text field
+    @State var input: String = ""
+
     @FocusState private var isFocused: Bool
     @Binding var showSheet: Bool
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 6) {
 
             searchHeader
 
@@ -32,12 +38,25 @@ struct SearchView: View {
                             .foregroundStyle(AppColors.textColor)
                             .tag(recentSearch.id)
                             .onTapGesture {
-                                dataManager.searchQuery = recentSearch.searchQuery
+                                input = recentSearch.searchQuery
                                 searchForChargeDevices()
                             }
                     }
                 }
-                .listStyle(InsetListStyle())
+                .listStyle(.inset)
+            }
+
+            if !autocomplete.suggestions.isEmpty {
+                Section("Suggestions") {
+                    List(autocomplete.suggestions, id: \.self) { suggestion in
+                        Text(suggestion)
+//                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .onTapGesture {
+                                input = suggestion
+                            }
+                    }
+                    .listStyle(.inset)
+                }
             }
         }
         .padding()
@@ -56,14 +75,6 @@ struct SearchView: View {
         .onAppear {
             isFocused = true
         }
-//        .overlay(alignment: .topTrailing) {
-//            Button(role: .cancel) {
-//                showSheet.toggle()
-//            } label: {
-//                XmarkButtonView(foregroundColor: .primary.opacity(0.2))
-//            }
-//            .padding([.top, .trailing])
-//        }
     }
 }
 
@@ -79,11 +90,14 @@ extension SearchView {
         HStack(alignment: .lastTextBaseline) {
             TextField(
                 "Search",
-                text: $dataManager.searchQuery,
+                text: $input,
                 prompt: Text("Enter postcode, town or city…")
             )
+            .onChange(of: input) { _, _ in
+                autocomplete.autocomplete(input)
+            }
             .focused($isFocused)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .textFieldStyle(.roundedBorder)
             .foregroundStyle(AppColors.textColor)
             .onSubmit {
                 searchForChargeDevices()
@@ -105,7 +119,7 @@ extension SearchView {
         ContentUnavailableView(
             "No recent searches",
             systemImage: Symbols.noRecentSearchesSymbolName,
-            description: Text("Your search history will automatically be displayed here.")
+            description: Text("Your search history will be displayed here.")
         )
         // .foregroundStyle(AppColors.textColor)
     }
@@ -114,7 +128,7 @@ extension SearchView {
 extension SearchView {
     func searchForChargeDevices() {
         Task {
-            await dataManager.searchForChargeDevices()
+            await dataManager.searchForChargeDevices(searchQuery: input)
             dismiss()
         }
     }
