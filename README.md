@@ -1,4 +1,4 @@
-# EVChargePoints
+# EVConneXion
 Find and use data on public electric vehicle chargepoints using the National Chargepoint Registry (NCR) on public electric vehicle chargepoints in the UK.
 
 - This will be a portfolio app that I develop in public. 
