@@ -37,16 +37,16 @@ struct ChargePointListView: View {
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    MapToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
+                    SearchToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
                 }
             }
             .sheet(isPresented: $showSearch, onDismiss: {
                 withAnimation(.snappy) { showDetails = false }
             }, content: {
                 SearchView(showSheet: $showSearch)
-                    .presentationDetents([.height(300)])
+                    .presentationDetents([.medium])
                     .presentationBackgroundInteraction(
-                        .enabled(upThrough: .height(300))
+                        .enabled(upThrough: .medium)
                     )
                     .presentationCornerRadius(25)
                     .interactiveDismissDisabled(true)

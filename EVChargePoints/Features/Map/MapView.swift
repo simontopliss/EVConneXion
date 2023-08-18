@@ -39,8 +39,6 @@ struct MapView: View {
     @State private var route: MKRoute?
     @State private var routeDestination: ChargeDevice?
 
-    let delay = UInt64(0.25 * Double(NSEC_PER_SEC))
-
     var body: some View {
         NavigationStack {
             Map(position: $locationManager.cameraPosition, selection: $mapSelection, scope: locationSpace) {
@@ -85,16 +83,16 @@ struct MapView: View {
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    MapToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
+                    SearchToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
                 }
             }
             .sheet(isPresented: $showSearch, onDismiss: {
                 withAnimation(.snappy) { showDetails = false }
             }, content: {
                 SearchView(showSheet: $showSearch)
-                    .presentationDetents([.height(300)])
+                    .presentationDetents([.medium])
                     .presentationBackgroundInteraction(
-                        .enabled(upThrough: .height(300))
+                        .enabled(upThrough: .medium)
                     )
                     .presentationCornerRadius(25)
                     .interactiveDismissDisabled(true)
@@ -150,8 +148,9 @@ struct MapView: View {
                     )
                 }
             } label: {
-                Image(systemName: "ev.charger")
-                    .font(.title3)
+                Symbols.chargerSearchSymbol
+                    .font(.title2)
+                    .foregroundStyle(colorScheme == .dark ? AppColors.darkBlue : .white)
             }
             .buttonStyle(.borderedProminent)
         }
