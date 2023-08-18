@@ -27,7 +27,8 @@ extension DataManager {
             return "default-network"
         }
 
-        return colorScheme == .dark ? graphicName + "-i" : graphicName
+//        return colorScheme == .dark ? graphicName + "-i" : graphicName
+        return graphicName
     }
 
     func displayNameFor(connectorType: String) -> String {
