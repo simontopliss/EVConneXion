@@ -16,8 +16,6 @@ final class LocationManager: NSObject, ObservableObject {
 
     let locationManager = CLLocationManager()
 
-    ///static let cameraHeight: CLLocationDistance = 2500 // Distance in metres
-
     @Published var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
 
     override init() {
