@@ -27,8 +27,9 @@ final class DataManager: ObservableObject {
     @Published var filterResultErrorMessage = ""
 
     /// Search
-    @Published var searchError = false
-    @Published var searchErrorMessage = ""
+    @Published var searchError: SearchError?
+    @Published var hasSearchError = false
+//    @Published var searchErrorMessage = ""
 //    @Published var searchQuery: String = "" {
 //        didSet {
 //            // TODO: filter recentSearches for match
