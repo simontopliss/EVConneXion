@@ -90,17 +90,6 @@ struct FiltersView: View {
                     Text("Back")
                 }
             }
-
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button {
-//                    // Save filters
-//                } label: {
-//                    HStack(alignment: .firstTextBaseline) {
-//                        Text("Save Filter")
-//                        Image(systemName: "square.and.arrow.down")
-//                    }
-//                }
-//            }
         }
     }
 }
