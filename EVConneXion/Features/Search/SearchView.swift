@@ -17,6 +17,7 @@ struct SearchView: View {
 
     /// Input text in the text field
     @State var input: String = ""
+    @State private var showInvalidPostcodeAlert = false
 
     @FocusState private var isFocused: Bool
     @Binding var showSheet: Bool
@@ -35,6 +36,7 @@ struct SearchView: View {
                 Section("Recent Searches") {
                     List(dataManager.recentSearches) { recentSearch in
                         Text(recentSearch.searchQuery)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                             .foregroundStyle(AppColors.textColor)
                             .tag(recentSearch.id)
                             .onTapGesture {
@@ -46,30 +48,35 @@ struct SearchView: View {
                 .listStyle(.inset)
             }
 
-            if !autocomplete.suggestions.isEmpty {
-                Section("Suggestions") {
-                    List(autocomplete.suggestions, id: \.self) { suggestion in
-                        Text(suggestion)
-//                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                            .onTapGesture {
-                                input = suggestion
-                            }
-                    }
-                    .listStyle(.inset)
-                }
-            }
+//            if !autocomplete.suggestions.isEmpty {
+//                Section("Suggestions") {
+//                    List(autocomplete.suggestions, id: \.self) { suggestion in
+//                        Text(suggestion)
+            ////                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+//                            .onTapGesture {
+//                                input = suggestion
+//                            }
+//                    }
+//                    .listStyle(.inset)
+//                }
+//            }
         }
         .padding()
-        .alert("Warning", isPresented: $dataManager.searchError) {
+        .alert("Warning", isPresented: $dataManager.hasSearchError) {
             Button("OK", role: .cancel) {}
         } message: {
-            Text(dataManager.searchErrorMessage)
+            Text(dataManager.searchError?.errorDescription ?? "An error has occurred")
         }
         .alert(isPresented: $dataManager.hasError, error: dataManager.networkError) {
             // TODO: Check NetworkManager.NetworkError errorDescription
             Button("Retry") {
                 searchForChargeDevices()
             }
+        }
+        .alert("Warning", isPresented: $showInvalidPostcodeAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Invalid postcode")
         }
         .padding(.top)
         .onAppear {
@@ -81,7 +88,6 @@ struct SearchView: View {
 #Preview {
     SearchView(showSheet: .constant(true))
         .environmentObject(DataManager())
-    // .environment(\.colorScheme, .dark)
 }
 
 extension SearchView {
@@ -91,17 +97,16 @@ extension SearchView {
             TextField(
                 "Search",
                 text: $input,
-                prompt: Text("Enter postcode, town or city…")
+                prompt: Text("Enter postcode…")
             )
-            .onChange(of: input) { _, _ in
-                autocomplete.autocomplete(input)
-            }
+            // .onChange(of: input) { _, _ in
+            //     autocomplete.autocomplete(input)
+            // }
             .focused($isFocused)
             .textFieldStyle(.roundedBorder)
             .foregroundStyle(AppColors.textColor)
             .onSubmit {
                 searchForChargeDevices()
-                // TODO: Navigate to MapView or ListView if successful and zoom map to region from searchQuery
             }
             .submitLabel(.search)
 
@@ -121,15 +126,18 @@ extension SearchView {
             systemImage: Symbols.noRecentSearchesSymbolName,
             description: Text("Your search history will be displayed here.")
         )
-        // .foregroundStyle(AppColors.textColor)
     }
 }
 
 extension SearchView {
     func searchForChargeDevices() {
-        Task {
-            await dataManager.searchForChargeDevices(searchQuery: input)
-            dismiss()
+        if !dataManager.isPostcode(postcode: input) {
+            showInvalidPostcodeAlert.toggle()
+        } else {
+            Task {
+                dismiss()
+                try await dataManager.searchForChargeDevices(searchQuery: input)
+            }
         }
     }
 }
