@@ -27,39 +27,13 @@ struct SearchView: View {
 
             searchHeader
 
-            Divider()
-                .padding(.bottom)
+            Divider().padding(.bottom)
 
             if dataManager.recentSearches.isEmpty {
                 contentUnavailable
             } else {
-                Section("Recent Searches") {
-                    List(dataManager.recentSearches) { recentSearch in
-                        Text(recentSearch.searchQuery)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                            .foregroundStyle(AppColors.textColor)
-                            .tag(recentSearch.id)
-                            .onTapGesture {
-                                input = recentSearch.searchQuery
-                                searchForChargeDevices()
-                            }
-                    }
-                }
-                .listStyle(.inset)
+                recentSearches
             }
-
-//            if !autocomplete.suggestions.isEmpty {
-//                Section("Suggestions") {
-//                    List(autocomplete.suggestions, id: \.self) { suggestion in
-//                        Text(suggestion)
-            ////                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-//                            .onTapGesture {
-//                                input = suggestion
-//                            }
-//                    }
-//                    .listStyle(.inset)
-//                }
-//            }
         }
         .padding()
         .alert("Warning", isPresented: $dataManager.hasSearchError) {
@@ -139,5 +113,24 @@ extension SearchView {
                 try await dataManager.searchForChargeDevices(searchQuery: input)
             }
         }
+    }
+}
+
+extension SearchView {
+
+    var recentSearches: some View {
+        Section("Recent Searches") {
+            List(dataManager.recentSearches) { recentSearch in
+                Text(recentSearch.searchQuery)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .foregroundStyle(AppColors.textColor)
+                    .tag(recentSearch.id)
+                    .onTapGesture {
+                        input = recentSearch.searchQuery
+                        searchForChargeDevices()
+                    }
+            }
+        }
+        .listStyle(.inset)
     }
 }
