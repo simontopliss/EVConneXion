@@ -112,7 +112,8 @@ struct ConnectionSection: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 36)
                 .padding(.vertical, 2)
-                .shadow(color: .secondary, radius: 3.0)
+                .foregroundStyle(.accent)
+                //.shadow(color: .secondary, radius: 3.0)
 
             } label: {
                 FormLabel(label: "TYPE")
