@@ -33,11 +33,6 @@ struct SymbolImageAnimated: View {
             .scaleEffect(toggled ? 1.0 : 0.80)
             .opacity(toggled ? 1.0 : 0.5)
             .foregroundStyle(Color.accentColor)
-//            .shadow(
-//                color: colorScheme == .dark
-//                ? .white.opacity(0.75)
-//                : .black.opacity(0.75), radius: 3.0
-//            )
             .animation(
                 .spring(duration: 0.5, bounce: 0.80)
                 .repeatCount(1, autoreverses: true),
