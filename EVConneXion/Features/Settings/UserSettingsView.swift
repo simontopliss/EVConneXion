@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-final class UserSettingsViewModel: ObservableObject {}
-
 struct UserSettingsView: View {
 
     @EnvironmentObject private var dataManager: DataManager
@@ -58,9 +56,6 @@ extension UserSettingsView {
         .font(.headline)
         .foregroundStyle(AppColors.textColor)
     }
-}
-
-extension UserSettingsView {
 
     var countryPicker: some View {
         HStack {
