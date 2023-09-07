@@ -150,6 +150,7 @@ struct FilterNavigationLink: View {
                 symbol
                     .font(.title)
                     .fontWeight(.regular)
+                    .foregroundStyle(.accent)
                     .frame(
                         maxWidth: Symbols.symbolWidth,
                         maxHeight: Symbols.symbolHeight,
