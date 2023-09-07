@@ -28,65 +28,16 @@ struct ChargePointRow: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(chargeDevice.chargeDeviceName.trim())
-                    .font(.title2.leading(.tight))
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.leading)
-
+                chargeDeviceName
                 Spacer()
-
-                Text(
-                    dataManager.getFormattedDistance(
-                        distance: chargeDevice.deviceMapItem.distanceFromUser,
-                        unit: dataManager.userSettings.unitSetting
-                    )
-                )
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .fontWidth(.condensed)
-                .foregroundStyle(colorScheme == .dark ? .black : .white)
-                .padding(.vertical, 2)
-                .padding(.horizontal, 8)
-                .background(Color.accentColor, in: Capsule())
+                distanceCapsule
             }
             .padding(EdgeInsets(top: inset, leading: inset, bottom: 0, trailing: inset))
 
-            Text("Ref: \(chargeDevice.chargeDeviceRef.trim())")
-                .font(.caption)
-                .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
-                .foregroundStyle(.secondary)
-
-            Text(chargeDevice.deviceNetworks.joined(separator: ",\n"))
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
-
-            Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
-                .font(.caption)
-                .multilineTextAlignment(.leading)
-                .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
-                .foregroundStyle(.secondary)
-
-            HStack {
-                // Get the connector types and add a count next to the graphic
-                ForEach(connectorGraphicsAndCounts) { connector in
-                    HStack {
-                        Image(connector.graphicName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 22)
-                            .shadow(color: .secondary, radius: 3.0)
-
-                        Text("\(connector.count)")
-                            .font(.footnote)
-                            .monospacedDigit()
-
-                    }
-                    .padding(.trailing, 6)
-                }
-            }
-            .padding(EdgeInsets(top: 0, leading: inset, bottom: inset, trailing: inset))
+            ref
+            networks
+            location
+            connectors
         }
         .foregroundStyle(AppColors.textColor)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -102,4 +53,74 @@ struct ChargePointRow: View {
     .environmentObject(LocationManager())
     .background(AppColors.backgroundColor)
     .padding()
+}
+
+extension ChargePointRow {
+    var distanceCapsule: some View {
+        Text(
+            dataManager.getFormattedDistance(
+                distance: chargeDevice.deviceMapItem.distanceFromUser,
+                unit: dataManager.userSettings.unitSetting
+            )
+        )
+        .font(.subheadline)
+        .fontWeight(.semibold)
+        .fontWidth(.condensed)
+        .foregroundStyle(colorScheme == .dark ? .black : .white)
+        .padding(.vertical, 2)
+        .padding(.horizontal, 8)
+        .background(Color.accentColor, in: Capsule())
+    }
+
+    var chargeDeviceName: some View {
+        Text(chargeDevice.chargeDeviceName.trim())
+            .font(.title2.leading(.tight))
+            .fontWeight(.semibold)
+            .multilineTextAlignment(.leading)
+    }
+
+    var ref: some View {
+        Text("Ref: \(chargeDevice.chargeDeviceRef.trim())")
+            .font(.caption)
+            .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
+            .foregroundStyle(.secondary)
+    }
+
+    var networks: some View {
+        Text(chargeDevice.deviceNetworks.joined(separator: ",\n"))
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .multilineTextAlignment(.leading)
+            .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
+    }
+
+    var location: some View {
+        Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
+            .font(.caption)
+            .multilineTextAlignment(.leading)
+            .padding(EdgeInsets(top: 0, leading: inset, bottom: 0, trailing: inset))
+            .foregroundStyle(.secondary)
+    }
+
+    var connectors: some View {
+        HStack {
+            // Get the connector types and add a count next to the graphic
+            ForEach(connectorGraphicsAndCounts) { connector in
+                HStack {
+                    Image(connector.graphicName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 22)
+                        .foregroundStyle(.accent)
+
+                    Text("\(connector.count)")
+                        .font(.footnote)
+                        .monospacedDigit()
+
+                }
+                .padding(.trailing, 6)
+            }
+        }
+        .padding(EdgeInsets(top: 0, leading: inset, bottom: inset, trailing: inset))
+    }
 }
