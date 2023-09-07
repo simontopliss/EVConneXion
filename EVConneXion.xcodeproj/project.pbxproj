@@ -99,14 +99,12 @@
 		62D3FFB82A8177F1004D3F5A /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFB52A81778A004D3F5A /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */; };
 		62D3FFB92A8177F1004D3F5A /* DE7 8LN.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFB12A81766F004D3F5A /* DE7 8LN.json */; };
 		62D3FFBB2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json in Resources */ = {isa = PBXBuildFile; fileRef = 62D3FFBA2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json */; };
-		62D89FEE2A89500B004F7DDC /* AnnotationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D89FED2A89500B004F7DDC /* AnnotationButtonView.swift */; };
 		62D9B4952A83A1AD00FB26A4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9B4942A83A1AD00FB26A4 /* DataManager.swift */; };
 		62DA2F042A882D01003F4C23 /* DataManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA2F032A882D01003F4C23 /* DataManager+Search.swift */; };
 		62DFA74B2A6D400000208E1B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA74A2A6D400000208E1B /* LocationManager.swift */; };
 		62DFA7512A6DB0A600208E1B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA7502A6DB0A600208E1B /* Color+Ext.swift */; };
 		62DFF0582A805CB2004B8CAA /* XmarkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */; };
 		62E16DDB2A72D77500DB3B01 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E16DDA2A72D77500DB3B01 /* LocationDetailsView.swift */; };
-		62F8D9F82A884DBA007DA4CD /* UserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D9F72A884DBA007DA4CD /* UserAnnotationView.swift */; };
 		62F8D9FA2A88564A007DA4CD /* MKMapRect+reducedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F8D9F92A88564A007DA4CD /* MKMapRect+reducedRect.swift */; };
 		62FCCDCA2A72A094004A9778 /* DataManager+NetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCCDC92A72A094004A9778 /* DataManager+NetworkData.swift */; };
 /* End PBXBuildFile section */
@@ -216,14 +214,12 @@
 		62D3FFB12A81766F004D3F5A /* DE7 8LN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DE7 8LN.json"; sourceTree = "<group>"; };
 		62D3FFB52A81778A004D3F5A /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json"; sourceTree = "<group>"; };
 		62D3FFBA2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json"; sourceTree = "<group>"; };
-		62D89FED2A89500B004F7DDC /* AnnotationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationButtonView.swift; sourceTree = "<group>"; };
 		62D9B4942A83A1AD00FB26A4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		62DA2F032A882D01003F4C23 /* DataManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Search.swift"; sourceTree = "<group>"; };
 		62DFA74A2A6D400000208E1B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62DFA7502A6DB0A600208E1B /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		62DFF0572A805CB2004B8CAA /* XmarkButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmarkButtonView.swift; sourceTree = "<group>"; };
 		62E16DDA2A72D77500DB3B01 /* LocationDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
-		62F8D9F72A884DBA007DA4CD /* UserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotationView.swift; sourceTree = "<group>"; };
 		62F8D9F92A88564A007DA4CD /* MKMapRect+reducedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapRect+reducedRect.swift"; sourceTree = "<group>"; };
 		62FCCDC92A72A094004A9778 /* DataManager+NetworkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataManager+NetworkData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -591,8 +587,6 @@
 			children = (
 				62B32CAF2A4DC3F300C6E8DF /* MapView.swift */,
 				62E16DDA2A72D77500DB3B01 /* LocationDetailsView.swift */,
-				62D89FED2A89500B004F7DDC /* AnnotationButtonView.swift */,
-				62F8D9F72A884DBA007DA4CD /* UserAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -846,11 +840,9 @@
 				62B32CAE2A4DC3E500C6E8DF /* ChargePointDetailView.swift in Sources */,
 				62718BA72A53314B004F0168 /* NetworkManagerSuccessMock.swift in Sources */,
 				62FCCDCA2A72A094004A9778 /* DataManager+NetworkData.swift in Sources */,
-				62D89FEE2A89500B004F7DDC /* AnnotationButtonView.swift in Sources */,
 				6213F46F2A73F51700F88877 /* MapPin.swift in Sources */,
 				625CEF6C2A6556FB00A82048 /* ChargeDeviceLocation.swift in Sources */,
 				6298B9A42A83EDA900DFB494 /* FileManager+documentsDirectoryURL.swift in Sources */,
-				62F8D9F82A884DBA007DA4CD /* UserAnnotationView.swift in Sources */,
 				628FDF232A758BA000E85672 /* DataManager+ConnectorTypes.swift in Sources */,
 				625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */,
 				628FDF2F2A75968800E85672 /* AccessFiltersView.swift in Sources */,
