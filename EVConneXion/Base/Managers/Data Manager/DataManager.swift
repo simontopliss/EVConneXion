@@ -19,7 +19,7 @@ final class DataManager: ObservableObject {
     /// Network Manager
     @Published private(set) var networkError: NetworkManager.NetworkError?
     @Published private(set) var isLoading = false
-    @Published var hasError = false
+    @Published var hasNetworkError = false
 
     /// Filter Settings
     @Published var filtersChanged = false
@@ -64,7 +64,7 @@ final class DataManager: ObservableObject {
 
     // @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
-        print(#function)
+        // print(#function)
 
         let url = Endpoint.buildURL(
             requestType: requestType,
@@ -81,10 +81,10 @@ final class DataManager: ObservableObject {
             let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
             chargeDevices = sortAndRemoveDuplicateDevices(devices: chargePointData.chargeDevices)
             filteredDevices = chargeDevices
-            print("chargeDevices count: \(chargeDevices.count)")
+            // print("chargeDevices count: \(chargeDevices.count)")
             // dump(chargePointData.chargeDevices[0])
         } catch {
-            hasError = true
+            hasNetworkError = true
             if let networkError = error as? NetworkManager.NetworkError {
                 self.networkError = networkError
             } else {

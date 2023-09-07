@@ -41,7 +41,7 @@ struct SearchView: View {
         } message: {
             Text(dataManager.searchError?.errorDescription ?? "An error has occurred")
         }
-        .alert(isPresented: $dataManager.hasError, error: dataManager.networkError) {
+        .alert(isPresented: $dataManager.hasNetworkError, error: dataManager.networkError) {
             // TODO: Check NetworkManager.NetworkError errorDescription
             Button("Retry") {
                 searchForChargeDevices()

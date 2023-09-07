@@ -17,7 +17,7 @@ struct PaymentData: Identifiable, Codable {
 
 extension PaymentData {
     enum CodingKeys: String, CodingKey {
-        case id          = "ID"
+        case id           = "ID"
         case dataName     = "DataName"
         case displayName  = "DisplayName"
         case symbol       = "Symbol"
@@ -33,9 +33,9 @@ extension PaymentData {
         displayName   = try container.decode(String.self, forKey: .displayName)
         symbol        = try container.decode(String.self, forKey: .symbol)
         do {
-            setting = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
+            setting   = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
         } catch {
-            setting = try container.decode(Bool.self, forKey: .setting)
+            setting   = try container.decode(Bool.self, forKey: .setting)
         }
     }
 }

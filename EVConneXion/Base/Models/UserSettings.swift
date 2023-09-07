@@ -8,10 +8,10 @@
 import Foundation
 
 struct UserSettings: Identifiable, Codable {
-    let id: UUID = UUID()
-    var unitSetting: Unit = .mi
-    var countrySetting: Country = .gb
-    var distance: Double = 10.0
+    let id: UUID                 = UUID()
+    var unitSetting: Unit        = .mi
+    var countrySetting: Country  = .gb
+    var distance: Double         = 10.0
 }
 
 //extension UserSettings {

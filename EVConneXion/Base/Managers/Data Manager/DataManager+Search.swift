@@ -11,8 +11,8 @@ extension DataManager {
 
     @MainActor
     func searchForChargeDevices(searchQuery: String) async throws {
-        print(#function)
-        
+        // print(#function)
+
         var searchQuery = searchQuery.trim()
 
         do {

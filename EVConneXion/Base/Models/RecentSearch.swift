@@ -14,15 +14,15 @@ struct RecentSearch: Identifiable, Codable {
 
 extension RecentSearch {
     enum CodingKeys: String, CodingKey {
-        case id = "ID"
-        case searchQuery = "SearchQuery"
+        case id           = "ID"
+        case searchQuery  = "SearchQuery"
     }
 }
 
 extension RecentSearch {
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.searchQuery = try container.decode(String.self, forKey: .searchQuery)
+        let container     = try decoder.container(keyedBy: CodingKeys.self)
+        self.searchQuery  = try container.decode(String.self, forKey: .searchQuery)
     }
 }
 

@@ -67,13 +67,13 @@ extension NetworkData {
         init(rgb: String) {
             let rgbValues = rgb.components(separatedBy: ", ")
             if rgbValues.count == 3 {
-                red = Double(rgbValues[0]) ?? 0.0
-                green = Double(rgbValues[1]) ?? 0.0
-                blue = Double(rgbValues[2]) ?? 0.0
+                red    = Double(rgbValues[0]) ?? 0.0
+                green  = Double(rgbValues[1]) ?? 0.0
+                blue   = Double(rgbValues[2]) ?? 0.0
             } else {
-                red = 0.0
-                blue = 0.0
-                green = 0.0
+                red    = 0.0
+                blue   = 0.0
+                green  = 0.0
             }
         }
     }

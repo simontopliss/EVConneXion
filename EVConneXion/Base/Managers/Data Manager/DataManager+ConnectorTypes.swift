@@ -27,7 +27,6 @@ extension DataManager {
             return "default-network"
         }
 
-//        return colorScheme == .dark ? graphicName + "-i" : graphicName
         return graphicName
     }
 

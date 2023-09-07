@@ -26,8 +26,8 @@ struct ChargerData: Codable {
     // MARK: - Charge Method
 
     var chargeMethods: [ChargeMethod] = [.dc, .singlePhaseAc, .threePhaseAc]
-    var chargeMethodsSymbol = "ev.charger"
-    var selectedMethod = ChargeMethod.dc
+    var chargeMethodsSymbol  = "ev.charger"
+    var selectedMethod       = ChargeMethod.dc
 
     // MARK: - Charger Tethered Cable
 
@@ -37,26 +37,26 @@ struct ChargerData: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case selectedSpeed = "SelectedSpeed"
-        case selectedMethod = "SelectedMethod"
-        case tetheredCable = "TetheredCable"
+        case selectedSpeed   = "SelectedSpeed"
+        case selectedMethod  = "SelectedMethod"
+        case tetheredCable   = "TetheredCable"
     }
 }
 
 extension ChargerData {
     enum ChargerSpeed: String, CaseIterable {
-        case slow = "Slow"
-        case fast = "Fast"
-        case rapid = "Rapid+"
+        case slow   = "Slow"
+        case fast   = "Fast"
+        case rapid  = "Rapid+"
     }
 }
 
 extension ChargerData {
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.selectedSpeed = try container.decode(String.self, forKey: .selectedSpeed)
-        self.selectedMethod = try container.decode(ChargeMethod.self, forKey: .selectedMethod)
-        self.tetheredCable = try container.decode(Bool.self, forKey: .tetheredCable)
+        let container        = try decoder.container(keyedBy: CodingKeys.self)
+        self.selectedSpeed   = try container.decode(String.self, forKey: .selectedSpeed)
+        self.selectedMethod  = try container.decode(ChargeMethod.self, forKey: .selectedMethod)
+        self.tetheredCable   = try container.decode(Bool.self, forKey: .tetheredCable)
     }
 }
 

@@ -49,11 +49,11 @@ struct LocationDetailsView: View {
         // Both .onAppear and .onChange are required for this to work
         // correctly if the user selects another pin in the UI
         .onAppear {
-            print("DEBUG: Did call .onAppear")
+            // print("DEBUG: Did call .onAppear")
             fetchLookAroundPreview()
         }
         .onChange(of: mapSelection) { _, _ in
-            print("DEBUG: Did call .onChange")
+            // print("DEBUG: Did call .onChange")
             fetchLookAroundPreview()
         }
     }
