@@ -22,28 +22,11 @@ struct LocationDetailsView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(chargeDevice.chargeDeviceName)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-
-                    Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
-                        .font(.footnote)
-                        .foregroundStyle(.gray)
-                        .lineLimit(2)
-                        .padding(.trailing)
+                    deviceName
+                    location
                 }
-
                 Spacer()
-
-                Button {
-                    show.toggle()
-                    mapSelection = nil
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .foregroundStyle(.gray, Color(.systemGray6))
-                }
+                closeButton
             }
             .padding(.top, 24)
             .padding(.horizontal)
@@ -57,32 +40,9 @@ struct LocationDetailsView: View {
                 ContentUnavailableView("No preview available", systemImage: "eye.slash")
             }
 
-            HStack(spacing: 20) {
-                Button {
-                    if let mapSelection {
-                        mapSelection.openInMaps()
-                    }
-                } label: {
-                    Text("Open in Maps")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(width: 170, height: 48)
-                        .background(.green)
-                        .cornerRadius(12)
-                }
-
-                Button {
-                    getDirections = true
-                    show = false
-                } label: {
-                    Text("Get Directions")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(width: 170, height: 48)
-                        .background(.blue)
-                        .cornerRadius(12)
-                }
-
+            HStack(spacing: 12) {
+                openInMapsButton
+                getDirectionsButton
             }
             .padding(.horizontal)
         }
@@ -99,7 +59,17 @@ struct LocationDetailsView: View {
     }
 }
 
+#Preview {
+    LocationDetailsView(
+        chargeDevice: ChargePointData.mockChargeDevice,
+        mapSelection: .constant(nil),
+        show: .constant(true),
+        getDirections: .constant(true)
+    )
+}
+
 extension LocationDetailsView {
+
     func fetchLookAroundPreview() {
         if let mapSelection {
             lookAroundScene = nil
@@ -109,13 +79,57 @@ extension LocationDetailsView {
             }
         }
     }
+
+    var deviceName: some View {
+        Text(chargeDevice.chargeDeviceName)
+            .font(.title2)
+            .fontWeight(.semibold)
+    }
+
+    var location: some View {
+        Text(chargeDevice.chargeDeviceLocation.singleLineAddress)
+            .font(.footnote)
+            .foregroundStyle(.gray)
+            .lineLimit(2)
+            .padding(.trailing)
+    }
+
+    var closeButton: some View {
+        Button {
+            show.toggle()
+            mapSelection = nil
+        } label: {
+            XmarkButtonView(foregroundColor: .gray)
+        }
+    }
+
+    var openInMapsButton: some View {
+        Button {
+            if let mapSelection {
+                mapSelection.openInMaps()
+            }
+        } label: {
+            Text("Open in Maps")
+                .font(.headline)
+                .foregroundStyle(.white)
+                .frame(width: 170, height: 48)
+                .background(.green)
+                .cornerRadius(12)
+        }
+    }
+
+    var getDirectionsButton: some View {
+        Button {
+            getDirections = true
+            show = false
+        } label: {
+            Text("Get Directions")
+                .font(.headline)
+                .foregroundStyle(.white)
+                .frame(width: 170, height: 48)
+                .background(.blue)
+                .cornerRadius(12)
+        }
+    }
 }
 
-#Preview {
-    LocationDetailsView(
-        chargeDevice: ChargePointData.mockChargeDevice, 
-        mapSelection: .constant(nil),
-        show: .constant(true),
-        getDirections: .constant(true)
-    )
-}
