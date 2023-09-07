@@ -58,9 +58,6 @@ extension ChargerFiltersView {
             }
         }
     }
-}
-
-extension ChargerFiltersView {
 
     @ViewBuilder
     var chargingSpeed: some View {
@@ -82,9 +79,6 @@ extension ChargerFiltersView {
         }
 
     }
-}
-
-extension ChargerFiltersView {
 
     var tetheredCable: some View {
         HStack {
