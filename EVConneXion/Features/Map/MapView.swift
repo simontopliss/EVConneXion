@@ -19,7 +19,6 @@ struct MapView: View {
     @EnvironmentObject private var locationManager: LocationManager
 
     /// Map Properties
-//    @State private var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
     @State private var deviceSelected: ChargeDevice?
     @State private var mapSelection: MKMapItem?
     @State private var viewingRegion: MKCoordinateRegion?
@@ -255,6 +254,66 @@ struct MapView: View {
             }
         }
     }
+
+    struct AnnotationButtonView: View {
+
+        @EnvironmentObject private var dataManager: DataManager
+
+        var chargeDevice: ChargeDevice
+        @Binding var cameraPosition: MapCameraPosition
+        @Binding var deviceSelected: ChargeDevice?
+
+        var body: some View {
+            Button {
+                deviceSelected = chargeDevice
+                withAnimation(.snappy) {
+                    // TODO: Move the camera up a bit to accommodate the MapDetails detent
+                    cameraPosition = .region(chargeDevice.deviceMapItem.region)
+                }
+            } label: {
+                MapPinView(pinColor: dataManager.networkColor(attribution: chargeDevice.attribution))
+            }
+            .scaleEffect(deviceSelected == chargeDevice ? 1.5 : 1.0, anchor: .bottom)
+            .animation(
+                .bouncy(duration: 0.5, extraBounce: 0.25),
+                value: deviceSelected == chargeDevice
+            )
+        }
+    }
+
+    struct UserAnnotationView: View {
+
+        @Environment(\.colorScheme) var colorScheme
+        @State private var userLocationScale: CGFloat = 0.6
+
+        var body: some View {
+            ZStack {
+                Circle()
+                    .frame(width: 32, height: 32)
+                    .foregroundStyle(colorScheme == .dark ? .pink.opacity(0.50) : .pink.opacity(0.25))
+
+                Circle()
+                    .frame(width: 20, height: 20)
+                    .foregroundStyle(.white)
+
+                Circle()
+                    .frame(width: 12, height: 12)
+                    .foregroundStyle(.pink)
+            }
+            .scaleEffect(userLocationScale)
+            .animation(
+                Animation.easeInOut(duration: 0.8)
+                    .repeatForever()
+                    .delay(0.1),
+                value: userLocationScale
+            )
+            .onAppear {
+                withAnimation {
+                    userLocationScale = 1
+                }
+            }
+        }
+    }
 }
 
 #Preview {
@@ -263,3 +322,4 @@ struct MapView: View {
         .environmentObject(NavigationRouter())
         .environmentObject(LocationManager())
 }
+
