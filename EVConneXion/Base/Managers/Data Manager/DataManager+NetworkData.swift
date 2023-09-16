@@ -18,8 +18,17 @@ extension DataManager {
         ).sorted { $0.total > $1.total }
     }
 
-    func networkColor(attribution: String) -> Color {
-        networkColorFor(network: attribution) ?? Color.accentColor
+    func networkColorFor(attribution: String) -> Color {
+        // print(#function)
+        return networkColorFor(network: attribution) ?? Color.accentColor
+    }
+
+    func networkColorFor(network: String) -> Color? {
+        // print(#function)
+        var item = networkData.first { $0.network == network }
+        guard let networkColor = item?.networkColor else { return nil }
+
+        return networkColor
     }
 
     /// Gets the shortened display name for a network
@@ -74,21 +83,5 @@ extension DataManager {
         }
 
         return connectorGraphicsAndCounts
-    }
-
-    func networkColorFor(network: String) -> Color? {
-        let item = networkData.first { $0.network == network }
-
-        guard let rgbValues = item?.rgbValues else { return nil }
-
-        let networkColor = Color(
-            UIColor(
-                r: CGFloat(rgbValues.red),
-                g: CGFloat(rgbValues.green),
-                b: CGFloat(rgbValues.blue)
-            )
-        )
-
-        return networkColor
     }
 }
