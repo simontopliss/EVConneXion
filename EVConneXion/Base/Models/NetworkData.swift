@@ -5,7 +5,7 @@
 //  Created by Simon Topliss on 17/07/2023.
 //
 
-import Foundation
+import SwiftUI
 
 /// ### NOTE THESE NETWORKS NEED COMBING WHEN SEARCHING AND FILTERING:
 /// - BP Pulse and BP-Pulse (POLAR)
@@ -25,6 +25,14 @@ struct NetworkData: Identifiable, Codable {
     var rgbValues: RGBValue {
         RGBValue(rgb: rgb)
     }
+
+    lazy var networkColor = Color(
+        UIColor(
+            r: CGFloat(rgbValues.red),
+            g: CGFloat(rgbValues.green),
+            b: CGFloat(rgbValues.blue)
+        )
+    )
 }
 
 extension NetworkData {
@@ -50,6 +58,7 @@ extension NetworkData {
         hex            = try container.decode(String.self, forKey: .hex)
         rgb            = try container.decode(String.self, forKey: .rgb)
         total          = try container.decode(Int.self, forKey: .total)
+
         do {
             setting    = try (container.decode(Int.self, forKey: .setting)) == 1 ? true : false
         } catch {
