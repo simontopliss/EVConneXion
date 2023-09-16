@@ -107,6 +107,7 @@ extension Endpoint {
             case let .latLong(lat, long):
                 urlComponents.append(Endpoint.RegistryDataType.lat)
                 urlComponents.append(String(format: "%f", lat))
+                urlComponents.append(Endpoint.RegistryDataType.long)
                 urlComponents.append(String(format: "%f", long))
             case let .postTown(postTown):
                 urlComponents.append(Endpoint.RegistryDataType.postTown)
