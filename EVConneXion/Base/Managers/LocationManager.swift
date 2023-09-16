@@ -9,14 +9,16 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
-final class LocationManager: NSObject, ObservableObject {
+// MARK: - Location Manager
 
-    @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
-    @Published var cameraPosition: MapCameraPosition = .region(LocationManager.defaultRegion)
+final class LocationManager: NSObject, ObservableObject {
 
     let locationManager = CLLocationManager()
 
-    @Published var userLocation = CLLocationCoordinate2D(latitude: 51.503351, longitude: -0.119623) // London Eye
+    @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
+    @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(LocationManager.defaultRegion))
+    @Published var userLocation = LocationManager.defaultLocation
+    @Published var error: LocationError? = nil
 
     override init() {
         super.init()
@@ -27,6 +29,8 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.requestLocation()
     }
 }
+
+// MARK: - Default Location and Region
 
 extension LocationManager {
 
@@ -43,28 +47,50 @@ extension LocationManager {
     }
 }
 
+enum LocationError: LocalizedError {
+
+    case authorizationDenied
+    case authorizationRestricted
+    case unknownLocation
+    case accessDenied
+    case network
+    case operationFailed
+
+    var errorDescription: String? {
+        switch self {
+            case .authorizationDenied: "You have denied app to access location services."
+            case .authorizationRestricted: "Your location access is restricted."
+            case .unknownLocation: "Unknown location."
+            case .accessDenied: "Access denied."
+            case .network: "Network failed."
+            case .operationFailed: "Operation failed."
+        }
+    }
+}
+
+// MARK: - Request User Location
+
 extension LocationManager: CLLocationManagerDelegate {
 
     private func checkAuthorization() {
         // print(#function)
-
         switch locationManager.authorizationStatus {
             case .notDetermined:
                 locationManager.requestWhenInUseAuthorization()
             case .restricted:
-                print("Your location is restricted.")
+                error = .authorizationRestricted
             case .denied:
-                print("Your have denied app to access location services.")
+                error = .authorizationDenied
             case .authorizedAlways, .authorizedWhenInUse:
                 guard let location = locationManager.location else { return }
                 region = MKCoordinateRegion(
                     center: location.coordinate,
                     span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
                 )
+                userLocation = location.coordinate
             @unknown default:
                 break
         }
-
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -75,7 +101,6 @@ extension LocationManager: CLLocationManagerDelegate {
     // Required delegate conformance
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // print(#function)
-
         guard let location = locations.last else { return }
 
         DispatchQueue.main.async { [weak self] in
@@ -89,8 +114,20 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // print(#function)
         print(String(describing: error))
-    }
 
+        if let clError = error as? CLError {
+            switch clError.code {
+                case .locationUnknown:
+                    self.error = .unknownLocation
+                case .denied:
+                    self.error = .accessDenied
+                case .network:
+                    self.error = .network
+                default:
+                    self.error = .operationFailed
+            }
+        }
+    }
 }
 
 // MARK: - Charge Device Locations
@@ -120,15 +157,21 @@ extension LocationManager {
     }
 }
 
+// MARK: - Default Camera Height
+
 extension CLLocationDistance {
     static let cameraHeight: CLLocationDistance = 2500
 }
 
-extension CLLocationCoordinate2D {
+// MARK: - Distance to Map Point
 
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+    
     /// Returns the distance between two coordinates in meters.
     func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
         MKMapPoint(self).distance(to: MKMapPoint(to))
     }
-
 }
