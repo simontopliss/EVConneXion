@@ -155,7 +155,6 @@ struct MapView: View {
 
     func mapControls() -> some View {
         VStack(spacing: 15) {
-            // MapCompass(scope: locationSpace)
             MapPitchToggle(scope: locationSpace)
             /// This will work only when the user gave location access
             MapUserLocationButton(scope: locationSpace)
@@ -245,6 +244,7 @@ struct MapView: View {
                     }
                 }
             }
+            .fontWeight(.semibold)
         }
         .padding(15)
     }
