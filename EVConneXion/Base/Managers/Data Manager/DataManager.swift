@@ -49,13 +49,6 @@ final class DataManager: ObservableObject {
         // chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
         // filteredDevices = chargeDevices
 
-//        Task {
-//            await fetchChargeDevices(requestType: .latLong(
-//                LocationManager.shared.userLocation.latitude,
-//                LocationManager.shared.userLocation.longitude
-//            ))
-//        }
-
         // Load JSON files
         loadAccessData()
         loadChargerData()
@@ -73,6 +66,16 @@ final class DataManager: ObservableObject {
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
         // print(#function)
 
+        if LocationManager.shared.userLocation == LocationManager.defaultLocation {
+//            let chargePointData = try? StaticJSONMapper.decode(
+//                file: "SE1 7PB - London Eye - 2 miles",
+//                type: ChargePointData.self
+//            )
+//            chargeDevices = chargePointData!.chargeDevices
+//            filteredDevices = Array(chargeDevices.prefix(250))
+            return
+        }
+
         let url = Endpoint.buildURL(
             requestType: requestType,
             distance: userSettings.distance,
@@ -87,8 +90,12 @@ final class DataManager: ObservableObject {
         do {
             let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
             chargeDevices = sortAndRemoveDuplicateDevices(devices: chargePointData.chargeDevices)
-            filteredDevices = chargeDevices
-            // print("chargeDevices count: \(chargeDevices.count)")
+            // chargeDevices = chargePointData.chargeDevices
+            print("chargeDevices count: \(chargeDevices.count)")
+            applyFilters()
+            print("chargeDevices count after filtering: \(chargeDevices.count)")
+            filteredDevices = Array(chargeDevices.prefix(250))
+            print("filteredDevices count: \(filteredDevices.count)")
             // dump(chargePointData.chargeDevices[0])
         } catch {
             hasNetworkError = true
