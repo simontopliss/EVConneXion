@@ -27,6 +27,23 @@ struct SearchView: View {
 
             searchHeader
 
+            if LocationManager.shared.error == nil {
+                Button {
+                    isFocused = false
+                    dismiss()
+                    Task {
+                        let userLocation = LocationManager.shared.userLocation
+                        await dataManager.fetchChargeDevices(
+                            requestType: .latLong(userLocation.latitude, userLocation.longitude)
+                        )
+                    }
+                } label: {
+                    Text("Use my current location")
+                }
+                .buttonStyle(BorderedProminentButtonStyle())
+                .padding(.bottom, 12)
+            }
+
             Divider().padding(.bottom)
 
             if dataManager.recentSearches.isEmpty {
@@ -73,7 +90,7 @@ extension SearchView {
                 text: $input,
                 prompt: Text("Enter postcode…")
             )
-            // .onChange(of: input) { _, _ in
+            // .onChange(of: input) {
             //     autocomplete.autocomplete(input)
             // }
             .focused($isFocused)
@@ -90,9 +107,27 @@ extension SearchView {
                 XmarkButtonView(foregroundColor: .gray)
             }
             .offset(y: 2.5)
-            .padding(.bottom)
+            .padding(.bottom, 12)
         }
     }
+
+//    var userLocationButton: some View {
+//        LocationManager.shared.checkAuthorization()
+//        if LocationManager.shared.error == nil {
+//            return Button {
+//                Task {
+//                    let userLocation = LocationManager.shared.userLocation
+//                    await dataManager.fetchChargeDevices(
+//                        requestType: .latLong(userLocation.latitude, userLocation.longitude)
+//                    )
+//                }
+//            } label: {
+//
+//            }
+//        } else {
+//            return EmptyView()
+//        }
+//    }
 
     var contentUnavailable: some View {
         ContentUnavailableView(
