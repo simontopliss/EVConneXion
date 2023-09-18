@@ -20,7 +20,8 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var error: LocationError? = nil
     
     var userLocation: CLLocationCoordinate2D {
-        region.center
+        // print(region.center)
+        return region.center
     }
 
     override private init() {
@@ -30,7 +31,7 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.requestLocation()
-        checkAuthorization()
+        // checkAuthorization()
     }
 
     func distanceFromUser(coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
@@ -80,7 +81,7 @@ enum LocationError: LocalizedError {
 
 extension LocationManager: CLLocationManagerDelegate {
 
-    private func checkAuthorization() {
+    func checkAuthorization() {
         // print(#function)
         switch locationManager.authorizationStatus {
             case .notDetermined:
@@ -93,9 +94,8 @@ extension LocationManager: CLLocationManagerDelegate {
                 guard let location = locationManager.location else { return }
                 region = MKCoordinateRegion(
                     center: location.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
+                    span: MKCoordinateSpan(latitudeDelta: .deltaDegrees, longitudeDelta: .deltaDegrees)
                 )
-                // userLocation = location.coordinate
             @unknown default:
                 break
         }
@@ -114,7 +114,7 @@ extension LocationManager: CLLocationManagerDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.region = MKCoordinateRegion(
                 center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
+                span: MKCoordinateSpan(latitudeDelta: .deltaDegrees, longitudeDelta: .deltaDegrees)
             )
         }
     }
@@ -169,6 +169,10 @@ extension LocationManager {
 
 extension CLLocationDistance {
     static let cameraHeight: CLLocationDistance = 5000
+}
+
+extension CLLocationDegrees {
+    static let deltaDegrees = 0.5
 }
 
 // MARK: - Distance to Map Point
