@@ -56,7 +56,6 @@ struct FiltersView: View {
                 .font(.title3)
                 .fontWeight(.semibold)
             }
-//            .buttonStyle(.borderedProminent)
             .frame(height: 44)
             .padding(.horizontal, 28)
             .background(dataManager.filtersChanged ? AppColors.darkBlue : Color.secondary)
