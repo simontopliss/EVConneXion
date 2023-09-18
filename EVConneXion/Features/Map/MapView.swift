@@ -32,6 +32,7 @@ struct MapView: View {
     /// Map Selection Detail Properties
     @State private var showDetails = false
     @State private var lookAroundScene: MKLookAroundScene?
+    @State private var showInformation = false
 
     /// Route Properties
     @State private var routeDisplaying: Bool = false
@@ -133,14 +134,17 @@ struct MapView: View {
                 fetchLookAroundPreview()
             }
             .task {
-                if dataManager.chargeDevices.isEmpty {
+                // LocationManager.shared.checkAuthorization()
+                if dataManager.chargeDevices.isEmpty
+                    && LocationManager.shared.userLocation != LocationManager.defaultLocation
+                {
                     let userLocation = LocationManager.shared.userLocation
                     await dataManager.fetchChargeDevices(
                         requestType: .latLong(userLocation.latitude, userLocation.longitude)
                     )
                 }
             }
-            .onAppear() {
+            .onAppear {
                 ReviewRequest.showReview()
             }
         }
@@ -151,16 +155,15 @@ struct MapView: View {
 
     func mapControls() -> some View {
         VStack(spacing: 15) {
-            MapCompass(scope: locationSpace)
+            // MapCompass(scope: locationSpace)
             MapPitchToggle(scope: locationSpace)
             /// This will work only when the user gave location access
             MapUserLocationButton(scope: locationSpace)
             /// This will goes to the defined user region
             Button {
-                withAnimation(.smooth) {
-                    locationManager.cameraPosition = .region(
-                        dataManager.filteredDevices.first?.deviceMapItem.region ?? LocationManager.defaultRegion
-                    )
+                withAnimation(.snappy) {
+                    guard let deviceMapItemRegion = dataManager.filteredDevices.first?.deviceMapItem.region else { return }
+                    locationManager.cameraPosition = .region(deviceMapItemRegion)
                 }
             } label: {
                 Symbols.chargerSearchSymbol
@@ -188,25 +191,60 @@ struct MapView: View {
             .clipShape(.rect(cornerRadius: 15))
             /// Close Button
             .overlay(alignment: .topTrailing) {
-                Button(action: {
+                Button {
                     /// Closing View
                     showDetails = false
                     withAnimation(.snappy) {
                         deviceSelected = nil
                     }
-                }, label: {
+                } label: {
                     XmarkButtonView()
-                })
+                }
                 .padding(10)
             }
 
-            /// Direction's Button
-            Button("Get Directions", action: fetchRoute)
+            HStack {
+                Button("Get Directions") {
+                    fetchRoute()
+                }
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
                 .contentShape(Rectangle())
                 .background(.blue.gradient, in: .rect(cornerRadius: 15))
+
+                Button {
+                    // showDetails = false
+                    showInformation = true
+                } label: {
+                    Text("Information")
+                }
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .contentShape(Rectangle())
+                .background(.red.gradient, in: .rect(cornerRadius: 15))
+                .sheet(isPresented: $showInformation) {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button {
+                                /// Closing View
+                                showInformation = false
+                                //showDetails = false
+                                withAnimation(.snappy) {
+                                    deviceSelected = nil
+                                }
+                            } label: {
+                                XmarkButtonView()
+                            }
+                            .padding(10)
+                        }
+
+                        ChargePointDetailView(chargeDevice: deviceSelected!)
+                    }
+                }
+            }
         }
         .padding(15)
     }
