@@ -50,7 +50,7 @@ struct ChargePointRow: View {
         chargeDevice: ChargePointData.mockChargeDevice
     )
     .environmentObject(DataManager())
-    .environmentObject(LocationManager())
+    .environmentObject(LocationManager.shared)
     .background(AppColors.backgroundColor)
     .padding()
 }
@@ -59,7 +59,7 @@ extension ChargePointRow {
     var distanceCapsule: some View {
         Text(
             dataManager.getFormattedDistance(
-                distance: chargeDevice.deviceMapItem.distanceFromUser,
+                distance: chargeDevice.deviceMapItem.distanceFromUser(userLocation: LocationManager.shared.userLocation),
                 unit: dataManager.userSettings.unitSetting
             )
         )

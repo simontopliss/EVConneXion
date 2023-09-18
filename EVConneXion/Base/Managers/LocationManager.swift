@@ -5,7 +5,6 @@
 //  Created by Simon Topliss on 23/07/2023.
 //
 
-import CoreLocation
 import MapKit
 import SwiftUI
 
@@ -14,19 +13,28 @@ import SwiftUI
 final class LocationManager: NSObject, ObservableObject {
 
     let locationManager = CLLocationManager()
+    static let shared = LocationManager()
 
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
     @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(LocationManager.defaultRegion))
-    @Published var userLocation = LocationManager.defaultLocation
     @Published var error: LocationError? = nil
+    
+    var userLocation: CLLocationCoordinate2D {
+        region.center
+    }
 
-    override init() {
+    override private init() {
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.requestLocation()
+        checkAuthorization()
+    }
+
+    func distanceFromUser(coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
+        return coordinate.distance(to: userLocation)
     }
 }
 
@@ -87,7 +95,7 @@ extension LocationManager: CLLocationManagerDelegate {
                     center: location.coordinate,
                     span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
                 )
-                userLocation = location.coordinate
+                // userLocation = location.coordinate
             @unknown default:
                 break
         }
@@ -160,7 +168,7 @@ extension LocationManager {
 // MARK: - Default Camera Height
 
 extension CLLocationDistance {
-    static let cameraHeight: CLLocationDistance = 2500
+    static let cameraHeight: CLLocationDistance = 5000
 }
 
 // MARK: - Distance to Map Point
@@ -169,7 +177,7 @@ extension CLLocationCoordinate2D: Equatable {
     public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
         lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
-    
+
     /// Returns the distance between two coordinates in meters.
     func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
         MKMapPoint(self).distance(to: MKMapPoint(to))

@@ -13,12 +13,12 @@ struct EVConneXionApp: App {
     // Create a delegate to check for when performing UI Testing
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-//    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
-    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
-
+    @StateObject private var locationManager = LocationManager.shared
     @StateObject private var dataManager = DataManager()
-    @StateObject private var locationManager = LocationManager()
     @StateObject private var routerManager = NavigationRouter()
+
+    //    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
+    @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     init() {
         copyJSONFilesOnFirstLaunch()
@@ -54,8 +54,8 @@ struct EVConneXionApp: App {
             }
             .tint(.accentColor)
         }
-        .environmentObject(dataManager)
         .environmentObject(locationManager)
+        .environmentObject(dataManager)
         .environmentObject(routerManager)
     }
 }
