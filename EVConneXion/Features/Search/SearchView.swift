@@ -28,20 +28,7 @@ struct SearchView: View {
             searchHeader
 
             if LocationManager.shared.error == nil {
-                Button {
-                    isFocused = false
-                    dismiss()
-                    Task {
-                        let userLocation = LocationManager.shared.userLocation
-                        await dataManager.fetchChargeDevices(
-                            requestType: .latLong(userLocation.latitude, userLocation.longitude)
-                        )
-                    }
-                } label: {
-                    Text("Use my current location")
-                }
-                .buttonStyle(BorderedProminentButtonStyle())
-                .padding(.bottom, 12)
+                useMyLocationButton
             }
 
             Divider().padding(.bottom)
@@ -109,6 +96,23 @@ extension SearchView {
             .offset(y: 2.5)
             .padding(.bottom, 12)
         }
+    }
+
+    var useMyLocationButton: some View {
+        Button {
+            isFocused = false
+            dismiss()
+            Task {
+                let userLocation = LocationManager.shared.userLocation
+                await dataManager.fetchChargeDevices(
+                    requestType: .latLong(userLocation.latitude, userLocation.longitude)
+                )
+            }
+        } label: {
+            Text("\(Image(systemName: "location.fill")) Use my current location")
+        }
+        .buttonStyle(BorderedProminentButtonStyle())
+        .padding(.bottom, 12)
     }
 
 //    var userLocationButton: some View {
