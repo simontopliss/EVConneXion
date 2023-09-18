@@ -52,6 +52,7 @@
 		62718BAF2A533B3F004F0168 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */; };
 		627531D92A6946E000F0D8A6 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531D82A6946E000F0D8A6 /* NavigationRouter.swift */; };
 		627531DB2A69470800F0D8A6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627531DA2A69470800F0D8A6 /* Route.swift */; };
+		6276C63C2AB861CC00AC36A9 /* ReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6276C63B2AB861CC00AC36A9 /* ReviewRequest.swift */; };
 		628354622AB5D9F600281647 /* MyLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 628354612AB5D9F600281647 /* MyLocation.json */; };
 		6285AFE52A7AFF6600F78AD7 /* SFSymbolImageBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6285AFE42A7AFF6600F78AD7 /* SFSymbolImageBounce.swift */; };
 		628C33132A61E91A00232351 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C33122A61E91A00232351 /* String+Ext.swift */; };
@@ -166,6 +167,8 @@
 		62718BAE2A533B3F004F0168 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		627531D82A6946E000F0D8A6 /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		627531DA2A69470800F0D8A6 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6276C63A2AB8515700AC36A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6276C63B2AB861CC00AC36A9 /* ReviewRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewRequest.swift; sourceTree = "<group>"; };
 		628354612AB5D9F600281647 /* MyLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MyLocation.json; sourceTree = "<group>"; };
 		6285AFE42A7AFF6600F78AD7 /* SFSymbolImageBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSymbolImageBounce.swift; sourceTree = "<group>"; };
 		628C33122A61E91A00232351 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -290,7 +293,9 @@
 		621A70422A3B3BC800A04669 /* EVConneXion */ = {
 			isa = PBXGroup;
 			children = (
+				6276C63A2AB8515700AC36A9 /* Info.plist */,
 				621A70432A3B3BC800A04669 /* EVConneXion.swift */,
+				6276C63B2AB861CC00AC36A9 /* ReviewRequest.swift */,
 				627531D72A6946CC00F0D8A6 /* Navigation */,
 				62718BA22A533076004F0168 /* Mocks */,
 				62718BA92A5332D6004F0168 /* UITesting */,
@@ -821,6 +826,7 @@
 				62718BA42A533093004F0168 /* MockURLSessionProtocol.swift in Sources */,
 				62B32CB02A4DC3F300C6E8DF /* MapView.swift in Sources */,
 				6223CA492A3CF46E00A87875 /* NetworkManager.swift in Sources */,
+				6276C63C2AB861CC00AC36A9 /* ReviewRequest.swift in Sources */,
 				625CEF6A2A6556C000A82048 /* DeviceOwner.swift in Sources */,
 				62918F2D2A76F76B0099418A /* AccessData.swift in Sources */,
 				62C9F6662A68045300151FB4 /* ChargePointDevicesView.swift in Sources */,
@@ -1043,10 +1049,10 @@
 				DEVELOPMENT_TEAM = FHAC9785V4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to access your location to calculate distances";
+				INFOPLIST_FILE = EVConneXion/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1073,10 +1079,10 @@
 				DEVELOPMENT_TEAM = FHAC9785V4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to access your location to calculate distances";
+				INFOPLIST_FILE = EVConneXion/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
