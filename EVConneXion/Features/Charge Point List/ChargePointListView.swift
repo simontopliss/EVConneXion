@@ -40,6 +40,15 @@ struct ChargePointListView: View {
                     SearchToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
                 }
             }
+            .overlay {
+                if dataManager.chargeDevices.isEmpty {
+                    ContentUnavailableView(
+                        "No charge devices",
+                        systemImage: Symbols.noRecentSearchesSymbolName,
+                        description: Text("Allow this app access to your location or enter a postcode to search.")
+                    )
+                }
+            }
             .sheet(isPresented: $showSearch, onDismiss: {
                 withAnimation(.snappy) { showDetails = false }
             }, content: {
@@ -52,11 +61,17 @@ struct ChargePointListView: View {
                     .interactiveDismissDisabled(true)
             })
             .buttonStyle(PlainButtonStyle())
-            // TODO: Go to last location, if there is one, else show London Eye with default filters
-            // .task {
-            //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
-            //      await dataManager.fetchChargeDevices(requestType: .postTown("South Shields"))
-            // }
+        }
+        // TODO: Go to last location, if there is one, else show London Eye with default filters
+        .task {
+            if dataManager.chargeDevices.isEmpty {
+                //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
+                //      await dataManager.fetchChargeDevices(requestType: .postTown("South Shields"))
+                let userLocation = LocationManager.shared.userLocation
+                await dataManager.fetchChargeDevices(
+                    requestType: .latLong(userLocation.latitude, userLocation.longitude)
+                )
+            }
         }
     }
 }
@@ -65,5 +80,5 @@ struct ChargePointListView: View {
     ChargePointListView()
         .environmentObject(DataManager())
         .environmentObject(NavigationRouter())
-        .environmentObject(LocationManager())
+        .environmentObject(LocationManager.shared)
 }
