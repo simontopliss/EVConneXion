@@ -12,7 +12,6 @@ struct ChargePointRow: View {
 
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var dataManager: DataManager
-    @EnvironmentObject private var locationManager: LocationManager
 
     var chargeDevice: ChargeDevice
 
