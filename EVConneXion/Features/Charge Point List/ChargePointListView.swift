@@ -11,7 +11,6 @@ struct ChargePointListView: View {
 
     @EnvironmentObject private var dataManager: DataManager
     @EnvironmentObject private var routerManager: NavigationRouter
-    @EnvironmentObject private var locationManager: LocationManager
 
     @State private var showSearch = false
     @State private var showDetails = false
@@ -62,11 +61,10 @@ struct ChargePointListView: View {
             })
             .buttonStyle(PlainButtonStyle())
         }
-        // TODO: Go to last location, if there is one, else show London Eye with default filters
         .task {
-            if dataManager.chargeDevices.isEmpty {
-                //      await dataManager.fetchChargeDevices(requestType: .postcode("EC3A 7BR"))
-                //      await dataManager.fetchChargeDevices(requestType: .postTown("South Shields"))
+            if dataManager.chargeDevices.isEmpty
+                && LocationManager.shared.userLocation != LocationManager.defaultLocation
+            {
                 let userLocation = LocationManager.shared.userLocation
                 await dataManager.fetchChargeDevices(
                     requestType: .latLong(userLocation.latitude, userLocation.longitude)
