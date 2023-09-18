@@ -73,7 +73,9 @@ extension DataManager {
             filteredDevices = filteredDevices.compactMap { $0 }
 
             filteredDevices.sort(
-                by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser }
+                by: { LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
+                    < LocationManager.shared.distanceFromUser(coordinate: $1.deviceMapItem.coordinate)
+                }
             )
 
             self.filteredDevices = filteredDevices

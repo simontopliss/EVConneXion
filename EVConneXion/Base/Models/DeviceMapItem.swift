@@ -13,7 +13,6 @@ struct DeviceMapItem {
     var coordinate: CLLocationCoordinate2D
     var mapItem: MKMapItem
     var region: MKCoordinateRegion
-    var distanceFromUser: CLLocationDistance // typealias of Double
 
     init(
         latitude: Double,
@@ -29,7 +28,9 @@ struct DeviceMapItem {
              latitudinalMeters: .cameraHeight,
              longitudinalMeters: .cameraHeight
          )
-        // TODO: Need to pass the user's current location somehow
-        distanceFromUser = coordinate.distance(to: LocationManager.defaultLocation)
+    }
+
+    func distanceFromUser(userLocation: CLLocationCoordinate2D) -> CLLocationDistance {
+        return coordinate.distance(to: userLocation)
     }
 }

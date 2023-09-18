@@ -27,7 +27,9 @@ extension DataManager {
             devices: devices
         )
         let finalChargeDevices = (newChargeDevices + duplicateChargeDevices).sorted(
-            by: { $0.deviceMapItem.distanceFromUser < $1.deviceMapItem.distanceFromUser }
+            by: { LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
+                < LocationManager.shared.distanceFromUser(coordinate: $1.deviceMapItem.coordinate)
+            }
         )
         return finalChargeDevices
     }
@@ -53,7 +55,7 @@ extension DataManager {
             let postcode = duplicate.postcode
             let filteredChargeDevices = devices.filter {
                 $0.chargeDeviceName == chargeDeviceName &&
-                $0.chargeDeviceLocation.address.postcode == postcode
+                    $0.chargeDeviceLocation.address.postcode == postcode
             }
             let connectors = filteredChargeDevices.flatMap { $0.connector }
             var firstDevice = filteredChargeDevices.first
