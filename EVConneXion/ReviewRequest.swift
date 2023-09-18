@@ -16,7 +16,7 @@ enum ReviewRequest {
 
     static func showReview() {
         appLaunchCount += 1
-        print("appLaunchCount", appLaunchCount)
+        // print("appLaunchCount", appLaunchCount)
 
         let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
