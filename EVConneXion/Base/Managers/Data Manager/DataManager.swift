@@ -46,8 +46,15 @@ final class DataManager: ObservableObject {
     init(networkManager: NetworkManagerImpl = NetworkManager.shared) {
         self.networkManager = networkManager
 
-        chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
-        filteredDevices = chargeDevices
+        // chargeDevices = sortAndRemoveDuplicateDevices(devices: ChargePointData.mockChargeDevices)
+        // filteredDevices = chargeDevices
+
+//        Task {
+//            await fetchChargeDevices(requestType: .latLong(
+//                LocationManager.shared.userLocation.latitude,
+//                LocationManager.shared.userLocation.longitude
+//            ))
+//        }
 
         // Load JSON files
         loadAccessData()
