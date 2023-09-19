@@ -78,6 +78,7 @@ extension DataManager {
                 }
             )
 
+            filteredDevices = sortAndRemoveDuplicateDevices(devices: filteredDevices)
             self.filteredDevices = filteredDevices
         }
     }
@@ -174,8 +175,7 @@ extension DataManager {
 
         let filteredLocationTypes: [String] = locationData.filter {
             $0.setting == true
-        }.map { $0.locationType.rawValue
-        }
+        }.map { $0.locationType.rawValue }
 
         let filteredLocationDevices = chargeDevices.filter { chargeDevice in
             filteredLocationTypes.contains(chargeDevice.locationType.rawValue)
