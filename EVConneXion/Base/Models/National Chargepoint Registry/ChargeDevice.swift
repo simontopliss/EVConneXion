@@ -175,7 +175,7 @@ extension ChargeDevice {
 
 extension ChargeDevice: Hashable {
     static func == (lhs: ChargeDevice, rhs: ChargeDevice) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.chargeDeviceID == rhs.chargeDeviceID
     }
 
     func hash(into hasher: inout Hasher) {
