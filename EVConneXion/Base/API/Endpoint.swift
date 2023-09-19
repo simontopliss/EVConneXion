@@ -83,7 +83,7 @@ extension Endpoint {
 }
 
 extension Endpoint {
-    enum RequestType {
+    enum RequestType: Equatable {
         case latLong(Double, Double)
         case postTown(String)
         case postcode(String)
