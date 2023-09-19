@@ -17,6 +17,10 @@ struct ChargePointListView: View {
 
     var body: some View {
         NavigationStack(path: $routerManager.routes) {
+
+//            let _ = Self._printChanges()
+//            let _ = print("Total: \(dataManager.filteredDevices.count)")
+
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     ForEach(dataManager.filteredDevices) { chargeDevice in
@@ -60,15 +64,15 @@ struct ChargePointListView: View {
                     .interactiveDismissDisabled(true)
             })
             .buttonStyle(PlainButtonStyle())
-        }
-        .task {
-            if dataManager.chargeDevices.isEmpty
-                && LocationManager.shared.userLocation != LocationManager.defaultLocation
-            {
-                let userLocation = LocationManager.shared.userLocation
-                await dataManager.fetchChargeDevices(
-                    requestType: .latLong(userLocation.latitude, userLocation.longitude)
-                )
+            .task {
+                if dataManager.chargeDevices.isEmpty
+                    && LocationManager.shared.userLocation != LocationManager.defaultLocation
+                {
+                    let userLocation = LocationManager.shared.userLocation
+                    await dataManager.fetchChargeDevices(
+                        requestType: .latLong(userLocation.latitude, userLocation.longitude)
+                    )
+                }
             }
         }
     }
