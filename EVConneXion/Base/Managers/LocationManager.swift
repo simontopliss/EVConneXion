@@ -81,7 +81,7 @@ enum LocationError: LocalizedError {
 
 extension LocationManager: CLLocationManagerDelegate {
 
-    func checkAuthorization() {
+    private func checkAuthorization() {
         // print(#function)
         switch locationManager.authorizationStatus {
             case .notDetermined:
