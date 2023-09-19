@@ -39,119 +39,125 @@ struct MapView: View {
     @State private var route: MKRoute?
     @State private var routeDestination: ChargeDevice?
 
+    // @State private var isLoading = true
+
     var body: some View {
-        ZStack {
-            NavigationStack {
-                Map(position: $locationManager.cameraPosition, selection: $mapSelection, scope: locationSpace) {
-//                    let _ = Self._printChanges()
-//                    let _ = print("Total: \(dataManager.filteredDevices.count)")
+        NavigationStack {
+            Map(position: $locationManager.cameraPosition, selection: $mapSelection, scope: locationSpace) {
+                //                    let _ = Self._printChanges()
+                //                    let _ = print("Total: \(dataManager.filteredDevices.count)")
 
-                    UserAnnotation() // This needs changing when testing 'real' user location
-//                Annotation("My Location", coordinate: locationManager.userLocation) {
-//                    UserAnnotationView()
-//                }
-//                .annotationTitles(.hidden)
+                UserAnnotation() // This needs changing when testing 'real' user location
+                //                Annotation("My Location", coordinate: locationManager.userLocation) {
+                //                    UserAnnotationView()
+                //                }
+                //                .annotationTitles(.hidden)
 
-                    ForEach($dataManager.filteredDevices) { chargeDevice in
-                        Annotation(
-                            chargeDevice.chargeDeviceName.wrappedValue,
-                            coordinate: chargeDevice.deviceMapItem.coordinate.wrappedValue
-                        ) {
-                            AnnotationButtonView(
-                                chargeDevice: chargeDevice,
-                                cameraPosition: $locationManager.cameraPosition,
-                                deviceSelected: $deviceSelected
-                            )
-                            .environmentObject(dataManager)
-                        }
-                        .tag(chargeDevice.id)
-                    }
-
-                    /// Display Route using Polyline
-                    if let route {
-                        MapPolyline(route.polyline)
-                            .stroke(.blue, lineWidth: 7)
-                    }
-                }
-                .onMapCameraChange { context in
-                    viewingRegion = context.region
-                }
-                .overlay(alignment: .bottomTrailing) {
-                    mapControls()
-                }
-                .mapScope(locationSpace)
-                .navigationTitle("Charge Device Locations")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(.visible, for: .navigationBar, .tabBar)
-                .toolbarBackground(.ultraThinMaterial, for: .tabBar)
-                .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        SearchToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
-                    }
-                }
-                .sheet(isPresented: $showSearch, onDismiss: {
-                    withAnimation(.snappy) { showDetails = false }
-                }, content: {
-                    SearchView(showSheet: $showSearch)
-                        .presentationDetents([.medium])
-                        .presentationBackgroundInteraction(
-                            .enabled(upThrough: .medium)
+                ForEach($dataManager.filteredDevices) { chargeDevice in
+                    Annotation(
+                        chargeDevice.chargeDeviceName.wrappedValue,
+                        coordinate: chargeDevice.deviceMapItem.coordinate.wrappedValue
+                    ) {
+                        AnnotationButtonView(
+                            chargeDevice: chargeDevice,
+                            cameraPosition: $locationManager.cameraPosition,
+                            deviceSelected: $deviceSelected
                         )
-                        .presentationCornerRadius(25)
-                        .interactiveDismissDisabled(true)
-                })
-                .sheet(isPresented: $showDetails, onDismiss: {
-                    withAnimation(.snappy) {
-                        /// Zooming Region
-                        if let boundingRect = route?.polyline.boundingMapRect, routeDisplaying {
-                            locationManager.cameraPosition = .rect(boundingRect.reducedRect(0.45))
-                        }
+                        .environmentObject(dataManager)
                     }
-                }, content: {
-                    mapDetails()
-                        .presentationDetents([.height(300)])
-                        .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
-                        .presentationCornerRadius(25)
-                        .interactiveDismissDisabled(true)
-                })
-                .safeAreaInset(edge: .bottom) {
-                    if routeDisplaying {
-                        endRoute()
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .contentShape(Rectangle())
-                            .padding(.vertical, 12)
-                            .background(.red.gradient, in: .rect(cornerRadius: 15))
-                            .padding()
-                            .background(.ultraThinMaterial)
+                    .tag(chargeDevice.id)
+                }
+
+                /// Display Route using Polyline
+                if let route {
+                    MapPolyline(route.polyline)
+                        .stroke(.blue, lineWidth: 7)
+                }
+            }
+            .onMapCameraChange { context in
+                viewingRegion = context.region
+            }
+            .overlay(alignment: .bottomTrailing) {
+                mapControls()
+            }
+            .mapScope(locationSpace)
+            .sheet(isPresented: $showSearch, onDismiss: {
+                withAnimation(.snappy) { showDetails = false }
+            }, content: {
+                SearchView(showSheet: $showSearch)
+                    .presentationDetents([.medium])
+                    .presentationBackgroundInteraction(
+                        .enabled(upThrough: .medium)
+                    )
+                    .presentationCornerRadius(25)
+                    .interactiveDismissDisabled(true)
+            })
+            .sheet(isPresented: $showDetails, onDismiss: {
+                withAnimation(.snappy) {
+                    /// Zooming Region
+                    if let boundingRect = route?.polyline.boundingMapRect, routeDisplaying {
+                        locationManager.cameraPosition = .rect(boundingRect.reducedRect(0.45))
                     }
+                }
+            }, content: {
+                mapDetails()
+                    .presentationDetents([.height(300)])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                    .presentationCornerRadius(25)
+                    .interactiveDismissDisabled(true)
+            })
+            .safeAreaInset(edge: .bottom) {
+                if routeDisplaying {
+                    endRoute()
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .contentShape(Rectangle())
+                        .padding(.vertical, 12)
+                        .background(.red.gradient, in: .rect(cornerRadius: 15))
+                        .padding()
+                        .background(.ultraThinMaterial)
+                }
+            }
+            .navigationTitle("Charge Device Locations")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.visible, for: .navigationBar, .tabBar)
+            .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    SearchToolbarItem(showDetails: $showDetails, showSearch: $showSearch)
                 }
             }
             .navigationDestination(for: Route.self) { $0 }
-            .onChange(of: deviceSelected) { _, newValue in
-                /// Displaying Details about the Selected Place
-                showDetails = newValue != nil
-                /// Fetching Look Around Preview, when ever selection Changes
-                fetchLookAroundPreview()
-            }
-            .task {
-                // LocationManager.shared.checkAuthorization()
-                if dataManager.chargeDevices.isEmpty
-                    && LocationManager.shared.userLocation != LocationManager.defaultLocation
-                {
-                    let userLocation = LocationManager.shared.userLocation
-                    await dataManager.fetchChargeDevices(
-                        requestType: .latLong(userLocation.latitude, userLocation.longitude)
-                    )
-                }
-            }
-            .onAppear {
-                ReviewRequest.showReview()
+        }
+        .onChange(of: deviceSelected) { _, newValue in
+            /// Displaying Details about the Selected Place
+            showDetails = newValue != nil
+            /// Fetching Look Around Preview, when ever selection Changes
+            fetchLookAroundPreview()
+        }
+        .task {
+            // LocationManager.shared.checkAuthorization()
+            if dataManager.chargeDevices.isEmpty
+                && LocationManager.shared.userLocation != LocationManager.defaultLocation
+            {
+                let userLocation = LocationManager.shared.userLocation
+                await dataManager.fetchChargeDevices(
+                    requestType: .latLong(userLocation.latitude, userLocation.longitude)
+                )
             }
         }
-        if dataManager.isLoading {
-            ProgressView()
+        .onAppear {
+            ReviewRequest.showReview()
+        }
+        .overlay {
+            if dataManager.isLoading {
+                ZStack {
+                    Color(white: 0, opacity: 0.75)
+                    ProgressView().tint(.white)
+                }
+                .ignoresSafeArea()
+            }
         }
     }
 
@@ -232,7 +238,7 @@ struct MapView: View {
                             Button {
                                 /// Closing View
                                 showInformation = false
-                                //showDetails = false
+                                // showDetails = false
                                 withAnimation(.snappy) {
                                     deviceSelected = nil
                                 }
