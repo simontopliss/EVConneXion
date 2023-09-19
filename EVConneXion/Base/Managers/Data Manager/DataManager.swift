@@ -6,14 +6,16 @@ final class DataManager: ObservableObject {
 
     /// Main Data
     @Published var chargeDevices: [ChargeDevice] = []
+    @Published var filteredDevices: [ChargeDevice] = []
+
     @Published var networkData: [NetworkData] = []
     @Published var connectorData: [ConnectorData] = []
     @Published var accessData: [AccessData] = []
     @Published var chargerData: ChargerData = .init()
     @Published var locationData: [LocationData] = []
     @Published var paymentData: [PaymentData] = []
-    @Published var filteredDevices: [ChargeDevice] = []
     @Published var userSettings: UserSettings!
+
     @Published var recentSearches: [RecentSearch] = []
 
     /// Network Manager
@@ -62,11 +64,11 @@ final class DataManager: ObservableObject {
 
     // MARK: - API Call
 
-    // @MainActor
     func fetchChargeDevices(requestType: Endpoint.RequestType) async {
         // print(#function)
 
-        if LocationManager.shared.userLocation == LocationManager.defaultLocation {
+        if requestType == Endpoint.RequestType.latLong(51.503351, -0.119623)
+            && LocationManager.shared.userLocation == LocationManager.defaultLocation {
 //            let chargePointData = try? StaticJSONMapper.decode(
 //                file: "SE1 7PB - London Eye - 2 miles",
 //                type: ChargePointData.self
@@ -94,6 +96,7 @@ final class DataManager: ObservableObject {
             print("chargeDevices count: \(chargeDevices.count)")
             applyFilters()
             print("chargeDevices count after filtering: \(chargeDevices.count)")
+            /// Limit to 250 Charge Devices as it severely affects SwiftUI Maps performance
             filteredDevices = Array(chargeDevices.prefix(250))
             print("filteredDevices count: \(filteredDevices.count)")
             // dump(chargePointData.chargeDevices[0])
