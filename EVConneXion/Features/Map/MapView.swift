@@ -43,6 +43,8 @@ struct MapView: View {
         ZStack {
             NavigationStack {
                 Map(position: $locationManager.cameraPosition, selection: $mapSelection, scope: locationSpace) {
+//                    let _ = Self._printChanges()
+//                    let _ = print("Total: \(dataManager.filteredDevices.count)")
 
                     UserAnnotation() // This needs changing when testing 'real' user location
 //                Annotation("My Location", coordinate: locationManager.userLocation) {
@@ -148,9 +150,9 @@ struct MapView: View {
                 ReviewRequest.showReview()
             }
         }
-//        if dataManager.isLoading {
-//            ProgressView()
-//        }
+        if dataManager.isLoading {
+            ProgressView()
+        }
     }
 
     func mapControls() -> some View {
