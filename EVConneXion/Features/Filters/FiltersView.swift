@@ -130,7 +130,8 @@ extension FiltersView {
                     .font(.subheadline)
                     .fontWeight(.regular)
             } onEditingChanged: {
-                print("\($0)")
+                let _ = print("\($0)")
+                dataManager.filtersChanged = true
             }
         }
         .padding(.vertical, 10)
