@@ -18,8 +18,8 @@ struct ChargePointListView: View {
     var body: some View {
         NavigationStack(path: $routerManager.routes) {
 
-//            let _ = Self._printChanges()
-//            let _ = print("Total: \(dataManager.filteredDevices.count)")
+            //            let _ = Self._printChanges()
+            //            let _ = print("Total: \(dataManager.filteredDevices.count)")
 
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
@@ -32,6 +32,7 @@ struct ChargePointListView: View {
                 .padding(.horizontal)
             }
             .background(Color.background)
+            //}
             .navigationTitle("Charge Devices")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: Route.self) { $0 }
@@ -73,6 +74,15 @@ struct ChargePointListView: View {
                         requestType: .latLong(userLocation.latitude, userLocation.longitude)
                     )
                 }
+            }
+        }
+        .overlay {
+            if dataManager.isLoading {
+                ZStack {
+                    Color(white: 0, opacity: 0.75)
+                    ProgressView().tint(.white)
+                }
+                .ignoresSafeArea()
             }
         }
     }
