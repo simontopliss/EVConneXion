@@ -16,6 +16,8 @@ final class LocationManager: NSObject, ObservableObject {
     static let shared = LocationManager()
 
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
+    /// The postcode entered by the user
+    @Published var searchRegion: MKCoordinateRegion?
     @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(LocationManager.defaultRegion))
     @Published var error: LocationError? = nil
     
@@ -31,11 +33,21 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.requestLocation()
-        // checkAuthorization()
     }
 
     func distanceFromUser(coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
         return coordinate.distance(to: userLocation)
+    }
+
+    func searchRegion(coordinate: CLLocationCoordinate2D) {
+        searchRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: coordinate.latitude,
+                longitude: coordinate.longitude
+            ),
+            latitudinalMeters: .cameraHeight,
+            longitudinalMeters: .cameraHeight
+        )
     }
 }
 
