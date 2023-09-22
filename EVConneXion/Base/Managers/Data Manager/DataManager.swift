@@ -40,7 +40,6 @@ final class DataManager: ObservableObject {
 //        }
 //    }
 
-    // TODO: Is `limit` required?
     private(set) var limit = 0
 
     // Dependency Injection of NetworkManagerImpl protocol
@@ -66,11 +65,43 @@ final class DataManager: ObservableObject {
     }
 
     // MARK: - API Call
-
+    
     func fetchChargeDevices(requestType: ChargePointsEndpoint.RequestType) async {
         print(#function)
 
-        var url = ""
+        let url = getEndpointURL(requestType)
+
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
+            chargeDevices = sortAndRemoveDuplicateDevices(devices: chargePointData.chargeDevices)
+            // chargeDevices = chargePointData.chargeDevices
+            print("chargeDevices count: \(chargeDevices.count)")
+            applyFilters()
+            print("chargeDevices count after filtering: \(chargeDevices.count)")
+            /// Limit Charge Devices as it affects SwiftUI Maps performance
+            // TODO: Increase of remove limit?
+            filteredDevices = Array(chargeDevices.prefix(500))
+            print("filteredDevices count: \(filteredDevices.count)")
+
+            if let deviceMapItem = chargeDevices.first?.deviceMapItem {
+                LocationManager.shared.userLocation(coordinate: deviceMapItem.coordinate)
+            }
+
+        } catch {
+            hasNetworkError = true
+            if let networkError = error as? NetworkManager.NetworkError {
+                self.networkError = networkError
+            } else {
+                networkError = .custom(error: error)
+            }
+        }
+    }
+
+    private func getEndpointURL(_ requestType: ChargePointsEndpoint.RequestType) -> String {
+        let url: String
 
         if requestType == ChargePointsEndpoint.RequestType.latLong(
             LocationManager.defaultLocation.latitude,
@@ -96,33 +127,7 @@ final class DataManager: ObservableObject {
             )
         }
 
-        isLoading = true
-        defer { isLoading = false }
-
-        do {
-            let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
-            chargeDevices = sortAndRemoveDuplicateDevices(devices: chargePointData.chargeDevices)
-            // chargeDevices = chargePointData.chargeDevices
-            print("chargeDevices count: \(chargeDevices.count)")
-            applyFilters()
-            print("chargeDevices count after filtering: \(chargeDevices.count)")
-            /// Limit to 250 Charge Devices as it severely affects SwiftUI Maps performance
-            filteredDevices = Array(chargeDevices.prefix(250))
-            print("filteredDevices count: \(filteredDevices.count)")
-            guard let deviceMapItem = chargeDevices.first?.deviceMapItem else {
-                LocationManager.shared.searchRegion = nil
-                return
-            }
-            LocationManager.shared.searchRegion(coordinate: deviceMapItem.coordinate)
-            // dump(chargePointData.chargeDevices[0])
-        } catch {
-            hasNetworkError = true
-            if let networkError = error as? NetworkManager.NetworkError {
-                self.networkError = networkError
-            } else {
-                networkError = .custom(error: error)
-            }
-        }
+        return url
     }
 
     private func loadAccessData() {
@@ -201,10 +206,5 @@ final class DataManager: ObservableObject {
                 RecentSearch.saveData(data: recentSearches)
         }
         filtersChanged = true
-    }
-
-    // TODO: Add Network, Location etc
-    func anyConnectorSelected() -> Bool {
-        return connectorData.first(where: { $0.setting == true }) != nil
     }
 }
