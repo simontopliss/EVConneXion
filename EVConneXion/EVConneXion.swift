@@ -85,11 +85,13 @@ extension EVConneXionApp {
     private func copyFileToDocumentsFolder(nameForFile: String, extForFile: String) {
         let documentsURL = FileManager.documentsDirectory
         let destURL = documentsURL.appendingPathComponent(nameForFile).appendingPathExtension(extForFile)
+
         if !FileManager.default.fileExists(atPath: destURL.path) {
             guard let sourceURL = Bundle.main.url(forResource: nameForFile, withExtension: extForFile) else {
                 print("Source file not found.")
                 return
             }
+            
             do {
                 try FileManager.default.copyItem(at: sourceURL, to: destURL)
             } catch {
@@ -100,6 +102,7 @@ extension EVConneXionApp {
 }
 
 extension EVConneXionApp {
+
     enum JSONFiles: String, CaseIterable {
         case access          = "AccessData"
         case charger         = "ChargerData"
