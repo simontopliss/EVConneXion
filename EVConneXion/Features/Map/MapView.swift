@@ -139,7 +139,7 @@ struct MapView: View {
         .task {
             // LocationManager.shared.checkAuthorization()
             if dataManager.chargeDevices.isEmpty
-                && LocationManager.shared.userLocation != LocationManager.defaultLocation
+                //&& LocationManager.shared.userLocation != LocationManager.defaultLocation
             {
                 let userLocation = LocationManager.shared.userLocation
                 await dataManager.fetchChargeDevices(
@@ -238,7 +238,6 @@ struct MapView: View {
                             Button {
                                 /// Closing View
                                 showInformation = false
-                                // showDetails = false
                                 withAnimation(.snappy) {
                                     deviceSelected = nil
                                 }
@@ -247,6 +246,14 @@ struct MapView: View {
                             }
                             .padding(10)
                         }
+                        Text(deviceSelected?.chargeDeviceName ?? "")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(AppColors.textColor)
+                            .padding(.horizontal)
 
                         ChargePointDetailView(chargeDevice: deviceSelected!)
                     }
