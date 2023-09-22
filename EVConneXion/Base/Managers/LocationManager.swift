@@ -17,7 +17,7 @@ final class LocationManager: NSObject, ObservableObject {
 
     @Published var region: MKCoordinateRegion = LocationManager.defaultRegion
     /// The postcode entered by the user
-    @Published var searchRegion: MKCoordinateRegion?
+    // @Published var searchRegion: MKCoordinateRegion?
     @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(LocationManager.defaultRegion))
     @Published var error: LocationError? = nil
     
@@ -39,8 +39,9 @@ final class LocationManager: NSObject, ObservableObject {
         return coordinate.distance(to: userLocation)
     }
 
-    func searchRegion(coordinate: CLLocationCoordinate2D) {
-        searchRegion = MKCoordinateRegion(
+    /// The result of a search by postcode
+    func userLocation(coordinate: CLLocationCoordinate2D) {
+        region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(
                 latitude: coordinate.latitude,
                 longitude: coordinate.longitude
@@ -48,6 +49,7 @@ final class LocationManager: NSObject, ObservableObject {
             latitudinalMeters: .cameraHeight,
             longitudinalMeters: .cameraHeight
         )
+        cameraPosition = .region(region)
     }
 }
 
