@@ -30,6 +30,15 @@ final class DataManager: ObservableObject {
     @Published var filterResultError = false
     @Published var filterResultErrorMessage = ""
 
+    /// Has the user changed the distance? If so, we'll need to do another API call
+    var distanceChanged = false
+
+    /// Store the last request type to be user when applying filters
+    lazy var lastRequestType = ChargePointsEndpoint.RequestType.latLong(
+        LocationManager.defaultLocation.latitude,
+        LocationManager.defaultLocation.longitude
+    )
+
     /// Search
     @Published var searchError: SearchError?
     @Published var hasSearchError = false
@@ -78,18 +87,8 @@ final class DataManager: ObservableObject {
             let chargePointData = try await NetworkManager.shared.request(url, type: ChargePointData.self)
             chargeDevices = sortAndRemoveDuplicateDevices(devices: chargePointData.chargeDevices)
             // chargeDevices = chargePointData.chargeDevices
-            print("chargeDevices count: \(chargeDevices.count)")
             applyFilters()
-            print("chargeDevices count after filtering: \(chargeDevices.count)")
-            /// Limit Charge Devices as it affects SwiftUI Maps performance
-            // TODO: Increase of remove limit?
-            filteredDevices = Array(chargeDevices.prefix(500))
-            print("filteredDevices count: \(filteredDevices.count)")
-
-            if let deviceMapItem = chargeDevices.first?.deviceMapItem {
-                LocationManager.shared.userLocation(coordinate: deviceMapItem.coordinate)
-            }
-
+            lastRequestType = requestType
         } catch {
             hasNetworkError = true
             if let networkError = error as? NetworkManager.NetworkError {
