@@ -10,6 +10,7 @@ import SwiftUI
 struct ConnectorFiltersView: View {
 
     @EnvironmentObject private var dataManager: DataManager
+    @State private var showAlert = false
 
     var body: some View {
         Form {
@@ -22,15 +23,22 @@ struct ConnectorFiltersView: View {
                         itemID: filter.id
                     )
                     .onChange(of: filter.setting.wrappedValue) {
-                        if dataManager.anyConnectorSelected() {
-                            dataManager.saveSettings(.connector)
-                        } else {
-                            let _ = print("No Connector selected!")
-                        }
+                        anyConnectorSelected()
+                        ? dataManager.saveSettings(.connector)
+                        : showAlert.toggle()
                     }
                 }
             }
         }
+        .alert("No connector selected!", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("You must select at least one connector to filter by.")
+        }
+    }
+
+    private func anyConnectorSelected() -> Bool {
+        dataManager.connectorData.first(where: { $0.setting == true }) != nil
     }
 }
 

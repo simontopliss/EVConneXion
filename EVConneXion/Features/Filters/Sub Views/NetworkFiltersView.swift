@@ -11,6 +11,7 @@ struct NetworkFiltersView: View {
 
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var dataManager: DataManager
+    @State private var showAlert = false
 
     var body: some View {
         Form {
@@ -34,7 +35,9 @@ struct NetworkFiltersView: View {
                         }
                         .tag(filter.id)
                         .onChange(of: filter.setting.wrappedValue) {
-                            dataManager.saveSettings(.network)
+                            anyNetworkSelected()
+                            ? dataManager.saveSettings(.network)
+                            : showAlert.toggle()
                         }
                     }
                 }
@@ -43,6 +46,15 @@ struct NetworkFiltersView: View {
                 .padding(.vertical, 4)
             }
         }
+        .alert("No network selected!", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("You must select at least one network to filter by.")
+        }
+    }
+
+    private func anyNetworkSelected() -> Bool {
+        dataManager.networkData.first(where: { $0.setting == true }) != nil
     }
 }
 

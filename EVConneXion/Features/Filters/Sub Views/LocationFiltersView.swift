@@ -10,6 +10,7 @@ import SwiftUI
 struct LocationFiltersView: View {
 
     @EnvironmentObject private var dataManager: DataManager
+    @State private var showAlert = false
 
     var body: some View {
         Form {
@@ -22,11 +23,22 @@ struct LocationFiltersView: View {
                         itemID: filter.id
                     )
                     .onChange(of: filter.setting.wrappedValue) {
-                        dataManager.saveSettings(.location)
+                        anyLocationSelected()
+                        ? dataManager.saveSettings(.location)
+                        : showAlert.toggle()
                     }
                 }
             }
         }
+        .alert("No location selected!", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("You must select at least one location to filter by.")
+        }
+    }
+
+    private func anyLocationSelected() -> Bool {
+        dataManager.locationData.first(where: { $0.setting == true }) != nil
     }
 }
 
