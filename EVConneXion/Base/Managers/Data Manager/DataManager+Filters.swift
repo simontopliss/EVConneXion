@@ -18,6 +18,8 @@ extension DataManager {
 
     func applyFilters() {
 
+        print("chargeDevices count: \(chargeDevices.count)")
+
         var filteredDevices: [ChargeDevice] = []
         filterResultError = false
         filterResultErrorMessage = ""
@@ -81,9 +83,20 @@ extension DataManager {
             filteredDevices = sortAndRemoveDuplicateDevices(devices: filteredDevices)
             self.filteredDevices = filteredDevices
         }
+
+        print("chargeDevices count after filtering: \(chargeDevices.count)")
+
+        /// Limit Charge Devices as it affects SwiftUI Maps performance
+        // TODO: Increase of remove limit?
+        filteredDevices = Array(chargeDevices.prefix(500))
+        print("filteredDevices count: \(filteredDevices.count)")
+
+        if let deviceMapItem = filteredDevices.first?.deviceMapItem {
+            LocationManager.shared.userLocation(coordinate: deviceMapItem.coordinate)
+        }
     }
 
-    func filterDevicesByAccess() -> [ChargeDevice] {
+    private func filterDevicesByAccess() -> [ChargeDevice] {
 
         var filteredAccessDevices: [ChargeDevice] = []
         let filteredAccessTypes: [AccessData] = accessData.filter { $0.setting == true }
@@ -110,7 +123,7 @@ extension DataManager {
         return filteredAccessDevices
     }
 
-    func filterDevicesByChargerType() -> [ChargeDevice] {
+    private func filterDevicesByChargerType() -> [ChargeDevice] {
 
         var filteredChargerDevices: [ChargeDevice] = []
         let slowCharge = 3.0...5.0
@@ -157,7 +170,7 @@ extension DataManager {
         return filteredChargerDevices
     }
 
-    func filterDevicesByConnector() -> [ChargeDevice] {
+    private func filterDevicesByConnector() -> [ChargeDevice] {
 
         let filteredConnectorTypes: [String] = connectorData.filter {
             $0.setting == true
@@ -171,7 +184,7 @@ extension DataManager {
         return filteredConnectorDevices
     }
 
-    func filterDevicesByLocation() -> [ChargeDevice] {
+    private func filterDevicesByLocation() -> [ChargeDevice] {
 
         let filteredLocationTypes: [String] = locationData.filter {
             $0.setting == true
@@ -183,7 +196,7 @@ extension DataManager {
         return filteredLocationDevices
     }
 
-    func filterDevicesByNetwork() -> [ChargeDevice] {
+    private func filterDevicesByNetwork() -> [ChargeDevice] {
 
         let networkFilters: [String] = networkData.filter { $0.setting == true }.map { $0.network }
 
@@ -195,7 +208,7 @@ extension DataManager {
         return filteredNetworkDevices
     }
 
-    func filterDevicesByPayment() -> [ChargeDevice] {
+    private func filterDevicesByPayment() -> [ChargeDevice] {
 
         var filteredPaymentDevices: [ChargeDevice] = []
         let filteredPaymentTypes: [PaymentData] = paymentData.filter { $0.setting == true }
