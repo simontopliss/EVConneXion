@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SearchView: View {
 
-    @EnvironmentObject private var dataManager: DataManager
     @Environment(\.dismiss) var dismiss
 
+    //@EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject private var dataManager: DataManager
+
     /// Autocompletion for the input text
-    @ObservedObject private var autocomplete = AutocompleteObject()
+    // @ObservedObject private var autocomplete = AutocompleteObject()
 
     /// Input text in the text field
     @State var input: String = ""
