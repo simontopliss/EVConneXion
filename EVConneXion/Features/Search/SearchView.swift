@@ -5,13 +5,13 @@
 //  Created by Simon Topliss on 29/06/2023.
 //
 
+import CoreLocation
 import SwiftUI
 
 struct SearchView: View {
 
     @Environment(\.dismiss) var dismiss
 
-    //@EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject private var dataManager: DataManager
 
     /// Autocompletion for the input text
@@ -117,24 +117,6 @@ extension SearchView {
         .padding(.bottom, 12)
     }
 
-//    var userLocationButton: some View {
-//        LocationManager.shared.checkAuthorization()
-//        if LocationManager.shared.error == nil {
-//            return Button {
-//                Task {
-//                    let userLocation = LocationManager.shared.userLocation
-//                    await dataManager.fetchChargeDevices(
-//                        requestType: .latLong(userLocation.latitude, userLocation.longitude)
-//                    )
-//                }
-//            } label: {
-//
-//            }
-//        } else {
-//            return EmptyView()
-//        }
-//    }
-
     var contentUnavailable: some View {
         ContentUnavailableView(
             "No recent searches",
@@ -149,6 +131,16 @@ extension SearchView {
         if !dataManager.isPostcode(postcode: input) {
             showInvalidPostcodeAlert.toggle()
         } else {
+            /// Get the first part of the postcode and use it to get the location
+            if let outcode = input.split(separator: " ").first,
+                let result = dataManager.postcodes.filter({ $0.postcode == outcode }).first {
+                LocationManager.shared.userLocation(
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: result.latitude,
+                        longitude: result.longitude
+                    )
+                )
+            }
             Task {
                 dismiss()
                 try await dataManager.searchForChargeDevices(searchQuery: input)
