@@ -16,6 +16,8 @@ final class DataManager: ObservableObject {
     @Published var paymentData: [PaymentData] = []
     @Published var userSettings: UserSettings!
 
+    var postcodes: [Postcode]!
+
     @Published var recentSearches: [RecentSearch] = []
 
     /// Network Manager
@@ -60,31 +62,39 @@ final class DataManager: ObservableObject {
         loadPaymentData()
         loadUserSettings()
         loadRecentSearches()
+        loadPostcodes()
     }
 
     // MARK: - API Call
 
-    func fetchChargeDevices(requestType: Endpoint.RequestType) async {
-        // print(#function)
+    func fetchChargeDevices(requestType: ChargePointsEndpoint.RequestType) async {
+        print(#function)
 
-        if requestType == Endpoint.RequestType.latLong(51.503351, -0.119623)
-            && LocationManager.shared.userLocation == LocationManager.defaultLocation {
-//            let chargePointData = try? StaticJSONMapper.decode(
-//                file: "SE1 7PB - London Eye - 2 miles",
-//                type: ChargePointData.self
-//            )
-//            chargeDevices = chargePointData!.chargeDevices
-//            filteredDevices = Array(chargeDevices.prefix(250))
-            return
-        }
+        var url = ""
 
-        let url = Endpoint.buildURL(
-            requestType: requestType,
-            distance: userSettings.distance,
-            limit: limit,
-            units: userSettings.unitSetting,
-            country: userSettings.countrySetting
+        if requestType == ChargePointsEndpoint.RequestType.latLong(
+            LocationManager.defaultLocation.latitude,
+            LocationManager.defaultLocation.longitude
         )
+            && LocationManager.shared.userLocation == LocationManager.defaultLocation
+        {
+            /// Limit the amount of charge points returned on the first launch
+            url = ChargePointsEndpoint.buildURL(
+                requestType: requestType,
+                distance: 2.0,
+                limit: 250,
+                units: userSettings.unitSetting,
+                country: userSettings.countrySetting
+            )
+        } else {
+            url = ChargePointsEndpoint.buildURL(
+                requestType: requestType,
+                distance: userSettings.distance,
+                limit: limit,
+                units: userSettings.unitSetting,
+                country: userSettings.countrySetting
+            )
+        }
 
         isLoading = true
         defer { isLoading = false }
@@ -99,13 +109,18 @@ final class DataManager: ObservableObject {
             /// Limit to 250 Charge Devices as it severely affects SwiftUI Maps performance
             filteredDevices = Array(chargeDevices.prefix(250))
             print("filteredDevices count: \(filteredDevices.count)")
+            guard let deviceMapItem = chargeDevices.first?.deviceMapItem else {
+                LocationManager.shared.searchRegion = nil
+                return
+            }
+            LocationManager.shared.searchRegion(coordinate: deviceMapItem.coordinate)
             // dump(chargePointData.chargeDevices[0])
         } catch {
             hasNetworkError = true
             if let networkError = error as? NetworkManager.NetworkError {
                 self.networkError = networkError
             } else {
-                self.networkError = .custom(error: error)
+                networkError = .custom(error: error)
             }
         }
     }
@@ -155,6 +170,14 @@ final class DataManager: ObservableObject {
             file: EVConneXionApp.JSONFiles.recentSearches.rawValue,
             type: [RecentSearch].self,
             location: .documents
+        )
+    }
+
+    private func loadPostcodes() {
+        postcodes = try! StaticJSONMapper.decode(
+            file: "uk-postcodes",
+            type: [Postcode].self,
+            location: .bundle
         )
     }
 
