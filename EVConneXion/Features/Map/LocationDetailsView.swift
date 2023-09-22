@@ -70,7 +70,7 @@ struct LocationDetailsView: View {
 
 extension LocationDetailsView {
 
-    func fetchLookAroundPreview() {
+    private func fetchLookAroundPreview() {
         if let mapSelection {
             lookAroundScene = nil
             Task {

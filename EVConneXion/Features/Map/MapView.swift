@@ -161,7 +161,7 @@ struct MapView: View {
         }
     }
 
-    func mapControls() -> some View {
+    private func mapControls() -> some View {
         VStack(spacing: 15) {
             MapPitchToggle(scope: locationSpace)
             /// This will work only when the user gave location access
@@ -185,7 +185,7 @@ struct MapView: View {
 
     /// Map Details View
     @ViewBuilder
-    func mapDetails() -> some View {
+    private func mapDetails() -> some View {
         VStack(spacing: 15) {
             ZStack {
                 if lookAroundScene == nil {
@@ -265,7 +265,7 @@ struct MapView: View {
     }
 
     @ViewBuilder
-    func endRoute() -> some View {
+    private func endRoute() -> some View {
         Button("End Route") {
             /// Closing The Route and Setting the Selection
             withAnimation(.snappy) {
@@ -288,7 +288,7 @@ struct MapView: View {
     }
 
     /// Fetching Location Preview
-    func fetchLookAroundPreview() {
+    private func fetchLookAroundPreview() {
         if let deviceSelected {
             /// Clearing Old One
             lookAroundScene = nil
@@ -302,7 +302,7 @@ struct MapView: View {
     }
 
     /// Fetching Route
-    func fetchRoute() {
+    private func fetchRoute() {
         if let deviceSelected {
             let request = MKDirections.Request()
             request.source = .init(

@@ -14,9 +14,11 @@ struct FiltersView: View {
 
     @StateObject private var filtersViewModel = FiltersViewModel()
 
+    // var distance: Double
+
     var maximumDistanceLabel: String {
         "\(Int(dataManager.userSettings.distance)) " +
-        "\(dataManager.userSettings.unitSetting.rawValue)"
+            "\(dataManager.userSettings.unitSetting.rawValue)"
     }
 
     var body: some View {
@@ -40,14 +42,21 @@ struct FiltersView: View {
 
             Button {
                 dataManager.filtersChanged = false
-                dataManager.applyFilters()
+
+                if dataManager.distanceChanged {
+                    Task {
+                        await dataManager.fetchChargeDevices(requestType: dataManager.lastRequestType)
+                    }
+                } else {
+                    dataManager.applyFilters()
+                }
                 // TODO: Apply Filters and return back to previous screen
-//                let _ = print(routerManager.routes)
-//                if routerManager.routes.isEmpty {
-//                    routerManager.push(to: .mapView)
-//                } else {
-//                    routerManager.goBack()
-//                }
+                // let _ = print(routerManager.routes)
+                // if routerManager.routes.isEmpty {
+                //     routerManager.push(to: .mapView)
+                // } else {
+                //     routerManager.goBack()
+                // }
             } label: {
                 HStack {
                     Image(systemName: "slider.horizontal.3")
@@ -65,6 +74,8 @@ struct FiltersView: View {
             .disabled(!dataManager.filtersChanged)
         }
         .onAppear {
+            // distance = dataManager.userSettings.distance
+            dataManager.distanceChanged = false
             dataManager.filtersChanged = false
         }
         .alert("Warning", isPresented: $dataManager.filterResultError) {
@@ -104,7 +115,7 @@ struct FiltersView: View {
 
 extension FiltersView {
 
-    func maximumDistance() -> some View {
+    private func maximumDistance() -> some View {
         VStack(alignment: .leading) {
             Group {
                 Text("Maximum distance: ")
@@ -129,9 +140,11 @@ extension FiltersView {
                 Text("100")
                     .font(.subheadline)
                     .fontWeight(.regular)
-            } onEditingChanged: {
-                let _ = print("\($0)")
+            } onEditingChanged: { _ in
                 dataManager.filtersChanged = true
+            }
+            .onChange(of: dataManager.userSettings.distance) { oldValue, newValue in
+                dataManager.distanceChanged = oldValue != newValue
             }
         }
         .padding(.vertical, 10)
@@ -172,7 +185,7 @@ final class FiltersViewModel: ObservableObject {
         createFilters()
     }
 
-    func createFilters() {
+    private func createFilters() {
         filters = [
             Filter(
                 title: "Access",

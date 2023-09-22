@@ -222,7 +222,7 @@ struct DeviceAccessSection: View {
 extension DeviceAccessSection {
 
     @ViewBuilder
-    func regularOpeningsBuilder(regularOpenings: [RegularOpening]) -> some View {
+    private func regularOpeningsBuilder(regularOpenings: [RegularOpening]) -> some View {
 
         let openingDays = dataManager.openingsDaysFor(regularOpenings: regularOpenings)
         let openingHours = dataManager.openingsHoursFor(regularOpenings: regularOpenings)

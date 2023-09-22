@@ -36,7 +36,7 @@ extension DataManager {
     }
 
     // TODO: Add unit tests to confirm this works
-    func isPostcode(postcode: String) -> Bool {
+    private func isPostcode(postcode: String) -> Bool {
         return postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/) != nil
     }
 
@@ -51,7 +51,7 @@ extension DataManager {
      /^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$/
      */
 
-    func isSearchQueryValid(searchQuery: String) throws -> Bool {
+    private func isSearchQueryValid(searchQuery: String) throws -> Bool {
         if searchQuery.isEmpty { return false }
         if searchQuery.count < 3 { // Is this min correct?
             throw SearchError.invalidPostcode

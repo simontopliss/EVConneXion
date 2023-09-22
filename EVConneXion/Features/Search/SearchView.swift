@@ -127,7 +127,7 @@ extension SearchView {
 }
 
 extension SearchView {
-    func searchForChargeDevices() {
+    private func searchForChargeDevices() {
         if !dataManager.isPostcode(postcode: input) {
             showInvalidPostcodeAlert.toggle()
         } else {
