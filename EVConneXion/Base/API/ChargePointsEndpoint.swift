@@ -1,5 +1,5 @@
 //
-//  Endpoint.swift
+//  ChargePointsEndpoint.swift
 //  EVConneXion
 //
 //  Created by Simon Topliss on 17/06/2023.
@@ -9,11 +9,11 @@
 
 import Foundation
 
-enum Endpoint: String {
+enum ChargePointsEndpoint: String {
     case baseURL = "https://chargepoints.dft.gov.uk/api/retrieve"
 }
 
-extension Endpoint: Codable {
+extension ChargePointsEndpoint: Codable {
 
     enum DataType {
         /// registry - Charge Point Registry
@@ -31,7 +31,7 @@ extension Endpoint: Codable {
     }
 }
 
-extension Endpoint {
+extension ChargePointsEndpoint {
 
     enum RegistryDataType {
 
@@ -72,7 +72,7 @@ extension Endpoint {
     }
 }
 
-extension Endpoint {
+extension ChargePointsEndpoint {
     /// Request options
     /// format[xml|json|csv] - Output format, default is 'xml'
     enum RequestFormatOption: String {
@@ -82,7 +82,7 @@ extension Endpoint {
     }
 }
 
-extension Endpoint {
+extension ChargePointsEndpoint {
     enum RequestType: Equatable {
         case latLong(Double, Double)
         case postTown(String)
@@ -90,7 +90,7 @@ extension Endpoint {
     }
 }
 
-extension Endpoint {
+extension ChargePointsEndpoint {
     static func buildURL(
         requestType: RequestType,
         distance: Double,
@@ -100,27 +100,27 @@ extension Endpoint {
     ) -> String {
 
         var urlComponents: [String] = []
-        urlComponents.append(Endpoint.baseURL.rawValue)
-        urlComponents.append(Endpoint.DataType.registry)
+        urlComponents.append(ChargePointsEndpoint.baseURL.rawValue)
+        urlComponents.append(ChargePointsEndpoint.DataType.registry)
 
         switch requestType {
             case let .latLong(lat, long):
-                urlComponents.append(Endpoint.RegistryDataType.lat)
+                urlComponents.append(ChargePointsEndpoint.RegistryDataType.lat)
                 urlComponents.append(String(format: "%f", lat))
-                urlComponents.append(Endpoint.RegistryDataType.long)
+                urlComponents.append(ChargePointsEndpoint.RegistryDataType.long)
                 urlComponents.append(String(format: "%f", long))
             case let .postTown(postTown):
-                urlComponents.append(Endpoint.RegistryDataType.postTown)
+                urlComponents.append(ChargePointsEndpoint.RegistryDataType.postTown)
                 urlComponents.append(postTown.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
             case let .postcode(postcode):
-                urlComponents.append(Endpoint.RegistryDataType.postcode)
+                urlComponents.append(ChargePointsEndpoint.RegistryDataType.postcode)
                 urlComponents.append(postcode.replacingOccurrences(of: " ", with: "+"))
         }
 
-        urlComponents.append(Endpoint.RegistryDataType.dist)
+        urlComponents.append(ChargePointsEndpoint.RegistryDataType.dist)
         urlComponents.append("\(distance)")
 
-        urlComponents.append(Endpoint.RegistryDataType.units)
+        urlComponents.append(ChargePointsEndpoint.RegistryDataType.units)
         switch units {
             case .mi:
                 urlComponents.append("mi")
@@ -129,7 +129,7 @@ extension Endpoint {
         }
 
         if limit > 0 { urlComponents.append("limit/\(limit)") }
-        urlComponents.append(Endpoint.RequestFormatOption.json.rawValue)
+        urlComponents.append(ChargePointsEndpoint.RequestFormatOption.json.rawValue)
 
         let url = urlComponents.joined(separator: "/")
 

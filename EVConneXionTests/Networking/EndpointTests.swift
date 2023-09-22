@@ -5,18 +5,18 @@ import XCTest
 final class EndpointTests: XCTestCase {
 
     func test_baseURL_isCorrect() {
-        let baseURL = Endpoint.baseURL.rawValue
+        let baseURL = ChargePointsEndpoint.baseURL.rawValue
 
         XCTAssertEqual(baseURL, "https://chargepoints.dft.gov.uk/api/retrieve")
     }
 
     func test_DataType_staticValuesAreCorrect() {
-        let registry = Endpoint.DataType.registry
-        let connectorType = Endpoint.DataType.connectorType
-        let bearing = Endpoint.DataType.bearing
-        let chargingMethod = Endpoint.DataType.chargingMethod
-        let chargingMode = Endpoint.DataType.chargingMode
-        let connectorStatus = Endpoint.DataType.connectorStatus
+        let registry = ChargePointsEndpoint.DataType.registry
+        let connectorType = ChargePointsEndpoint.DataType.connectorType
+        let bearing = ChargePointsEndpoint.DataType.bearing
+        let chargingMethod = ChargePointsEndpoint.DataType.chargingMethod
+        let chargingMode = ChargePointsEndpoint.DataType.chargingMode
+        let connectorStatus = ChargePointsEndpoint.DataType.connectorStatus
 
         XCTAssertEqual(registry, "registry")
         XCTAssertEqual(connectorType, "type")
@@ -27,21 +27,21 @@ final class EndpointTests: XCTestCase {
     }
 
     func test_RegistryDataType_staticValuesAreCorrect() {
-        let connectorTypeID = Endpoint.RegistryDataType.connectorTypeID
-        let country = Endpoint.RegistryDataType.country
-        let deviceId = Endpoint.RegistryDataType.deviceId
-        let dist = Endpoint.RegistryDataType.dist
-        let id = Endpoint.RegistryDataType.id
-        let lat = Endpoint.RegistryDataType.lat
-        let long = Endpoint.RegistryDataType.long
-        let limit = Endpoint.RegistryDataType.limit
-        let postcode = Endpoint.RegistryDataType.postcode
-        let postTown = Endpoint.RegistryDataType.postTown
-        let ratedOutputKW = Endpoint.RegistryDataType.ratedOutputKW
-        let units = Endpoint.RegistryDataType.units
+        let connectorTypeID = ChargePointsEndpoint.RegistryDataType.connectorTypeID
+        let country = ChargePointsEndpoint.RegistryDataType.country
+        let deviceId = ChargePointsEndpoint.RegistryDataType.deviceId
+        let dist = ChargePointsEndpoint.RegistryDataType.dist
+        let id = ChargePointsEndpoint.RegistryDataType.id
+        let lat = ChargePointsEndpoint.RegistryDataType.lat
+        let long = ChargePointsEndpoint.RegistryDataType.long
+        let limit = ChargePointsEndpoint.RegistryDataType.limit
+        let postcode = ChargePointsEndpoint.RegistryDataType.postcode
+        let postTown = ChargePointsEndpoint.RegistryDataType.postTown
+        let ratedOutputKW = ChargePointsEndpoint.RegistryDataType.ratedOutputKW
+        let units = ChargePointsEndpoint.RegistryDataType.units
 
-        let km = Endpoint.RegistryDataType.Unit.km.rawValue
-        let mi = Endpoint.RegistryDataType.Unit.mi.rawValue
+        let km = ChargePointsEndpoint.RegistryDataType.Unit.km.rawValue
+        let mi = ChargePointsEndpoint.RegistryDataType.Unit.mi.rawValue
 
         XCTAssertEqual(connectorTypeID, "connector-type-id")
         XCTAssertEqual(country, "country")
@@ -61,9 +61,9 @@ final class EndpointTests: XCTestCase {
     }
 
     func test_RequestFormatOption_enumCasesAreCorrect() {
-        let xml = Endpoint.RequestFormatOption.xml.rawValue
-        let json = Endpoint.RequestFormatOption.json.rawValue
-        let csv = Endpoint.RequestFormatOption.csv.rawValue
+        let xml = ChargePointsEndpoint.RequestFormatOption.xml.rawValue
+        let json = ChargePointsEndpoint.RequestFormatOption.json.rawValue
+        let csv = ChargePointsEndpoint.RequestFormatOption.csv.rawValue
 
         XCTAssertEqual(xml, "format/xml")
         XCTAssertEqual(json, "format/json")
@@ -76,7 +76,7 @@ final class EndpointTests: XCTestCase {
     // }
 
     func test_buildURL_succeedsForPostcode() {
-        let postcodeURL = Endpoint.buildURL(
+        let postcodeURL = ChargePointsEndpoint.buildURL(
             requestType: .postcode("DE7 8LN"),
             distance: 0.0,
             limit: 5,
@@ -91,7 +91,7 @@ final class EndpointTests: XCTestCase {
     }
 
     func test_buildURL_succeedsForPostTown() {
-        let postTownURL = Endpoint.buildURL(
+        let postTownURL = ChargePointsEndpoint.buildURL(
             requestType: .postTown("South Shields"),
             distance: 0.0,
             limit: 5,
