@@ -214,6 +214,7 @@ struct MapView: View {
                 Button("Get Directions") {
                     fetchRoute()
                 }
+                .fontWeight(.semibold)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
@@ -225,6 +226,7 @@ struct MapView: View {
                     showInformation = true
                 } label: {
                     Text("Information")
+                        .fontWeight(.semibold)
                 }
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
@@ -259,7 +261,6 @@ struct MapView: View {
                     }
                 }
             }
-            .fontWeight(.semibold)
         }
         .padding(15)
     }
