@@ -36,7 +36,7 @@ extension DataManager {
     }
 
     // TODO: Add unit tests to confirm this works
-    private func isPostcode(postcode: String) -> Bool {
+    func isPostcode(postcode: String) -> Bool {
         return postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/) != nil
     }
 
