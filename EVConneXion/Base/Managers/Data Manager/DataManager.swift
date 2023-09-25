@@ -49,7 +49,8 @@ final class DataManager: ObservableObject {
 //        }
 //    }
 
-    private(set) var limit = 0
+    private(set) var limit = 500
+    private(set) var distance = 5.0
 
     // Dependency Injection of NetworkManagerImpl protocol
     private let networkManager: NetworkManagerImpl! // swiftlint:disable:this implicitly_unwrapped_optional
