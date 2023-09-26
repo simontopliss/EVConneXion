@@ -10,20 +10,20 @@ import Foundation
 // MARK: - LocationType
 
 enum LocationType: String, Codable, CaseIterable {
-    case dealershipForecourt            = "Dealership forecourt"
-    case educationalEstablishment       = "Educational establishment"
-    case hotelAccommodation             = "Hotel / Accommodation"
-    case leisureCentre                  = "Leisure centre"
-    case nhsProperty                    = "NHS property"
-    case onStreet                       = "On-street"
-    case other                          = "Other"
-    case parkRideSite                   = "Park & Ride site"
-    case privateHome                    = "Private home"
-    case publicCarPark                  = "Public car park"
-    case publicEstate                   = "Public estate"
-    case retailCarPark                  = "Retail car park"
-    case serviceStation                 = "Service station"
-    case workplaceCarPark               = "Workplace car park"
+    case dealershipForecourt      = "Dealership forecourt"
+    case educationalEstablishment = "Educational establishment"
+    case hotelAccommodation       = "Hotel / Accommodation"
+    case leisureCentre            = "Leisure centre"
+    case nhsProperty              = "NHS property"
+    case onStreet                 = "On-street"
+    case other                    = "Other"
+    case parkRideSite             = "Park & Ride site"
+    case privateHome              = "Private home"
+    case publicCarPark            = "Public car park"
+    case publicEstate             = "Public estate"
+    case retailCarPark            = "Retail car park"
+    case serviceStation           = "Service station"
+    case workplaceCarPark         = "Workplace car park"
     case unknown
 }
 
