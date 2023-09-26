@@ -112,8 +112,8 @@ final class DataManager: ObservableObject {
             /// Limit the amount of charge points returned on the first launch
             url = ChargePointsEndpoint.buildURL(
                 requestType: requestType,
-                distance: 2.0,
-                limit: 250,
+                distance: 5.0,
+                limit: limit,
                 units: userSettings.unitSetting,
                 country: userSettings.countrySetting
             )
