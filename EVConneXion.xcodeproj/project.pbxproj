@@ -555,6 +555,7 @@
 		628FDF1D2A75881400E85672 /* Test JSON */ = {
 			isa = PBXGroup;
 			children = (
+				6276C63D2AB8904100AC36A9 /* SE1 7PB - London Eye - 2 miles.json */,
 				628354612AB5D9F600281647 /* MyLocation.json */,
 				62D3FFBA2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json */,
 				62D3FFB12A81766F004D3F5A /* DE7 8LN.json */,
@@ -664,7 +665,6 @@
 				62C96AB92A8B9E4300ACE6AA /* RecentSearches.json */,
 				625BCCA02A8677F300BBC677 /* UserSettings.json */,
 				6207C77D2A8EB71F00C3CB70 /* uk-postcodes.json */,
-				6276C63D2AB8904100AC36A9 /* SE1 7PB - London Eye - 2 miles.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
