@@ -24,7 +24,6 @@
 		625BCCA12A8677F300BBC677 /* UserSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA02A8677F300BBC677 /* UserSettings.json */; };
 		625BCCA52A86D49C00BBC677 /* ConnectorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA22A86D49B00BBC677 /* ConnectorData.json */; };
 		625BCCA62A86D49C00BBC677 /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCA32A86D49C00BBC677 /* LocationData.json */; };
-		625BCCAB2A86DEBB00BBC677 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 625BCCAA2A86DEBB00BBC677 /* NetworkData.json */; };
 		625CEF5B2A62CC1500A82048 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5A2A62CC1500A82048 /* AppColors.swift */; };
 		625CEF5D2A65540E00A82048 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5C2A65540E00A82048 /* Symbols.swift */; };
 		625CEF602A65557400A82048 /* ChargeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CEF5F2A65557400A82048 /* ChargeDevice.swift */; };
@@ -70,6 +69,7 @@
 		62918F342A7703A20099418A /* PaymentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62918F332A7703A20099418A /* PaymentData.swift */; };
 		62918F3A2A771BFF0099418A /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62918F392A771BFF0099418A /* LocationData.swift */; };
 		62918F402A77BDE00099418A /* ConnectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62918F3F2A77BDE00099418A /* ConnectorData.swift */; };
+		6295ECB92AC365B900D8D951 /* NetworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6295ECB82AC365B900D8D951 /* NetworkData.json */; };
 		6298B99D2A83DDD300DFB494 /* ChargerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6298B9972A83DDD300DFB494 /* ChargerData.json */; };
 		6298B9A42A83EDA900DFB494 /* FileManager+documentsDirectoryURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9A32A83EDA900DFB494 /* FileManager+documentsDirectoryURL.swift */; };
 		6298B9DC2A842A3900DFB494 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298B9DB2A842A3900DFB494 /* UserSettings.swift */; };
@@ -140,7 +140,6 @@
 		625BCCA02A8677F300BBC677 /* UserSettings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserSettings.json; sourceTree = "<group>"; };
 		625BCCA22A86D49B00BBC677 /* ConnectorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConnectorData.json; sourceTree = "<group>"; };
 		625BCCA32A86D49C00BBC677 /* LocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
-		625BCCAA2A86DEBB00BBC677 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		625CEF5A2A62CC1500A82048 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		625CEF5C2A65540E00A82048 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		625CEF5F2A65557400A82048 /* ChargeDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeDevice.swift; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 		62918F332A7703A20099418A /* PaymentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentData.swift; sourceTree = "<group>"; };
 		62918F392A771BFF0099418A /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		62918F3F2A77BDE00099418A /* ConnectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorData.swift; sourceTree = "<group>"; };
+		6295ECB82AC365B900D8D951 /* NetworkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetworkData.json; sourceTree = "<group>"; };
 		6298B9972A83DDD300DFB494 /* ChargerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChargerData.json; sourceTree = "<group>"; };
 		6298B9A32A83EDA900DFB494 /* FileManager+documentsDirectoryURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+documentsDirectoryURL.swift"; sourceTree = "<group>"; };
 		6298B9DB2A842A3900DFB494 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 				6298B9972A83DDD300DFB494 /* ChargerData.json */,
 				625BCCA22A86D49B00BBC677 /* ConnectorData.json */,
 				625BCCA32A86D49C00BBC677 /* LocationData.json */,
-				625BCCAA2A86DEBB00BBC677 /* NetworkData.json */,
+				6295ECB82AC365B900D8D951 /* NetworkData.json */,
 				6298B9DF2A85071900DFB494 /* PaymentData.json */,
 				62C96AB92A8B9E4300ACE6AA /* RecentSearches.json */,
 				625BCCA02A8677F300BBC677 /* UserSettings.json */,
@@ -693,7 +693,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 621A704E2A3B3BC900A04669 /* Build configuration list for PBXNativeTarget "EVConneXion" */;
 			buildPhases = (
-				62718BAD2A533698004F0168 /* SwiftLint */,
 				621A703C2A3B3BC800A04669 /* Sources */,
 				621A703D2A3B3BC800A04669 /* Frameworks */,
 				621A703E2A3B3BC800A04669 /* Resources */,
@@ -772,10 +771,10 @@
 				62D3FFBB2A81783F004D3F5A /* 1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings.json in Resources */,
 				62D3FFB82A8177F1004D3F5A /* d200029c1c2e679c9b434db0a79fdb60 - contains DeviceAccess example.json in Resources */,
 				6207C77E2A8EB71F00C3CB70 /* uk-postcodes.json in Resources */,
-				625BCCAB2A86DEBB00BBC677 /* NetworkData.json in Resources */,
 				625BCCA12A8677F300BBC677 /* UserSettings.json in Resources */,
 				628354622AB5D9F600281647 /* MyLocation.json in Resources */,
 				625BCCA62A86D49C00BBC677 /* LocationData.json in Resources */,
+				6295ECB92AC365B900D8D951 /* NetworkData.json in Resources */,
 				621A704B2A3B3BC900A04669 /* Preview Assets.xcassets in Resources */,
 				6276C63E2AB8904100AC36A9 /* SE1 7PB - London Eye - 2 miles.json in Resources */,
 				6298B99D2A83DDD300DFB494 /* ChargerData.json in Resources */,
@@ -796,28 +795,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		62718BAD2A533698004F0168 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		621A703C2A3B3BC800A04669 /* Sources */ = {
