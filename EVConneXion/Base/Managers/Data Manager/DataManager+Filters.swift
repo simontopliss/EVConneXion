@@ -25,7 +25,7 @@ extension DataManager {
         filterResultErrorMessage = ""
 
         let filteredLocationTypes = filterDevicesByLocation(chargeDevices)
-        print("filteredDevices after filterDevicesByLocation: \(filteredDevices.count)")
+        print("filteredLocationTypes count: \(filteredLocationTypes.count)")
         if filteredLocationTypes.isEmpty {
             filterResultErrorMessage = "No location types found in this area. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -37,7 +37,7 @@ extension DataManager {
         }
 
         let filteredConnectorDevices = filterDevicesByConnector(filteredDevices)
-        print("filteredDevices after filterDevicesByConnector: \(filteredDevices.count)")
+        print("filteredConnectorDevices count: \(filteredConnectorDevices.count)")
         if filteredConnectorDevices.isEmpty {
             filterResultErrorMessage = "No connection types found in this area. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -49,7 +49,7 @@ extension DataManager {
         }
 
         let filteredChargerDevices = filterDevicesByChargerType(filteredDevices)
-        print("filteredDevices after filterDevicesByChargerType: \(filteredDevices.count)")
+        print("filteredChargerDevices count: \(filteredChargerDevices.count)")
         if filteredChargerDevices.isEmpty {
             filterResultErrorMessage = "No charger types found in this area. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -61,7 +61,7 @@ extension DataManager {
         }
 
         let filteredNetworkDevices = filterDevicesByNetwork(filteredDevices)
-        print("filteredDevices after filterDevicesByNetwork: \(filteredDevices.count)")
+        print("filteredNetworkDevices count: \(filteredNetworkDevices.count)")
         if filteredNetworkDevices.isEmpty {
             filterResultErrorMessage = "No network types found in this area. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -73,7 +73,7 @@ extension DataManager {
         }
 
         let filteredAccessDevices = filterDevicesByAccess(filteredDevices)
-        print("filteredDevices after filterDevicesByAccess: \(filteredDevices.count)")
+        print("filteredAccessDevices: \(filteredAccessDevices.count)")
         if filteredAccessDevices.isEmpty {
             filterResultErrorMessage = "No charge devices found with these access filters in this area. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -85,7 +85,7 @@ extension DataManager {
         }
 
         let filteredPaymentDevices = filterDevicesByPayment(filteredDevices)
-        print("filteredDevices after filterDevicesByPayment: \(filteredDevices.count)")
+        print("filteredPaymentDevices: \(filteredPaymentDevices.count)")
         if filteredPaymentDevices.isEmpty {
             filterResultErrorMessage = "No charge devices found with these payment filter in this areas. Try a wider search of choose a different filter."
             print(filterResultErrorMessage)
@@ -96,30 +96,24 @@ extension DataManager {
             filteredDevices = filteredPaymentDevices
         }
 
-        filteredDevices = filteredDevices.compactMap { $0 }
-
         if !filterResultErrorMessage.isEmpty {
             print(filterResultErrorMessage)
-
             filterResultError = true
             self.filteredDevices = chargeDevices
             return
-
-        } else {
-
-            filteredDevices.sort(
-                by: { LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
-                    < LocationManager.shared.distanceFromUser(coordinate: $1.deviceMapItem.coordinate)
-                }
-            )
-
-            filteredDevices = sortAndRemoveDuplicateDevices(devices: filteredDevices)
-            print("filteredDevices after sortAndRemoveDuplicateDevices: \(filteredDevices.count)")
         }
 
         print("filteredDevices count after all filtering: \(filteredDevices.count)")
 
-        /// Limit Charge Devices as it affects SwiftUI Maps performance
+        filteredDevices.sort(
+            by: { LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
+                < LocationManager.shared.distanceFromUser(coordinate: $1.deviceMapItem.coordinate)
+            }
+        )
+
+        filteredDevices = sortAndRemoveDuplicateDevices(devices: filteredDevices)
+        print("filteredDevices after sortAndRemoveDuplicateDevices: \(filteredDevices.count)")
+
         // TODO: Increase or remove limit?
         self.filteredDevices = Array(filteredDevices.prefix(500))
         print("filteredDevices count after prefix: \(filteredDevices.count)")
@@ -219,39 +213,39 @@ extension DataManager {
 
     private func filterDevicesByLocation(_ filteredDevices: [ChargeDevice]) -> [ChargeDevice] {
 
-        let filteredLocationTypes: [String] = locationData.filter { $0.setting == true }.map { $0.locationType.rawValue }
+        let filteredLocationTypes: [LocationType] = locationData.filter { $0.setting == true }.map { $0.locationType }
         // print(filteredLocationTypes)
 
         var filteredLocationDevices: [ChargeDevice] = []
 
         for locationFilter in filteredLocationTypes {
-            if locationFilter == "Dealership forecourt" {
+            if locationFilter == .dealershipForecourt {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .dealershipForecourt })
-            } else if locationFilter == "Educational establishment" {
+            } else if locationFilter == .educationalEstablishment {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .educationalEstablishment })
-            } else if locationFilter == "Hotel / Accommodation" {
+            } else if locationFilter == .hotelAccommodation{
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .hotelAccommodation })
-            } else if locationFilter == "Leisure centre" {
+            } else if locationFilter == .leisureCentre {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .leisureCentre })
-            } else if locationFilter == "NHS property" {
+            } else if locationFilter == .nhsProperty {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .nhsProperty })
-            } else if locationFilter == "On-street" {
+            } else if locationFilter == .onStreet {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .onStreet })
-            } else if locationFilter == "Other" {
+            } else if locationFilter == .other {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .other })
-            } else if locationFilter == "Park & Ride site" {
+            } else if locationFilter == .parkRideSite {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .parkRideSite })
-            } else if locationFilter == "Private home" {
+            } else if locationFilter == .privateHome {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .privateHome })
-            } else if locationFilter == "Public car park" {
+            } else if locationFilter == .publicCarPark {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .publicCarPark })
-            } else if locationFilter == "Public estate" {
+            } else if locationFilter == .publicEstate {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .publicEstate })
-            } else if locationFilter == "Retail car park" {
+            } else if locationFilter == .retailCarPark {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .retailCarPark })
-            } else if locationFilter == "Service station" {
+            } else if locationFilter == .serviceStation {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .serviceStation })
-            } else if locationFilter == "Workplace car park" {
+            } else if locationFilter == .workplaceCarPark {
                 filteredLocationDevices.append(contentsOf: chargeDevices.filter { $0.locationType == .workplaceCarPark })
             }
         }
@@ -262,6 +256,7 @@ extension DataManager {
     private func filterDevicesByNetwork(_ filteredDevices: [ChargeDevice]) -> [ChargeDevice] {
 
         let networkFilters: [String] = networkData.filter { $0.setting == true }.map { $0.network }
+        print("networkFilters: \(networkFilters)")
 
         let filteredNetworkDevices = filteredDevices.filter { chargeDevice in
             chargeDevice.deviceNetworks.contains(where: { networkDevice in
