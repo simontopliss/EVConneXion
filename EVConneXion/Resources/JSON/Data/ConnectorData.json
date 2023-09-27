@@ -11,7 +11,7 @@
     "ID" : "2729D494-1964-42A3-A06C-B85B362ECFAD",
     "DisplayName" : "CHAdeMO",
     "GraphicNameInverted" : "chademo-i",
-    "Setting" : 1,
+    "Setting" : 0,
     "ConnectorType" : "JEVS G105 (CHAdeMO) DC",
     "GraphicName" : "chademo"
   },
@@ -27,7 +27,7 @@
     "ID" : "DA1EF8FD-314C-4CBE-98F4-A024E7EE3FB3",
     "DisplayName" : "Type 2 Mennekes",
     "GraphicNameInverted" : "type-2-mennekes-i",
-    "Setting" : 0,
+    "Setting" : 1,
     "ConnectorType" : "Type 2 Mennekes (IEC62196)",
     "GraphicName" : "type-2-mennekes"
   },
