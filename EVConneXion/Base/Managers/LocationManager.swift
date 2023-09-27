@@ -182,7 +182,7 @@ extension LocationManager {
 // MARK: - Default Camera Height
 
 extension CLLocationDistance {
-    static let cameraHeight: CLLocationDistance = 5000
+    static let cameraHeight: CLLocationDistance = 3500
 }
 
 extension CLLocationDegrees {
