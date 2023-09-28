@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Validator {
+enum Validator {
 
     enum ValidFor {
         case website
@@ -18,6 +18,7 @@ struct Validator {
         case any
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     static func isValid(_ text: String, forType: ValidFor = .any) -> Bool {
         var isValid: Bool
 
@@ -37,8 +38,7 @@ struct Validator {
                         isValid = false
                     } else if trimmedText.hasPrefix("http://") ||
                         trimmedText.hasPrefix("https://") ||
-                        trimmedText.hasPrefix("www.")
-                    {
+                        trimmedText.hasPrefix("www.") {
                         isValid = true
                     } else {
                         isValid = false
@@ -50,8 +50,7 @@ struct Validator {
                         trimmedText == "NA" ||
                         trimmedText == "No phone number" ||
                         trimmedText == "tbc" ||
-                        trimmedText == "tbd"
-                    {
+                        trimmedText == "tbd" {
                         isValid = false
                     } else {
                         isValid = true

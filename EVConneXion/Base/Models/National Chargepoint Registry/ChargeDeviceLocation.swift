@@ -21,25 +21,25 @@ struct ChargeDeviceLocation: Decodable {
     var fullAddress: String
 
     enum CodingKeys: String, CodingKey {
-        case latitude                  = "Latitude"
-        case longitude                 = "Longitude"
-        case address                   = "Address"
-        case locationShortDescription  = "LocationShortDescription"
-        case locationLongDescription   = "LocationLongDescription"
+        case latitude = "Latitude"
+        case longitude = "Longitude"
+        case address = "Address"
+        case locationShortDescription = "LocationShortDescription"
+        case locationLongDescription = "LocationLongDescription"
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.latitude = try container.decode(String.self, forKey: .latitude)
-        self.longitude = try container.decode(String.self, forKey: .longitude)
-        let address = try container.decode([String : String?].self, forKey: .address)
-        self.locationShortDescription = try container.decodeIfPresent(String.self, forKey: .locationShortDescription)
-        self.locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
+        latitude = try container.decode(String.self, forKey: .latitude)
+        longitude = try container.decode(String.self, forKey: .longitude)
+        let address = try container.decode([String: String?].self, forKey: .address)
+        locationShortDescription = try container.decodeIfPresent(String.self, forKey: .locationShortDescription)
+        locationLongDescription = try container.decodeIfPresent(String.self, forKey: .locationLongDescription)
 
         // Create the Address struct
         self.address = Address(address: address)
-        self.singleLineAddress = self.address.singleLineAddress
-        self.fullAddress = self.address.fullAddress
+        singleLineAddress = self.address.singleLineAddress
+        fullAddress = self.address.fullAddress
     }
 }
 
@@ -59,16 +59,16 @@ struct Address {
 
     var addressArray: [String] {
         var arr: [String] = []
-        if !self.subBuildingName.isEmpty { arr.append(self.subBuildingName) }
-        if !self.buildingName.isEmpty { arr.append(self.buildingName) }
-        if !self.buildingNumber.isEmpty { arr.append(self.buildingNumber) }
-        if !self.thoroughfare.isEmpty { arr.append(self.thoroughfare) }
-        if !self.street.isEmpty { arr.append(self.street) }
-        if !self.doubleDependantLocality.isEmpty { arr.append(self.doubleDependantLocality) }
-        if !self.dependantLocality.isEmpty { arr.append(self.dependantLocality) }
-        if !self.postTown.isEmpty { arr.append(self.postTown) }
-        if !self.county.isEmpty { arr.append(self.county) }
-        if !self.postcode.isEmpty { arr.append(self.postcode) }
+        if !subBuildingName.isEmpty { arr.append(subBuildingName) }
+        if !buildingName.isEmpty { arr.append(buildingName) }
+        if !buildingNumber.isEmpty { arr.append(buildingNumber) }
+        if !thoroughfare.isEmpty { arr.append(thoroughfare) }
+        if !street.isEmpty { arr.append(street) }
+        if !doubleDependantLocality.isEmpty { arr.append(doubleDependantLocality) }
+        if !dependantLocality.isEmpty { arr.append(dependantLocality) }
+        if !postTown.isEmpty { arr.append(postTown) }
+        if !county.isEmpty { arr.append(county) }
+        if !postcode.isEmpty { arr.append(postcode) }
         return arr
     }
 
@@ -86,66 +86,46 @@ struct Address {
 }
 
 extension Address {
+    // swiftlint:disable:next cyclomatic_complexity
     mutating func parseAddress(address: [String: String?]) {
-        for (k,v) in address {
-            // print("\(k) = \(v)")
-            if k == "SubBuildingName" {
-                if let subBuildingName = v {
-                    self.subBuildingName = subBuildingName.trim()
-                }
-            } else if k == "BuildingName" {
-                if let buildingName = v {
-                    self.buildingName = buildingName.trim()
-                }
-            } else if k == "BuildingNumber" {
-                if let buildingNumber = v {
-                    self.buildingNumber = buildingNumber.trim()
-                    if self.buildingNumber.hasPrefix(", ") {
-                        self.buildingNumber.removeFirst(2)
+        for (key, value) in address {
+            guard let value = value else { continue }
+            switch key {
+                case "SubBuildingName":
+                    subBuildingName = value.trim()
+                case "BuildingName":
+                    buildingName = value.trim()
+                case "BuildingNumber":
+                    var buildingNumber = value.trim()
+                    if buildingNumber.hasPrefix(", ") { buildingNumber.removeFirst(2) }
+                    self.buildingNumber = buildingNumber
+                case "Thoroughfare":
+                    thoroughfare = value.trim()
+                case "Street":
+                    var street = value.trim()
+                    if street.count < 2 { street = "" }
+                    self.street = street
+                case "DoubleDependantLocality":
+                    doubleDependantLocality = value.trim()
+                case "DependantLocality":
+                    dependantLocality = value.trim()
+                case "PostTown":
+                    postTown = value.trim()
+                case "County":
+                    var county = value.trim()
+                    if county.count < 2 {
+                        county = ""
+                    } else if county.hasPrefix("`") {
+                        county.removeFirst()
                     }
-                }
-            } else if k == "Thoroughfare" {
-                if let thoroughfare = v {
-                    self.thoroughfare = thoroughfare.trim()
-                }
-            } else if k == "Street" {
-                if let street = v {
-                    self.street = street.trim()
-                    if self.street.count < 2 {
-                        self.street = ""
-                    }
-                }
-            } else if k == "DoubleDependantLocality" {
-                if let doubleDependantLocality = v {
-                    self.doubleDependantLocality = doubleDependantLocality.trim()
-                }
-            } else if k == "DependantLocality" {
-                if let dependantLocality = v {
-                    self.dependantLocality = dependantLocality.trim()
-                }
-            } else if k == "PostTown" {
-                if let postTown = v {
-                    self.postTown = postTown.trim()
-                }
-            } else if k == "County" {
-                if let county = v {
-                    self.county = county.trim()
-                    if self.county.count < 2 {
-                        self.county = "" // Fix some weird Counties are "0" or "4"
-                    } else if self.county.hasPrefix("`") {
-                        self.county.removeFirst() // Fixes one entry with "`West Midlands"
-                    }
-                }
-            } else if k == "PostCode" {
-                if let postcode = v {
-                    self.postcode = postcode.trim()
-                }
-            } else if k == "Country" {
-                if let country = v {
-                    self.country = country.trim()
-                }
+                    self.county = county
+                case "PostCode":
+                    postcode = value.trim()
+                case "Country":
+                    country = value.trim()
+                default:
+                    break
             }
         }
     }
 }
-

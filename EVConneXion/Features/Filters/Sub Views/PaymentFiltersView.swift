@@ -15,15 +15,15 @@ struct PaymentFiltersView: View {
         Form {
             Section("Payment") {
                 ForEach($dataManager.paymentData) { filter in
-                   ToggleWithSymbol(
+                    ToggleWithSymbol(
                         displayName: filter.displayName.wrappedValue,
                         symbolName: filter.symbol.wrappedValue,
                         toggled: filter.setting,
                         itemID: filter.id
                     )
-                   .onChange(of: filter.setting.wrappedValue) {
-                       dataManager.saveSettings(.payment)
-                   }
+                    .onChange(of: filter.setting.wrappedValue) {
+                        dataManager.saveSettings(.payment)
+                    }
                 }
             }
         }

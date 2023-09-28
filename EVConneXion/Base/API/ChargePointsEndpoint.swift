@@ -35,11 +35,13 @@ extension ChargePointsEndpoint {
 
     enum RegistryDataType {
 
+        // swiftlint:disable:next nesting
         enum Unit: String, Codable {
             case km
             case mi
         }
 
+        // swiftlint:disable:next nesting
         enum Country: String, Codable {
             case gb
             case ie
@@ -111,6 +113,7 @@ extension ChargePointsEndpoint {
                 urlComponents.append(String(format: "%f", long))
             case let .postTown(postTown):
                 urlComponents.append(ChargePointsEndpoint.RegistryDataType.postTown)
+                // swiftlint:disable:next force_unwrapping
                 urlComponents.append(postTown.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
             case let .postcode(postcode):
                 urlComponents.append(ChargePointsEndpoint.RegistryDataType.postcode)

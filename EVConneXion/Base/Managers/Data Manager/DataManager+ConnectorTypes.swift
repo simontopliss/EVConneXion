@@ -11,6 +11,7 @@ extension DataManager {
 
     /// Loads the network graphics from a JSON file
     func loadConnectorTypes() {
+        // swiftlint:disable:next force_try
         connectorData = try! StaticJSONMapper.decode(
             file: "ConnectorData",
             type: [ConnectorData].self,

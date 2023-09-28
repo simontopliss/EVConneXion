@@ -24,7 +24,10 @@ final class NetworkManagerTests: XCTestCase {
 
     func test_successfulResponse_isValid() async throws {
 
-        guard let path = Bundle.main.path(forResource: "1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings", ofType: "json"),
+        guard let path = Bundle.main.path(
+            forResource: "1b8a93def9107a6c38b35140c0a59ca0 - multiple RegularOpenings",
+            ofType: "json"
+        ),
             let data = FileManager.default.contents(atPath: path) else {
                 XCTFail("Failed to get the static users file")
                 return
@@ -57,7 +60,3 @@ final class NetworkManagerTests: XCTestCase {
 
     // TODO: Add tests for other response codes
 }
-
-
-
-

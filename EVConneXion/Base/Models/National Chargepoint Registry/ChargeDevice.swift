@@ -94,6 +94,7 @@ struct ChargeDevice: Decodable, Identifiable {
 }
 
 extension ChargeDevice {
+    // swiftlint:disable:next function_body_length
     init(from decoder: Decoder) throws {
         let container         = try decoder.container(keyedBy: CodingKeys.self)
         chargeDeviceID        = try container.decode(String.self, forKey: .chargeDeviceID)
@@ -184,7 +185,7 @@ extension ChargeDevice: Hashable {
 }
 
 enum RecordModerated: String, Decodable {
+    // swiftlint:disable:next identifier_name
     case no   = "N"
     case yes  = "Y"
 }
-

@@ -8,6 +8,7 @@
 import MapKit
 import SwiftUI
 
+// swiftlint:disable:next type_body_length
 struct MapView: View {
 
     @Environment(\.dismiss) private var dismiss
@@ -35,7 +36,7 @@ struct MapView: View {
     @State private var showInformation = false
 
     /// Route Properties
-    @State private var routeDisplaying: Bool = false
+    @State private var routeDisplaying = false
     @State private var route: MKRoute?
     @State private var routeDestination: ChargeDevice?
 
@@ -137,10 +138,7 @@ struct MapView: View {
             fetchLookAroundPreview()
         }
         .task {
-            // LocationManager.shared.checkAuthorization()
-            if dataManager.chargeDevices.isEmpty
-                //&& LocationManager.shared.userLocation != LocationManager.defaultLocation
-            {
+            if dataManager.chargeDevices.isEmpty {
                 let userLocation = LocationManager.shared.userLocation
                 await dataManager.fetchChargeDevices(
                     requestType: .latLong(userLocation.latitude, userLocation.longitude)
@@ -169,7 +167,9 @@ struct MapView: View {
             /// This will goes to the defined user region
             Button {
                 withAnimation(.snappy) {
-                    guard let deviceMapItemRegion = dataManager.filteredDevices.first?.deviceMapItem.region else { return }
+                    guard let deviceMapItemRegion = dataManager.filteredDevices.first?.deviceMapItem.region else {
+                        return
+                    }
                     locationManager.cameraPosition = .region(deviceMapItemRegion)
                 }
             } label: {
@@ -184,8 +184,8 @@ struct MapView: View {
     }
 
     /// Map Details View
-    @ViewBuilder
-    private func mapDetails() -> some View {
+    // swiftlint:disable:next function_body_length
+    @ViewBuilder private func mapDetails() -> some View {
         VStack(spacing: 15) {
             ZStack {
                 if lookAroundScene == nil {
@@ -257,7 +257,9 @@ struct MapView: View {
                             .foregroundStyle(AppColors.textColor)
                             .padding(.horizontal)
 
-                        ChargePointDetailView(chargeDevice: deviceSelected!)
+                        if let deviceSelected = deviceSelected {
+                            ChargePointDetailView(chargeDevice: deviceSelected)
+                        }
                     }
                 }
             }

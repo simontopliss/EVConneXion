@@ -18,8 +18,8 @@ final class AutocompleteObject: ObservableObject {
     @Published var suggestions: [String] = []
 
     init() {
-        self.postcodes = loadPostcodes()
-        self.addresses = createTownCountyString()
+        postcodes = loadPostcodes()
+        addresses = createTownCountyString()
     }
 
     private var task: Task<Void, Never>?
@@ -65,6 +65,7 @@ final class AutocompleteObject: ObservableObject {
     }
 
     private func loadPostcodes() -> [Postcode] {
+        // swiftlint:disable:next force_try
         return try! StaticJSONMapper.decode(
             file: "uk-postcodes",
             type: [Postcode].self,
@@ -75,10 +76,8 @@ final class AutocompleteObject: ObservableObject {
     /// Build an array of town, county
     private func createTownCountyString() -> [String] {
         var addresses: [String] = []
-        for item in postcodes {
-            if !addresses.contains(item.townAndCounty) {
-                addresses.append(item.townAndCounty)
-            }
+        for item in postcodes where !addresses.contains(item.townAndCounty) {
+            addresses.append(item.townAndCounty)
         }
         addresses.sort()
         return addresses

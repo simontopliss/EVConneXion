@@ -73,7 +73,7 @@ final class DecodeJSONTests: XCTestCase {
             type: ChargePointData.self
         )
 
-        guard let chargeDevice = chargePointData?.chargeDevices.first! else {
+        guard let chargeDevice = chargePointData?.chargeDevices.first else {
             XCTFail("Failed to unwrap the charge device")
             return
         }
@@ -87,6 +87,7 @@ final class DecodeJSONTests: XCTestCase {
         let deviceOwner = chargeDevice.deviceOwner
         XCTAssertEqual(deviceOwner.organisationName, "London Borough of Southwark")
 
+        // swiftlint:disable:next force_unwrapping
         let connector = chargeDevice.connector.first!
         XCTAssertEqual(connector.connectorType.rawValue, "Type 2 Mennekes (IEC62196)")
         XCTAssertEqual(connector.ratedOutputkW, 3.7)
@@ -100,7 +101,7 @@ final class DecodeJSONTests: XCTestCase {
             type: ChargePointData.self
         )
 
-        guard let chargeDevice = chargePointData?.chargeDevices.first! else {
+        guard let chargeDevice = chargePointData?.chargeDevices.first else {
             XCTFail("Failed to unwrap the charge device")
             return
         }

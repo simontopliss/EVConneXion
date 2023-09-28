@@ -24,10 +24,10 @@ struct DeviceMapItem {
         )
         mapItem = MKMapItem(placemark: .init(coordinate: coordinate))
         region = .init(
-             center: coordinate,
-             latitudinalMeters: .cameraHeight,
-             longitudinalMeters: .cameraHeight
-         )
+            center: coordinate,
+            latitudinalMeters: .cameraHeight,
+            longitudinalMeters: .cameraHeight
+        )
     }
 
     func distanceFromUser(userLocation: CLLocationCoordinate2D) -> CLLocationDistance {

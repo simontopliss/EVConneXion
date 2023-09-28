@@ -45,4 +45,3 @@ struct SchemeData: Decodable {
         case telephoneNo       = "TelephoneNo"
     }
 }
-

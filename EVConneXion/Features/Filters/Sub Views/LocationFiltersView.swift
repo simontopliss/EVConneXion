@@ -38,7 +38,7 @@ struct LocationFiltersView: View {
     }
 
     private func anyLocationSelected() -> Bool {
-        dataManager.locationData.first(where: { $0.setting == true }) != nil
+        dataManager.locationData.first { $0.setting == true } != nil
     }
 }
 

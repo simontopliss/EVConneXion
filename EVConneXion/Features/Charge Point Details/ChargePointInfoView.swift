@@ -45,12 +45,14 @@ struct LocationSection: View {
 
     var description: String {
         if Validator.isValid(chargeDevice.chargeDeviceLocation.locationShortDescription) &&
-            Validator.isValid(chargeDevice.chargeDeviceLocation.locationLongDescription)
-        {
+            Validator.isValid(chargeDevice.chargeDeviceLocation.locationLongDescription) {
+            // swiftlint:disable:next force_unwrapping
             return chargeDevice.chargeDeviceLocation.locationLongDescription!
         } else if Validator.isValid(chargeDevice.chargeDeviceLocation.locationShortDescription) {
+            // swiftlint:disable:next force_unwrapping
             return chargeDevice.chargeDeviceLocation.locationShortDescription!
         } else if Validator.isValid(chargeDevice.chargeDeviceLocation.locationLongDescription) {
+            // swiftlint:disable:next force_unwrapping
             return chargeDevice.chargeDeviceLocation.locationLongDescription!
         } else {
             return ""
@@ -90,6 +92,7 @@ struct ParkingSection: View {
         Section("PARKING") {
             if Validator.isValid(chargeDevice.parkingFeesDetails, forType: .parking) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: chargeDevice.parkingFeesDetails!)
                 } label: {
                     FormLabel(label: "DETAILS")
@@ -98,6 +101,7 @@ struct ParkingSection: View {
 
             if Validator.isValid(chargeDevice.accessRestrictionDetails, forType: .parking) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: chargeDevice.accessRestrictionDetails!)
                 } label: {
                     FormLabel(label: "ACCESS")
@@ -106,6 +110,7 @@ struct ParkingSection: View {
 
             if Validator.isValid(chargeDevice.physicalRestrictionText, forType: .parking) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: chargeDevice.physicalRestrictionText!)
                 } label: {
                     FormLabel(label: "RESTRICTIONS")
@@ -162,6 +167,7 @@ struct PaymentSection: View {
 
             if Validator.isValid(chargeDevice.paymentDetails, forType: .details) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: chargeDevice.paymentDetails!)
                 } label: {
                     FormLabel(label: "DETAILS")
@@ -177,6 +183,7 @@ struct PaymentSection: View {
 
             if Validator.isValid(chargeDevice.subscriptionDetails, forType: .details) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: chargeDevice.subscriptionDetails!)
                 } label: {
                     FormLabel(label: "SUBS. DETAILS")
@@ -200,7 +207,7 @@ struct DeviceAccessSection: View {
         if validSection {
             Section("DEVICE ACCESS") {
                 LabeledContent {
-                   StatusView(bool: deviceAccess.open24Hours)
+                    StatusView(bool: deviceAccess.open24Hours)
                     Spacer()
 
                 } label: {
@@ -252,9 +259,9 @@ extension DeviceAccessSection {
 
                 } else {
                     #if DEBUG
-                    let _ = print("DEBUG: 💀🐞")
-                    let _ = dump(openingDays)
-                    let _ = dump(openingHours)
+                    let _ = print("DEBUG: 💀🐞") // swiftlint:disable:this redundant_discardable_let
+                    let _ = dump(openingDays) // swiftlint:disable:this redundant_discardable_let
+                    let _ = dump(openingHours) // swiftlint:disable:this redundant_discardable_let
                     fatalError("I missed a condition here")
                     #endif
                 }

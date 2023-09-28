@@ -64,6 +64,7 @@ enum ChargeStatus: String, Codable {
 }
 
 enum ChargeMethod: String, Codable, CaseIterable {
+    // swiftlint:disable:next identifier_name
     case dc             = "DC"
     case singlePhaseAc  = "Single Phase AC"
     case threePhaseAc   = "Three Phase AC"

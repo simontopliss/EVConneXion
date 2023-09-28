@@ -10,12 +10,12 @@ import Foundation
 // MARK: - DeviceAccess
 
 struct DeviceAccess: Decodable {
-    var open24Hours: Bool = false
+    var open24Hours = false
     var regularOpenings: [RegularOpening]?
 
     enum CodingKeys: String, CodingKey {
-        case open24Hours      = "Open24Hours"
-        case regularOpenings  = "RegularOpenings"
+        case open24Hours = "Open24Hours"
+        case regularOpenings = "RegularOpenings"
     }
 }
 
@@ -46,8 +46,8 @@ struct RegularOpening: Decodable {
     var allDays = false
 
     enum CodingKeys: String, CodingKey {
-        case days   = "Days"
-        case hours  = "Hours"
+        case days = "Days"
+        case hours = "Hours"
         case allDays
     }
 }
@@ -78,7 +78,7 @@ struct Hours: Decodable {
     var to: String
 
     enum CodingKeys: String, CodingKey {
-        case from  = "From"
-        case to    = "To"
+        case from = "From"
+        case to = "To"
     }
 }

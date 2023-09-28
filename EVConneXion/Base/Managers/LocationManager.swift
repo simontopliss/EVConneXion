@@ -19,8 +19,8 @@ final class LocationManager: NSObject, ObservableObject {
     /// The postcode entered by the user
     // @Published var searchRegion: MKCoordinateRegion?
     @Published var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(LocationManager.defaultRegion))
-    @Published var error: LocationError? = nil
-    
+    @Published var error: LocationError?
+
     var userLocation: CLLocationCoordinate2D {
         // print(region.center)
         return region.center
@@ -158,7 +158,7 @@ extension LocationManager {
 
     func coordinateFor(_ chargeDeviceLocation: ChargeDeviceLocation) -> CLLocationCoordinate2D? {
         guard let latitude = Double(chargeDeviceLocation.latitude),
-              let longitude = Double(chargeDeviceLocation.longitude)
+            let longitude = Double(chargeDeviceLocation.longitude)
         else {
             return nil
         }

@@ -10,7 +10,7 @@
 import Foundation
 
 final class NetworkManagerFailureMock: NetworkManagerImpl {
-    func request<T>(_ baseURL: String, type: T.Type) async throws -> T where T : Decodable {
+    func request<T>(_ baseURL: String, type: T.Type) async throws -> T where T: Decodable {
         throw NetworkManager.NetworkError.invalidURL
     }
 }

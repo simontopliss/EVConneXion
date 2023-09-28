@@ -26,11 +26,10 @@ extension DataManager {
             duplicates: duplicates,
             devices: devices
         )
-        let finalChargeDevices = (newChargeDevices + duplicateChargeDevices).sorted(
-            by: { LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
+        let finalChargeDevices = (newChargeDevices + duplicateChargeDevices).sorted {
+            LocationManager.shared.distanceFromUser(coordinate: $0.deviceMapItem.coordinate)
                 < LocationManager.shared.distanceFromUser(coordinate: $1.deviceMapItem.coordinate)
-            }
-        )
+        }
         return finalChargeDevices
     }
 
@@ -60,7 +59,9 @@ extension DataManager {
             let connectors = filteredChargeDevices.flatMap { $0.connector }
             var firstDevice = filteredChargeDevices.first
             if firstDevice != nil {
+                // swiftlint:disable:next force_unwrapping
                 firstDevice!.connector = connectors
+                // swiftlint:disable:next force_unwrapping
                 duplicateChargeDevices.append(firstDevice!)
             } else {
                 print(chargeDeviceName)

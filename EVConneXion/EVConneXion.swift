@@ -17,7 +17,7 @@ struct EVConneXionApp: App {
     @StateObject private var dataManager = DataManager()
     @StateObject private var routerManager = NavigationRouter()
 
-    //    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
+    // @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     @AppStorage(UserDefaultKeys.tabSelection) private var tabSelection = Tabs.map
 
     init() {
@@ -91,7 +91,7 @@ extension EVConneXionApp {
                 print("Source file not found.")
                 return
             }
-            
+
             do {
                 try FileManager.default.copyItem(at: sourceURL, to: destURL)
             } catch {
@@ -148,4 +148,3 @@ extension EVConneXionApp {
         }
     }
 }
-

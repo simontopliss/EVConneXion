@@ -13,7 +13,7 @@ struct ToggleWithSymbol: View {
     let symbolName: String
     var symbolWidth: Double = Symbols.symbolWidth
     var symbolHeight: Double = Symbols.symbolHeight
-    
+
     @Binding var toggled: Bool
     var itemID: UUID
 

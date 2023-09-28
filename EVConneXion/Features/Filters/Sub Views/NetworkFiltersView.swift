@@ -54,7 +54,7 @@ struct NetworkFiltersView: View {
     }
 
     private func anyNetworkSelected() -> Bool {
-        dataManager.networkData.first(where: { $0.setting == true }) != nil
+        dataManager.networkData.first { $0.setting == true } != nil
     }
 }
 

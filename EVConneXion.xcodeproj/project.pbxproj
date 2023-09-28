@@ -693,6 +693,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 621A704E2A3B3BC900A04669 /* Build configuration list for PBXNativeTarget "EVConneXion" */;
 			buildPhases = (
+				624C6E5D2AC5B39200525A50 /* SwiftLint */,
 				621A703C2A3B3BC800A04669 /* Sources */,
 				621A703D2A3B3BC800A04669 /* Frameworks */,
 				621A703E2A3B3BC800A04669 /* Resources */,
@@ -795,6 +796,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		624C6E5D2AC5B39200525A50 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		621A703C2A3B3BC800A04669 /* Sources */ = {
@@ -1037,8 +1060,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EVConneXion/Preview Content\"";
 				DEVELOPMENT_TEAM = FHAC9785V4;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EVConneXion/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1067,8 +1093,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EVConneXion/Preview Content\"";
 				DEVELOPMENT_TEAM = FHAC9785V4;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EVConneXion/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow EVConneXion to access your location to calculate distances";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

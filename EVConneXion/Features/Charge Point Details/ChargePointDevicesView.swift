@@ -113,7 +113,6 @@ struct ConnectionSection: View {
                 .frame(height: 36)
                 .padding(.vertical, 2)
                 .foregroundStyle(.accent)
-                //.shadow(color: .secondary, radius: 3.0)
 
             } label: {
                 FormLabel(label: "TYPE")
@@ -149,6 +148,7 @@ struct ConnectionSection: View {
 
             if Validator.isValid(connector.information) {
                 LabeledContent {
+                    // swiftlint:disable:next force_unwrapping
                     FormText(text: connector.information!)
                 } label: {
                     FormLabel(label: "INFORMATION")

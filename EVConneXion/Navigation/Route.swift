@@ -29,6 +29,7 @@ extension Route: Hashable {
         hasher.combine(hashValue)
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     static func == (lhs: Route, rhs: Route) -> Bool {
         // TODO: Add routes for List, Detail, Routes and Settings etc
         switch (lhs, rhs) {

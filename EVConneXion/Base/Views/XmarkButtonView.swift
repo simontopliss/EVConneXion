@@ -10,7 +10,7 @@ import SwiftUI
 struct XmarkButtonView: View {
 
     var foregroundColor: Color = .primary
-    var backgroundColor: Color = Color(.tertiarySystemFill)
+    var backgroundColor = Color(.tertiarySystemFill)
 
     var body: some View {
         Image(systemName: "xmark.circle.fill")

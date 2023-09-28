@@ -133,7 +133,7 @@ extension SearchView {
         } else {
             /// Get the first part of the postcode and use it to get the location
             if let outcode = input.split(separator: " ").first,
-                let result = dataManager.postcodes.filter({ $0.postcode == outcode }).first {
+                let result = dataManager.postcodes.first(where: { $0.postcode == outcode }) {
                 LocationManager.shared.userLocation(
                     coordinate: CLLocationCoordinate2D(
                         latitude: result.latitude,

@@ -8,18 +8,11 @@
 import Foundation
 
 struct UserSettings: Identifiable, Codable {
-    let id: UUID                 = UUID()
+    let id: UUID                 = .init()
     var unitSetting: Unit        = .mi
     var countrySetting: Country  = .gb
     var distance: Double         = 10.0
 }
-
-//extension UserSettings {
-//    enum RecentSearch: String, Codable, Identifiable {
-//        var id: Self { self }
-//        case searchQuery = "SearchQuery"
-//    }
-//}
 
 extension UserSettings {
     enum Unit: String, Codable, Identifiable {

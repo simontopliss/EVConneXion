@@ -16,9 +16,10 @@ enum ReviewRequest {
 
     static func showReview() {
         appLaunchCount += 1
-        // print("appLaunchCount", appLaunchCount)
 
+        // swiftlint:disable:next force_cast
         let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        // swiftlint:disable:next force_cast
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let currentVersion = "Version \(appVersion), build \(appBuild)"
 

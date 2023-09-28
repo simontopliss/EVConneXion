@@ -10,7 +10,7 @@
 import Foundation
 
 final class NetworkManagerSuccessMock: NetworkManagerImpl {
-    func request<T>(_ baseURL: String, type: T.Type) async throws -> T where T : Decodable {
+    func request<T>(_ baseURL: String, type: T.Type) async throws -> T where T: Decodable {
         return Data() as! T // swiftlint:disable:this force_cast
     }
 }

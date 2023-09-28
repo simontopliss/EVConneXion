@@ -14,6 +14,7 @@ extension ChargePointData {
             file: "MyLocation",
             type: ChargePointData.self
         )
+        // swiftlint:disable:next force_unwrapping
         return chargePointData!.chargeDevices
     }
 

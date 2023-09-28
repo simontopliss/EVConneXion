@@ -38,7 +38,7 @@ struct ConnectorFiltersView: View {
     }
 
     private func anyConnectorSelected() -> Bool {
-        dataManager.connectorData.first(where: { $0.setting == true }) != nil
+        dataManager.connectorData.first { $0.setting == true } != nil
     }
 }
 

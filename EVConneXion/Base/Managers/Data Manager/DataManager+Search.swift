@@ -22,10 +22,10 @@ extension DataManager {
         }
 
         isPostcode(postcode: searchQuery)
-        ? await fetchChargeDevices(requestType: .postcode(searchQuery.localizedUppercase))
-        : await fetchChargeDevices(requestType: .postTown(searchQuery))
+            ? await fetchChargeDevices(requestType: .postcode(searchQuery.localizedUppercase))
+            : await fetchChargeDevices(requestType: .postTown(searchQuery))
 
-        if (networkError == nil) {
+        if networkError == nil {
             let result = recentSearches.filter { $0.searchQuery == searchQuery }
             if result.isEmpty {
                 recentSearches.insert(RecentSearch(searchQuery: searchQuery), at: 0)
@@ -37,19 +37,21 @@ extension DataManager {
 
     // TODO: Add unit tests to confirm this works
     func isPostcode(postcode: String) -> Bool {
-        return postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/) != nil
+        // swiftlint:disable:next opening_brace
+        postcode.localizedUppercase.firstMatch(of: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/) != nil
+        // swiftlint:disable:previous trailing_closure
     }
 
     /*
-     This version checks the postcode pattern, not just the format
-     See: https://stackoverflow.com/questions/164979/regex-for-matching-uk-postcodes
-     /^(([A-Z]{1,2}\d[A-Z\d]?|ASCN|STHL|TDCU|BBND|[BFS]IQQ|PCRN|TKCA) ?\d[A-Z]{2}|BFPO ?\d{1,4}|(KY\d|MSR|VG|AI)[ -]?\d{4}|[A-Z]{2} ?\d{2}|GE ?CX|GIR ?0A{2}|SAN ?TA1)$/
-     */
+    This version checks the postcode pattern, not just the format
+    See: https://stackoverflow.com/questions/164979/regex-for-matching-uk-postcodes
+    /^(([A-Z]{1,2}\d[A-Z\d]?|ASCN|STHL|TDCU|BBND|[BFS]IQQ|PCRN|TKCA) ?\d[A-Z]{2}|BFPO ?\d{1,4}|(KY\d|MSR|VG|AI)[ -]?\d{4}|[A-Z]{2} ?\d{2}|GE ?CX|GIR ?0A{2}|SAN ?TA1)$/
+    */
 
     /*
-     This version will also accept a postcode without a space between the two parts
-     /^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$/
-     */
+    This version will also accept a postcode without a space between the two parts
+    /^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) ?[0-9][A-Z]{2}$/
+    */
 
     private func isSearchQueryValid(searchQuery: String) throws -> Bool {
         if searchQuery.isEmpty { return false }

@@ -14,9 +14,9 @@ final class DataManager: ObservableObject {
     @Published var chargerData: ChargerData = .init()
     @Published var locationData: [LocationData] = []
     @Published var paymentData: [PaymentData] = []
-    @Published var userSettings: UserSettings!
+    @Published var userSettings: UserSettings! // swiftlint:disable:this implicitly_unwrapped_optional
 
-    var postcodes: [Postcode]!
+    var postcodes: [Postcode]!// swiftlint:disable:this implicitly_unwrapped_optional
 
     @Published var recentSearches: [RecentSearch] = []
 
@@ -75,7 +75,7 @@ final class DataManager: ObservableObject {
     }
 
     // MARK: - API Call
-    
+
     func fetchChargeDevices(requestType: ChargePointsEndpoint.RequestType) async {
         print(#function)
 
@@ -107,8 +107,7 @@ final class DataManager: ObservableObject {
             LocationManager.defaultLocation.latitude,
             LocationManager.defaultLocation.longitude
         )
-            && LocationManager.shared.userLocation == LocationManager.defaultLocation
-        {
+            && LocationManager.shared.userLocation == LocationManager.defaultLocation {
             /// Limit the amount of charge points returned on the first launch
             url = ChargePointsEndpoint.buildURL(
                 requestType: requestType,
@@ -131,6 +130,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadAccessData() {
+        // swiftlint:disable:next force_try
         accessData = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.access.rawValue,
             type: [AccessData].self,
@@ -139,6 +139,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadChargerData() {
+        // swiftlint:disable:next force_try
         chargerData = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.charger.rawValue,
             type: ChargerData.self,
@@ -147,6 +148,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadLocationData() {
+        // swiftlint:disable:next force_try
         locationData = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.location.rawValue,
             type: [LocationData].self,
@@ -155,6 +157,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadPaymentData() {
+        // swiftlint:disable:next force_try
         paymentData = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.payment.rawValue,
             type: [PaymentData].self,
@@ -163,6 +166,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadUserSettings() {
+        // swiftlint:disable:next force_try
         userSettings = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.userSettings.rawValue,
             type: UserSettings.self,
@@ -171,6 +175,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadRecentSearches() {
+        // swiftlint:disable:next force_try
         recentSearches = try! StaticJSONMapper.decode(
             file: EVConneXionApp.JSONFiles.recentSearches.rawValue,
             type: [RecentSearch].self,
@@ -179,6 +184,7 @@ final class DataManager: ObservableObject {
     }
 
     private func loadPostcodes() {
+        // swiftlint:disable:next force_try
         postcodes = try! StaticJSONMapper.decode(
             file: "uk-postcodes",
             type: [Postcode].self,

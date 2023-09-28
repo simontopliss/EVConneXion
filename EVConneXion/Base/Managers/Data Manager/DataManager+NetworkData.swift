@@ -11,11 +11,13 @@ extension DataManager {
 
     /// Loads the network data from a JSON file
     func loadNetworkData() {
+        // swiftlint:disable:next force_try
         self.networkData = try! StaticJSONMapper.decode(
             file: "NetworkData",
             type: [NetworkData].self,
             location: .documents
-        ).sorted { $0.total > $1.total }
+        )
+        .sorted { $0.total > $1.total }
     }
 
     func networkColorFor(attribution: String) -> Color {
@@ -67,10 +69,9 @@ extension DataManager {
             let connectorType = connector.connectorType.rawValue
             let graphicName = connectorGraphicFor(connectorType: connectorType, colorScheme: colorScheme)
             if connectorGraphics.contains(connectorType) {
-                for index in 0..<connectorGraphicsAndCounts.count {
-                    if connectorGraphicsAndCounts[index].name == connectorType {
-                        connectorGraphicsAndCounts[index].count += 1
-                    }
+                for index in 0..<connectorGraphicsAndCounts.count
+                    where connectorGraphicsAndCounts[index].name == connectorType {
+                    connectorGraphicsAndCounts[index].count += 1
                 }
             } else {
                 connectorGraphics.append(connectorType)

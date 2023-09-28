@@ -40,13 +40,3 @@ struct Postcode: Decodable {
         self.county = try container.decode(String.self, forKey: .county)
     }
 }
-
-//extension Postcode {
-//    static func loadPostcodes() -> [Postcode] {
-//        return try! StaticJSONMapper.decode(
-//            file: "uk-postcodes",
-//            type: [Postcode].self,
-//            location: .bundle
-//        )
-//    }
-//}

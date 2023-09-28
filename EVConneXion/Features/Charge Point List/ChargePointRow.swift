@@ -58,7 +58,9 @@ extension ChargePointRow {
     var distanceCapsule: some View {
         Text(
             dataManager.getFormattedDistance(
-                distance: chargeDevice.deviceMapItem.distanceFromUser(userLocation: LocationManager.shared.userLocation),
+                distance: chargeDevice.deviceMapItem.distanceFromUser(
+                    userLocation: LocationManager.shared.userLocation
+                ),
                 unit: dataManager.userSettings.unitSetting
             )
         )
