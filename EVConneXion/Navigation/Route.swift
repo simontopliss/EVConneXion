@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Route {
-    case mapView // TODO: Pass a navigation destination/location
+    case mapView
     case chargePointListView
     case chargePointDetail(chargeDevice: ChargeDevice)
     case userSettingsView
@@ -31,7 +31,6 @@ extension Route: Hashable {
 
     // swiftlint:disable:next cyclomatic_complexity
     static func == (lhs: Route, rhs: Route) -> Bool {
-        // TODO: Add routes for List, Detail, Routes and Settings etc
         switch (lhs, rhs) {
             case (.mapView, .mapView):
                 return true

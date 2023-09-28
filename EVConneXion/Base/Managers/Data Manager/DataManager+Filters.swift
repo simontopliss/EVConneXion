@@ -120,7 +120,6 @@ extension DataManager {
         filteredDevices = sortAndRemoveDuplicateDevices(devices: filteredDevices)
         print("filteredDevices after sortAndRemoveDuplicateDevices: \(filteredDevices.count)")
 
-        // TODO: Increase or remove limit?
         self.filteredDevices = Array(filteredDevices.prefix(500))
         print("filteredDevices count after prefix: \(filteredDevices.count)")
 

@@ -67,7 +67,6 @@ struct DeviceOwnerSection: View {
 
                 if Validator.isValid(deviceOwner.website, forType: .website) {
                     LabeledContent {
-                        // TODO: Make into link
                         FormText(text: deviceOwner.website)
                     } label: {
                         FormLabel(label: "WEB SITE")
