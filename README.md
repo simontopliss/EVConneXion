@@ -6,15 +6,13 @@ Find and use data on public electric vehicle chargepoints using the National Cha
 ![Screenshot_Montage](https://github.com/simontopliss/EVConneXion/assets/971542/1de4051b-eafe-4487-a22b-3be183c7b691)
 
 ## Features
-- Get locations nearest UK electric vehicle charge point to the user's location or by postcode
-- Map view displays nearest charge points
-- Displays information about the charge point; such as the charger types
-- Distance to the location
-- Filters to enable search be charger type, charger speed or charger network
-- Get route directions
-- Get more information about the charge point
-- See what types of chargers are available
-- Filters allow fine-grained searches
+-	Get locations nearest UK electric vehicle charge point to the user's location or by postcode.
+-	Map view displays nearest charge points with route planning and directions.
+-	Look around view with 360-degree panoramic views; take a virtual walk through the streets or orient yourself to landmarks to navigate when you get to the destination.
+-	Displays distance to the location, detailed information about the charge point; such as the charger types.
+-	Filters to enable search be charger type, charger speed or charger network.
+-	Supports 9 different charger connectors and all 79 UK electric vehicle charging networks available in the UK.
+-	Created graphic elements for all connectors and brand logos for dark and light mode.
 
 ## Technology
 - SwiftUI
