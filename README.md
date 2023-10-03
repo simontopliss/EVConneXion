@@ -3,7 +3,7 @@ EVConneXion helps electric vehicle users in the UK find the nearest charge point
 
 Find and use data on public electric vehicle chargepoints using the National Chargepoint Registry (NCR) on public electric vehicle chargepoints in the UK.
 
-![Screenshot_Montage](https://github.com/simontopliss/EVConneXion/assets/971542/1de4051b-eafe-4487-a22b-3be183c7b691)
+![Screenshot_Montage](https://github.com/simontopliss/EVConneXion/assets/971542/ef4be8f8-cacd-4833-8357-7aa0673790df)
 
 ## Features
 -	Get locations nearest UK electric vehicle charge point to the user's location or by postcode.
