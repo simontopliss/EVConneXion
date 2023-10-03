@@ -1,6 +1,8 @@
 # EVConneXion
 EVConneXion helps electric vehicle users in the UK find the nearest charge point to their location.
 
+Available on the App Store: https://apps.apple.com/app/evconnexion/id6467230143
+
 Find and use data on public electric vehicle chargepoints using the National Chargepoint Registry (NCR) on public electric vehicle chargepoints in the UK.
 
 ![Screenshot_Montage](https://github.com/simontopliss/EVConneXion/assets/971542/ef4be8f8-cacd-4833-8357-7aa0673790df)
